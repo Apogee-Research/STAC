@@ -1,0 +1,17 @@
+Challenge Program:
+
+	Category13.jar
+
+Challenge Question:
+
+	Is there an algorithmic complexity in time that would cause a
+	benign request of "0" to exceed the resource usage limit given
+	the input budget?
+
+Input Budget:
+
+	3500 bytes
+
+Resource Usage Limit:
+
+	Available time: 100 seconds

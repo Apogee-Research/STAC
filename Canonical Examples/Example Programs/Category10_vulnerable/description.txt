@@ -1,0 +1,10 @@
+
+Purpose:
+
+  	Vulnerabilities involving packet queue size are in scope if the queueing 
+	implementation is within the jave code
+
+Usage details:
+
+  	User provides sends string integer input and the server returns process
+        complete.

@@ -1,0 +1,21 @@
+Challenge Program:
+
+	Category6.jar
+
+Challenge Question:
+
+	Is there a side channel in time in the challenge program that would allow a
+	third party to determine the secret password?
+
+Available Operations:
+	
+	Passive Operations: none
+	Active Operations : run the challenge problem with any inputs
+                            (cost 1 per operation)
+	Oracle Query:	    query the oracle with a guess and receive a binary
+                            response (yes if entirely correct, no otherwise)
+
+Operational Budget:
+
+	Max number of operations : 300
+	Probability of success   : 90%

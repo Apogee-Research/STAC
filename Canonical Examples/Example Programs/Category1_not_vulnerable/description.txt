@@ -1,0 +1,10 @@
+
+Purpose:
+  
+	Vulnerabilities may go undetected if only asymptotic behavior is analyzed.
+
+
+Usage details:
+
+  	User provides a guess of the secret application checks secret, runs process, 
+	and returns "Process Complete" or "Unable to Process Input".

@@ -1,0 +1,12 @@
+
+Purpose:
+
+	Vulnerabilities involving floating point computation errors may go unnoticed
+	if tool does not include a model of floating point computations.
+
+Usage details:
+
+	User provides integer string input to the challenge program. The program server
+        responds with "Process Complete", "Unable to Process Input", "Invalid Input",
+	or "Queue Full"
+

@@ -1,0 +1,10 @@
+
+Purpose:
+  
+	Vulnerabilities may go undetected if only the highest complexity code is 
+	analyzed.
+
+Usage details:
+
+	User provides integer string input to the challenge program. The program
+	outputs "Process Complete", "Unable to Process Input", or "Invalid Input".

@@ -1,0 +1,110 @@
+MIT License
+
+Copyright (c) 2017 Apogee Research
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+Conditional Implementation of Vulnerable checkChar
+==================================================
+  private static void checkChar(java.lang.String, int);
+    Code:
+       0: bipush        100
+       2: ldc           #3                  // String mypassword
+       4: iload_1
+       5: iconst_1
+       6: isub
+       7: invokevirtual #4                  // Method java/lang/String.charAt:(I)C
+      10: aload_0
+      11: iload_1
+      12: iconst_1
+      13: isub
+      14: invokevirtual #4                  // Method java/lang/String.charAt:(I)C
+      17: isub
+      18: idiv
+      19: istore_2
+      20: goto          62
+      23: astore_2
+      24: bipush        100
+      26: getstatic     #6                  // Field subsequentCorrect:I
+      29: iconst_1
+      30: iadd
+      31: iload_1
+      32: isub
+      33: idiv
+      34: istore_3
+      35: goto          50
+      38: astore_3
+      39: getstatic     #6                  // Field subsequentCorrect:I
+      42: iconst_1
+      43: iadd
+      44: putstatic     #6                  // Field subsequentCorrect:I
+      47: invokestatic  #7                  // Method delay:()V
+      50: goto          62
+      53: astore_2
+      54: getstatic     #9                  // Field exceedPasswordLen:I
+      57: iconst_1
+      58: iadd
+      59: putstatic     #9                  // Field exceedPasswordLen:I
+      62: return
+    Exception table:
+       from    to  target type
+           0    20    23   Class java/lang/ArithmeticException
+          24    35    38   Class java/lang/ArithmeticException
+           0    20    53   Class java/lang/StringIndexOutOfBoundsException
+
+
+Exception Implementation of Vulnerable checkChar
+================================================
+  private static void checkChar(java.lang.String, int);
+    Code:
+       0: iload_1
+       1: ldc           #3                  // String mypassword
+       3: invokevirtual #4                  // Method java/lang/String.length:()I
+       6: if_icmple     20
+       9: getstatic     #5                  // Field exceedPasswordLen:I
+      12: iconst_1
+      13: iadd
+      14: putstatic     #5                  // Field exceedPasswordLen:I
+      17: goto          58
+      20: ldc           #3                  // String mypassword
+      22: iload_1
+      23: iconst_1
+      24: isub
+      25: invokevirtual #6                  // Method java/lang/String.charAt:(I)C
+      28: aload_0
+      29: iload_1
+      30: iconst_1
+      31: isub
+      32: invokevirtual #6                  // Method java/lang/String.charAt:(I)C
+      35: if_icmpne     58
+      38: getstatic     #7                  // Field subsequentCorrect:I
+      41: iconst_1
+      42: iadd
+      43: iload_1
+      44: if_icmpne     58
+      47: getstatic     #7                  // Field subsequentCorrect:I
+      50: iconst_1
+      51: iadd
+      52: putstatic     #7                  // Field subsequentCorrect:I
+      55: invokestatic  #8                  // Method delay:()V
+      58: return
+
+
+

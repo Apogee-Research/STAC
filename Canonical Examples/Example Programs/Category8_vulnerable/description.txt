@@ -1,0 +1,16 @@
+
+Purpose:
+
+	Vulnerabilities may go undetected if the effect of multiple dimensions of
+	user input is disregarded. Given input restriction of 8 bytes, and input
+        dimensions of a,b,c, resource usage maximized with a = b = c = 99 rather
+        than other variants maximizing a, b, or c individually (e.g. a=b=99 and
+        c = 9999)
+  
+
+Usage details:
+
+  	User provides three integer string inputs separated by " ". The challenge 
+	program server responds with "Process Complete", "Unable to Process Input"
+        or "Queue Full".
+

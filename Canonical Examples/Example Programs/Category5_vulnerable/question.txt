@@ -1,0 +1,17 @@
+Challenge Program:
+
+	Category5.jar
+
+Challenge Question:
+
+	Is there an algorithmic complexity in space that would cause the challenge
+	problem's execution time to exceed the resource usage limit given an input
+	within the input budget?
+
+Input Budget:
+
+	6000 bytes
+
+Resource Usage Limit:
+
+	Available space: 1500 MB

@@ -1,0 +1,29 @@
+
+Purpose:
+
+	In static programing analysis coupled variables can increase the difficulty 
+	in identifying side channel vulnerabilities. One way to mitigate this problem 
+	is to identify orthogonal sets of variables whose constraints are invariant to 
+	the values of variables outside the set. 
+	
+	This cannonical example tests a tool's ability to handle coupled variables. 
+	Case A and Case B of Category11 are operationally equivalent. The side channel
+	is caused by a branch condition controlled by the secret value and the value
+	of the guess variable in both cases.
+	
+	In CaseA, the branching on the secret value occurs prior to the call to the
+	recursive method recur(). The recursion path is determined by the values in a 
+	Boolean array t. The constraints on the secret and guess variables are invariant 
+	to the values  of the Boolean array t therefore guess and secret can be constrained 
+	independently from t. 
+	
+	In CaseB, all paths of the recursion determined by the values in the Boolean 
+	array t and result in the branching conditioned on the values of guess and secret. 
+	Category11 CaseA and CaseB are functionally equivalent therefore the values of guess 
+	and secret can be constrained independently from the values of the t.
+
+
+Usage details:
+
+  	User sends a tcp packet containing a guess of the secret integer a string. The
+	application responds with a tcp packet containing "Correct" or "Incorrect".

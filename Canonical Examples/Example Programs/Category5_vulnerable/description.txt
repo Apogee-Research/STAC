@@ -1,0 +1,9 @@
+
+Purpose:
+
+	Vulnerabilities may go undetected if only individual interactions
+	are analyzed. 
+
+Usage details:
+
+	Navigate to "NUC2Local:8080/Category5" after the server is started.

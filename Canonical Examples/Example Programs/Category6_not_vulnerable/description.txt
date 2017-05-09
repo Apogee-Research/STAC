@@ -1,0 +1,9 @@
+
+Purpose:
+
+	Vulnerabilities may go undetected if only input/output behaviours of functions
+	are analyzed. 
+
+Usage details:
+
+	Start the challenge application and submit a password guess to the server.

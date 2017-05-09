@@ -1,0 +1,17 @@
+Challenge Program:
+
+	Category10.jar
+
+Challenge Question:
+
+	Is there an algorithmic complexity in time that would cause the challenge
+	problem's executation time to exceed the resource usage limit given an input
+	within the input budget?
+
+Input Budget:
+
+	Maximum sum of the PDU sizes of the TCP packets: 40 bytes
+
+Resource Usage Limit:
+
+	Available time: 30 seconds

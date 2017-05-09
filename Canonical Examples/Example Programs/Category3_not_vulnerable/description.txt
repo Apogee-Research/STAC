@@ -1,0 +1,10 @@
+
+Purpose:
+  
+	Side Channels may go undetected if they are ruled out exclusively through
+	Best and Worst Case comparison of alternative paths. 
+
+Usage details:
+
+  	User provides two integer strings separated by a ' ' and receives a response
+	of "Process Complete" or "Unable to Process Input".

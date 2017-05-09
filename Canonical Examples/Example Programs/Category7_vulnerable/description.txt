@@ -1,0 +1,10 @@
+
+Purpose:
+
+	Vulnerabilities may go undetected if the cause and effect of a vulnerability
+	are separated.
+
+Usage details:
+
+	User provides integer string input to the challenge program. The program
+        outputs "Process Complete", "Unable to Process Input", or "Invalid Input".

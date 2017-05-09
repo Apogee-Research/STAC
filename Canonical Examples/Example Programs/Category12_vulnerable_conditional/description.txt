@@ -1,0 +1,10 @@
+
+Purpose:
+
+	SC Vulnerabilities may go undetected if it is assumed that branching can only be
+	achieved with conditionals. This variant of the application uses conditional 
+	statements to create an SC vulnerability. 
+
+Usage details:
+
+	Start the challenge application and submit a password guess to the server.

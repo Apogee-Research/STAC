@@ -1,0 +1,10 @@
+
+Purpose:
+
+	Vulnerabilities may go undetected if focusing only on loops and their
+	effects, disregarding other ways to amplify the effect of the fundamental
+	cause of a vulnerability
+
+Usage details:
+
+	Start the challenge application and submit a password guess to the server.

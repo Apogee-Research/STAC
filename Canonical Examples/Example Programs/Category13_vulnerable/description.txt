@@ -1,0 +1,57 @@
+Purpose:
+	Vulnerabilities with a high frequency spike may be missing with too large
+	a gap between subsequent samples.
+
+Usage details:
+	User submits input number string string to be used at initial zero estimate
+	for Newton's method. Application returns steps to convergence.
+
+AC Time from Newton's method
+============================
+Newton's method solving x_n+1 = x_n - f(x_n)/f'(x_n)
+x_0 is user controlled
+f(x) = (x - M)^2 - E
+roots are M +- sqrt(E) attempting to find
+user input range [0, 1E9]
+vulnerable range [M - sqrt(E), M + sqrt(E)] as x approaches M,
+    number of steps to converge:
+        Convergence at x_n+1 - x_n = stopDistance
+        Convergence at f(x_n+1) - f(x_n) = stopFunction
+
+stopDistance = 1E-100
+stopFunction = 1E-100
+M = 100
+E = 1
+
+AC Testing
+===========
+Using E5 AC Time definition, benign input of x_0 = 0
+Goal: cause benign input to exceed 100 seconds
+
+Server uses single thread to process request, request queue size = 2
+When request queue is full, response of "Queue Full" sent for all 
+requests.
+
+Input range for algorithm input range x_0 = [0 to 1E100]
+Reasonable program input range x_0 = [0 to 1E3000 - 1]
+25 Samples for each data point
+
+Testing Data
+============
+ID	| x_0			| Runtime (seconds)
+====================================================
+1       | 0			| 0.338846826553
+2       | 25			| 0.333460826874
+3       | 50			| 0.33470202446
+4       | 75			| 0.333807764053
+5       | 99			| 0.333990364075
+6       | 99.9			| 0.333670873642
+7       | 100 - (1E-100)	| 3.7950526619
+8       | 100 - (1E-2465)	| 99.2120761108
+9       | 100 - (1E-2996)	| 119.87182353
+10      | 101			| 0.332572841644
+11      | 1E25			| 0.466006174088
+12      | 1E50			| 1.51637253761
+13      | 1E75			| 2.57598219872
+14      | 1E100			| 3.62474340439
+15      | 1E125			| 0.332557783127
