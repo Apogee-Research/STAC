@@ -1,24 +1,24 @@
-#MIT License
+# MIT License
 #
-#Copyright (c) 2017 Apogee Research
+# Copyright (c) 2017 Apogee Research
 #
-#Permission is hereby granted, free of charge, to any person obtaining a copy
-#of this software and associated documentation files (the "Software"), to deal
-#in the Software without restriction, including without limitation the rights
-#to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#copies of the Software, and to permit persons to whom the Software is
-#furnished to do so, subject to the following conditions:
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
 #
-#The above copyright notice and this permission notice shall be included in all
-#copies or substantial portions of the Software.
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
 #
-#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-#IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-#FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-#AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#SOFTWARE.
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
 
 
 import socket
@@ -27,14 +27,17 @@ import os
 import pickle
 import sys
 import json
-#import matplotlib.pyplot as plt
+import matplotlib
+
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 import numpy as np
 import operator
 import decimal
 
 
 def establish_data():
-    data_host = 'NUC1Local'
+    data_host = 'masterNuc'
     data_port = 9090
     try:
         s_ = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -150,7 +153,7 @@ def calc_threshold(n, delta, sigma, attack_input):
         s1 = ((n - 1) * (sigma ** 2)).sqrt()
     u2 = n * delta
     s2 = (n * (sigma ** 2)).sqrt()
-    return decimal.Decimal(0.9)*(min(u1, u2) + ((max(u1, u2) - min(u1, u2))/2))
+    return decimal.Decimal(0.9) * (min(u1, u2) + ((max(u1, u2) - min(u1, u2)) / 2))
 
 
 def launch_attack(remote_host, remote_port, attack_input, s_data_):
@@ -266,7 +269,7 @@ def process_results(data_filename, figname, display=False):
     mean_2 = decimal.Decimal(np.mean(set_2))
     std_2 = decimal.Decimal(np.std(set_2))
 
-    #plot_data(data_list, figname, display)
+    plot_data(data_list, figname, display)
     return {"u_1": mean_1, "s_1": std_1,
             "u_2": mean_2, "s_2": std_2}
 
@@ -328,7 +331,7 @@ def save_results(filename, results_data):
 def main():
     # Set decimal precision
     decimal.getcontext().prec = 20
-    remote_host = 'NUC2Local'
+    remote_host = 'serverNuc'
     remote_port = 8000
     data_filename = "Category 4 V"
     figname = "Category 4 V"
@@ -348,4 +351,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

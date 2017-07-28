@@ -1,24 +1,24 @@
-#MIT License
+# MIT License
 #
-#Copyright (c) 2017 Apogee Research
+# Copyright (c) 2017 Apogee Research
 #
-#Permission is hereby granted, free of charge, to any person obtaining a copy
-#of this software and associated documentation files (the "Software"), to deal
-#in the Software without restriction, including without limitation the rights
-#to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#copies of the Software, and to permit persons to whom the Software is
-#furnished to do so, subject to the following conditions:
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
 #
-#The above copyright notice and this permission notice shall be included in all
-#copies or substantial portions of the Software.
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
 #
-#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-#IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-#FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-#AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#SOFTWARE.
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
 
 
 import socket
@@ -31,7 +31,7 @@ import json
 
 
 def establish_benign():
-    benign_host = 'NUC3Local'
+    benign_host = 'clientNuc'
     benign_port = 9091
     try:
         s_ = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -43,7 +43,7 @@ def establish_benign():
 
 
 def establish_data():
-    data_host = 'NUC1Local'
+    data_host = 'masterNuc'
     data_port = 9090
     try:
         s_ = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -55,7 +55,7 @@ def establish_data():
 
 
 def send_cmd(c_, message):
-    to_send = message+"\r"
+    to_send = message + "\r"
     c_.sendall(to_send.encode())
 
 
@@ -77,7 +77,7 @@ def send_request(remote_host, remote_port, result_queue, request, sleep_time):
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.connect((remote_host, remote_port))
-        to_send = request+'\n'
+        to_send = request + '\n'
         a = time.time()
         s.sendall(to_send.encode())
         response = s.recv(1024).decode().strip()
@@ -94,12 +94,12 @@ def attack_requests(remote_host, remote_port, mal_requests, s_benign_,
     print("\t\tStarting Attacker Send")
     process_list = [mp.Process(target=send_request,
                                args=(remote_host, remote_port, result_queue,
-                                     mal_request["request"], 
+                                     mal_request["request"],
                                      mal_request["sleep_time"]),
                                daemon=True) for mal_request in mal_requests]
     for p in process_list:
         p.start()
-    
+
     # Launch benign request
     time.sleep(2)
     send_benign_command_1 = {"BENIGN_Command": "Send",
@@ -110,13 +110,13 @@ def attack_requests(remote_host, remote_port, mal_requests, s_benign_,
                              "Sample": sample}
     send_cmd(s_benign_, json.dumps(send_benign_command_1))
     print("\t\tStarting Benign Send")
-    
+
     # Wait benign request
     benign_msg_in_1 = receive_cmd(s_benign_)
     benign_data_in_1 = json.loads(benign_msg_in_1)
-    assert(benign_data_in_1["BENIGN_Status"] == "Response In")
+    assert (benign_data_in_1["BENIGN_Status"] == "Response In")
     print("\t\tBenign Response Received")
-    
+
     for p in process_list:
         p.join()
     for p in process_list:
@@ -132,41 +132,41 @@ def run_experiment(remote_host, remote_port, samples):
     s_data_ = establish_data()
     # Establish benign
     s_benign_ = establish_benign()
-    
+
     # {attack_response, benign_response, data_in}    
     runtime_data_list = []
-    
+
     # Start sampling
-    for sample in range(1, samples+1, 1):
+    for sample in range(1, samples + 1, 1):
         print("Sample:", sample, "of", samples)
         sys.stdout.flush()
-        
+
         # Inform data host to start
         send_data_command_1 = {"DATA_Command": "Start", "REMOTE_PORT": remote_port, "Sample": sample}
         send_cmd(s_data_, json.dumps(send_data_command_1))
         data_msg_in_1 = receive_cmd(s_data_)
         data_in_1 = json.loads(data_msg_in_1)
-        assert(data_in_1["DATA_Status"] == "Started")
+        assert (data_in_1["DATA_Status"] == "Started")
         print("\tA", "Starting")
         print("\t\tStarting Data Collection")
         sys.stdout.flush()
-        
+
         # Send attack requests
         mal_requests = [{"request": "99", "sleep_time": 0} for _ in range(10)]
         benign_request = "0"
         runtime_data = attack_requests(remote_host, remote_port, mal_requests,
                                        s_benign_, benign_request, timeout, sample)
         benign_response = runtime_data["benign_response"]
-        
+
         # Stop data collection
         send_data_command_2 = {"DATA_Command": "Stop", "Sample": sample}
         send_cmd(s_data_, json.dumps(send_data_command_2))
         data_msg_in_2 = receive_cmd(s_data_)
-        
+
         # Process data host response
         data_in_2 = json.loads(data_msg_in_2)
-        assert(data_in_2["DATA_Status"] == "Stopped")
-        
+        assert (data_in_2["DATA_Status"] == "Stopped")
+
         # Assess data from data host
         if benign_response["BENIGN_Response"] == "NA" or data_in_2["Sample_Status"] == "Sample Error":
             runtime_data["data_in"] = timeout
@@ -176,46 +176,47 @@ def run_experiment(remote_host, remote_port, samples):
         print("\tB", "Stopping")
         print("\t\tProceeding to Next")
         sys.stdout.flush()
-    
+
     # Inform data server complete
     send_data_command_3 = {"DATA_Command": "Complete"}
     send_cmd(s_data_, json.dumps(send_data_command_3))
     data_msg_in_3 = receive_cmd(s_data_)
     data_in_3 = json.loads(data_msg_in_3)
-    assert(data_in_3["DATA_Status"] == "Complete")
+    assert (data_in_3["DATA_Status"] == "Complete")
     close_cmd(s_data_)
-    
+
     # Inform benign server complete
     send_benign_command_2 = {"BENIGN_Command": "Complete"}
     send_cmd(s_benign_, json.dumps(send_benign_command_2))
     benign_msg_in_2 = receive_cmd(s_benign_)
     benign_data_in_2 = json.loads(benign_msg_in_2)
-    assert(benign_data_in_2["BENIGN_Status"] == "Complete")
+    assert (benign_data_in_2["BENIGN_Status"] == "Complete")
     close_cmd(s_benign_)
-    
+
     print("Complete")
     sys.stdout.flush()
-    return runtime_data_list    
+    return runtime_data_list
 
 
 def save_results(filename, results_data):
     os.chdir("Data")
-    with open(filename+".p", "wb") as out_file:
+    with open(filename + ".p", "wb") as out_file:
         pickle.dump(results_data, out_file)
     os.chdir("..")
 
 
 def main():
-    remote_host = 'NUC2Local'
+    remote_host = 'serverNuc'
     remote_port = 8000
     data_filename = "Data"
-        
+
     print("Starting Sampling Host:", remote_host, ":", remote_port)
     sys.stdout.flush()
     results = run_experiment(remote_host, remote_port, 2)
     print(results)
     sys.stdout.flush()
     save_results(data_filename, results)
+
 
 if __name__ == "__main__":
     main()

@@ -1,24 +1,24 @@
-#MIT License
+# MIT License
 #
-#Copyright (c) 2017 Apogee Research
+# Copyright (c) 2017 Apogee Research
 #
-#Permission is hereby granted, free of charge, to any person obtaining a copy
-#of this software and associated documentation files (the "Software"), to deal
-#in the Software without restriction, including without limitation the rights
-#to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#copies of the Software, and to permit persons to whom the Software is
-#furnished to do so, subject to the following conditions:
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
 #
-#The above copyright notice and this permission notice shall be included in all
-#copies or substantial portions of the Software.
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
 #
-#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-#IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-#FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-#AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#SOFTWARE.
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
 
 
 import socket
@@ -31,7 +31,7 @@ import scapy.all as scapy
 
 
 def data_wait():
-    data_host = 'NUC1Local'
+    data_host = 'masterNuc'
     data_port = 9090
     s_ = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
@@ -92,20 +92,20 @@ def process_data():
         ether_time = ether_packet.time
         try:
             tcp_payload = ether_packet.payload["TCP"].load.decode()[:-1]
-            
+
             if tcp_payload == "99":
                 time_start_1 = ether_time
             elif tcp_payload == "0":
                 time_start_2 = ether_time
             elif tcp_payload == "Process Complete" and \
-                    time_stop_1 == 0:
+                            time_stop_1 == 0:
                 time_stop_1 = ether_time
             elif tcp_payload == "Process Complete" and \
-                    time_stop_1 != 0:
+                            time_stop_1 != 0:
                 time_stop_2 = ether_time
         except:
             continue
-    
+
     delta_1 = time_stop_1 - time_start_1
     delta_2 = time_stop_2 - time_start_2
 

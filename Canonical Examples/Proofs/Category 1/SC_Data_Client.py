@@ -1,24 +1,24 @@
-#MIT License
+# MIT License
 #
-#Copyright (c) 2017 Apogee Research
+# Copyright (c) 2017 Apogee Research
 #
-#Permission is hereby granted, free of charge, to any person obtaining a copy
-#of this software and associated documentation files (the "Software"), to deal
-#in the Software without restriction, including without limitation the rights
-#to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#copies of the Software, and to permit persons to whom the Software is
-#furnished to do so, subject to the following conditions:
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
 #
-#The above copyright notice and this permission notice shall be included in all
-#copies or substantial portions of the Software.
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
 #
-#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-#IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-#FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-#AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#SOFTWARE.
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
 
 
 import socket
@@ -31,22 +31,22 @@ import scapy.all as scapy
 
 
 def data_wait():
-    data_host = 'NUC1Local'
+    data_host = 'masterNuc'
     data_port = 9090
     s_ = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
-            s_.bind((data_host, data_port))
+        s_.bind((data_host, data_port))
     except:
-            print('Socket Failed')
-            s_.close()
-            sys.exit()
+        print('Socket Failed')
+        s_.close()
+        sys.exit()
     s_.listen(1)
     c_, address = s_.accept()
     return c_
 
 
 def send_cmd(c_, message):
-    to_send = message+"\r"
+    to_send = message + "\r"
     c_.sendall(to_send.encode())
 
 
@@ -81,7 +81,7 @@ def stop_watch(tcpdump, tcp_out, tcp_err):
 
 def process_data():
     pcap_file = scapy.rdpcap("data.pcap")
-    
+
     # Parse pcap
     time_start = 0
     trip_time = -1
@@ -90,7 +90,7 @@ def process_data():
         ether_time = ether_packet.time
         try:
             tcp_payload = ether_packet.payload["TCP"].load.decode()[:-1]
-            
+
             # Last Packet
             if tcp_payload == "Process Complete" and time_start != 0:
                 trip_time = ether_time - time_start
@@ -126,7 +126,7 @@ def collect_data():
             return_data_3 = {"DATA_Status": "Complete"}
             send_cmd(c_, json.dumps(return_data_3))
             break
-        
+
         # Verify start command and start tcpdump
         assert (command_in_1["DATA_Command"] == "Start")
         sample = command_in_1["Sample"]
@@ -136,11 +136,11 @@ def collect_data():
         time.sleep(0.2)
         print("\t\tStarted tcpdump")
         sys.stdout.flush()
-        
+
         # Inform client tcpdump started
         return_data_1 = {"DATA_Status": "Started", "Sample": sample}
         send_cmd(c_, json.dumps(return_data_1))
-        
+
         # Listen on tcpdump
         print("\t\tListening")
         sys.stdout.flush()
@@ -176,6 +176,7 @@ def main():
     print("Starting Data Collection")
     sys.stdout.flush()
     collect_data()
+
 
 if __name__ == "__main__":
     main()

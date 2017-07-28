@@ -1,24 +1,24 @@
-#MIT License
+# MIT License
 #
-#Copyright (c) 2017 Apogee Research
+# Copyright (c) 2017 Apogee Research
 #
-#Permission is hereby granted, free of charge, to any person obtaining a copy
-#of this software and associated documentation files (the "Software"), to deal
-#in the Software without restriction, including without limitation the rights
-#to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#copies of the Software, and to permit persons to whom the Software is
-#furnished to do so, subject to the following conditions:
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
 #
-#The above copyright notice and this permission notice shall be included in all
-#copies or substantial portions of the Software.
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
 #
-#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-#IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-#FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-#AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#SOFTWARE.
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
 
 
 import socket
@@ -28,22 +28,22 @@ import json
 
 
 def benign_wait():
-    data_host = 'NUC3Local'
+    data_host = 'clientNuc'
     data_port = 9091
     s_ = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
-            s_.bind((data_host, data_port))
+        s_.bind((data_host, data_port))
     except:
-            print('Socket Failed')
-            s_.close()
-            sys.exit()
+        print('Socket Failed')
+        s_.close()
+        sys.exit()
     s_.listen(1)
     c_, address = s_.accept()
     return c_
 
 
 def send_cmd(c_, message):
-    to_send = message+"\r"
+    to_send = message + "\r"
     c_.sendall(to_send.encode())
 
 
@@ -64,7 +64,7 @@ def send_request(remote_host, remote_port, request, timeout):
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.connect((remote_host, remote_port))
-        to_send = request+'\n'
+        to_send = request + '\n'
         a = time.time()
         s.sendall(to_send.encode())
         s.settimeout(timeout)
@@ -93,12 +93,12 @@ def collect_data():
             return_data_2 = {"BENIGN_Status": "Complete"}
             send_cmd(c_, json.dumps(return_data_2))
             break
-        
+
         # Verify send command and send benign request
-        assert(command_in_1["BENIGN_Command"] == "Send")
+        assert (command_in_1["BENIGN_Command"] == "Send")
         print("Sample:", command_in_1["Sample"])
         print("\tA", "Sending")
-        
+
         # Send and process data
         return_data_1 = send_request(command_in_1["REMOTE_HOST"], command_in_1["REMOTE_PORT"],
                                      command_in_1["BENIGN_Request"], command_in_1["Timeout"])
@@ -113,6 +113,7 @@ def main():
     print("Starting Benign Collection")
     sys.stdout.flush()
     collect_data()
+
 
 if __name__ == "__main__":
     main()

@@ -1,24 +1,24 @@
-#MIT License
+# MIT License
 #
-#Copyright (c) 2017 Apogee Research
+# Copyright (c) 2017 Apogee Research
 #
-#Permission is hereby granted, free of charge, to any person obtaining a copy
-#of this software and associated documentation files (the "Software"), to deal
-#in the Software without restriction, including without limitation the rights
-#to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-#copies of the Software, and to permit persons to whom the Software is
-#furnished to do so, subject to the following conditions:
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
 #
-#The above copyright notice and this permission notice shall be included in all
-#copies or substantial portions of the Software.
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
 #
-#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-#IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-#FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-#AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-#LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-#OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-#SOFTWARE.
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
 
 
 import socket
@@ -27,12 +27,15 @@ import os
 import pickle
 import sys
 import json
-#import matplotlib.pyplot as plt
+import matplotlib
+
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 import numpy as np
 
 
 def establish_data():
-    data_host = 'NUC1Local'
+    data_host = 'masterNuc'
     data_port = 9090
     try:
         s_ = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -140,7 +143,7 @@ def collect_data(remote_host, remote_port, samples, s_data_):
 
 def launch_attack(remote_host, remote_port, attack_input, s_data_):
     my_min = 0
-    my_max = 2**31 - 1
+    my_max = 2 ** 31 - 1
     operations = 0
 
     def proceed(m_min, m_max, m_operations):
@@ -155,7 +158,7 @@ def launch_attack(remote_host, remote_port, attack_input, s_data_):
         sample = 1
         sys.stdout.flush()
 
-        mid = my_min + round((my_max - my_min)/2)
+        mid = my_min + round((my_max - my_min) / 2)
         request_l = str(my_min)
         request_m = str(mid)
         request_r = str(my_max)
@@ -185,7 +188,7 @@ def launch_attack(remote_host, remote_port, attack_input, s_data_):
 
     print("Complete")
     sys.stdout.flush()
-    return {"Num Ops":operations, "Range":[my_min, my_max]}
+    return {"Num Ops": operations, "Range": [my_min, my_max]}
 
 
 def setup_data():
@@ -215,9 +218,9 @@ def process_results(data_filename, figname, display=False):
 
     mean_1 = np.mean(set_1)
     mean_2 = np.mean(set_2)
-    decision_threshold = (max(mean_1, mean_2) - min(mean_1, mean_2))/2
+    decision_threshold = (max(mean_1, mean_2) - min(mean_1, mean_2)) / 2
 
-    #plot_data(data_list, figname, display)
+    plot_data(data_list, figname, display)
     return decision_threshold
 
 
@@ -276,7 +279,7 @@ def save_results(filename, results_data):
 
 
 def main():
-    remote_host = 'NUC2Local'
+    remote_host = 'serverNuc'
     remote_port = 8000
     data_filename = "Category 11 V_B"
     figname = "Category 11 V_B"
@@ -296,4 +299,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

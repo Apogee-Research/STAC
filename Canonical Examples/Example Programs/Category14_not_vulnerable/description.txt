@@ -1,0 +1,10 @@
+
+Purpose:
+
+	Potential SC vulnerabilities can be non-locally balanced to remove the vulnerability.
+	SC analysis should verify leakage from the entire application rather than from
+	individual method calls.
+
+Usage details:
+
+	Start the challenge application and submit a password guess to the server.
