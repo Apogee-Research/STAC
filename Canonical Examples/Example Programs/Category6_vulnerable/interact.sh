@@ -27,4 +27,4 @@
 # ./run_script.sh <password>
 
 password=$1
-echo $password | nc NUC2Local 8000
+echo $password | nc serverNuc 8000

@@ -6,4 +6,4 @@ Purpose:
 
 Usage details:
 
-	Navigate to "NUC2Local:8080/Category5" after the server is started.
+	Navigate to "serverNuc:8080/Category5" after the server is started.

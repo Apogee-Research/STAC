@@ -27,5 +27,5 @@
 # ./run_script.sh <guess>
 
 guess=$1
-echo $guess | nc NUC2Local 8000
+echo $guess | nc serverNuc 8000
 

@@ -27,5 +27,5 @@
 # ./run_script.sh <n>
 
 n=$1
-echo $n | nc NUC2Local 8000
+echo $n | nc serverNuc 8000
 

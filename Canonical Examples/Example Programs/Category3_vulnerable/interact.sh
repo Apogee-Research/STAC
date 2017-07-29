@@ -28,4 +28,4 @@
 
 guess=$1
 t=$2
-echo "$guess $1" | nc NUC2Local 8000
+echo "$guess $1" | nc serverNuc 8000

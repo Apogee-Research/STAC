@@ -29,5 +29,5 @@
 a=$1
 b=$2
 c=$3
-echo "$a $b $c" | nc NUC2Local 8000
+echo "$a $b $c" | nc serverNuc 8000
 

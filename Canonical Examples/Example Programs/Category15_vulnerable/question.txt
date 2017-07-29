@@ -1,0 +1,17 @@
+Challenge Program:
+
+	Category15.jar
+
+Challenge Question:
+
+	Is there an algorithmic complexity in time that would cause a
+	benign request of "z" to exceed the resource usage limit given
+	the input budget?
+
+Input Budget:
+
+	50 bytes
+
+Resource Usage Limit:
+
+	Available time: 1.5 seconds

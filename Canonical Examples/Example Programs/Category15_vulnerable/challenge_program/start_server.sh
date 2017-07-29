@@ -1,5 +1,5 @@
 #!/bin/bash
-# note -> uses netcat
+
 #MIT License
 #
 #Copyright (c) 2017 Apogee Research
@@ -22,10 +22,6 @@
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
 
-# sends a password to the server
-# usage:
-# ./run_script.sh <n>
+# Start server
 
-n=$1
-echo $n | nc serverNuc 8000
-
+java -jar Category15.jar

@@ -1,0 +1,10 @@
+Purpose:
+	Demonstrate a vulnerability in a callback from an external library method. In
+	this example there is an AC Time vulnerability in call from java.util.TreeSet to 
+	Category15_vulnerable.TSValue.compareTo. An attacker can use budget to setup 
+	the TreeSet backing data structure such that particular java.util.TreeSet.add() 
+	for benign user request exceeds resource usage limit
+
+Usage details:
+	User submits input number string string. Application returns "Done".
+
