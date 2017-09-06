@@ -1,0 +1,28 @@
+Challenge Program:
+
+	Category16.jar
+
+Challenge Question:
+
+	Is there a side channel in time in the challenge program from which a
+	third party can determine a user's secret value stored by the server?
+
+Available Operations:
+	
+	Passive Operations:  observe a single request packet, corresponding 
+                             response packets and timings thereof
+                             (cost: 1 per observed request packet and 
+                             corresponding response)
+
+	Active Operations:  issue a single request packet and monitor the 
+                            induced response traffic for this single 
+                            request packet
+                            (cost: 1 per request packet)
+
+	Oracle Query:	    query the oracle with a guess and receive a binary
+                            response (yes if entirely correct, no otherwise)
+
+Operational Budget:
+
+	Max number of operations : 100
+	Probability of success   : 90%

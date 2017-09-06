@@ -27,4 +27,5 @@ ADD ["Category 12", "/home/Category 12"]
 ADD ["Category 13", "/home/Category 13"]
 ADD ["Category 14", "/home/Category 14"]
 ADD ["Category 15", "/home/Category 15"]
+ADD ["Category 16", "/home/Category 16"]
 WORKDIR /home/

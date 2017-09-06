@@ -1,0 +1,43 @@
+Challenge Program,Question,Question Type,Contains Vulnerability
+Blogger,Question_016,AC Space,N
+Blogger,Question_040,AC Time,Y
+GabFeed_1,Question_007,AC Time,Y
+GabFeed_1,Question_010,SC Time,Y
+GabFeed_1,Question_029,SC Time,N
+GabFeed_1,Question_038,AC Space,N
+GabFeed_2,Question_006,AC Time,Y
+GabFeed_2,Question_032,SC Time,N
+GabFeed_3,Question_023,SC Time,Y
+GabFeed_3,Question_036,AC Time,Y
+GabFeed_3,Question_039,SC Time/Space,Y
+GabFeed_4,Question_003,AC Time,Y
+GabFeed_5,Question_001,SC Space,N
+GabFeed_5,Question_004,SC Space,N
+GabFeed_5,Question_009,SC Time,N
+GabFeed_5,Question_014,AC Time,N
+Graph Analyzer,Question_013,AC Space,N
+Graph Analyzer,Question_020,AC Time,Y
+Graph Analyzer,Question_034,AC Space,Y
+Image Processor,Question_005,AC Time,Y
+Image Processor,Question_030,AC Space,N
+Law Enforcement Database,Question_019,AC Time,N
+Law Enforcement Database,Question_026,SC Time,Y
+Law Enforcement Database,Question_027,SC Space,N
+SnapBuddy_1,Question_012,SC Time,N
+SnapBuddy_1,Question_025,AC Space,Y
+SnapBuddy_1,Question_031,SC Space,Y
+SnapBuddy_2,Question_002,SC Space,N
+SnapBuddy_2,Question_015,SC Time,Y
+SnapBuddy_2,Question_028,SC Space,Y
+SnapBuddy_2,Question_035,AC Space,N
+SnapBuddy_3,Question_018,SC Time,N
+SnapBuddy_3,Question_022,AC Time,Y
+SubSpace,Question_041,SC Time,N
+SubSpace,Question_042,SC Space,Y
+TextCrunchr_1,Question_021,AC Time,Y
+TextCrunchr_2,Question_037,AC Time,Y
+TextCrunchr_3,Question_011,AC Time,Y
+TextCrunchr_5,Question_017,AC Space,N
+TextCrunchr_5,Question_024,AC Time,N
+TextCrunchr_6,Question_008,AC Time,Y
+TextCrunchr_7,Question_033,AC Time,Y

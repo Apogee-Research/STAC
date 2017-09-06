@@ -1,0 +1,18 @@
+
+Purpose:
+
+	This serves as a test of a tool's ability to detect leakage in different domains.
+	This is functionally equivalent to an encryption side channel in that if an attacker
+	can identify the decryption keys through a side channel, they can transform captured
+	encrypted data streams into plaintext secret values. In this example, the Hamming(7,4)
+	encoded data is transmitted. Artificial single bit errors on each set of four data
+	bits are simulated on the client-side. A side channel leaks the transmitted 
+	information, and the attacker can perform error correction and decoding similar to the
+	server to determine the secret. As this is an example, a simple-to-analyze linear
+	coding scheme is used to transform the secret; however, in practice more complex non-
+	linear transformations on the secret can occur.
+	
+Usage details:
+
+	Start the server application and use the run_client.sh script to submit a secret 
+	integer for storage to the server.
