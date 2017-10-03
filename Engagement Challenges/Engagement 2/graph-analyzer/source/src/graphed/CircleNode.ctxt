@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.params=aColor
+comment0.target=CircleNode(Color)
+comment0.text=\nConstruct\ a\ circle\ node\ with\ a\ given\ size\ and\ color.\n@param\ aColor\ the\ fill\ color\n\n
+comment1.target=Object\ clone()
+comment2.params=g2
+comment2.target=void\ draw(Graphics2D)
+comment3.params=dx\ dy
+comment3.target=void\ translate(double,\ double)
+comment4.params=p
+comment4.target=boolean\ contains(Point2D)
+comment5.target=Rectangle2D\ getBounds()
+comment6.params=other
+comment6.target=Point2D\ getConnectionPoint(Point2D)
+numComments=7

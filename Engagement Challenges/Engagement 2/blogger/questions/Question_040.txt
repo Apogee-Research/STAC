@@ -1,0 +1,23 @@
+Challenge Program:
+
+    nanohttpd-javawebserver-2.2.0-SNAPSHOT-jar-with-dependencies.jar
+
+Challenge Question:
+
+    Is there an algorithmic complexity vulnerability in time that would cause the servers' response
+    time (on the reference platform) to an HTTP request to exceed the resource usage limit given 
+    the input budget?
+
+Additional background for question:
+
+    The server can support mutliple users but for this question assumes there is only one
+    user interacting with the system in any vulnerability demonstration.
+
+Input Budget:
+
+    Maximum sum of the PDU sizes of the TCP requests sent from the user to the server: 5000 bytes
+    
+Resource Usage Limit:
+
+    Runtime: 300 seconds measured as the time interval between sending the last byte of the attack 
+    and the server sending the last byte of the response.

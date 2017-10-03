@@ -1,0 +1,22 @@
+<input id="navigator-loggedIn" type="hidden" value="${loggedIn}"/>
+<span id="navigator username">${userName}</span>
+<div id="loginbox">
+    <input id="username" name="username" placeholder="Username" type="text"/>
+    <br/>
+    <input id="password" name="password" placeholder="Password" type="password">
+    <br/>
+    <button class="btn-success" type="button" name="login" id="login">Login</button>
+</div>
+<script>
+    $('#login').click(function () {
+        $.post("/fi/iki/elonen/Login", {
+            username: $('#username').val(),
+            password: $('#password').val()
+        },function () {
+            window.location.href = '/';
+        });
+    });
+    if ($('#navigator-loggedIn').val() === "true") {
+        $('#loginbox').hide();
+    }
+</script>

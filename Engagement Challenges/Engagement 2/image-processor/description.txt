@@ -1,0 +1,36 @@
+Overview
+========
+This application could be a component of a social media service like
+Facebook or Google+ that can be trained to apply appropriate tags
+automatically to an image.
+
+Any user can post an image to the social media service for
+classification, at which point it is passed to this program using the
+"cluster" command.  A posted image using "cluster" is classified
+according to one or more tags on the training images.  Any user can
+also add a tag to some existing image in the training image library
+using the "train" command.  However, public users cannot add new
+images to the library of training images.
+
+Usage
+=====
+
+    ./challenge.sh clean|initialize|list|tag|classify
+        clean:
+            Delete tag database.
+        default-tags:
+            Apply default tags to all images.
+        list:
+            List images that can be tagged.
+        tag <image> <tag>:
+            Tag an image manually.
+        classify <image path>:
+            Classify a user-provided image.
+
+Example scripts examples directory. Example classification images are provided in the 
+classification_images subdirectory of the examples directory.
+
+Notes
+=====
+Temporary files created by the challenge program are outside of scope; as a result malicious 
+data should not be inserted into them.

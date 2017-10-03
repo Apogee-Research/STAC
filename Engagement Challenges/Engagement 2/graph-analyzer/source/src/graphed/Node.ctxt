@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=g2
+comment0.target=void\ draw(Graphics2D)
+comment0.text=\nDraw\ the\ node.\n@param\ g2\ the\ graphics\ context\n\n
+comment1.params=dx\ dy
+comment1.target=void\ translate(double,\ double)
+comment1.text=\nTranslates\ the\ node\ by\ a\ given\ amount.\n@param\ dx\ the\ amount\ to\ translate\ in\ the\ x-direction\n@param\ dy\ the\ amount\ to\ translate\ in\ the\ y-direction\n\n
+comment2.params=aPoint
+comment2.target=boolean\ contains(Point2D)
+comment2.text=\nTests\ whether\ the\ node\ contains\ a\ point.\n@param\ aPoint\ the\ point\ to\ test\n@return\ true\ if\ this\ node\ contains\ aPoint\n\n
+comment3.params=aPoint
+comment3.target=Point2D\ getConnectionPoint(Point2D)
+comment3.text=\nGet\ the\ best\ connection\ point\ to\ connect\ this\ node\ \nwith\ another\ node.\ This\ should\ be\ a\ point\ on\ the\ boundary\nof\ the\ shape\ of\ this\ node.\n@param\ aPoint\ an\ exterior\ point\ that\ is\ to\ be\ joined\nwith\ this\ node\n@return\ the\ recommended\ connection\ point\n\n
+comment4.target=Rectangle2D\ getBounds()
+comment4.text=\nGet\ the\ bounding\ rectangle\ of\ the\ shape\ of\ this\ node\n@return\ the\ bounding\ rectangle\n\n
+comment5.target=Object\ clone()
+numComments=6

@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=g2
+comment0.target=void\ draw(Graphics2D)
+comment1.params=aPoint
+comment1.target=boolean\ contains(Point2D)
+numComments=2

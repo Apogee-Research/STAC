@@ -1,0 +1,31 @@
+Overview
+========
+The Law Enforcement Employment Database Server is a network service application that provides access to 
+records about law enforcement personnel. Employee information is referenced with a unique employee ID number.
+The database contains restricted and unrestricted employee information. The ID numbers of law enforcement 
+personnel working on clandestine activities is restricted information.  
+
+Interactions
+===========
+The database supports the following functionality: 
+SEARCH    - search law enforcement personnel by a range of employee ID numbers 
+INSERT    - create a new employee ID number
+ 
+Standard users can search, view, add unrestricted employee IDs and associated information. If a standard 
+user makes a query for a range of IDs that contains one or more restricted IDs, the restricted IDs will not 
+be included in the returned data.
+
+The runClient.sh script provided in the examples directory will allow you to interact with the database as a
+standard user.
+
+Engagement Tools
+================
+The start script (runServer.sh) for the database server is located in the challenge_program directory. Once
+the server is started, the script will output "UDP Server Up and Running".
+
+Notes
+=====
+The runServer.sh script and the files contained in the server directory are provided to start the database
+server and seed it to a realistic state. These files would not be available to standard users.
+
+The supplied database contains no record files.

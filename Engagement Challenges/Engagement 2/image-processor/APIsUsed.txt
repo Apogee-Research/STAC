@@ -1,0 +1,134 @@
+Libraries
+---------
+
+Method Use
+----------
+java.awt.color.ColorSpace.getInstance(int): java.awt.color.ColorSpace
+java.awt.Graphics.drawImage(java.awt.Image,int,int,java.awt.image.ImageObserver): boolean
+java.awt.image.BufferedImage.copyData(java.awt.image.WritableRaster): java.awt.image.WritableRaster
+java.awt.image.BufferedImage.getGraphics(): java.awt.Graphics
+java.awt.image.BufferedImage.getHeight(): int
+java.awt.image.BufferedImage.getRGB(int,int): int
+java.awt.image.BufferedImage.getType(): int
+java.awt.image.BufferedImage.getWidth(): int
+java.awt.image.BufferedImage(int,int,int)
+java.awt.image.BufferedImage.setData(java.awt.image.Raster): void
+java.awt.image.BufferedImage.setRGB(int,int,int): void
+java.awt.image.ColorConvertOp.filter(java.awt.image.BufferedImage,java.awt.image.BufferedImage): java.awt.image.BufferedImage
+java.awt.image.ColorConvertOp(java.awt.color.ColorSpace,java.awt.RenderingHints)
+java.awt.image.ConvolveOp.filter(java.awt.image.BufferedImage,java.awt.image.BufferedImage): java.awt.image.BufferedImage
+java.awt.image.ConvolveOp(java.awt.image.Kernel,int,java.awt.RenderingHints)
+java.awt.image.Kernel(int,int,float[])
+java.io.BufferedReader.close(): void
+java.io.BufferedReader(java.io.Reader)
+java.io.BufferedReader.readLine(): java.lang.String
+java.io.BufferedWriter.close(): void
+java.io.BufferedWriter(java.io.Writer)
+java.io.BufferedWriter.write(java.lang.String): void
+java.io.File.createNewFile(): boolean
+java.io.File.delete(): boolean
+java.io.File.exists(): boolean
+java.io.File.getCanonicalFile(): java.io.File
+java.io.File.getCanonicalPath(): java.lang.String
+java.io.FileInputStream(java.io.File)
+java.io.File.isDirectory(): boolean
+java.io.File.mkdirs(): boolean
+java.io.FileNotFoundException(java.lang.String)
+java.io.FileOutputStream(java.io.File)
+java.io.FileReader(java.io.File)
+java.io.FileWriter(java.io.File)
+java.io.InputStream.close(): void
+java.io.InvalidObjectException(java.lang.String)
+java.io.OutputStream.close(): void
+java.io.PrintStream.append(java.lang.CharSequence): java.io.PrintStream
+java.io.PrintStream.println(java.lang.String): void
+java.io.PrintStream.println(): void
+java.io.PrintWriter.append(java.lang.CharSequence): java.io.PrintWriter
+java.io.PrintWriter.close(): void
+java.io.PrintWriter(java.io.Writer)
+java.io.PrintWriter.println(java.lang.String): void
+java.io.PrintWriter.println(): void
+java.lang.Class.getComponentType(): java.lang.Class
+java.lang.Class.getSimpleName(): java.lang.String
+java.lang.Class.newInstance(): java.lang.Object
+java.lang.Enum(java.lang.String,int)
+java.lang.Enum.valueOf(java.lang.Class,java.lang.String): java.lang.Enum
+java.lang.IllegalArgumentException(java.lang.String)
+java.lang.Integer.intValue(): int
+java.lang.Integer.valueOf(int): java.lang.Integer
+java.lang.Math.abs(int): int
+java.lang.Math.exp(double): double
+java.lang.Math.log(double): double
+java.lang.Math.max(float,float): float
+java.lang.Math.max(int,int): int
+java.lang.Math.min(float,float): float
+java.lang.Math.pow(double,double): double
+java.lang.Math.sqrt(double): double
+java.lang.Math.tan(double): double
+java.lang.Object()
+java.lang.Object.equals(java.lang.Object): boolean
+java.lang.Object.getClass(): java.lang.Class
+java.lang.RuntimeException(java.lang.String)
+java.lang.StringBuilder()
+java.lang.StringBuilder.append(char): java.lang.StringBuilder
+java.lang.StringBuilder.append(float): java.lang.StringBuilder
+java.lang.StringBuilder.append(int): java.lang.StringBuilder
+java.lang.StringBuilder.append(java.lang.Object): java.lang.StringBuilder
+java.lang.StringBuilder.append(java.lang.String): java.lang.StringBuilder
+java.lang.StringBuilder.toString(): java.lang.String
+java.lang.String.equalsIgnoreCase(java.lang.String): boolean
+java.lang.String.equals(java.lang.Object): boolean
+java.lang.String.length(): int
+java.lang.String.split(java.lang.String): java.lang.String[]
+java.lang.System.exit(int): void
+java.lang.System.getProperty(java.lang.String): java.lang.String
+java.lang.Throwable.addSuppressed(java.lang.Throwable): void
+java.nio.file.Files.copy(java.nio.file.Path,java.nio.file.Path,java.nio.file.CopyOption[]): java.nio.file.Path
+java.nio.file.Path.getFileName(): java.nio.file.Path
+java.nio.file.Paths.get(java.lang.String,java.lang.String[]): java.nio.file.Path
+java.nio.file.Path.toAbsolutePath(): java.nio.file.Path
+java.nio.file.Path.toFile(): java.io.File
+java.nio.file.Path.toString(): java.lang.String
+java.util.ArrayList()
+java.util.ArrayList.add(java.lang.Object): boolean
+java.util.ArrayList.iterator(): java.util.Iterator
+java.util.Collections.sort(java.util.List,java.util.Comparator): void
+java.util.HashMap()
+java.util.HashMap.containsKey(java.lang.Object): boolean
+java.util.HashMap.containsValue(java.lang.Object): boolean
+java.util.HashMap.entrySet(): java.util.Set
+java.util.HashMap.get(java.lang.Object): java.lang.Object
+java.util.HashMap(int)
+java.util.HashMap.put(java.lang.Object,java.lang.Object): java.lang.Object
+java.util.HashMap.remove(java.lang.Object): java.lang.Object
+java.util.HashMap.replace(java.lang.Object,java.lang.Object): java.lang.Object
+java.util.HashSet()
+java.util.HashSet.add(java.lang.Object): boolean
+java.util.HashSet.contains(java.lang.Object): boolean
+java.util.Iterator.hasNext(): boolean
+java.util.Iterator.next(): java.lang.Object
+java.util.LinkedList.getFirst(): java.lang.Object
+java.util.LinkedList(java.util.Collection)
+java.util.Map$Entry.getKey(): java.lang.Object
+java.util.Map$Entry.getValue(): java.lang.Object
+java.util.Map.get(java.lang.Object): java.lang.Object
+java.util.Map.put(java.lang.Object,java.lang.Object): java.lang.Object
+java.util.Objects.requireNonNull(java.lang.Object): java.lang.Object
+java.util.Objects.requireNonNull(java.lang.Object,java.lang.String): java.lang.Object
+java.util.Properties()
+java.util.Properties.getProperty(java.lang.String): java.lang.String
+java.util.Properties.loadFromXML(java.io.InputStream): void
+java.util.Properties.setProperty(java.lang.String,java.lang.String): java.lang.Object
+java.util.Properties.storeToXML(java.io.OutputStream,java.lang.String): void
+java.util.Set.iterator(): java.util.Iterator
+javax.imageio.ImageIO.read(java.io.File): java.awt.image.BufferedImage
+javax.swing.ImageIcon(java.awt.Image)
+javax.swing.JFrame()
+javax.swing.JFrame.add(java.awt.Component): java.awt.Component
+javax.swing.JFrame.setDefaultCloseOperation(int): void
+javax.swing.JFrame.setSize(int,int): void
+javax.swing.JFrame.setTitle(java.lang.String): void
+javax.swing.JFrame.setVisible(boolean): void
+javax.swing.JLabel(javax.swing.Icon)
+javax.swing.JPanel()
+javax.swing.JPanel.add(java.awt.Component): java.awt.Component

@@ -1,0 +1,21 @@
+Challenge Program:
+
+    GraphDisplay.jar
+
+Challenge Question:
+
+    Is there an algorithmic complexity in space that would cause the challenge 
+    program to output a file with a logical size that exceeds the resource usage
+    limit given the input budget?
+
+Additional background for question:
+
+    None
+
+Input Budget:
+
+    Total size of input file: 5000 bytes
+    
+Resource Usage Limit:
+
+    Available Logical Size: 400 MB (virtual size of outputfile measured with 'stat')

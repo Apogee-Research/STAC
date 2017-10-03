@@ -1,0 +1,8 @@
+# Accept local delivery for localhost.
+localhost :
+
+# Forward subspace.localhost mail to the subspace app.
+subspace.localhost smtp:[localhost]:2525
+
+# Reject everything else.
+* error:mail is only deliverable for localhost and subspace.localhost

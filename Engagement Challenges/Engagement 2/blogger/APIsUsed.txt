@@ -1,0 +1,287 @@
+Libraries
+---------
+
+Method Use
+----------
+java.io.BufferedReader(java.io.Reader)
+java.io.BufferedReader.readLine(): java.lang.String
+java.io.BufferedReader.skip(long): long
+java.io.BufferedWriter(java.io.Writer)
+java.io.ByteArrayInputStream(byte[])
+java.io.ByteArrayInputStream(byte[],int,int)
+java.io.ByteArrayOutputStream()
+java.io.ByteArrayOutputStream.size(): int
+java.io.ByteArrayOutputStream.toByteArray(): byte[]
+java.io.Closeable.close(): void
+java.io.DataOutputStream(java.io.OutputStream)
+java.io.DataOutput.write(byte[],int,int): void
+java.io.File.canRead(): boolean
+java.io.File.createTempFile(java.lang.String,java.lang.String,java.io.File): java.io.File
+java.io.File.delete(): boolean
+java.io.File.exists(): boolean
+java.io.File.getAbsoluteFile(): java.io.File
+java.io.File.getAbsolutePath(): java.lang.String
+java.io.File.getCanonicalPath(): java.lang.String
+java.io.FileInputStream(java.io.File)
+java.io.FileInputStream.skip(long): long
+java.io.File.isDirectory(): boolean
+java.io.File.isFile(): boolean
+java.io.File(java.io.File,java.lang.String)
+java.io.File(java.lang.String)
+java.io.File.lastModified(): long
+java.io.File.length(): long
+java.io.File.list(java.io.FilenameFilter): java.lang.String[]
+java.io.FileNotFoundException(java.lang.String)
+java.io.FileOutputStream.getChannel(): java.nio.channels.FileChannel
+java.io.FileOutputStream(java.io.File)
+java.io.FileOutputStream(java.lang.String)
+java.io.FilterOutputStream(java.io.OutputStream)
+java.io.InputStream.read(byte[],int,int): int
+java.io.InputStreamReader(java.io.InputStream)
+java.io.InputStream.read(): int
+java.io.IOException.getMessage(): java.lang.String
+java.io.IOException(java.lang.String)
+java.io.OutputStream.flush(): void
+java.io.OutputStream.write(byte[],int,int): void
+java.io.OutputStream.write(byte[]): void
+java.io.OutputStreamWriter(java.io.OutputStream,java.lang.String)
+java.io.PrintStream.print(java.lang.String): void
+java.io.PrintStream.println(java.lang.String): void
+java.io.PrintWriter.flush(): void
+java.io.PrintWriter(java.io.Writer,boolean)
+java.io.PrintWriter.print(java.lang.String): void
+java.io.PushbackInputStream(java.io.InputStream,int)
+java.io.PushbackInputStream.read(byte[],int,int): int
+java.io.PushbackInputStream.unread(byte[],int,int): void
+java.io.PushbackReader.close(): void
+java.io.PushbackReader(java.io.Reader,int)
+java.io.PushbackReader.read(): int
+java.io.PushbackReader.ready(): boolean
+java.io.PushbackReader.unread(int): void
+java.io.RandomAccessFile.getChannel(): java.nio.channels.FileChannel
+java.io.RandomAccessFile(java.lang.String,java.lang.String)
+java.io.RandomAccessFile.length(): long
+java.io.RandomAccessFile.seek(long): void
+java.io.Reader()
+java.io.StringWriter()
+java.io.StringWriter.toString(): java.lang.String
+java.io.StringWriter.write(int): void
+java.lang.Class.forName(java.lang.String): java.lang.Class
+java.lang.Class.getCanonicalName(): java.lang.String
+java.lang.Class.getInterfaces(): java.lang.Class[]
+java.lang.Class.getName(): java.lang.String
+java.lang.Class.getResourceAsStream(java.lang.String): java.io.InputStream
+java.lang.Class.getSimpleName(): java.lang.String
+java.lang.ClassLoader.getSystemResourceAsStream(java.lang.String): java.io.InputStream
+java.lang.Class.newInstance(): java.lang.Object
+java.lang.ClassNotFoundException()
+java.lang.Enum(java.lang.String,int)
+java.lang.Enum.valueOf(java.lang.Class,java.lang.String): java.lang.Enum
+java.lang.Error(java.lang.String)
+java.lang.Error(java.lang.Throwable)
+java.lang.Exception.getMessage(): java.lang.String
+java.lang.Exception(java.lang.String)
+java.lang.Exception(java.lang.String,java.lang.Throwable)
+java.lang.Exception.toString(): java.lang.String
+java.lang.IllegalArgumentException(java.lang.String)
+java.lang.Integer.intValue(): int
+java.lang.Integer.parseInt(java.lang.String): int
+java.lang.Integer.toHexString(int): java.lang.String
+java.lang.Integer.valueOf(int): java.lang.Integer
+java.lang.Integer.valueOf(java.lang.String): java.lang.Integer
+java.lang.Long.parseLong(java.lang.String): long
+java.lang.Math.min(long,long): long
+java.lang.Object()
+java.lang.Object.getClass(): java.lang.Class
+java.lang.RuntimeException(java.lang.String)
+java.lang.RuntimeException(java.lang.Throwable)
+java.lang.StringBuilder()
+java.lang.StringBuilder.append(char): java.lang.StringBuilder
+java.lang.StringBuilder.append(int): java.lang.StringBuilder
+java.lang.StringBuilder.append(java.lang.Object): java.lang.StringBuilder
+java.lang.StringBuilder.append(java.lang.String): java.lang.StringBuilder
+java.lang.StringBuilder.append(long): java.lang.StringBuilder
+java.lang.StringBuilder.delete(int,int): java.lang.StringBuilder
+java.lang.StringBuilder(int)
+java.lang.StringBuilder(java.lang.String)
+java.lang.StringBuilder.length(): int
+java.lang.StringBuilder.toString(): java.lang.String
+java.lang.String(byte[])
+java.lang.String.charAt(int): char
+java.lang.String.contains(java.lang.CharSequence): boolean
+java.lang.String.endsWith(java.lang.String): boolean
+java.lang.String.equalsIgnoreCase(java.lang.String): boolean
+java.lang.String.equals(java.lang.Object): boolean
+java.lang.String.format(java.lang.String,java.lang.Object[]): java.lang.String
+java.lang.String.getBytes(): byte[]
+java.lang.String.getBytes(java.lang.String): byte[]
+java.lang.String.hashCode(): int
+java.lang.String.indexOf(int): int
+java.lang.String.indexOf(java.lang.String): int
+java.lang.String.isEmpty(): boolean
+java.lang.String.lastIndexOf(int): int
+java.lang.String.length(): int
+java.lang.String.matches(java.lang.String): boolean
+java.lang.String.replaceAll(java.lang.String,java.lang.String): java.lang.String
+java.lang.String.replace(char,char): java.lang.String
+java.lang.String.split(java.lang.String): java.lang.String[]
+java.lang.String.startsWith(java.lang.String): boolean
+java.lang.String.substring(int,int): java.lang.String
+java.lang.String.substring(int): java.lang.String
+java.lang.String.toLowerCase(): java.lang.String
+java.lang.String.toLowerCase(java.util.Locale): java.lang.String
+java.lang.String.toString(): java.lang.String
+java.lang.String.trim(): java.lang.String
+java.lang.String.valueOf(boolean): java.lang.String
+java.lang.String.valueOf(int): java.lang.String
+java.lang.String.valueOf(java.lang.Object): java.lang.String
+java.lang.System.arraycopy(java.lang.Object,int,java.lang.Object,int,int): void
+java.lang.System.exit(int): void
+java.lang.System.getProperty(java.lang.String): java.lang.String
+java.lang.Thread.isAlive(): boolean
+java.lang.Thread(java.lang.Runnable)
+java.lang.Thread.join(): void
+java.lang.Thread.setDaemon(boolean): void
+java.lang.Thread.setName(java.lang.String): void
+java.lang.Thread.sleep(long): void
+java.lang.Thread.start(): void
+java.net.InetAddress.getHostAddress(): java.lang.String
+java.net.InetAddress.isAnyLocalAddress(): boolean
+java.net.InetAddress.isLoopbackAddress(): boolean
+java.net.InetSocketAddress(int)
+java.net.InetSocketAddress(java.lang.String,int)
+java.net.ServerSocket()
+java.net.ServerSocket.accept(): java.net.Socket
+java.net.ServerSocket.bind(java.net.SocketAddress): void
+java.net.ServerSocket.close(): void
+java.net.ServerSocket.getLocalPort(): int
+java.net.ServerSocket.isClosed(): boolean
+java.net.ServerSocket.setReuseAddress(boolean): void
+java.net.Socket.close(): void
+java.net.SocketException(java.lang.String)
+java.net.Socket.getInetAddress(): java.net.InetAddress
+java.net.Socket.getInputStream(): java.io.InputStream
+java.net.Socket.getOutputStream(): java.io.OutputStream
+java.net.Socket.isClosed(): boolean
+java.net.Socket.setSoTimeout(int): void
+java.net.URLDecoder.decode(java.lang.String,java.lang.String): java.lang.String
+java.net.URLEncoder.encode(java.lang.String,java.lang.String): java.lang.String
+java.nio.Buffer.limit(int): java.nio.Buffer
+java.nio.ByteBuffer.duplicate(): java.nio.ByteBuffer
+java.nio.ByteBuffer.get(byte[],int,int): java.nio.ByteBuffer
+java.nio.ByteBuffer.get(byte[]): java.nio.ByteBuffer
+java.nio.ByteBuffer.limit(): int
+java.nio.ByteBuffer.position(int): java.nio.Buffer
+java.nio.ByteBuffer.remaining(): int
+java.nio.ByteBuffer.slice(): java.nio.ByteBuffer
+java.nio.ByteBuffer.wrap(byte[],int,int): java.nio.ByteBuffer
+java.nio.channels.FileChannel.map(java.nio.channels.FileChannel$MapMode,long,long): java.nio.MappedByteBuffer
+java.nio.channels.FileChannel.write(java.nio.ByteBuffer): int
+java.nio.CharBuffer.put(char[],int,int): java.nio.CharBuffer
+java.nio.CharBuffer.remaining(): int
+java.security.KeyStore.getDefaultType(): java.lang.String
+java.security.KeyStore.getInstance(java.lang.String): java.security.KeyStore
+java.security.KeyStore.load(java.io.InputStream,char[]): void
+java.text.SimpleDateFormat.format(java.util.Date): java.lang.String
+java.text.SimpleDateFormat(java.lang.String,java.util.Locale)
+java.text.SimpleDateFormat.setTimeZone(java.util.TimeZone): void
+java.util.ArrayList()
+java.util.ArrayList.add(java.lang.Object): boolean
+java.util.ArrayList(int)
+java.util.ArrayList.iterator(): java.util.Iterator
+java.util.ArrayList(java.util.Collection)
+java.util.Arrays.asList(java.lang.Object[]): java.util.List
+java.util.Calendar.add(int,int): void
+java.util.Calendar.getInstance(): java.util.Calendar
+java.util.Calendar.getTime(): java.util.Date
+java.util.Collections.sort(java.util.List): void
+java.util.Collections.synchronizedList(java.util.List): java.util.List
+java.util.Collections.unmodifiableMap(java.util.Map): java.util.Map
+java.util.concurrent.locks.Lock.lock(): void
+java.util.concurrent.locks.Lock.unlock(): void
+java.util.concurrent.locks.ReentrantLock()
+java.util.Date()
+java.util.Date.getTime(): long
+java.util.HashMap()
+java.util.HashMap.get(java.lang.Object): java.lang.Object
+java.util.HashMap.keySet(): java.util.Set
+java.util.HashMap.put(java.lang.Object,java.lang.Object): java.lang.Object
+java.util.Iterator.hasNext(): boolean
+java.util.Iterator.next(): java.lang.Object
+java.util.LinkedHashMap.containsKey(java.lang.Object): boolean
+java.util.LinkedHashMap.get(java.lang.Object): java.lang.Object
+java.util.LinkedHashMap(int,float,boolean)
+java.util.LinkedHashMap.keySet(): java.util.Set
+java.util.LinkedHashMap.put(java.lang.Object,java.lang.Object): java.lang.Object
+java.util.LinkedHashMap.remove(java.lang.Object): java.lang.Object
+java.util.LinkedList()
+java.util.LinkedList.add(java.lang.Object): boolean
+java.util.LinkedList.isEmpty(): boolean
+java.util.LinkedList.iterator(): java.util.Iterator
+java.util.LinkedList.pop(): java.lang.Object
+java.util.LinkedList.push(java.lang.Object): void
+java.util.List.addAll(java.util.Collection): boolean
+java.util.List.add(java.lang.Object): boolean
+java.util.List.clear(): void
+java.util.List.get(int): java.lang.Object
+java.util.List.isEmpty(): boolean
+java.util.List.iterator(): java.util.Iterator
+java.util.List.remove(java.lang.Object): boolean
+java.util.List.size(): int
+java.util.logging.Logger.getLogger(java.lang.String): java.util.logging.Logger
+java.util.logging.Logger.info(java.lang.String): void
+java.util.logging.Logger.log(java.util.logging.Level,java.lang.String,java.lang.Throwable): void
+java.util.logging.Logger.log(java.util.logging.Level,java.lang.String): void
+java.util.logging.Logger.warning(java.lang.String): void
+java.util.Map.clear(): void
+java.util.Map.containsKey(java.lang.Object): boolean
+java.util.Map.containsValue(java.lang.Object): boolean
+java.util.Map.entrySet(): java.util.Set
+java.util.Map.get(java.lang.Object): java.lang.Object
+java.util.Map.isEmpty(): boolean
+java.util.Map.keySet(): java.util.Set
+java.util.Map.putAll(java.util.Map): void
+java.util.Map.put(java.lang.Object,java.lang.Object): java.lang.Object
+java.util.Map.remove(java.lang.Object): java.lang.Object
+java.util.Map.size(): int
+java.util.Map.values(): java.util.Collection
+java.util.regex.Matcher.find(): boolean
+java.util.regex.Matcher.group(int): java.lang.String
+java.util.regex.Matcher.matches(): boolean
+java.util.regex.Pattern.compile(java.lang.String,int): java.util.regex.Pattern
+java.util.regex.Pattern.compile(java.lang.String): java.util.regex.Pattern
+java.util.regex.Pattern.matcher(java.lang.CharSequence): java.util.regex.Matcher
+java.util.Scanner.hasNext(): boolean
+java.util.Scanner(java.io.InputStream)
+java.util.Scanner(java.lang.Readable)
+java.util.Scanner.next(): java.lang.String
+java.util.Scanner.useDelimiter(java.lang.String): java.util.Scanner
+java.util.ServiceLoader.iterator(): java.util.Iterator
+java.util.ServiceLoader.load(java.lang.Class): java.util.ServiceLoader
+java.util.Set.iterator(): java.util.Iterator
+java.util.Set.size(): int
+java.util.StringTokenizer.hasMoreTokens(): boolean
+java.util.StringTokenizer(java.lang.String)
+java.util.StringTokenizer(java.lang.String,java.lang.String)
+java.util.StringTokenizer(java.lang.String,java.lang.String,boolean)
+java.util.StringTokenizer.nextToken(): java.lang.String
+java.util.TimeZone.getTimeZone(java.lang.String): java.util.TimeZone
+java.util.TreeMap()
+java.util.TreeMap.containsKey(java.lang.Object): boolean
+java.util.TreeMap.get(java.lang.Object): java.lang.Object
+java.util.TreeMap.put(java.lang.Object,java.lang.Object): java.lang.Object
+java.util.zip.GZIPOutputStream.finish(): void
+java.util.zip.GZIPOutputStream(java.io.OutputStream)
+javax.net.ssl.KeyManagerFactory.getDefaultAlgorithm(): java.lang.String
+javax.net.ssl.KeyManagerFactory.getInstance(java.lang.String): javax.net.ssl.KeyManagerFactory
+javax.net.ssl.KeyManagerFactory.getKeyManagers(): javax.net.ssl.KeyManager[]
+javax.net.ssl.KeyManagerFactory.init(java.security.KeyStore,char[]): void
+javax.net.ssl.SSLContext.getInstance(java.lang.String): javax.net.ssl.SSLContext
+javax.net.ssl.SSLContext.getServerSocketFactory(): javax.net.ssl.SSLServerSocketFactory
+javax.net.ssl.SSLContext.init(javax.net.ssl.KeyManager[],javax.net.ssl.TrustManager[],java.security.SecureRandom): void
+javax.net.ssl.SSLServerSocketFactory.createServerSocket(): java.net.ServerSocket
+javax.net.ssl.SSLServerSocket.setNeedClientAuth(boolean): void
+javax.net.ssl.TrustManagerFactory.getDefaultAlgorithm(): java.lang.String
+javax.net.ssl.TrustManagerFactory.getInstance(java.lang.String): javax.net.ssl.TrustManagerFactory
+javax.net.ssl.TrustManagerFactory.getTrustManagers(): javax.net.ssl.TrustManager[]
+javax.net.ssl.TrustManagerFactory.init(java.security.KeyStore): void

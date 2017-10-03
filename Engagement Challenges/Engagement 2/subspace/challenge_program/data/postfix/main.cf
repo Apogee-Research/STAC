@@ -1,0 +1,22 @@
+myhostname = smtp.localhost
+mydomain = localhost
+myorigin = $mydomain
+
+append_at_myorigin = no
+append_dot_mydomain = no
+
+inet_interfaces = localhost
+
+mydestination = $mydomain
+
+mynetworks = 127.0.0.0/8
+
+relay_domains = $mydestination
+
+transport_maps = hash:/etc/postfix/transport
+
+recipient_delimiter = +
+
+mail_spool_directory = /var/spool/mail
+
+smtpd_banner = $myhostname ESMTP $mail_name ($mail_version)

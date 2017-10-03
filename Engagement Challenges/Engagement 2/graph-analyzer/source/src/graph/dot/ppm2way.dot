@@ -1,0 +1,32 @@
+digraph "g" {
+	node [	label = "\N",
+		fontsize = 14,
+		fontname = "Times-Roman",
+		fontcolor = black,
+		shape = box,
+		color = black,
+		width = "0.5" ];
+	edge [	fontsize = 14,
+		fontname = "Times-Roman",
+		fontcolor = black,
+		color = black ];
+	graph [lp= "214,0"];
+	graph [bb= "0,0,428,398"];
+	22690 [label="22690\n?", width="0.67", pname="?", kind=proc, pos="171,378", height="0.56"];
+	22692 [label="22692\ndotty", width="0.67", pname=dotty, kind=proc, pos="171,302", height="0.56"];
+	"116842+2595" [label="116842+2595\n/home/ek/work/sun4/bin/dotty", shape=ellipse, width="2.78", kind=file, fname="/home/ek/work/sun4/bin/dotty", pos="100,217", height="0.79"];
+	22693 [label="22693\nlefty", width="0.67", pname=lefty, kind=proc, pos="242,217", height="0.56"];
+	"182440-1" [label="182440-1\n182441-1\npipe", fontsize=7, shape=doublecircle, width="0.78", kind=file, fname=pipe, subkind=pipe, pos="171,29", height="0.79"];
+	"182442-1" [label="182442-1\n182443-1\npipe", fontsize=7, shape=doublecircle, width="0.78", kind=file, fname=pipe, subkind=pipe, pos="260,29", height="0.79"];
+	22694 [label="22694\ndot", width="0.67", pname=dot, kind=proc, pos="216,123", height="0.56"];
+	"4761+2595" [label="4761+2595\n/home/ek/pm2.dot", shape=ellipse, width="1.83", kind=file, fname="/home/ek/pm2.dot", pos="362,123", height="0.79"];
+	22690 -> 22692 [pos="e,171,322 171,358 171,350 171,340 171,331"];
+	22692 -> "116842+2595" [dir=back, pos="s,154,282 151,278 142,268 132,256 123,245"];
+	22692 -> 22693 [pos="e,225,237 188,282 197,271 209,256 220,244"];
+	22693 -> "182440-1" [dir=back, pos="s,220,197 215,192 199,177 183,159 180,152 171,128 169,86 170,58"];
+	22693 -> "182442-1" [dir=forward, pos="e,258,58 245,197 247,182 250,164 252,152 252,145 255,99 258,65"];
+	22693 -> 22694 [pos="e,222,143 236,197 233,184 228,166 224,151"];
+	22694 -> "182440-1" [dir=forward, pos="e,183,55 206,103 200,91 193,76 187,63"];
+	22694 -> "182442-1" [dir=back, pos="s,226,103 229,95 235,83 242,67 248,55"];
+	22693 -> "4761+2595" [dir=back, pos="s,266,198 272,193 290,180 312,162 330,148"];
+}

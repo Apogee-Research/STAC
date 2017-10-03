@@ -1,0 +1,11 @@
+Law Enforcement Database (B-tree) Challenge - Proof Description
+===============
+
+The active side channel in this challenge problem results from timing differentials that occur when transferring data items in a list between a client and a server. The list is created by a database query when the server fulfills a client request.  The returned list includes items that are both public and secret and, as a result, must be filtered by the server before being sent to the client over the network. The server accomplishes this by executing policies that remove secret values from the list prior to transmission to the client. Because the public items are transmitted in numerical order one-by-one across the network as soon as the server has finished processing them, the work required to remove the secret list items between the public items has the potential to cause a side channel.
+
+We're assuming an insider adversary, but with limited privileges, that can query and insert public values, but not restricted ones - a query or an insertion each counts as one operation.  The adversary may make any number of such public queries, and observe when a secret item is removed by noticing when the gap in the timing interval between two list items is larger than expected.  This timing information allows a malicious client to infer that there may exist a secret in between two specific public items.  The adversary narrows down the actual secret value by inserting new public values and redoing a query between these attacker chosen public values. This enables the attacker to perform a binary search and recover a secret in time log2(n), where n is the size of the original suspicious interval. As a result, we believe the worst case in any data set loaded in to the server database will exist when a secret value lies in the largest interval bounded by the existing (starting) public values in the database.
+
+Our proof confirms this. We created a dataset with several intervals between public data values. One interval represented the largest interval in the dataset and contained a restricted element that was located at a position that would require the worst case log2(n) of the binary search.
+
+
+See the file ExampleOutputFromTestHarness.txt for an example output from the harness.

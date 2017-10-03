@@ -1,0 +1,273 @@
+Oct 26, 2015 5:38:54 PM triplef.system.DSystem main
+SEVERE: Server address must be defined.
+Oct 26, 2015 5:38:54 PM triplef.system.Logger severe
+SEVERE: System error.
+0
+java.lang.ArrayIndexOutOfBoundsException: 0
+	at triplef.system.DSystem.main(DSystem.java:53)
+
+Oct 26, 2015 5:40:09 PM triplef.system.DSystem main
+SEVERE: Server address must be defined.
+Oct 26, 2015 5:40:09 PM triplef.system.DSystem loadHosts
+WARNING: No hosts found.
+Oct 26, 2015 5:40:09 PM triplef.system.DSystem run
+INFO: TripleF system initialized.
+Oct 26, 2015 5:40:17 PM triplef.system.Logger severe
+SEVERE: Thread error.
+./files/testf (No such file or directory)
+java.io.FileNotFoundException: ./files/testf (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:162)
+	at triplef.system.Thread.fileStream(Thread.java:158)
+	at triplef.system.Thread.run(Thread.java:64)
+
+Oct 26, 2015 6:26:50 PM triplef.system.DSystem main
+SEVERE: Server address must be defined.
+Oct 26, 2015 6:26:50 PM triplef.system.DSystem loadHosts
+WARNING: No hosts found.
+Oct 26, 2015 6:26:50 PM triplef.system.DSystem run
+INFO: TripleF system initialized.
+Oct 26, 2015 6:26:55 PM triplef.system.Thread fileStream
+INFO: Received file: testf
+Oct 26, 2015 7:01:08 PM triplef.system.DSystem main
+SEVERE: Server address must be defined.
+Oct 26, 2015 7:01:08 PM triplef.system.DSystem loadHosts
+WARNING: No hosts found.
+Oct 26, 2015 7:01:08 PM triplef.system.DSystem run
+INFO: TripleF system initialized.
+Oct 26, 2015 7:01:43 PM triplef.system.Logger severe
+SEVERE: Thread error.
+null
+java.lang.NullPointerException
+	at triplef.system.Thread.fileOutStream(Thread.java:191)
+	at triplef.system.Thread.run(Thread.java:69)
+
+Oct 26, 2015 7:01:43 PM triplef.system.Thread fileStream
+INFO: Received file: testf
+Oct 26, 2015 7:10:54 PM triplef.system.DSystem main
+SEVERE: Server address must be defined.
+Oct 26, 2015 7:10:54 PM triplef.system.DSystem loadHosts
+WARNING: No hosts found.
+Oct 26, 2015 7:10:54 PM triplef.system.DSystem run
+INFO: TripleF system initialized.
+Oct 26, 2015 7:10:57 PM triplef.system.Thread fileStream
+INFO: Received file: testf
+Oct 26, 2015 7:10:57 PM triplef.system.Logger severe
+SEVERE: Thread error.
+null
+java.lang.NullPointerException
+	at triplef.system.Thread.fileOutStream(Thread.java:195)
+	at triplef.system.Thread.run(Thread.java:69)
+
+Oct 26, 2015 7:11:26 PM triplef.system.DSystem main
+SEVERE: Server address must be defined.
+Oct 26, 2015 7:11:26 PM triplef.system.DSystem loadHosts
+WARNING: No hosts found.
+Oct 26, 2015 7:11:26 PM triplef.system.DSystem run
+INFO: TripleF system initialized.
+Oct 26, 2015 7:11:31 PM triplef.system.Thread fileStream
+INFO: Received file: testf
+Oct 26, 2015 7:11:31 PM triplef.system.Logger severe
+SEVERE: Thread error.
+null
+java.lang.NullPointerException
+	at triplef.system.Thread.fileOutStream(Thread.java:195)
+	at triplef.system.Thread.run(Thread.java:69)
+
+Oct 26, 2015 7:11:57 PM triplef.system.DSystem main
+SEVERE: Server address must be defined.
+Oct 26, 2015 7:11:58 PM triplef.system.DSystem loadHosts
+WARNING: No hosts found.
+Oct 26, 2015 7:11:58 PM triplef.system.DSystem run
+INFO: TripleF system initialized.
+Oct 26, 2015 7:12:04 PM triplef.system.Thread fileStream
+INFO: Received file: testf
+Oct 26, 2015 7:15:09 PM triplef.system.Thread fileOutStream
+INFO: Received file: testf
+Oct 26, 2015 7:16:04 PM triplef.system.DSystem main
+SEVERE: Server address must be defined.
+Oct 26, 2015 7:16:04 PM triplef.system.DSystem loadHosts
+WARNING: No hosts found.
+Oct 26, 2015 7:16:04 PM triplef.system.DSystem run
+INFO: TripleF system initialized.
+Oct 26, 2015 7:16:12 PM triplef.system.Thread fileStream
+INFO: Received file: testf
+Oct 26, 2015 7:16:36 PM triplef.system.Thread fileOutStream
+INFO: Received file: testf
+Oct 26, 2015 7:17:23 PM triplef.system.DSystem main
+SEVERE: Server address must be defined.
+Oct 26, 2015 7:17:23 PM triplef.system.DSystem loadHosts
+WARNING: No hosts found.
+Oct 26, 2015 7:17:23 PM triplef.system.DSystem run
+INFO: TripleF system initialized.
+Oct 26, 2015 7:17:29 PM triplef.system.Thread fileStream
+INFO: Received file: testf
+Oct 26, 2015 7:17:29 PM triplef.system.Logger severe
+SEVERE: Thread error.
+null
+java.lang.NullPointerException
+	at triplef.system.Thread.fileOutStream(Thread.java:195)
+	at triplef.system.Thread.run(Thread.java:69)
+
+Oct 26, 2015 7:17:56 PM triplef.system.DSystem main
+SEVERE: Server address must be defined.
+Oct 26, 2015 7:17:56 PM triplef.system.DSystem loadHosts
+WARNING: No hosts found.
+Oct 26, 2015 7:17:56 PM triplef.system.DSystem run
+INFO: TripleF system initialized.
+Oct 26, 2015 7:18:03 PM triplef.system.Thread fileStream
+INFO: Received file: testf
+Oct 26, 2015 7:18:03 PM triplef.system.Logger severe
+SEVERE: Thread error.
+null
+java.lang.NullPointerException
+	at triplef.system.Thread.fileOutStream(Thread.java:195)
+	at triplef.system.Thread.run(Thread.java:69)
+
+Oct 26, 2015 7:18:35 PM triplef.system.DSystem main
+SEVERE: Server address must be defined.
+Oct 26, 2015 7:18:35 PM triplef.system.DSystem loadHosts
+WARNING: No hosts found.
+Oct 26, 2015 7:18:35 PM triplef.system.DSystem run
+INFO: TripleF system initialized.
+Oct 26, 2015 7:18:40 PM triplef.system.Thread fileStream
+INFO: Received file: testf
+Oct 26, 2015 7:18:40 PM triplef.system.Logger severe
+SEVERE: Thread error.
+null
+java.lang.NullPointerException
+	at triplef.system.Thread.fileOutStream(Thread.java:195)
+	at triplef.system.Thread.run(Thread.java:69)
+
+Oct 26, 2015 7:19:24 PM triplef.system.DSystem main
+SEVERE: Server address must be defined.
+Oct 26, 2015 7:19:24 PM triplef.system.DSystem loadHosts
+WARNING: No hosts found.
+Oct 26, 2015 7:19:24 PM triplef.system.DSystem run
+INFO: TripleF system initialized.
+Oct 26, 2015 7:19:29 PM triplef.system.Thread fileStream
+INFO: Received file: testf
+Oct 26, 2015 7:19:39 PM triplef.system.HostElection run
+WARNING: testf: Fail to Lock Distributed File!
+Oct 26, 2015 7:20:29 PM triplef.system.DSystem main
+SEVERE: Server address must be defined.
+Oct 26, 2015 7:20:29 PM triplef.system.DSystem loadHosts
+WARNING: No hosts found.
+Oct 26, 2015 7:20:29 PM triplef.system.DSystem run
+INFO: TripleF system initialized.
+Oct 26, 2015 7:20:33 PM triplef.system.Thread fileStream
+INFO: Received file: testf
+Oct 26, 2015 7:20:33 PM triplef.system.Logger severe
+SEVERE: Thread error.
+null
+java.lang.NullPointerException
+	at triplef.system.Thread.fileOutStream(Thread.java:195)
+	at triplef.system.Thread.run(Thread.java:69)
+
+Oct 26, 2015 7:38:21 PM triplef.system.DSystem main
+SEVERE: Server address must be defined.
+Oct 26, 2015 7:38:21 PM triplef.system.DSystem loadHosts
+WARNING: No hosts found.
+Oct 26, 2015 7:38:21 PM triplef.system.DSystem run
+INFO: TripleF system initialized.
+Oct 26, 2015 7:38:25 PM triplef.system.Thread fileStream
+INFO: Received file: testf
+Oct 26, 2015 7:38:25 PM triplef.system.Thread fileOutStream
+INFO: Received file: testf
+Oct 26, 2015 7:38:34 PM triplef.system.Thread fileStream
+INFO: Received file: testf
+Oct 26, 2015 7:38:34 PM triplef.system.Thread fileOutStream
+INFO: Received file: testf
+Oct 26, 2015 7:38:37 PM triplef.system.Thread fileStream
+INFO: Received file: testf
+Oct 26, 2015 7:38:37 PM triplef.system.Thread fileOutStream
+INFO: Received file: testf
+Oct 27, 2015 9:05:30 PM triplef.system.DSystem main
+SEVERE: Server address must be defined.
+Oct 27, 2015 9:05:30 PM triplef.system.DSystem loadHosts
+WARNING: No hosts found.
+Oct 27, 2015 9:05:30 PM triplef.system.DSystem run
+INFO: TripleF system initialized.
+Oct 27, 2015 9:48:33 PM triplef.system.Thread fileStream
+INFO: Received file: timenjknin
+Oct 27, 2015 9:58:50 PM triplef.system.Thread fileStream
+INFO: Received file: tome
+Oct 27, 2015 9:58:50 PM triplef.system.Thread fileOutStream
+INFO: Received file: tome
+Oct 27, 2015 10:00:41 PM triplef.system.Thread fileStream
+INFO: Received file: time
+Oct 27, 2015 10:03:06 PM triplef.system.Thread fileStream
+INFO: Received file: timex
+Oct 27, 2015 10:27:52 PM triplef.system.Thread fileOutStream
+INFO: Received file: timex
+Oct 27, 2015 10:29:30 PM triplef.system.Thread fileOutStream
+INFO: Received file: timex
+Oct 27, 2015 10:30:39 PM triplef.system.Thread fileOutStream
+INFO: Received file: timex
+Oct 27, 2015 10:42:53 PM triplef.system.Thread fileOutStream
+INFO: Received file: timex
+Oct 27, 2015 10:43:18 PM triplef.system.Thread fileOutStream
+INFO: Received file: timex
+Oct 27, 2015 10:43:40 PM triplef.system.DSystem main
+SEVERE: Server address must be defined.
+Oct 27, 2015 10:43:40 PM triplef.system.DSystem loadHosts
+WARNING: No hosts found.
+Oct 27, 2015 10:43:40 PM triplef.system.DSystem run
+INFO: TripleF system initialized.
+Oct 27, 2015 10:44:54 PM triplef.system.Logger severe
+SEVERE: Thread error.
+null
+java.lang.NullPointerException
+	at triplef.system.Thread.fileOutStream(Thread.java:197)
+	at triplef.system.Thread.run(Thread.java:69)
+
+Oct 27, 2015 10:53:11 PM triplef.system.DSystem main
+SEVERE: Server address must be defined.
+Oct 27, 2015 10:53:11 PM triplef.system.DSystem loadHosts
+WARNING: No hosts found.
+Oct 27, 2015 10:53:11 PM triplef.system.DSystem run
+INFO: TripleF system initialized.
+Oct 27, 2015 10:55:37 PM triplef.system.Thread fileOutStream
+INFO: Received file: timex
+Oct 27, 2015 11:03:12 PM triplef.system.DSystem main
+SEVERE: Server address must be defined.
+Oct 27, 2015 11:03:12 PM triplef.system.DSystem loadHosts
+WARNING: No hosts found.
+Oct 27, 2015 11:03:12 PM triplef.system.DSystem run
+INFO: TripleF system initialized.
+Oct 27, 2015 11:03:33 PM triplef.system.Thread fileOutStream
+INFO: Received file: timex
+Oct 27, 2015 11:04:47 PM triplef.system.Thread fileOutStream
+INFO: Received file: timex
+Oct 27, 2015 11:05:29 PM triplef.system.Thread fileOutStream
+INFO: Received file: timex
+Oct 27, 2015 11:07:54 PM triplef.system.DSystem main
+SEVERE: Server address must be defined.
+Oct 27, 2015 11:07:54 PM triplef.system.DSystem loadHosts
+WARNING: No hosts found.
+Oct 27, 2015 11:07:54 PM triplef.system.DSystem run
+INFO: TripleF system initialized.
+Oct 27, 2015 11:08:25 PM triplef.system.Thread fileOutStream
+INFO: Received file: timex
+Oct 27, 2015 11:08:59 PM triplef.system.Thread fileOutStream
+INFO: Received file: timex
+Oct 27, 2015 11:12:06 PM triplef.system.Thread fileOutStream
+INFO: Received file: timex
+Oct 27, 2015 11:16:49 PM triplef.system.Thread fileOutStream
+INFO: Received file: timex
+Oct 27, 2015 11:19:34 PM triplef.system.Thread fileOutStream
+INFO: Received file: timex
+Oct 27, 2015 11:24:59 PM triplef.system.Thread fileOutStream
+INFO: Received file: timex
+Oct 27, 2015 11:25:45 PM triplef.system.Thread fileOutStream
+INFO: Received file: timex
+Oct 27, 2015 11:26:56 PM triplef.system.Thread fileOutStream
+INFO: Received file: timex
+Oct 27, 2015 11:29:44 PM triplef.system.Thread fileOutStream
+INFO: Received file: timex
+Oct 27, 2015 11:34:10 PM triplef.system.Thread fileOutStream
+INFO: Received file: timex
+Oct 27, 2015 11:42:50 PM triplef.system.Thread fileOutStream
+INFO: Received file: timex

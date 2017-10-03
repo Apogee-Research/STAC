@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=graph
+comment0.target=GraphFrame(Graph)
+comment0.text=\nConstructs\ a\ graph\ frame\ that\ displays\ a\ given\ graph.\n@param\ graph\ the\ graph\ to\ display\n\n
+comment1.target=void\ constructFrameComponents()
+comment1.text=\nConstructs\ the\ tool\ bar\ and\ graph\ panel.\n\n
+comment2.target=void\ openFile()
+comment2.text=\nAsks\ the\ user\ to\ open\ a\ graph\ file.\n\n
+comment3.target=void\ saveFile()
+comment3.text=\nSaves\ the\ current\ graph\ in\ a\ file.\n\n
+numComments=4

@@ -1,0 +1,20 @@
+Challenge Program:
+
+    GraphDisplay.jar
+
+Challenge Question:
+
+    Is there an algorithmic complexity in space that would cause the challenge 
+    program's memory usage to exceed the resource usage limit given the input budget?
+
+Additional background for question:
+
+    None
+
+Input Budget:
+
+    Total size of input file: 5000 bytes
+    
+Resource Usage Limit:
+
+    Available Memory: 512 MB (total memory usage of the JVM shown under the RSS column in pmap -x <PID>)

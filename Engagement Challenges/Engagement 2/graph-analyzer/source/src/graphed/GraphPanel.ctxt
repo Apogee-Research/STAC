@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=aToolBar\ aGraph
+comment0.target=GraphPanel(ToolBar,\ Graph)
+comment0.text=\nConstructs\ a\ graph\ panel.\n@param\ aToolBar\ the\ tool\ bar\ with\ the\ node\ and\ edge\ tools\n@param\ aGraph\ the\ graph\ to\ be\ displayed\ and\ edited\n\n
+comment1.params=g
+comment1.target=void\ paintComponent(Graphics)
+comment2.target=void\ removeSelected()
+comment2.text=\nRemoves\ the\ selected\ node\ or\ edge.\n\n
+comment3.params=g2\ x\ y
+comment3.target=void\ drawGrabber(Graphics2D,\ double,\ double)
+comment3.text=\nDraws\ a\ single\ "grabber",\ a\ filled\ square\n@param\ g2\ the\ graphics\ context\n@param\ x\ the\ x\ coordinate\ of\ the\ center\ of\ the\ grabber\n@param\ y\ the\ y\ coordinate\ of\ the\ center\ of\ the\ grabber\n\n
+comment4.target=Dimension\ getPreferredSize()
+numComments=5

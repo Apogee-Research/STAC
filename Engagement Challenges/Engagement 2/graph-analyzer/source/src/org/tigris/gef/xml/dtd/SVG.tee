@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE TemplateSet [
+  <!ELEMENT TemplateSet (macro | template)* >
+  <!ELEMENT macro (#PCDATA)>
+  <!ATTLIST macro name ID #REQUIRED>
+  <!ELEMENT template (#PCDATA)>
+  <!ATTLIST template class CDATA #REQUIRED>
+]>
+<!-- This is SVG.tee, for GEF Diagrams to generate Scalar Vector Graphics -->
+<!-- Markup Langauge files.  'tee' = Template with Embedded Expressions. -->
+
+<TemplateSet>
+
+    <macro name='FILL_AND_STROKE'>
+<![CDATA[
+style='
+fill:rgb(<ocl>self.FillColor.Red</ocl>,
+		 <ocl>self.FillColor.Green</ocl>,
+		 <ocl>self.FillColor.Blue</ocl>);
+stroke-width:<ocl>self.LineWidth</ocl>;
+stroke:rgb(<ocl>self.LineColor.Red</ocl>,
+		   <ocl>self.LineColor.Green</ocl>,
+		   <ocl>self.LineColor.Blue</ocl>);
+']]>
+    </macro>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+    <macro name='STYLE_TEXT'>
+<![CDATA[
+style='
+fill:rgb(<ocl>self.TextFillColor.Red</ocl>,
+		 <ocl>self.TextFillColor.Green</ocl>,
+		 <ocl>self.TextFillColor.Blue</ocl>);
+stroke-width:1;
+stroke:rgb(<ocl>self.TextColor.Red</ocl>,
+		   <ocl>self.TextColor.Green</ocl>,
+		   <ocl>self.TextColor.Blue</ocl>);
+font:<ocl>self.fontFamily</ocl>;
+font-size:<ocl>self.fontSize</ocl>
+']]>
+    </macro>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+    <template class='org.tigris.gef.base.Diagram'>
+<![CDATA[
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE svg SYSTEM "svg-20000303-stylable.dtd"
+[
+	<!ATTLIST g gef:href		CDATA #IMPLIED>
+]>
+<svg class='<ocl>self.classAndModelID</ocl>'
+      id='<ocl>self.name</ocl>'
+	  height='11in'
+	  width='8in'
+>
+  <ocl>self.layer.contentsNoEdges</ocl>
+  <ocl>self.layer.contentsEdgesOnly</ocl>
+</svg>
+]]>
+    </template>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <template class='java.awt.Rectangle'>
+<![CDATA[
+x='<ocl>self.x.intValue</ocl>'
+y='<ocl>self.y.intValue</ocl>'
+width='<ocl>self.width.intValue</ocl>'
+height='<ocl>self.height.intValue</ocl>'
+]]>
+    </template>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <template class='java.awt.Point'>
+<![CDATA[
+<ocl>self.x.intValue</ocl> 
+<ocl>self.y.intValue</ocl>
+]]>
+    </template>
+    <!-- luckily, points are only used in paths -->
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <template class='java.awt.Color'>
+<![CDATA[
+rgb(
+	<ocl>self.Red</ocl>, 
+	<ocl>self.Green</ocl>, 
+	<ocl>self.Blue</ocl>
+)
+]]>
+    </template>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <template class='org.tigris.gef.presentation.FigRect'>
+<![CDATA[
+<rect
+  id='<ocl>self.id</ocl>'
+  <ocl>self.bounds</ocl>
+  FILL_AND_STROKE
+/>
+]]>
+    </template>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <template class='org.tigris.gef.presentation.FigRRect'>
+<![CDATA[
+<rect
+  id='<ocl>self.id</ocl>'
+  <ocl>self.bounds</ocl>
+  FILL_AND_STROKE
+  rx='<ocl>self.cornerRadius</ocl>'
+  ry='<ocl>self.cornerRadius</ocl>'
+/>
+]]>
+    </template>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <template class='org.tigris.gef.presentation.FigCircle'>
+<![CDATA[
+<ellipse
+  id='<ocl>self.id</ocl>'
+  FILL_AND_STROKE
+  cx='<ocl>self.center.x.intValue</ocl>'
+  cy='<ocl>self.center.y.intValue</ocl>'
+  rx='<ocl>self.halfWidth.intValue</ocl>'
+  ry='<ocl>self.halfHeight.intValue</ocl>'
+/>
+]]>
+    </template>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <template class='org.tigris.gef.presentation.FigText'>
+<![CDATA[
+<text
+  id='<ocl>self.id</ocl>'
+  x='<ocl>self.x.intValue</ocl>'
+  y='<ocl>self.y.intValue</ocl>'
+  transform="translate(<ocl>self.fontSize</ocl>,
+					   <ocl>self.fontSize</ocl>)"
+  STYLE_TEXT
+><ocl>self.text</ocl></text>
+]]>
+    </template>
+
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <template class='org.tigris.gef.presentation.FigLine'>
+<![CDATA[
+<line
+  id='<ocl>self.id</ocl>'
+  class='<ocl>self.class.name</ocl>'
+  FILL_AND_STROKE
+  x1 = '<ocl>self.x1.intValue</ocl>'
+  y1 = '<ocl>self.y1.intValue</ocl>'
+  x2 = '<ocl>self.x2.intValue</ocl>'
+  y2 = '<ocl>self.y2.intValue</ocl>'
+/>
+]]>
+    </template>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <template class='org.tigris.gef.presentation.FigPoly'>
+<![CDATA[
+<path
+  id='<ocl>self.id</ocl>'
+  class='<ocl>self.class.name</ocl>'
+  style='fill:none;
+  stroke-width:<ocl>self.lineWidth</ocl>;
+  stroke:rgb(<ocl>self.lineColor.Red</ocl>,
+		     <ocl>self.lineColor.Green</ocl>,
+		     <ocl>self.lineColor.Blue</ocl>);
+  '
+  d = 'M
+        <ocl>self.firstPoint.x.intValue</ocl>,
+		<ocl>self.firstPoint.y.intValue</ocl>
+       L 
+	    <ocl>self.points[1,*]</ocl>
+	  '
+/>
+]]>
+    </template>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <template class='org.tigris.gef.presentation.FigSpline'>
+<![CDATA[
+<path
+  id='<ocl>self.id</ocl>'
+  class='<ocl>self.class.name</ocl>'
+  FILL_AND_STROKE
+  d = 'M 
+		 <ocl>self.firstPoint.x.intValue</ocl> 
+		 <ocl>self.firstPoint.y.intValue</ocl>
+	   C 
+		 <ocl>self.points</ocl>
+	  '
+/>
+]]>
+    </template>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <template class='org.tigris.gef.presentation.FigInk'>
+<![CDATA[
+<path
+  id='<ocl>self.id</ocl>'
+  class='<ocl>self.class.name</ocl>'
+  style='fill:none;
+  stroke-width:<ocl>self.lineWidth</ocl>;
+  stroke:rgb(<ocl>self.lineColor.Red</ocl>,
+		     <ocl>self.lineColor.Green</ocl>,
+		     <ocl>self.lineColor.Blue</ocl>);
+  '
+  d="M <ocl>self.firstPoint.x.intValue</ocl>,
+       <ocl>self.firstPoint.y.intValue</ocl>
+     L 
+       <ocl>self.points[1,*]</ocl>
+    " 
+/>
+]]>
+    </template>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <template class='org.tigris.gef.presentation.FigImage'>
+<![CDATA[
+<image
+  id='<ocl>self.id</ocl>'
+  class='<ocl>self.class.name</ocl>'
+  style='fill:none;'
+  x="<ocl>self.x</ocl>"
+  y="<ocl>self.y</ocl>"
+  width="<ocl>self.width</ocl>"
+  height="<ocl>self.height</ocl>"
+  xlink:href="<ocl>self.URL</ocl>
+>
+</image>
+]]>
+    </template>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <template class='org.tigris.gef.presentation.FigGroup'>
+<![CDATA[
+<g
+   id='<ocl>self.id</ocl>'
+   class='<ocl>self.classNameAndBounds</ocl>'
+   gef:href='Fig<ocl>self.owner.id</ocl>'
+   FILL_AND_STROKE
+>
+  <switch>
+    <foreignObject height="0" width="0"><ocl>self.PrivateData</ocl></foreignObject>
+  </switch>
+  <ocl>self.figs</ocl>
+</g>
+]]>
+    </template>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <template class='org.tigris.gef.presentation.FigEdge'>
+<![CDATA[
+<g
+   id='<ocl>self.id</ocl>'
+   class='<ocl>self.class.name</ocl>'
+   gef:href='Fig<ocl>self.owner.id</ocl>'
+   FILL_AND_STROKE
+>
+  <switch>
+    <foreignObject height="0" width="0"><ocl>self.PrivateData</ocl></foreignObject>
+  </switch>
+  <ocl>self.fig</ocl>
+</g>
+]]>
+    </template>
+
+</TemplateSet>

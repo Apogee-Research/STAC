@@ -1,0 +1,24 @@
+digraph "moby" {
+	main [pos="228,162", width="0.75", height="0.50"];
+	viewer1 [pos="35,90", width="0.94", height="0.50"];
+	viewer2 [pos="197,90", width="0.94", height="0.50"];
+	ZoomCursor [pos="135,18", width="1.31", height="0.50"];
+	flatSep [pos="232,18", width="0.89", height="0.50"];
+	coneSep [pos="35,18", width="0.97", height="0.50"];
+	domain [pos="320,90", width="0.92", height="0.50"];
+	filterPalette [pos="326,18", width="1.22", height="0.50"];
+	filterBank [pos="411,90", width="1.11", height="0.50"];
+	GUI [pos="496,90", width="0.75", height="0.50"];
+	main -> viewer1 [pos="e,62,101 204,153 172,141 114,120 80,108 77,107 74,106 71,105"];
+	main -> viewer2 [pos="e,204,108 220,145 216,136 212,125 207,116"];
+	main -> ZoomCursor [pos="e,135,36 206,151 187,140 161,124 151,108 141,93 137,65 135,44"];
+	viewer2 -> ZoomCursor [pos="e,150,36 183,73 175,64 165,52 156,42"];
+	viewer2 -> flatSep [pos="e,223,36 206,72 210,63 215,53 219,44"];
+	viewer1 -> coneSep [pos="e,35,36 35,72 35,64 35,54 35,45"];
+	main -> flatSep [pos="e,236,36 233,144 237,133 241,118 243,108 246,90 241,64 238,44"];
+	main -> coneSep [pos="e,51,34 207,151 184,140 150,121 132,108 110,92 79,62 58,41"];
+	main -> domain [pos="e,301,105 246,148 259,138 279,122 294,110"];
+	domain -> filterPalette [pos="e,324,36 322,72 323,64 324,54 324,45"];
+	main -> filterBank [pos="e,381,102 252,153 283,141 336,119 373,105"];
+	main -> GUI [pos="e,476,102 254,156 302,146 405,123 463,108 465,107 468,106 470,105"];
+}

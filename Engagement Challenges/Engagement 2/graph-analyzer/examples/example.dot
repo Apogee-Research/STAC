@@ -1,0 +1,11 @@
+graph "main" {
+    N1 [type="net", color="red", x=730, y=730, h=100, w=100]; 
+    N2 [type="net", color="red", x=230, y=230, h=100, w=100]; 
+    N3 [type="net", color="green", x=130, y=345, h=100, w=100]; 
+    N4 [type="net", color="blue", x=630, y=630, h=100, w=100]; 
+    N5 [type="net", color="red", x=30, y=75, h=100, w=100]; 
+	N1 -- N5 [];
+	N1 -- N3 [];
+	N3 -- N5 [];
+	N3 -- N4 [];
+}

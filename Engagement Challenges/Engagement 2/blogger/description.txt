@@ -1,0 +1,17 @@
+Overview
+========
+The application is a java web server which serves Plain Old Java Objects (POJOs), and POJOs that 
+collectively implement a simple public blogging application. 
+
+Interactions
+============
+Users can browse to the homepage at http://localhost:8080. On the homepage users can sign in, 
+create a new blog post and view posts by other users.
+
+An example of a user interaction is provided using curl in the examples directory
+
+Engagement Tools
+================
+The start script (run.sh) for the server is located in the challenge_program directory. Once the 
+server is started, the script will output "Server started, Hit Enter to stop." The web server listens 
+on port 8080 and serves classes from the web app.

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Main-Class: org.tigris.gef.demo.Notify
+Class-Path: xerces.jar jaxp.jar crimson.jar parser.jar commons-logging.jar
+
+Name: org/tigris/gef/base/
+Specification-Title: GEF Graph Editing Framework
+Specification-Version: @version@
+Specification-Vendor: University of California
+Implementation-Vendor: University of California
+Implementation-Version: @version@
+Implementation-Title: GEF Graph Editing Framework

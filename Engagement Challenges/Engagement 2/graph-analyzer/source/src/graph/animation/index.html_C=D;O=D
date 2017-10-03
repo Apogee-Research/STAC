@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /Alumni/awrixon/route/graph/animation</title>
+ </head>
+ <body>
+<h1>Index of /Alumni/awrixon/route/graph/animation</h1>
+<table><tr><th><img src="http://embedded.eecs.berkeley.edu/icons/blank.gif" alt="[ICO]"></th><th><a href="index.html?C=N%3BO=A">Name</a></th><th><a href="index.html?C=M%3BO=A">Last modified</a></th><th><a href="index.html?C=S%3BO=A">Size</a></th><th><a href="index.html?C=D%3BO=A">Description</a></th></tr><tr><th colspan="5"><hr></th></tr>
+<tr><td valign="top"><img src="http://embedded.eecs.berkeley.edu/icons/back.gif" alt="[DIR]"></td><td><a href="../index.html">Parent Directory</a></td><td>&nbsp;</td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="http://embedded.eecs.berkeley.edu/icons/unknown.gif" alt="[   ]"></td><td><a href="ws_ftp.log">ws_ftp.log</a></td><td align="right">26-Oct-1997 17:23  </td><td align="right">5.1K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="http://embedded.eecs.berkeley.edu/icons/text.gif" alt="[TXT]"></td><td><a href="ScaleAction.java">ScaleAction.java</a></td><td align="right">26-Oct-1997 17:23  </td><td align="right">2.1K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="http://embedded.eecs.berkeley.edu/icons/unknown.gif" alt="[   ]"></td><td><a href="ScaleAction.class">ScaleAction.class</a></td><td align="right">26-Oct-1997 17:23  </td><td align="right">1.1K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="http://embedded.eecs.berkeley.edu/icons/text.gif" alt="[TXT]"></td><td><a href="MoveAction.java">MoveAction.java</a></td><td align="right">26-Oct-1997 17:23  </td><td align="right">2.2K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="http://embedded.eecs.berkeley.edu/icons/unknown.gif" alt="[   ]"></td><td><a href="MoveAction.class">MoveAction.class</a></td><td align="right">26-Oct-1997 17:23  </td><td align="right">1.1K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="http://embedded.eecs.berkeley.edu/icons/text.gif" alt="[TXT]"></td><td><a href="FlashAction.java">FlashAction.java</a></td><td align="right">26-Oct-1997 17:23  </td><td align="right">2.3K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="http://embedded.eecs.berkeley.edu/icons/unknown.gif" alt="[   ]"></td><td><a href="FlashAction.class">FlashAction.class</a></td><td align="right">26-Oct-1997 17:23  </td><td align="right">1.2K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="http://embedded.eecs.berkeley.edu/icons/text.gif" alt="[TXT]"></td><td><a href="FadeAction.java">FadeAction.java</a></td><td align="right">26-Oct-1997 17:23  </td><td align="right">2.9K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="http://embedded.eecs.berkeley.edu/icons/unknown.gif" alt="[   ]"></td><td><a href="FadeAction.class">FadeAction.class</a></td><td align="right">26-Oct-1997 17:23  </td><td align="right">1.6K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="http://embedded.eecs.berkeley.edu/icons/text.gif" alt="[TXT]"></td><td><a href="Animator.java">Animator.java</a></td><td align="right">26-Oct-1997 17:23  </td><td align="right">2.2K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="http://embedded.eecs.berkeley.edu/icons/unknown.gif" alt="[   ]"></td><td><a href="Animator.class">Animator.class</a></td><td align="right">26-Oct-1997 17:23  </td><td align="right">1.3K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="http://embedded.eecs.berkeley.edu/icons/text.gif" alt="[TXT]"></td><td><a href="AnimationManager.java">AnimationManager.java</a></td><td align="right">26-Oct-1997 17:23  </td><td align="right">2.8K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="http://embedded.eecs.berkeley.edu/icons/unknown.gif" alt="[   ]"></td><td><a href="AnimationManager.class">AnimationManager.class</a></td><td align="right">26-Oct-1997 17:23  </td><td align="right">2.1K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="http://embedded.eecs.berkeley.edu/icons/text.gif" alt="[TXT]"></td><td><a href="AnimationAction.java">AnimationAction.java</a></td><td align="right">26-Oct-1997 17:23  </td><td align="right">659 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="http://embedded.eecs.berkeley.edu/icons/unknown.gif" alt="[   ]"></td><td><a href="AnimationAction.class">AnimationAction.class</a></td><td align="right">26-Oct-1997 17:23  </td><td align="right">370 </td><td>&nbsp;</td></tr>
+<tr><th colspan="5"><hr></th></tr>
+</table>
+<address>Apache/2.2.15 (Red Hat) Server at embedded.eecs.berkeley.edu Port 80</address>
+</body></html>

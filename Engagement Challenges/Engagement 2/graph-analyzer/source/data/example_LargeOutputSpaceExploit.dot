@@ -1,0 +1,80 @@
+graph "main" {
+    N1 [type="container:lol1", color="red", x=30, y=30, h=100, w=100]; 
+    N2 [type="container:lol1", color="red", x=230, y=230, h=100, w=100]; 
+    N3 [type="container:lol1", color="red", x=430, y=430, h=100, w=100]; 
+    N4 [type="container:lol1", color="red", x=630, y=630, h=100, w=100]; 
+    N5 [type="container:lol1", color="red", x=830, y=830, h=100, w=100]; 
+}
+
+graph "lol9" {
+    j1 [type="net", color="red", x=30, y=30,h=200, w=200];
+	j2 [type="net", color="red", x=230, y=230,h=200, w=200];	
+    j3 [type="net", color="red", x=430, y=430,h=200, w=200];	
+    j4 [type="net", color="red", x=630, y=630,h=200, w=200];
+    j5 [type="net", color="red", x=830, y=830,h=200, w=200];
+    j6 [type="net", color="red", x=1030, y=1030,h=200, w=200];
+    j7 [type="net", color="red", x=1230, y=1230,h=200, w=200];
+	j8 [type="net", color="red", x=1430, y=1430,h=200, w=200];
+	j9 [type="net", color="red", x=1630, y=1630,h=200, w=200];
+	j10 [type="net", color="red", x=1830, y=1830,h=200, w=200];
+}
+
+graph "lol8" {
+    k1 [type="container:lol9", color="green", x=30, y=30,h=200, w=200];
+	k2 [type="container:lol9", color="green", x=230, y=230,h=200, w=200];	
+    k3 [type="container:lol9", color="green", x=430, y=430,h=200, w=200];	
+    k4 [type="container:lol9", color="green", x=630, y=630,h=200, w=200];
+    k5 [type="container:lol9", color="green", x=830, y=830,h=200, w=200];
+    k6 [type="container:lol9", color="green", x=1030, y=1030,h=200, w=200];
+    k7 [type="container:lol9", color="green", x=1230, y=1230,h=200, w=200];
+	k8 [type="container:lol9", color="green", x=1430, y=1430,h=200, w=200];
+	k9 [type="container:lol9", color="green", x=1630, y=1630,h=200, w=200];
+	k10 [type="container:lol9", color="green", x=1830, y=1830,h=200, w=200];
+}
+
+graph "lol6" {
+    k1 [type="container:lol8", color="green", x=30, y=30,h=200, w=200];
+	k2 [type="container:lol8", color="green", x=230, y=230,h=200, w=200];	
+    k3 [type="container:lol8", color="green", x=430, y=430,h=200, w=200];	
+    k4 [type="container:lol8", color="green", x=630, y=630,h=200, w=200];
+    k5 [type="container:lol8", color="green", x=830, y=830,h=200, w=200];
+    k6 [type="container:lol8", color="green", x=1030, y=1030,h=200, w=200];
+    k7 [type="container:lol8", color="green", x=1230, y=1230,h=200, w=200];
+	k8 [type="container:lol8", color="green", x=1430, y=1430,h=200, w=200];
+	k9 [type="container:lol8", color="green", x=1630, y=1630,h=200, w=200];
+	k10 [type="container:lol8", color="green", x=1830, y=1830,h=200, w=200];
+}
+
+graph "lol5" {
+    h1 [type="container:lol6", color="green", x=30, y=30,h=200, w=200];
+	h2 [type="container:lol6", color="green", x=230, y=230,h=200, w=200];	
+    h3 [type="container:lol6", color="green", x=430, y=430,h=200, w=200];	
+    h4 [type="container:lol6", color="green", x=630, y=630,h=200, w=200];
+    h5 [type="container:lol6", color="green", x=830, y=830,h=200, w=200];
+    h6 [type="container:lol6", color="green", x=1030, y=1030,h=200, w=200];
+    h7 [type="container:lol6", color="green", x=1230, y=1230,h=200, w=200];
+	h8 [type="container:lol6", color="green", x=1430, y=1430,h=200, w=200];
+	h9 [type="container:lol6", color="green", x=1630, y=1630,h=200, w=200];
+	h10 [type="container:lol6", color="green", x=1830, y=1830,h=200, w=200];
+}
+
+graph "lol" {
+    x1 [type="container:lol5", color="green", x=30, y=30,h=200, w=200];
+	x2 [type="container:lol5", color="green", x=230, y=230,h=200, w=200];	
+    x3 [type="container:lol5", color="green", x=430, y=430,h=200, w=200];	
+    x4 [type="container:lol5", color="green", x=630, y=630,h=200, w=200];
+    x5 [type="container:lol5", color="green", x=830, y=830,h=200, w=200];
+}
+
+graph "lol1" {
+	P1[type="container:lol", color="orange", x=30, y=30,h=100, w=100];
+	P2 [type="container:lol", color="orange", x=230, y=230,h=100, w=100];
+	P3 [type="container:lol", color="orange", x=430, y=430,h=100, w=100];
+	P4 [type="container:lol", color="orange", x=630, y=630,h=100, w=100];
+	P5 [type="container:lol", color="orange", x=830, y=830,h=100, w=100];
+    P6 [type="container:lol", color="orange", x=1030, y=1030,h=200, w=200];
+    P7 [type="container:lol", color="orange", x=1230, y=1230,h=200, w=200];
+	P8 [type="container:lol", color="orange", x=1430, y=1430,h=200, w=200];
+	P9 [type="container:lol", color="orange", x=1630, y=1630,h=200, w=200];
+	P10 [type="container:lol", color="orange", x=1830, y=1830,h=200, w=200];
+}

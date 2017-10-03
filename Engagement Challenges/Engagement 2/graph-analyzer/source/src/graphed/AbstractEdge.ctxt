@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Object\ clone()
+comment1.params=s\ e
+comment1.target=void\ connect(Node,\ Node)
+comment2.target=Node\ getStart()
+comment3.target=Node\ getEnd()
+comment4.params=g2
+comment4.target=Rectangle2D\ getBounds(Graphics2D)
+comment5.target=Line2D\ getConnectionPoints()
+numComments=6

@@ -1,0 +1,41 @@
+The analyst graph visualization and modification tool is a mock-up of an analyst’s notebook (TM) like tool often used by law enforcement officers and intelligence analysts to chart their investigations and organize their thoughts. Several analysts will often be working on the same investigation, and these investigation files will be passed around the team via e-mail or file shares. Often times external, public data is also used for these investigations. To make integration with other tools easier, the application that parses and exports a modified version of the GraphViz DOT graph specification. 
+
+The current mock-up supports three main features:
+
+1) Graph visualization: The application reads in an input graph and displays it in a simple Java GUI.
+
+2) PNG conversion:  The application reads in an input graph and translates it to a PNG file. This is particularly useful for generating reports using Office products, etc.
+
+2) PostScript conversion: The application reads in an input graph and translates it to a PostScript file format. This is useful in cases where user wants to export the contents of the graph, but may want to edit/format it without rasterizing the image.
+
+
+Below are the instructions to utilize the tool:
+
+
+********* Generating PNG files *********
+
+To generate a png from the dot file use the following arguments:
+
+    dot inputFile.dot xy diagram png outputFile
+
+Your actual call will look similar to this:
+
+    java -jar GraphDisplay.jar dot inputFile.dot xy diagram png outputFile
+
+PNG output may generate more than one image file per occurrence. The
+argument you pass as 'outputFile' is the root location and file
+name. The application may generate multiple images using this root by
+appending to it.
+
+
+********* Generating PostScript files *********
+
+To generate a postscript from the dot file use the following arguments:
+
+    dot inputFile.dot xy diagram ps outputFile
+
+Your actual call will look similar to this:
+
+    java -jar GraphDisplay.jar dot inputFile.dot xy diagram ps outputFile
+
+The '.ps' extension will be added to 'outputFile' automatically.

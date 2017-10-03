@@ -1,0 +1,23 @@
+Challenge Program:
+
+    DistributedStore.jar
+
+Challenge Question:
+
+    Is there an algorithmic complexity vulnerability in time that would cause the challenge
+    program's real runtime (on the reference platform) to exceed the resource usage limit
+    given the input budget?
+
+Additional background for question:
+
+    None
+
+Input Budget:
+
+    Maximum sum of the PDU sizes of the UDP requests sent from the user to the server: 
+    1000 bytes
+    
+Resource Usage Limit:
+
+    Runtime: 30 seconds measured as the time interval between sending the last byte of the 
+    attack and the server sending the last byte of the response.

@@ -1,0 +1,39 @@
+apply plugin: 'application'
+
+sourceCompatibility = 1.7
+
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.google.code.findbugs:jsr305:1.3.9'
+    compile 'com.nanohttpd:nanohttpd:2.1.0'
+    compile 'javax.activation:activation:1.1.1'
+    compile 'javax.mail:mail:1.4.4'
+    compile 'org.slf4j:slf4j-api:1.6.1'
+
+    runtime 'org.slf4j:slf4j-simple:1.6.1'
+
+    testCompile 'junit:junit:[4.11,)'
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs << '-Xlint:all'
+}
+
+mainClassName = 'com.example.subspace.Main'
+
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
+
+test {
+    testLogging {
+        showStandardStreams = true
+    }
+}

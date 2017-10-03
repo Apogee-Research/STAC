@@ -1,0 +1,424 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="Author" CONTENT="defaultuser">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.01 [en] (Win95; I) [Netscape]">
+   <TITLE>temps\switch</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+Switchbox Algorithm</H1>
+
+<HR WIDTH="100%">
+<BR>&nbsp;
+<H2>
+Overview</H2>
+The program begins by reading in the .dot file, parsing it and mapping
+it to an array representation called <I>board </I>of the switchbox to be
+routed. For the homework example this array is given:
+<BR>&nbsp;
+<BR>&nbsp;
+<CENTER><TABLE COLS=10 WIDTH="194" BGCOLOR="#CCCCCC" >
+<TR>
+<TD>0</TD>
+
+<TD>1</TD>
+
+<TD>0</TD>
+
+<TD>2</TD>
+
+<TD>3</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>1</TD>
+
+<TD>3</TD>
+
+<TD>0</TD>
+</TR>
+
+<TR>
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>1</TD>
+</TR>
+
+<TR>
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>2</TD>
+</TR>
+
+<TR>
+<TD>7</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>4</TD>
+</TR>
+
+<TR>
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+</TR>
+
+<TR>
+<TD>2</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+</TR>
+
+<TR>
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>4</TD>
+</TR>
+
+<TR>
+<TD>7</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+</TR>
+
+<TR>
+<TD>0</TD>
+
+<TD>6</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>6</TD>
+
+<TD>3</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+
+<TD>0</TD>
+</TR>
+</TABLE></CENTER>
+&nbsp;
+
+<P>A vector <I>pinnums </I>contains the number of unrouted pins remaining
+for each net (i.e. at the beginning of the algorithm <I>pinnums</I>[1]
+= 4, since net 1 has 4 pins to be routed). Another array <I>pinlist</I>
+contains the locations of these pins with respect to the <I>board </I>array.
+
+<P>Each pass of the algorithm proceeds as follows. A pin of net <I>n</I>
+at position (<I>x1,y1</I>) is selected to route (this is done sequentially
+- first a pin from net 1 is routed, then a pin from net 2, and so on).
+Using a maze searching technique, the closest point belonging to net <I>n
+</I>on the board<I>, </I>(<I>x2,y2</I>), is located. Clearly this will
+find another pin at the beginning of the algorithm, but if two pins from
+<I>n</I> have already been routed, anywhere along the wire between them
+is acceptable as an output from the maze search. Now we consider the problem
+of routing the pin at (<I>x1,y1</I>) towards (<I>x2,y2</I>). We treat this
+as another search problem. Note that (<I>x2,y2</I>) is merely used to <I>direct</I>
+the search - the final position we route may well be a different one, but
+(<I>x2,y2</I>) is a good direction in which to aim.
+
+<P>We start investigating a path beginning at (<I>x1,y1</I>). Our initial
+direction is necessarily chosen to be perpendicular to the face of the
+switchbox upon which we are starting. Our search is rule based, employing
+simple heuristics to decide when to turn left and right, and bad moves
+are recorded so that they are never repeated. A path will continue in a
+straight line as long as doing so brings it closer to (<I>x2,y2</I>) or
+it is blocked by a via from another net. In that sense the search is similar
+to line based search, although many rules are incorporated to prevent paths
+which may prove injurious to the routing of different nets later.
+
+<P>The operation of the procedure to route (<I>x1,y1</I>) to (<I>x2,y2</I>)
+is explained in the following pseudocode:
+
+<P><U><FONT FACE="Arial,Helvetica">routeab</FONT></U>
+<BR><FONT FACE="Arial,Helvetica">initialize direction;</FONT>
+<BR><FONT FACE="Arial,Helvetica">move(direction);</FONT>
+<BR><FONT FACE="Arial,Helvetica">while(not routed){</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp; if (any adjacent position
+= valid end position)</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; move in
+the appropriate direction;</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; insert
+a via if appropriate;</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; routed
+= true;</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp; else if (no move is possible)</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mark the
+board so this position is never reached again;</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; move backwards;</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp; else if (a straight move
+is forced)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(1)</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; move forwards;</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp; else if (a straight move
+is possible and constitutes a 'good' move)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(2)</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; move forwards;</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp; else if (a right move is
+possible and constitutes a 'good' move)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(2)</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; insert
+a via;</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; move right;</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp; else if (a left move is possible
+and constitutes a 'good' move)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(2)</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; insert
+a via;</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; move left;</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp; else {</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if
+(a forward move is possible) move forward;</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else
+if (a right move is possible) move right;</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else
+if (a left move is possible) move left;</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp; }</FONT>
+<BR><FONT FACE="Arial,Helvetica">}</FONT>
+
+<P><FONT FACE="Times New Roman,Times">Note the points in the above algorithm:</FONT>
+<OL>
+<LI>
+<FONT FACE="Times New Roman,Times">1: A straight move is forced if, in
+turning, the resultant via would result in blocking another pin's entry
+into the board.</FONT></LI>
+
+<LI>
+<FONT FACE="Times New Roman,Times">2: A 'good' move is regarded simply
+as a move which brings the path closer to the solution. This simple definition
+proved sufficient to route the example given.</FONT></LI>
+</OL>
+<FONT FACE="Times New Roman,Times">When a pin is routed it is removed dynamically
+from </FONT><I>pinlist. </I>Pins are sequentially selected and routed in
+this fashion until the board is routed. For the example given there proved
+to be no need for a 'rip-up-and-reroute' facility. If such a facility were
+necessary, it could be implemented by identifying which path is pivotal
+in blocking the current path, deleting it and adding the de-routed pins
+to&nbsp;<FONT FACE="Times New Roman,Times"> </FONT><I>pinlist </I>again.
+
+<P>
+<HR WIDTH="100%">
+<BR>&nbsp;
+<H2>
+Data Structures</H2>
+There are really only three important data structures involved in the switchbox
+routing algorithm:
+<BR>&nbsp;
+<UL>
+<LI>
+<I>board</I>:&nbsp;&nbsp;&nbsp; This is an array which represents the relevant
+information about which moves are tabu during the routing of a pin. Each
+position in the array maps trivially to a position in the switchbox. It
+is initialized before each pin is routed. Values in the array denote the
+positions of vias from other routed nets, positions where only horizontal
+wiring is allowed (i.e. where a net has already been routed vertically)
+and positions where only vertical wiring is allowed. Locations which correspond
+to prerouted wires of the same net as the current pin are given special
+marking as they correspond to valid end-points of the pin-routing procedure.</LI>
+
+<LI>
+<I>pinlist</I>:&nbsp;&nbsp;&nbsp; This contains a list of all the pins
+to be routed, which is updated dynamically each time the pin-routing procedure
+is called.</LI>
+
+<LI>
+<I>paths[]</I>:&nbsp; This is an array of linked lists, each linked list
+representing the wiring of either a pin to another pin or a pin to its
+corresponding net. Each list node in the linked list corresponds to a position
+on the board, and is declared as follows:</LI>
+
+<UL><FONT FACE="Arial,Helvetica">public class listnode{</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp;&nbsp; int xpos, ypos;&nbsp;&nbsp;
+// where on the circuit is it</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp;&nbsp; boolean up;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// up layer or down layer</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp;&nbsp; boolean block;&nbsp;&nbsp;
+// does it block (is it a via)</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp;&nbsp; int net;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// what net does it correspond to</FONT>
+<BR><FONT FACE="Arial,Helvetica">&nbsp;&nbsp;&nbsp; listnode link;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// next node on the list</FONT>
+<BR><FONT FACE="Arial,Helvetica">}</FONT></UL>
+</UL>
+
+<HR WIDTH="100%">
+<H2>
+Conclusion and Evaluation</H2>
+<I>Why did you make these design decisions</I>:
+<BR>In reality it was not very clear to me the purpose of the assignment;
+whether it was to be an exercise in programming or an exercise in router
+design. If the former, I would simply have found a paper on switchbox routing
+and implemented the routines therein. I favored the latter idea as it would
+give me a chance to investigate my own routing strategies. The router I
+implemented is not very sophisticated but it does use sensible rules to
+reach its goal. The decision not to support rip-up-and-reroute was purely
+motivated by the fact that the example given did not require it, but I
+would be happy to try to incorporate it in a later assignment.
+
+<P><I>A short description of your experience with implementing the algorithm,
+programming in Java, etc...:</I>
+<BR>The homework assignment was, I felt, very long and I don't think this
+was as clear to the TA as it proved to be for the students afterwards.
+Not knowing Java before was, of course, a hindrance, and I really feel
+a class devoted to the TA discussing (a) Java fundamentals, and (b) the
+graph package we were supposed to use as our framework would have saved
+everyone a great deal of time. Having said this I certainly learned quite
+a bit of Java, but my code is sub-optimal - for the most part I tried to
+treat Java as though it were C, thereby missing out on the advantageous
+features which Java supports.
+
+<P><I>Second assignment:</I>
+<BR>The second assignment should be less lengthy, I feel. What I would
+like to implement is an on-line router wherein the user may specify an
+arbitrary pin configuration in a switchbox of arbitrary dimension. This
+would really test our routing algorithms to the full.
+
+<P>
+<HR WIDTH="100%">
+<BR>&nbsp;<FONT SIZE=-1><A HREF="http://www-cad.eecs.berkeley.edu/~awrixon/route/SimpleRouter.html">Return
+to the switchbox router</A></FONT>
+</BODY>
+</HTML>

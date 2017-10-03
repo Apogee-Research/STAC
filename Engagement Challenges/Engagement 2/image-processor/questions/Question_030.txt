@@ -1,0 +1,20 @@
+Challenge Program:
+
+    ipchallenge-0.1.jar
+
+Challenge Question:
+
+    Is there an algorithmic complexity vulnerability in space that would cause the memory usage 
+    of the challenge program to exceed the resource usage limit given the input budget?
+
+Additional background for question:
+
+    None
+
+Input Budget:
+
+    Total size of input commands to the challenge program including the classification image files submitted: 70000 bytes
+    
+Resource Usage Limit:
+
+    Available Memory: 2048 MB (total memory usage of the JVM shown under the RSS column in pmap -x <PID>)

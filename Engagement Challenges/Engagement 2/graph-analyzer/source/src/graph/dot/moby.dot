@@ -1,0 +1,14 @@
+digraph moby {
+	main -> viewer1
+	main -> viewer2
+	main -> ZoomCursor
+	viewer2 -> ZoomCursor
+	viewer2 -> flatSep
+	viewer1 -> coneSep
+	main -> flatSep
+	main -> coneSep
+	main -> domain -> filterPalette
+	main -> filterBank
+	main -> GUI
+}
+

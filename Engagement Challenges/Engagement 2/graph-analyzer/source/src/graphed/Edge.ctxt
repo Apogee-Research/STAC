@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.params=g2
+comment0.target=void\ draw(Graphics2D)
+comment0.text=\nDraw\ the\ edge.\n@param\ g2\ the\ graphics\ context\n\n
+comment1.params=aPoint
+comment1.target=boolean\ contains(Point2D)
+comment1.text=\nTests\ whether\ the\ edge\ contains\ a\ point.\n@param\ aPoint\ the\ point\ to\ test\n@return\ true\ if\ this\ edge\ contains\ aPoint\n\n
+comment2.params=aStart\ anEnd
+comment2.target=void\ connect(Node,\ Node)
+comment2.text=\nConnects\ this\ edge\ to\ two\ nodes.\n@param\ aStart\ the\ starting\ node\n@param\ anEnd\ the\ ending\ node\n\n
+comment3.target=Node\ getStart()
+comment3.text=\nGets\ the\ starting\ node.\n@return\ the\ starting\ node\n\n
+comment4.target=Node\ getEnd()
+comment4.text=\nGets\ the\ ending\ node.\n@return\ the\ ending\ node\n\n
+comment5.target=Line2D\ getConnectionPoints()
+comment5.text=\nGets\ the\ points\ at\ which\ this\ edge\ is\ connected\ to\nits\ nodes.\n@return\ a\ line\ joining\ the\ two\ connection\ points\n\n
+comment6.params=g2
+comment6.target=Rectangle2D\ getBounds(Graphics2D)
+comment6.text=\nGets\ the\ smallest\ rectangle\ that\ bounds\ this\ edge.\nThe\ bounding\ rectangle\ contains\ all\ labels.\n@return\ the\ bounding\ rectangle\n\n
+comment7.target=Object\ clone()
+numComments=8

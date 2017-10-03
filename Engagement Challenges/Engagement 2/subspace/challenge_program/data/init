@@ -1,0 +1,160 @@
+#!/bin/sh
+
+# Utility functions
+pecho() { printf %s\\n "$*"; }
+log() { pecho "$@"; }
+error() { log "ERROR: $@" >&2; }
+fatal() { error "$@"; exit 1; }
+try() { "$@" || fatal "'$@' failed"; }
+
+# Run a command as another user.
+# Usage: run_as <user> <command> [<args>...]
+run_as() {
+    run_as_user="$1"
+    shift || fatal "missing run-as user"
+
+    runuser -u "$run_as_user" -- "$@"
+}
+
+# Run a job in the background.
+# Usage: add_job <name> <user> <command> [<args>...]
+#     <name> is the name of the job, one word
+#     <user> is the username to run the job as, or "-" for the current user
+add_job() {
+    add_job_name="$1"
+    shift || fatal "missing job name"
+
+    add_job_user="$1"
+    shift || fatal "missing job user"
+
+    add_job_log="${INIT_LOG_DIR}/${add_job_name}.log"
+
+    case "$add_job_user" in
+        -)
+            "$@" > "${add_job_log}" 2>&1 &
+            ;;
+
+        *)
+            runuser -u "$add_job_user" -- "$@" \
+                > "${add_job_log}" 2>&1 < /dev/null &
+            ;;
+    esac
+}
+
+
+# Start basic system components.
+try rsyslogd
+
+try dbus-uuidgen --ensure
+try mkdir /var/run/dbus
+try dbus-daemon --system
+
+
+# Start the mail system.
+try /usr/libexec/postfix/aliasesdb
+try /usr/libexec/postfix/chroot-update
+try postfix start
+
+
+# Start the app itself.
+log "starting subspace app"
+umask 006
+add_job app "${APP_USER}" \
+    java -cp "${APP_JAR_DIR}/*" "${APP_MAIN_CLASS}" "${APP_CONFIG_FILE}"
+try sleep 1
+
+# Start stunnel to give us HTTPS.
+log "starting stunnel"
+run_as "${APP_USER}" stunnel "${STUNNEL_CONFIG_DIR}"/stunnel.conf
+
+
+# Pre-configure the app:
+# Create list of users.
+log "pre-configuring subspace app"
+app_user_info="`mktemp`" || fatal "could not create temporary file"
+for line in \
+    "test1 password stac+test1@localhost -89.99999 179.99999" \
+    "test2 password stac+test2@localhost 0.00001 -0.00001" \
+    "test3 password stac+test3@localhost -89.99999 -0.00001" \
+    "test4 password stac+test4@localhost 0.00001 179.99999" \
+    ;
+do
+    pecho "$line" >> "$app_user_info" \
+        || fatal "could not append to $app_user_info"
+done
+
+# Register the users.
+while read -r username password email latitude longitude; do
+    uri="https://localhost:8443/register"
+    uri="${uri}?username=${username}"
+    uri="${uri}&password=${password}"
+    uri="${uri}&email=$(pecho "${email}" | sed 's/+/%2B/g')"
+    try curl --insecure "${uri}" > /dev/null 2>&1
+done < "$app_user_info"
+sleep 1
+
+# Confirm the registrations.
+for uri in \
+    $(grep '^https://localhost:8443/confirm?token=[a-z0-9-]\+$' "/var/mail/${FRONTEND_USER}") \
+    ;
+do
+    try curl --insecure "${uri}" > /dev/null 2>&1
+done
+sleep 1
+
+# Set the user locations.
+while read -r username password email latitude longitude; do
+    uri="https://localhost:8443/update-location"
+    uri="${uri}?username=${username}"
+    uri="${uri}&password=${password}"
+    uri="${uri}&lat=${latitude}"
+    uri="${uri}&lon=${longitude}"
+    try curl --insecure "${uri}" > /dev/null 2>&1
+done < "$app_user_info"
+sleep 1
+
+
+# Start the frontend.
+# umask 022   # back to normal
+# run_as "${FRONTEND_USER}" vncserver \
+#     "${VNC_DISPLAY}" \
+#     -rfbport "${VNC_PORT}" \
+#     -rfbauth "${VNC_PASS_FILE}" \
+#     -geometry "${VNC_RESOLUTION}" \
+#     || fatal "could not start vncserver"
+
+
+# Help the user get started.
+log "================================================================"
+#log "For testing purposes, Subspace is pre-configured with the"
+#log "following users:"
+#log
+#log "    username password email-address initial-location"
+#log "    ------------------------------------------------"
+#while read -r username password email latitude longitude; do
+#    log "    ${username} ${password} ${email} @${latitude},${longitude}"
+#done < "$app_user_info"
+#log
+log "To start, check your mail using the 'mailx' or 'mutt' program."
+log "Initially, you'll see all the emails from the creation of the "
+log "above users. Read one of the \"Welcome\"" "messages to learn how "
+log "to use Subspace."
+log
+log "If you want to create more users, the system is set up so you"
+log "receive mail for all email addresses of the form"
+log "user+foo@localhost. Remember that '+' needs to be url-encoded as"
+log "'%2B' when passed as a parameter over HTTPS. For example, you"
+log "could visit the following URL to register a new user:"
+log
+log "    https://localhost:8443/register?username=kirk&password=kirkisawesome&email=user%2Bkirk@localhost"
+log
+log "Then check your mail again, and follow the instructions."
+log
+log "Most operations can be run more conveniently using the scripts "
+log "provided in the examples/ directory."
+log "================================================================"
+
+
+# Give the user a shell.
+login_user=$(cat /usr/local/etc/login-user)
+cd /home/"$login_user" && runuser -u "$login_user" -- /bin/bash -l

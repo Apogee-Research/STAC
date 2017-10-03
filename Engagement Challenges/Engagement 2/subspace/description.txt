@@ -1,0 +1,41 @@
+Overview
+========
+Are you the captain of a starship? Do you wish you could send anonymous hails to nearby starships? 
+Maybe you're a Federation vessel with damaged warp nacelles and you want to suss out whether a 
+nearby vessel is trustworthy before you ask for assistance? Or maybe you're a Ferengi trading ship 
+and want to advertise your wares before people see your ears and jump to conclusions? Either way, 
+Subspace has you covered.
+
+Subspace is an anonymous, local messaging server. Registered users provide their locations to the server. 
+When a user wants to send a message, the message is anonymously delivered to the nearest other user. At 
+this point, the two users can continue to communicate anonymously for as long as they wish, even if they 
+are no longer nearby.
+
+Interactions
+============
+Users can register by creating a username and password and providing an email address. After registration,
+users receive a confirmation email with instructions on confirming the registration. After confirmation, 
+users can set their locations and hail (send a message to) the nearest starship (application user).
+
+All valid user clients connect on port 8443
+
+Examples of user interactions are provided in the examples directory
+
+Engagement Tools
+================
+A full deployment involves setting up a fair bit of infrastructure, but the Docker image contains everything 
+you need. Instructions for use are provided when you start the container. 
+
+The Docker image sets up a mail server and client to be used for the application.
+
+Notes
+=====
+When the Docker container is started the application will be started and users will be added to seed the 
+application to a realistic state. It is recommended that you use the scripts in the examples directory for
+the user interactions (registration, confirmation, setting/updating a user's location).
+
+The Docker image uses ports 8080, 8443 and 2525. Ensure those ports are not in use prior to starting the container.
+
+The files located in the /home/subspace within the Docker container and the challenge_program directory
+are used to seed the application to a realistic state. The contents of these files are out of scope for the
+challenge program.

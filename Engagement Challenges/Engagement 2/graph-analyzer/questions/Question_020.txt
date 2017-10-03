@@ -1,0 +1,23 @@
+Challenge Program:
+
+    GraphDisplay.jar
+
+Challenge Question:
+
+    Is there an algorithmic complexity vulnerability in time that would cause the challenge
+    program's real runtime (on the reference platform) to exceed the resource usage limit
+    given the input budget?
+
+Additional background for question:
+
+    None
+
+Input Budget:
+
+    Total size of input file (or files): 5000 bytes
+    
+Resource Usage Limit:
+
+    Runtime: 1 hour measured from the submission of the last byte of input to the completion
+             of the command execution. 
+

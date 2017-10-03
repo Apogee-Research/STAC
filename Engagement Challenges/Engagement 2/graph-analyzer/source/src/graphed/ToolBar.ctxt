@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=graph
+comment0.target=ToolBar(Graph)
+comment0.text=\nConstructs\ a\ tool\ bar\ with\ no\ icons.\n\n
+comment1.target=Object\ getSelectedTool()
+comment1.text=\nGets\ the\ node\ or\ edge\ prototype\ that\ is\ associated\ with\nthe\ currently\ selected\ button\n@return\ a\ Node\ or\ Edge\ prototype\n\n
+comment2.params=n
+comment2.target=void\ add(Node)
+comment2.text=\nAdds\ a\ node\ to\ the\ tool\ bar.\n@param\ n\ the\ node\ to\ add\n\n
+comment3.params=e
+comment3.target=void\ add(Edge)
+comment3.text=\nAdds\ an\ edge\ to\ the\ tool\ bar.\n@param\ n\ the\ edge\ to\ add\n\n
+numComments=4

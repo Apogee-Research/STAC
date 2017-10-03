@@ -1,0 +1,23 @@
+# global variables
+pageTitle = "Main Menu"
+bodyBgColor = #000000
+tableBgColor = #000000
+rowBgColor = #00ff00
+
+[Customer]
+pageTitle = "Customer Info"
+
+[Login]
+pageTitle = "Login"
+focus = "username"
+Intro = """This is a value that spans more
+           than one line. you must enclose
+           it in triple quotes."""
+
+# hidden section
+[.Database]
+host=my.example.com
+db=ADDRESSBOOK
+user=php-user
+pass=foobar
+permoverride=0

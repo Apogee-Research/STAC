@@ -1,0 +1,1550 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="Author" CONTENT="defaultuser">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.01 [en] (Win95; I) [Netscape]">
+   <TITLE>temps\code</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+<FONT FACE="Times New Roman,Times"><FONT SIZE=+2>Source Code for SimpleRouter.java</FONT></FONT></H1>
+
+<HR WIDTH="100%"><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>//package cgen;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>import java.awt.*;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>import java.applet.*;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>import java.io.*;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>import graph.*;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>import graph.test.*;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>import graph.editor.*;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>import graph.layout.*;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>import graph.cluster.*;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>import graph.layer.*;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>import graph.dot.*;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>import graph.filter.*;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>import graph.rep.*;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>import graph.dot.*;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>import java.util.*;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>import java.net.URL;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>&nbsp;<FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>/**</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;* A switchbox
+routing tool.</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;*</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;* Written by Adrian
+Wrixon, 97.</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;*</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;* @version $Id$</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;*/</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>public class SimpleRouter
+extends Applet implements Runnable{</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; Image
+offscreenImg;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; Graphics
+offscreenG;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;Editor m_editor
+= new Editor(null);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; public
+int xdim = 0, ydim = 0, num_nets=0, num_pins=0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; public
+int board[][] = new int[20][20];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; public
+listnode movelist = new listnode();</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; public
+int xpos=0, ypos=0, moves=0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; public
+listnode drawnode = new listnode();</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; int
+mag = 30, xoff = 70, yoff = 70;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; boolean
+go = false;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; Thread
+runner;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;/**</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp; * Initialize
+the graph from a file.</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp; */</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;public void start(){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+if (runner==null) {</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+runner =new Thread(this);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+runner.start();</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;}</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;public void stop(){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+if (runner!=null) {</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+runner.stop();</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+runner=null;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;}</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp; public void
+destroy(){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+runner.stop();</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;}</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;public void init()
+{</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+resize(400,400);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+setBackground(Color.black);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp; //add("Center",
+m_editor);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenImg = createImage(this.size().width,this.size().height);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG=offscreenImg.getGraphics();</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.setColor(Color.black);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(0,0,this.size().width,this.size().height);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp; setLayout(null);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp; addNotify();</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp; //}}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; public
+void run(){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+try {</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+/* Uncomment this line if you want to use the web version. */</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+String input_file = getParameter("file");</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+URL url = new URL(input_file);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+org.graph.commons.logging.LogFactory.getLog(null).info("input file = " + input_file);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DataInputStream data = new DataInputStream(url.openStream());</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+m_editor.graph = DotParser.parse(data);</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+m_editor.graph = DotParser.parse(new DataInputStream(new FileInputStream("data"
++ File.separator + "switchbox.dot")));</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+while(true){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (!go){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+route(m_editor.graph);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xdim = 0; ydim = 0; num_nets=0; num_pins=0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist = new listnode();</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xpos=0; ypos=0; moves=0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for (int i=0;i&lt;=19;i++){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for (int j=0;j&lt;=19;j++){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+board[i][j]=0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+go = true;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+while(go){};</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.setColor(Color.black);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(0,0,this.size().width,this.size().height);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+repaint();</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+catch(Exception e) {</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+org.graph.commons.logging.LogFactory.getLog(null).info(e);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+System.exit(0);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>&nbsp;<FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; public
+void paint(Graphics g){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+g.drawImage(offscreenImg,0,0,this);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; public
+void update(Graphics g){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+paint(g);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; /**</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+* Perform a hacky post-processing on the graph so that</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+* it looks nice.&nbsp; This is a total hack to show how to</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+* manipulate the graph.&nbsp; Traverse the graph and send routables</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+* and unroutables to the back and color them funny.</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+* Figure out where to place "net" nodes and make them</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+* invisible. &lt;p></FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+*</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+* This routine could also be used to build some auxiliary</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+* data structure, but there are probably more elegant ways</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+* to do it...</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+*/</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; void
+hackPostProcess(Graph g) {</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for(int i = 0; i &lt; g.nodes.size(); i++) {</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Node n = (Node)g.nodes.elementAt(i);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+String type = getType(n);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if(type == null) {</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+n.rep.fill = Color.orange;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+n.w = 10;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+n.h = 10;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; org.graph.commons.logging.LogFactory.getLog(null).info("XXX null
+type property");</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+/* ignore? */</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if(type.equals("net")) {</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+n.rep.show = false;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for(Enumeration e = n.out.elements(); e.hasMoreElements();) {</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Node n2 = ((Edge)e.nextElement()).head;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if(type.equals("terminal")) {</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+n.rep.fill = Color.blue;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if(type.equals("routable")) {</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+n.rep.fill = Color.yellow;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if(type.equals("unroutable")) {</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+n.rep.fill = Color.gray;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else {</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; org.graph.commons.logging.LogFactory.getLog(null).info("XXX unknown
+type");</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+/* ignore for now? */</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+void route(Graph g) {</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+listnode paths[] = new listnode[20];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int counter = 0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int net[] = new int[100];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int position[][] = new int[100][2];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int pinlist[][] = new int[10][20];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int pinnums[]=new int[10];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int freshboard[][] = new int[20][20];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>&nbsp;<FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for(int i = 0; i &lt; 19; i++){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+paths[i]=null;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for(int i = 0; i &lt; 9; i++){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pinnums[i]=0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for(int i = 0; i &lt; g.nodes.size(); i++) {</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Node n = (Node)g.nodes.elementAt(i);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+String type = getType(n);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if(type == null) {</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if(type.equals("net")) {</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+n.rep.show = false;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for(Enumeration e = n.out.elements(); e.hasMoreElements();) {</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Node n2 = ((Edge)e.nextElement()).head;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int a = Integer.parseInt(n2.name.substring(1));</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+position[counter][0] = a;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int b = Character.digit(n2.name.charAt(0),16)-9;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+position[counter][1] = b;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int c = Integer.parseInt(n.name.substring(1));</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+net[counter] = c;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (iftrue((b==1|b==3)&amp;(a>xdim)) == 1)</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xdim = a;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (iftrue((b==2|b==4)&amp;(a>ydim)) == 1)</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ydim = a;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+num_nets = iftrue(net[counter]&lt;num_nets)*num_nets + iftrue(net[counter]>=num_nets)*net[counter];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+counter ++;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// Build the circuit to be routed in grid format</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xdim = xdim + 1;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ydim = ydim + 1;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp; //&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+org.graph.commons.logging.LogFactory.getLog(null).info(xdim);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp; //&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+org.graph.commons.logging.LogFactory.getLog(null).info(ydim);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp; //&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+org.graph.commons.logging.LogFactory.getLog(null).info(num_nets);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for (int i=0 ; i&lt;= counter &amp; net[i]!=0 ; i++){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int xindex = iftrue((position[i][1]==1)|(position[i][1]==3))*(position[i][0]);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xindex = xindex + iftrue(position[i][1]==4) * xdim;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int yindex = iftrue((position[i][1]==2)|(position[i][1]==4))*(position[i][0]);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+yindex = yindex + iftrue(position[i][1]==3) * ydim;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+board[yindex][xindex]=net[i];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pinlist[net[i]][pinnums[net[i]]*2]=yindex;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pinlist[net[i]][pinnums[net[i]]*2+1]=xindex;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pinnums[net[i]]++;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+num_pins++;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for (int i=0;i&lt;=ydim;i++){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for(int j=0;j&lt;=xdim;j++){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+freshboard[i][j]=board[i][j];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>//&nbsp;&nbsp;&nbsp;&nbsp;
+show_board();</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>//&nbsp;&nbsp;&nbsp;&nbsp;
+show_pinlist(pinlist,pinnums);</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; //
+set up the screen</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; Font
+f = new Font("TimesRoman",Font.BOLD,18);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; offscreenG.setFont(f);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; int
+width = 10;</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; for
+(int k=1; k&lt;xdim ; k++){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.setColor(Color.red);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int xpost = k*mag+xoff;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int ypost = k*mag+yoff;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.setColor(Color.red);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(xpost-width,yoff-2*width,width,width);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(xpost-width,ydim*mag+yoff,width,width);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.setColor(Color.blue);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(xoff-2*width,ypost-width,width,width);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(xdim*mag+yoff,ypost-width,width,width);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.setColor(Color.black);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(xpost-width+2,yoff-2*width+2,width-4,width-4);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(xpost-width+2,ydim*mag+yoff+2,width-4,width-4);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(xoff-2*width+2,ypost-width+2,width-4,width-4);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(xdim*mag+yoff+2,ypost-width+2,width-4,width-4);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; offscreenG.setColor(Color.white);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; for
+(int k=1; k&lt;=num_nets; k++){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for (int j=0; j&lt;pinnums[k]; j++){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int ypost = pinlist[k][j*2];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int xpost = pinlist[k][j*2+1];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xpost = xpost*mag+xoff-width;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ypost = ypost*mag+yoff;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (xpost == xoff-width){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xpost = xpost-2*width;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if(xpost == (xdim)*mag+xoff-width){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xpost = xpost+2*width+2;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if(ypost == yoff){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ypost = ypost-2*width-2;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if(ypost == (ydim)*mag+yoff){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ypost = ypost+2*width+3;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.drawString(String.valueOf(k),xpost,ypost);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; offscreenG.setColor(Color.white);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; offscreenG.drawRect(xoff-width,yoff-width,xdim*mag+width,ydim*mag+width);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; makeborder(0,0,400,400,20);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; repaint();</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; go
+= false;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; while(true){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+if (go){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break;}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// Route the board!</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+boolean routed = false;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int i=0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+boolean second_time_around = false;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+while(!routed){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int count = 0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (i==num_nets){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+second_time_around = true;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+i = (i%num_nets)+1;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (pinnums[i]>0){</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// select pin to route</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ypos = pinlist[i][(pinnums[i]-1)*2];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xpos = pinlist[i][(pinnums[i]-1)*2+1];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; //&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+org.graph.commons.logging.LogFactory.getLog(null).info("Starting at "+ypos+", "+xpos);</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// set up the board constraints</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for (int j=0;j&lt;=ydim;j++){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for (int k=0;k&lt;=xdim;k++){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+board[j][k]=freshboard[j][k];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//reset board</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+setupboard(i,paths);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for (int k=0;k&lt;=xdim;k++){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+board[0][k]=freshboard[0][k];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+board[ydim][k]=freshboard[ydim][k];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if(second_time_around &amp; board[ydim][k]==i){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+board[ydim][k]=0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if(second_time_around &amp; board[0][k]==i){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+board[0][k]=0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for (int k=0;k&lt;=ydim;k++){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+board[k][0]=freshboard[k][0];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+board[k][xdim]=freshboard[k][xdim];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if(second_time_around &amp; board[k][xdim]==i){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+board[k][xdim]=0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if(second_time_around &amp; board[k][0]==i){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+board[k][0]=0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; //&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+show_board();</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// select where to route it to</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int pos = findwheretorouteto(i);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int xpos1 = (pos-1)%(ydim+1);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int ypos1 = (pos-1)/(ydim+1);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp; //&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+org.graph.commons.logging.LogFactory.getLog(null).info("Found at"+ypos1+" "+xpos1);</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// find a valid routing</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int free_entry = firstfree(paths);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+paths[free_entry]=routeab(ypos1,xpos1,i,paths);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// delete the pin(s) from the list of pins to route</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pinnums[i]=pinnums[i]-1;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for(int k=0;k&lt;=pinnums[i];k++){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int temp1 = pinlist[i][k*2];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int temp2 = pinlist[i][k*2+1];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (temp1==paths[free_entry].ypos &amp; temp2==paths[free_entry].xpos){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pinlist[i][k*2] = pinlist[i][(pinnums[i]-1)*2];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pinlist[i][k*2+1] = pinlist[i][(pinnums[i]-1)*2+1];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pinlist[i][(pinnums[i]-1)*2]=temp1;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pinlist[i][(pinnums[i]-1)*2+1]=temp2;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pinnums[i]=pinnums[i]-1;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+showpaths(paths);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+repaint();</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+try{Thread.sleep(100);}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+catch (InterruptedException e){}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// or else rip up for rerouting</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+routed = true;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for(int k=1;k&lt;num_nets;k++){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (pinnums[k]>0)</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+routed = false;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+showpaths(paths);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+repaint();</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;}</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;void makeborder(int
+x1,int y1,int x2,int y2,int wid){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+Color c1 = new Color(140,140,140);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+Color c2 = new Color(180,180,180);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+Color c3 = new Color(220,220,220);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.setColor(c2);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(x1,y1,wid,y2-y1);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(x1,y1,x2-x1,wid);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(x1,y2-wid,x2-x1,y2);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(x2-wid,y1,x2,y2-y1);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.setColor(c3);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+for (int i=0;i&lt;=4;i++){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.setColor(c3);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.drawLine(x1+i,y1+i,x1+i,y2-i);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.drawLine(x1+i,y1+i,x2-i,y1+i);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.drawLine(x2-wid+i,y1+wid-i,x2-wid+i,y2-wid+i);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.drawLine(x1+wid-i,y2-wid+i,x2-wid+i,y2-wid+i);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.setColor(c1);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.drawLine(x2-i,y1+i,x2-i,y2-i);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.drawLine(x1+i,y2-i,x2-i,y2-i);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.drawLine(x1+wid-i,y1+wid-i,x1+wid-i,y2-wid+i);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.drawLine(x1+wid-i,y1+wid-i,x2-wid+i,y1+wid-i);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>&nbsp;<FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; void
+showpaths(listnode paths[]){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+listnode a;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int i=0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int width=10;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+while (paths[i]!=null){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; org.graph.commons.logging.LogFactory.getLog(null).info(paths[i].net);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for(a=paths[i];a.link!=null;a=a.link){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int xpos1 = a.xpos*mag+xoff;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int ypos1 = a.ypos*mag+yoff;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int xpos2 = a.link.xpos*mag+xoff;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int ypos2 = a.link.ypos*mag+yoff;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (ypos1&lt;ypos2){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.setColor(Color.red);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(xpos1-width,ypos1-width,xpos2-xpos1+width,ypos2-ypos1+width);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if (xpos1&lt;xpos2){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.setColor(Color.blue);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(xpos1-width,ypos1-width,xpos2-xpos1+width,ypos2-ypos1+width);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if(ypos2&lt;ypos1){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.setColor(Color.red);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(xpos2-width,ypos2-width,xpos1-xpos2+width,ypos1-ypos2+width);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if(xpos2&lt;xpos1){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.setColor(Color.blue);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(xpos2-width,ypos2-width,xpos1-xpos2+width,ypos1-ypos2+width);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (a.block==true){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.setColor(Color.yellow);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(xpos1-width,ypos1-width,width,width);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.setColor(Color.black);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(xpos1-width+2,ypos1-width+2,width-4,width-4);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+i++;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.setColor(Color.white);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.drawRect(xoff-width,yoff-width,xdim*mag+width,ydim*mag+width);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; void
+showlist(listnode dlist){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+listnode a;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int width = 10;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.setColor(getBackground());</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(xoff,yoff,(xdim-1)*mag,(ydim-1)*mag);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for(a=dlist;a.link!=null;a=a.link){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int xpos1 = a.xpos*mag+xoff;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int ypos1 = a.ypos*mag+yoff;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int xpos2 = a.link.xpos*mag+xoff;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int ypos2 = a.link.ypos*mag+yoff;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (ypos1&lt;ypos2){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.setColor(Color.red);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(xpos1-width,ypos1-width,xpos2-xpos1+width,ypos2-ypos1+width);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if (xpos1&lt;xpos2){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.setColor(Color.blue);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(xpos1-width,ypos1-width,xpos2-xpos1+width,ypos2-ypos1+width);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if(ypos2&lt;ypos1){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.setColor(Color.red);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(xpos2-width,ypos2-width,xpos1-xpos2+width,ypos1-ypos2+width);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if(xpos2&lt;xpos1){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.setColor(Color.blue);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+offscreenG.fillRect(xpos2-width,ypos2-width,xpos1-xpos2+width,ypos1-ypos2+width);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp; }</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; int
+firstfree(listnode paths[]){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int i = 0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+while(true){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (paths[i]!=null){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+i++;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else{</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(i);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; void
+setupboard(int netnumber,listnode paths[]){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for(int i=0;i&lt;num_pins;i++){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (paths[i]!=null){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for(listnode a=paths[i];a!=null;a=a.link){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (a.net == netnumber){ //i.e. if this path is the same type as the net
+to be routed</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+board[a.ypos][a.xpos] = netnumber;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else{</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (a.block){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+board[a.ypos][a.xpos] = -1; // node blocked</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if(a.up){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (board[a.ypos][a.xpos] == -3){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+board[a.ypos][a.xpos] = -1;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else{</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+board[a.ypos][a.xpos] = -2; // up only</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if(!(a.up)){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (board[a.ypos][a.xpos] == -2){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+board[a.ypos][a.xpos] = -1;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else{</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+board[a.ypos][a.xpos] = -3; // down only</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; listnode
+routeab(int ypos1, int xpos1, int netnumber, listnode paths[]){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+boolean stumbled_on_answer=false;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int xdir = 0, ydir = 0, temp =0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+moves = 0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist = new listnode();</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.xpos = xpos;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.ypos = ypos;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.net = netnumber;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.link = null;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// initialise direction</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (ypos == 0){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xdir = 0; ydir = 1;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if (xpos == 0){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xdir = 1; ydir = 0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if (ypos == xdim){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xdir = 0; ydir = -1;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else{</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xdir = -1; ydir = 0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.up = Math.abs(ydir) == 1;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.block = false;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movepos(xdir,ydir,netnumber);</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+while (!( xpos==xpos1 &amp; ypos==ypos1)&amp;!(stumbled_on_answer)){</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+showlist(movelist);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+showpaths(paths);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+repaint();</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+try{Thread.sleep(100);}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+catch (InterruptedException e){}</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+boolean st = forcestraight(xdir,ydir,xpos1,ypos1);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (st){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.block = false;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int p_straight = ispossiblemove(xdir,ydir,netnumber);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int p_right = ispossiblemove(-ydir,xdir,netnumber);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int p_left = ispossiblemove(ydir,-xdir,netnumber);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (p_straight == 2){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+st = true;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+stumbled_on_answer=true;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (p_right == 2){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+temp = xdir;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xdir = -ydir;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ydir = temp;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.block = true;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+st = true;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+stumbled_on_answer=true;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (p_left == 2){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+temp = ydir;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ydir = -xdir;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.block = true;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xdir = temp;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+st = true;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+stumbled_on_answer=true;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; //&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+org.graph.commons.logging.LogFactory.getLog(null).info(xpos+","+ypos+" -> "+xpos1+","+ypos1);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; //&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+org.graph.commons.logging.LogFactory.getLog(null).info(p_left+" "+p_straight+" "+p_right);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (!(p_straight>=1|p_right>=1|p_left>=1)){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; //&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+org.graph.commons.logging.LogFactory.getLog(null).info("1");</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// move backwards</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+board[ypos][xpos]= -1;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xpos = xpos - xdir;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ypos = ypos - ydir;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist = movelist.link;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+moves--;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (st){&nbsp; // if a straight move is forced</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; //&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+org.graph.commons.logging.LogFactory.getLog(null).info("2");</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// move forwards</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.up = Math.abs(ydir) == 1;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movepos(xdir,ydir,netnumber);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (p_straight==1 &amp; isgoodmove(xpos1,ypos1,xdir,ydir)){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; //&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+org.graph.commons.logging.LogFactory.getLog(null).info("3");</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// move forwards</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.up = Math.abs(ydir) == 1;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.block = false;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movepos(xdir,ydir,netnumber);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if(p_right==1 &amp; isgoodmove(xpos1,ypos1,-ydir,xdir)){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; //&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+org.graph.commons.logging.LogFactory.getLog(null).info("4");</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// change direction and move</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+temp = xdir;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xdir = -ydir;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ydir = temp;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.up = Math.abs(ydir) == 1;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.block = true;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movepos(xdir,ydir,netnumber);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if(p_left==1 &amp; isgoodmove(xpos1,ypos1,ydir,-xdir)){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; //&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+org.graph.commons.logging.LogFactory.getLog(null).info("5");</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// change direction and move</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+temp = xdir;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xdir = ydir;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ydir = -temp;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.up = Math.abs(ydir) == 1;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.block = true;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movepos(xdir,ydir,netnumber);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else{</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; org.graph.commons.logging.LogFactory.getLog(null).info("6");</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (p_straight==1){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// move forwards</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.up = Math.abs(ydir) == 1;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.block = false;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movepos(xdir,ydir,netnumber);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if(p_right==1){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// change direction and move</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+temp = xdir;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xdir = -ydir;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ydir = temp;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.up = Math.abs(ydir) == 1;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.block = true;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movepos(xdir,ydir,netnumber);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if(p_left==1){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// change direction and move</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+temp = xdir;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xdir = ydir;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ydir = -temp;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.up = Math.abs(ydir) == 1;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.block = true;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movepos(xdir,ydir,netnumber);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (xpos==0 | ypos==0 | xpos==xdim | ypos==ydim){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.block=false;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else{</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist.block=true;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(movelist);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; boolean
+forcestraight(int xdir, int ydir, int xpos1, int ypos1){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// don't turn if the resulting via blocks a pin's entry</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (xpos==1 &amp; board[ypos][0] != 0 &amp; Math.abs(ydir) == 1){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(true);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if(ypos==1 &amp; board[0][xpos] != 0 &amp; Math.abs(xdir) == 1){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(true);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if(xpos==xdim-1 &amp; board[ypos][xdim] != 0 &amp; Math.abs(ydir)
+== 1){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(true);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if(ypos==ydim-1 &amp; board[ydim][xpos] != 0 &amp; Math.abs(xdir)
+== 1){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(true);</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if (xpos==1 &amp; xpos1==0 &amp; xdir == 1){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(true);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if(ypos==1 &amp; ypos1==0 &amp; ydir == 1){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(true);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if(xpos==xdim-1 &amp; xpos1==xdim &amp; xdir == -1){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(true);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if(ypos==ydim-1 &amp; ypos1==ydim &amp; ydir == -1){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(true);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else{</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(false);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; void
+movepos(int xdir, int ydir, int netnumber){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xpos = xpos + xdir;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ypos = ypos + ydir;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int i=0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+moves++;</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+listnode a = new listnode();</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+listnode b = new listnode();</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for (b=movelist;b!=null;b=b.link){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (b.xpos == xpos &amp;&amp; b.ypos == ypos){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist=b;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+moves=moves-i;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+i++;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+a.xpos = xpos;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+a.ypos = ypos;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+a.net = netnumber;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+a.up = true;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+a.link = movelist;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+movelist = a;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; int
+ispossiblemove(int xd,int yd, int netnumber){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int at_pos;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int x = xpos, y = ypos;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+boolean up;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (Math.abs(yd)==1){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+up = true;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else{</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+up = false;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+at_pos = board[y+yd][x+xd];</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (at_pos == -1){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(0);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if (at_pos == 0 &amp; x+xd>0 &amp; y+yd>0 &amp; x+xd&lt;xdim &amp;
+y+yd&lt;ydim){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(1);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else if (at_pos == netnumber){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(2);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (at_pos == -3 &amp; up){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(1);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else if (at_pos == -2 &amp; !(up)){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(1);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return (0);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>&nbsp;<FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; boolean
+isgoodmove(int xpos1,int ypos1,int xdir,int ydir){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// A good move:</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// 1) Brings you closer to the goal</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// ...</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+// That's all for now...</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (dist(xpos+xdir,ypos+ydir,xpos1,ypos1)&lt;dist(xpos,ypos,xpos1,ypos1)){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(true);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else{</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(false);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; int
+dist (int x1, int y1, int x2, int y2){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(Math.abs(x1-x2)+Math.abs(y1-y2));</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; int
+findwheretorouteto(int netnum){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int xpos2=0, ypos2=0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int found = 0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+int radius = 0;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp; //&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+org.graph.commons.logging.LogFactory.getLog(null).info("Looking for "+netnum);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+while (found == 0){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+radius++;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for (int i=-radius;i&lt;=radius;i++){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (isvalidpos(ypos+i,xpos+Math.abs(i)-radius)){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (board[ypos+i][xpos+Math.abs(i)-radius]==netnum){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+found = 1;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ypos2 = ypos+i;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xpos2 = xpos+Math.abs(i)-radius;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (isvalidpos(ypos+i,xpos-Math.abs(i)+radius)){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (board[ypos+i][xpos-Math.abs(i)+radius]==netnum){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+found = 1;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ypos2 = ypos+i;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+xpos2 = xpos-Math.abs(i)+radius;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(ypos2*(ydim+1)+(xpos2+1));</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; boolean
+isvalidpos(int y, int x){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if ((x>=0)&amp;(y>=0)&amp;(x&lt;=xdim)&amp;(y&lt;=ydim))</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return false;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; /**</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+* The index where "dot" information is stored.</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+*/</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; static
+int s_dotIndex = AttributeManager.getIndex("Dot");</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; /**</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+* Get the "type" field of the node.</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+*/</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; String
+getType(Node n) {</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DotInfo info = (DotInfo)n.getAttr(s_dotIndex);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if(info != null) {</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return (String)info.props.get("type");</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else {</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return null;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; public
+static int iftrue(boolean b){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; if
+(b)</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(1);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; else</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return(0);</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; public
+boolean mouseDown(Event evt, int x, int y){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (go==false){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+go = true;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}else{</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+go = false;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return true;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; public
+void show_board(){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for (int a_count=0; a_count&lt;=9; a_count++){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for (int b_count=0; b_count&lt;=9; b_count++){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+System.out.print(board[a_count][b_count]+" ");</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+org.graph.commons.logging.LogFactory.getLog(null).info();</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;org.graph.commons.logging.LogFactory.getLog(null).info("
+");</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; public
+static void show_pinlist(int pinlist[][],int pinnums[]){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for (int a_count=1; a_count&lt;=7; a_count++){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+System.out.print(a_count+" "+pinnums[a_count]+":&nbsp;&nbsp; ");</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+for (int b_count=0; b_count&lt;pinnums[a_count]; b_count=b_count+1){</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+System.out.print(pinlist[a_count][b_count*2]+" "+pinlist[a_count][b_count*2+1]+",
+");</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+org.graph.commons.logging.LogFactory.getLog(null).info();</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;
+}</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;org.graph.commons.logging.LogFactory.getLog(null).info("
+");</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; }</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>}</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P>
+<HR WIDTH="100%">
+<BR>&nbsp;
+<H1>
+<FONT SIZE=+2>Source Code for listnode.java</FONT></H1>
+
+<HR WIDTH="100%">
+
+<P><FONT FACE="Courier New,Courier"><FONT SIZE=-1>public class listnode{</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; int
+xpos, ypos;&nbsp; // where on the circuit is it</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; boolean
+up;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // up layer or down layer</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; boolean
+block;&nbsp;&nbsp; // does it block (is it a via)</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; int
+net;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // what net does it
+correspond to</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp; listnode
+link;</FONT></FONT>
+<BR><FONT FACE="Courier New,Courier"><FONT SIZE=-1>}</FONT></FONT><FONT FACE="Courier New,Courier"><FONT SIZE=-1></FONT></FONT>
+
+<P>
+<HR WIDTH="100%">
+</BODY>
+</HTML>

@@ -1,0 +1,1 @@
+java -Djava.compiler=NONE -jar dist/DStoreTestHarness.jar $1

@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=PointNode()
+comment0.text=\nConstructs\ a\ point\ node\ with\ coordinates\ (0,\ 0)\n\n
+comment1.params=g2
+comment1.target=void\ draw(Graphics2D)
+comment2.params=dx\ dy
+comment2.target=void\ translate(double,\ double)
+comment3.params=p
+comment3.target=boolean\ contains(Point2D)
+comment4.target=Rectangle2D\ getBounds()
+comment5.params=other
+comment5.target=Point2D\ getConnectionPoint(Point2D)
+comment6.target=Object\ clone()
+numComments=7
