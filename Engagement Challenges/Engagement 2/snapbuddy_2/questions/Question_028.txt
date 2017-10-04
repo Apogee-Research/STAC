@@ -1,0 +1,27 @@
+Challenge Program:
+
+    snapbuddy_2.jar
+
+Challenge Question:
+
+    Is there a side channel in space in the challenge program from which a
+    third party can identify any one (or more) of the user's friends?
+
+Additional background for question:
+
+    None
+
+Available Operations:
+
+    Passive Operations: observe the encrypted packets and timings thereof within a single user
+                        session (cost: 1 per session)
+    Active Operations:  issue an HTTP request and receive a response (no cost per query)
+    Oracle queries:     query the oracle with a candidate user/friend pair to get a binary
+                        response (yes/no) as to whether the candidate user/friend pair is valid.
+                        (cost: 1 per query)
+
+Operational Budget:
+
+    Max number of operations : 5 operations
+    Probability of success  :  99%
+

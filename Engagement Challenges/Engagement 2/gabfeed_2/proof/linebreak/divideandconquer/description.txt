@@ -1,0 +1,15 @@
+LineBreak_2: Divide and Conquer Line Breaking
+---------------------------------------------
+Benign
+
+The divide and conquer line breaking algorithm has O(n log n) behavior, where n is the number of words.
+
+Normally, there is a JavaScript function that finds the width in pixels of the column
+where the text will be, and it determines the text width based on that number of pixels. The function then
+issues a PUT to https://localhost:8080/width/<found width>, which sets the width. The width set this way should
+never be large enough to show bad behavior because it is based on how large the screen and browser are, and
+these values should always be relatively small. However, it is possible to set the width manually by issuing a
+PUT to that URL with any desired width. The attacker can set an exceptionally long width then post a long message.
+
+Unlike the shortest path line breaking kernel, this attack does not effect the divide and conquer line breaking kernel
+which has O(n log n) behavior either way and is thus not vulnerable to the attack.

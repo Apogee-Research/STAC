@@ -1,0 +1,8 @@
+FilterHandler_3: Filter Image with Correct Repeat Prevention
+--------------------------------------------------------------
+Benign
+This handler limits the total number of filters that can be applied and also attempts to
+ prevent the user from using the same filter on more than one image.
+
+In this version of the kernel the filter handler properly checks the specified kernel in a case-
+insensitive manner and as a result it is not vulnerable to repeated use of the same filter.

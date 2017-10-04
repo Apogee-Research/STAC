@@ -1,0 +1,9 @@
+zip_1: Zip Bomb
+---------------
+Algorithmic Complexity Vulnerability,
+Type: Time
+Our zip file decompression will recurse on any zip file it encounters that contains embedded zip files.
+This means that a zip file that decompresses to itself, for instance, could cause the decompressor to run forever.
+
+This version of the kernel has a check in an attempt to limit the total number of files decompressed, but that check is
+flawed and a well crafted zip file can exploit this vulnerability.

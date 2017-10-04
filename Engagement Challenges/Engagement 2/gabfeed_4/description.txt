@@ -1,0 +1,40 @@
+Overview
+========
+GabFeed is web forum software. It allows community members to post messages, search posted messages, and 
+provides additional information on selected ('special') topics.
+
+Interactions
+============
+Users can sign in to the login page: https://localhost:8080/login and log in with valid credentials. Once a 
+user is signed in the user can proceed to visit GabFeed Rooms (forums), start a private chat with another 
+user, view posts by other users on various topics (threads), create new messages on existing topics, 
+create a new thread, or search for a single term in all posted public messages (note this is a case 
+sensitive search). Each day GabFeed offers 'special' search terms to users. When users search for 
+these terms additional information is provided to the user in the search results.
+
+Optionally users can authenticate the GabFeed server by browsing to https://localhost:8080.
+
+Examples of user interactions are provided using curl in the examples directory.
+
+Engagement Tools
+================
+The start script (start.sh) for the GabFeed server is located in the challenge_program directory. Once the
+server is started, the script will output "Server started on port 8080".
+
+An example user is provided: Username: foo; Password: df89gy9Qw.
+
+The interact_gab.py script provided in the examples directory will allow you to simulate user interactions.
+
+The start_exchange_verifier.sh script provided in the examples directory will generate a public key to be used 
+for the user authentication challenge to the GabFeed server. The script will also provide the expected server 
+response to the user's authetication challenge.
+
+Notes
+=====
+The start.sh script, the ServerPasswordKey.txt, the ServerPrivateKey.txt, and the files in the 
+challenge_program/bin directory are provided to start the GabFeed server. These files would not be available 
+to GabFeed users.
+
+There are files in the data directory (gabfeed_rooms.txt, gabfeed_threads.txt, etc...) that are not in scope.
+They are used to seed the application to a realistic state. It is presumed an attacker does not have access 
+to these files and as a result malicious data should not be inserted into them.

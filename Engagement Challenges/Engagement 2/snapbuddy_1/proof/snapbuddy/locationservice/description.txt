@@ -1,0 +1,19 @@
+Location_1: Location Service Side Channel
+-----------------------------------------
+Side Channel Vulnerability,
+Type: Size
+
+In SnapBuddy, the locations all have a unique number of BSSIDs.  A user must provide all of the BSSIDs for a location
+in order to find out the name of that location.  The BSSIDs are padded to 16 bytes in order to work around the padding
+that is present in the SSL encryption being used by SnapBuddy.  As a result, the size of each post request can be mapped
+directly to a location.  If there are any collisions, the response size containing the location name can be used to
+disambiguate between the various responses.
+
+In our proof, the user is simulated with the interact.py script (present under snapbuddy_<num>/benign).  The attack
+can work if the user uses Firefox as well, however doing so may require tweaking the sizes by some amount as Firefox
+post requests differ in size from the method the attack uses to grab sizes.  The locationattack.py find command has a
+'useffadjustment' option that was computed after observing the differences in size between our interact.py script and
+Firefox with user agent: "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:42.0) Gecko/20100101 Firefox/42.0".
+
+In our attack proof, we have pre-computed the location->size database. This speeds up testing a great deal. However,
+if desired, the database can be rebuilt when performing the attack by executing './malicious.sh rebuild'.

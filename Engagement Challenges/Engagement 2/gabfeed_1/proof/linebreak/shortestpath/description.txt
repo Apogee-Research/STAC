@@ -1,0 +1,13 @@
+LineBreak_1: Shortest Path Line Breaking
+----------------------------------------
+Algorithmic Complexity Vulnerability,
+Type: Time
+
+The shortest path line breaking algorithm has O(n * width) behavior, where n is the number of words.
+The algorithm has O(n^2) behavior when the width is at least as long as the number of words.
+Normally, there is a JavaScript function that finds the width in pixels of the column
+where the text will be, and it determines the text width based on that number of pixels. The function then
+issues a PUT to https://localhost:8080/width/<found width>, which sets the width. The width set this way should
+never be large enough to show bad behavior because it is based on how large the screen and browser are, and
+these values should always be relatively small. However, it is possible to set the width manually by issuing a
+PUT to that URL with any desired width. The attacker can set an exceptionally long width then post a long message.

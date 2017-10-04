@@ -1,0 +1,18 @@
+c,sr32,foo
+m,foo,Hi Foo!  Knock, Knock!
+m,sr32,Not that again....
+m,foo,Not that again who?
+m,sr32,Stop it!
+c,devenmartinez@hotmail.com,foo
+m,devenmartinez@hotmail.com,Hey Foo!, I haven't seen you in awhile
+m,foo,Hi Deven.  I've been on vacation the last two weeks
+m,foo,I am just getting back to work
+m,devenmartinez@hotmail.com,Where did you go?
+m,foo,Just stayed at home and did stuff there - no big deal
+c,devenmartinez@hotmail.com,sr32
+m,devenmartinez@hotmail.com,Steve, did you get that report done?
+m,sr32,Ahh, what report?
+m,devenmartinez@hotmail.com,The one for Dr. Chu
+m,sr32,Ah, Chu! :-)
+m,sr32,Yeah, I turned it in last Friday - why are you still work on it?
+m,devenmartinez@hotmail.com,Yeah, it isn't going great.

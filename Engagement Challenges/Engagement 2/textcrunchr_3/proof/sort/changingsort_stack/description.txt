@@ -1,0 +1,10 @@
+sort_1: Polymorphic sort with bad quicksort
+-------------------------------------------
+Algorithmic Complexity Vulnerability,
+Type: Time
+
+The sorting algorithm typically has O(nlogn) behavior but can have O(n^2) behavior given certain
+inputs. This vulnerability is triggered via quicksort, but due to permutation
+of the list done prior to quicksort it is insufficient to simply pass a sorted input to
+the program. The vulnerability is triggered when you pass the algorithm a list shuffled in such a way that
+the list is permuted to a sorted list prior to quicksort.

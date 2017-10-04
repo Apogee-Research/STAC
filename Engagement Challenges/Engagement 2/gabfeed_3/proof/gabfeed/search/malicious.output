@@ -1,0 +1,27 @@
+Start eavesdropping on user
+User does normal GabFeed activity, including several searches unknown to the attacker
+Stop eavesdropping
+Skipping building of search table, if you want to rebuild it run this script as ./malicious.sh rebuild
+Find the user's search terms based on the packet sizes and times extracted from the pcap
+Target performed the following transactions: 
+0 unknown transaction
+1 unknown transaction
+2 unknown transaction
+3 unknown transaction
+4 unknown transaction
+5 unknown transaction
+6 unknown transaction
+7 unknown transaction
+8 unknown transaction
+9 unknown transaction
+10 unknown transaction
+11 unknown transaction
+12 unknown transaction
+13 unknown transaction
+14 unknown transaction
+15 search for diabetes
+16 search for malaria
+17 unknown transaction
+18 unknown transaction
+19 search for dyslexia
+20 unknown transaction

@@ -1,0 +1,6 @@
+HashMap_4: Bad Red Black Hash Table
+-----------------------------------
+Algorithmic Complexity Vulnerability
+Type: Time
+
+This hash table uses a red black tree, but fails to balance the tree on puts and is therefore vulnerable to denial of service.  While a plain text file with collisions isn't large enough to trigger the vulnerability (due to our input size budget), a compressed file (which TextCrunchr supports) enables an attacker to send enough data to cause the program to exceed the allowed amount of time.

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            min-height: 100%;
+        }
+
+        main {
+            min-height: calc(100vh - 2em); /* subtract the footer height */
+        }
+
+        header {
+            text-align: center;
+            padding: 5px;
+        }
+
+        footer {
+            clear: both;
+            height: 2em;
+            padding-left: 10px;
+            padding-right: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #eeeeee;
+            width: 15%;
+            float: left;
+            padding: 5px;
+        }
+
+        nav h4 {
+            margin-bottom: 0;
+            margin-top: 0.5em;
+            text-align: center;
+        }
+
+        nav ul {
+            margin: 0;
+            /*margin-left: 1em;*/
+            padding: 0;
+        }
+
+        nav ul li {
+            list-style-type: none;
+        }
+
+        section {
+            background-color: #bbbbbb;
+            width: 80%;
+            float: left;
+            padding: 10px;
+            margin-left: 5px;
+        }
+
+        .snapshot {
+            width: 100px;
+            height: 100px;
+        }
+
+        .photos {
+            padding: 0.25em;
+            overflow: hidden;
+        }
+
+        .photos img {
+            display: block;
+            border-style: solid;
+        }
+
+        .photos li {
+            float: left;
+            width: 50%;
+            padding: 0.25em;
+            list-style-type: none;
+        }
+
+        .photos li:nth-child(odd) {
+            clear: left;
+        }
+
+        /* Original values were 33.33, 25, 20, 16.66% based on 100%/3 /4 /5 /6; changed to 80%/N */
+        @media screen and (min-width: 40em) {
+            .photos li {
+                /*width: 33.3333333333333333%;*/
+                width: 26.6666666666666666%;
+            }
+
+            .photos li:nth-child(3n+1) {
+                clear: left;
+            }
+
+            .photos li:nth-child(odd) {
+                clear: none;
+            }
+        }
+
+        @media screen and (min-width: 55em) {
+            .photos li {
+                /* width: 25%;*/
+                width: 20%;
+            }
+
+            .photos li:nth-child(4n+1) {
+                clear: left;
+            }
+
+            .photos li:nth-child(3n+1) {
+                clear: none;
+            }
+        }
+
+        @media screen and (min-width: 72em) {
+            .photos li {
+                width: 16%;
+            }
+
+            .photos li:nth-child(5n+1) {
+                clear: left;
+            }
+
+            .photos li:nth-child(4n+1) {
+                clear: none;
+            }
+        }
+
+        @media screen and (min-width: 90em) {
+            .photos li {
+                /*width: 16.666666666%;*/
+                width: 13.3333333333%;
+            }
+
+            .photos li:nth-child(6n+1) {
+                clear: left;
+            }
+
+            .photos li:nth-child(5n+1) {
+                clear: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<main>
+    <!-- Header Section -->
+    <header>
+        <table>
+            <tr>
+                <td rowspan="2">
+                    <a href="/showphoto/{{pid}}">
+                        <img src="{{profileURL}}" alt="Profile Photo" class="snapshot"/>
+                    </a>
+                </td>
+                <td style="font-size: 2em;">{{name}}</td>
+            </tr>
+            <tr>
+                <td>{{location}}</td>
+            </tr>
+        </table>
+        <hr>
+    </header>
+
+    <!-- Navigation Menu Section -->
+    <nav>
+        <h4>Friends</h4>
+        <ul>
+            <li><a href="/friends">Show Friends</a></li>
+            <li><a href="/unfriend">Remove Friends</a></li>
+            <li><a href="/invite">Send Invitation</a></li>
+            <li><a href="/invitations">Manage Invitations</a></li>
+        </ul>
+        <h4>Photos</h4>
+        <ul>
+            <li><a href="/photos">My Photos</a></li>
+            <li><a href="/friendsphotos">Friends' Photos</a></li>
+            <li><a href="/addphoto">Add Photo</a></li>
+        </ul>
+        <h4>Location</h4>
+        <ul>
+            <li><a href="/location">Change Location</a></li>
+            <li><a href="/neighbors">Find Neighbors</a></li>
+        </ul>
+        <h4>Profile</h4>
+        <ul>
+            <li><a href="/profilename">Edit Name</a></li>
+            <li><a href="/profilephoto">Add Profile Photo</a></li>
+        </ul>
+        <h4><a href="/logout">Log out</a></h4>
+    </nav>
+    <!-- Main Content Section -->
+    <section>
+        <h1 style="margin: 0;">{{title}}</h1>
+        <hr>
+
+        <div style="clear: both;">
+            {{contents}}
+        </div>
+    </section>
+</main>
+
+<!-- Footer Section -->
+<footer>
+    <hr>
+    <div style="text-align: right;">
+        {{timestamp}} ({{duration}} ns)
+    </div>
+</footer>
+</body>
+</html>

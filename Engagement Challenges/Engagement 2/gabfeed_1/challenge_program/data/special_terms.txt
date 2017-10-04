@@ -1,0 +1,15 @@
+diabetes
+cancer
+HIV
+malaria
+dyslexia
+lupus
+epilepsy
+fibromyalgia
+pericarditis
+angina
+anemia
+ringworm
+polio
+gonorrhea
+diarrhea

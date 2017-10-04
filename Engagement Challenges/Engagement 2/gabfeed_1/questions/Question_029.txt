@@ -1,0 +1,31 @@
+Challenge Program:
+
+    gabfeed_1.jar
+
+Challenge Question:
+
+    Is there a side channel in time in the challenge program from which a third party can 
+    learn information that allows them to impersonate any given user?    
+
+Additional background for question:
+
+    For the sake of this problem, a user session is defined as the user
+    interactions between (and including) the establishment of a session key to
+    the renegotiation of the next session key. The session key is related to an
+    SSL session and is not related to the server's private key.
+
+
+Available Operations:
+
+    Passive Operations: observe the encrypted packets within a single user session 
+                        or authentication of the server (cost 1 per session)
+    Active Operations:  Issue an HTTP request and receive a response. (cost 1 per operation)
+    Oracle Query:       query the oracle to get a binary response (yes/no) as to whether
+                        or not you have collected a valid secret from any given user such 
+                        that you can impersonate that user
+                        (cost 1 per query)
+    
+Operational Budget:
+
+    Max number of operations : 500,000
+    Probability of success   : 95%

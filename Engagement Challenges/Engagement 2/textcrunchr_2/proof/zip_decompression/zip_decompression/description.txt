@@ -1,0 +1,7 @@
+zip_2: Safe Zip Decompression
+-----------------------------
+Benign
+Our zip file decompression will recurse on any zip file it encounters that contains embedded zip files.
+This means that a zip file that decompresses to itself, for instance, could cause the decompressor to run forever.
+
+This version of the kernel is safe as it properly checks to make sure it hasn't recursed too far.

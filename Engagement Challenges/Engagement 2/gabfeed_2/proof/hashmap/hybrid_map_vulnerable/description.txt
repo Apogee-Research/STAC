@@ -1,0 +1,10 @@
+HashMap_2: Tree based vulnerable hash table
+-------------------------------------------
+Algorithmic Complexity Vulnerability,
+Type: Time
+
+This article uses a tree based hash table vulnerable to denial of service. While it uses a tree, that tree is not
+balanced and as a result collisions can still result in bad performance (e.g. if the items are added in sorted order).
+
+An attacker need simply post one large message with words that have hash collisions and performance will become O(n^2)
+and the time limit will be exceeded.

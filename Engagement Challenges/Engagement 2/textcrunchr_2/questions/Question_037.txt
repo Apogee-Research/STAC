@@ -1,0 +1,21 @@
+Challenge Program:
+
+    textcrunchr_2.jar
+
+Challenge Question:
+
+    Is there an algorithmic complexity vulnerability in time that would cause the challenge
+    program's real runtime (on the reference platform) to exceed the resource usage limit
+    given the input budget?
+
+Additional background for question:
+
+    None
+
+Input Budget:
+
+    Total size of input file (or files): 400000 bytes
+    
+Resource Usage Limit:
+
+    Runtime: 300 seconds

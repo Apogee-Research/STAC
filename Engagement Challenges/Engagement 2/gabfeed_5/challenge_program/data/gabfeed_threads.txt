@@ -1,0 +1,106 @@
+,1,What's for dinner?,foo
+foo,I love those one-pot dinners!  Maybe Thai tonight?
+snacky,Snickers and chips for me!
+sandwich,Subs with lots of fresh veggies!
+,1,Desserts!,sr32
+sr32,Looking for something light but satisfying to bring to a pot luck.
+snacky,Fruit? Jello?  Maybe a trifle?
+mamamia,Light as in density,or light as in calories? Mousse is good.   
+sr32,Do you have a tried and true recipe?
+mamamia,Just combine whipping cream and pudding mix of your choice,and whip.  Layer different flavors in pretty cups if you want to be fancy
+sr32,Quantities?
+sonny42,Just give 'em ice cream with Cocoa Puffs as a topping.
+,2,Standing dek,doctornobody
+doctornobody,Anyone have any luck with a standing desk?
+roomba,My colleague tried it for a month and gave it up.
+phantom,I'm too lazy to try.
+sr32,I like the UpLift sit and stand,but I'm kind of with Phantom in that I'm too lazy to use it most of the time.
+,2,Time off,pythagoras
+pythagoras,So how much time off do you all get?
+roomba,None.
+phantom,2 weeks,plus holidays and sick time
+devenmartinez@hotmail.com,6 weeks.
+pythagoras,Hm...
+,3,Wimbledon 2016,devenmartinez@hotmail.com
+devenmartinez@hotmail.com,Who's going to win this year?
+foo,Probably that one guy... forgot his name.
+johndoe,I love a good doubles match.  Should be an exciting year.
+bubba111,Watch and see.  Wish I could be there in person.
+devenmartinez@hotmail.com,Tell me about it!
+,3,Superbowl,phantom
+phantom,Who's ready?
+devenmartinez@hotmail.com,I'm not.  Aren't you a little over-eager?
+phantom,Apparently so.
+bubba111,I'm always ready!
+,4,Europe!,mamamia
+mamamia,Norwegian Air has a great deal on tickets to Rome
+devenmartinez@hotmail.com,If I have 2 weeks in Europe,what should I make sure to do/see?
+mamamia,Really depends on your interests.
+,5,Moans and groans,complaintdepartment
+complaintdepartment,I'm soooo tired.  It's going to be a long day
+snacky,Boy am I hungry.  How am I going to last until lunch time?
+killer,What's with traffic today?  Outrageous!
+,6,Classical,larryr21
+larryr21,You're going to laugh at me,but I've had zero exposure to classical music.  Where should I start?
+phantom,Check out your local symphony orchestra.  Live is always best.
+mamamia,Baby Einstein?
+sr32,You remember when they used to have music stores?  I was going to suggest you ask someone there,LOL.  Hm... try spotify?
+,6,Country,bubba111
+bubba111,Sam Hunt nominated for grammy as best new artist!
+bubba111,Chris Stapleton nominated for album of the year grammy!
+johndoe,That's good news but I'm more interested in when Taylor Swift will be coming out with a new album.
+,7,Medical News,johndoe
+johndoe,Number of new diabetes cases is falling!  http://www.newser.com/story/216882/cdc-sees-major-shift-in-us-diabetes-cases.html
+snacky,PM me for a great cure for anemia!
+,7,Education News,snacky
+snacky,Check out new font to help with dyslexia.  http://www.cbsnews.com/news/the-font-that-helps-dyslexics-read-better/
+doughboy,That's awesome news!
+larryr21,Did you hear they're easing up on No Child Left Behind?
+bubba111,No I didn't Larry; how so?
+,8,No art here,doughboy
+doughboy,I see no one here is into art.  Shame. 
+,9,Presidential Election,bugsbunny
+smurfette,Who loves Hillary?
+stephaniem,I do!
+tacoboy,Another election,another batch of candidates...
+doughboy,Crazy4Tacos I know what you mean.
+annieb1,What did folks think of the latest debate?
+tacoboy,Honestly,I fell asleep.
+doughboy,That's no way to be an educated citizen!
+,10,Introduce Yourself,devenmartinez@hotmail.com
+devenmartinez@hotmail.com,I'm Deven Martinez, and I am awesome!  (You can check out my picture on SnapBuddy)
+annieb1,Hi, Deven!
+bertnernie,Hi everyone.  You can call me Bert.
+,11,In-laws,sandwich
+sandwich,Wow, I never understood why people had a hard time with their in-laws.  Until I had in-laws of my own.  And even though they're awesome people that I totally respect, I get it now.
+snacky,Welcome to the club, Sand.
+,12,Concerts,mamamia
+mamamia,The Band Perry is performing Jan. 8 in Phoenix
+fibonacci,Awesome news.  Can't wait! Are you going?
+mamamia,Not sure yet.  Might need a ride.
+,13,Cars for Sale,roomba
+roomba,Selling a 2003 Honda Accord - 120K miles.  Best offer!
+roomba,Bump.
+roomba,Anyone?
+roomba,Last call before I post it on Craig's List.
+,13,Furniture for Sale,beakerseeker
+beakerseeker,Anyone selling a bunk bed?
+annieb1,Dining room set for sale; includes table,6 chairs,and nice china cabinet.  $1500 or best offer.
+smurfette,Annie B.: Can you send me a picture of it on SnapBuddy?
+snuggles,What are the table dimensions?
+,13,Appliances for Sale,rainbowbrite
+rainbowbrite,Selling Keurig Mini.  $65 obo.
+tacoboy,Are you including any K-cups with it?  What kind?
+snacky,Looking to buy a waffle maker.  Anyone have one for sale? 
+pythagoras,I never use mine,you can have it for $10 if you'll pick it up.
+snacky,Where do you live?
+snuggles,Selling used washing machine.  Works,but it's old.  Anyone want to talk?
+beakerseeker,No one wants to sell me a bunk bed?  I'm off to Craig's List.
+,14,Zumba,rainbowbrite
+rainbowbrite,Anyone do Zumba? Seems to be the thing.  Is it as great as it's cracked up to be?
+annieb1,My neighbor is going to try it soon; I'll ask her.
+,14,Limited time workout?,beakerseeker
+beakerseeker,Ideas for a good workout with limited time and no equipment?
+sandwich,Take the stairs.  Do pushups. 
+beakerseeker,No stairs.
+sandwich,Then do squats in the elevator.

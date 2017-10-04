@@ -1,0 +1,6 @@
+{
+"type": "benign",
+  "wait_secs": 75,
+"setup_wait_secs": 100,
+  "ports": [8080]
+}

@@ -1,0 +1,29 @@
+Challenge Program:
+
+    gabfeed_5.jar
+
+Challenge Question:
+
+    Is there a side channel in time in the challenge program with which a
+    third party can identify any search term searched by a user within the 
+    operational budget?
+
+Additional background for question:
+
+    For the purpose of the engagement assume that if a user will execute a search
+    it will be one of their first three actions after logging in.
+
+Available Operations:
+
+    Passive Operations: observe the encrypted request and corresponding response packets
+                        and timings thereof for a single user http action
+                        (cost: 1 per observed action)
+    Active Operations:  Issue an HTTP request and receive a response. (no cost per request)
+    Oracle queries:     query the oracle with a candidate search term to get a binary response
+                        (yes/no) as to whether the candidate search term is the user's 'special'
+                        search term. (cost: 1 per query)
+
+Operational Budget:
+
+    Max number of operations : 5 operations
+    Probability of success  :  90%

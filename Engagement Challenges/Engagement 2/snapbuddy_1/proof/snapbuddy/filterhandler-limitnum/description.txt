@@ -1,0 +1,12 @@
+FilterHandler_2: Filter Image with Incorrect Repeat Prevention
+--------------------------------------------------------------
+Algorithmic Complexity Vulnerability,
+Type: Space (Memory)
+This handler limits the total number of filters that can be applied and also attempts to
+ prevent the user from using the same filter on more than one image.
+
+However, the user is able to apply the ScaleUp filter more than once by observing that the
+check to see if the filter is already applied is case-sensitive, but the code that gets
+the filter to apply is case-insensitive.  Thus the attacker can specify the the same
+filter multiple times by using different case for each application of the filter. (e.g.
+F00E, F00e, f00E, f00e)

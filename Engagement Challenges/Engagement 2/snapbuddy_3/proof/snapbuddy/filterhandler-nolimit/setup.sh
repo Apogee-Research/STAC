@@ -1,0 +1,3 @@
+#!/bin/sh
+../../../benign/login.sh mateojohnson@gmail.com Pv9m53YmANf
+curl -s -L -b cookies.txt -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" -F "filter list=F00f" --insecure https://localhost:8080/filter/6a3bb/profile.jpg?suppressTimestamp=true

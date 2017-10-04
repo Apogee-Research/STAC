@@ -1,0 +1,45 @@
+Overview
+========
+SnapBuddy is a web application for image sharing. Users can login to SnapBuddy to upload photos to share 
+with their friends. Photos can be marked public in which case any user of the system can view them (all 
+profile photos are public). Photos that aren't marked public should only be viewable by the owner and
+their friends. In addition to uploading photos, users can apply filters to their photos to change how they
+look. Finally, users are able to have the server tell them their current location (similar to how observed 
+WiFi access points can be used to determine a user's location). Once their location is set, they can see the
+people around them in that location (location changes can only occur a certain number of times per day), and
+their neighbors can see them.
+
+Interactions
+============
+Users can sign in to the login page: https://localhost:8080/login and log in with valid credentials. Once a 
+user is signed in the user will set their location and confirm their location. The user can then proceed to 
+view their friends, send and receive friend invitations, upload filter and share photos, and find other 
+SnapBuddy users nearby.
+
+Optionally users can authenticate the SnapBuddy server by browsing to https://localhost:8080.
+
+To simulate these user interactions example scripts using curl have been provided in the examples directory.
+
+Engagement Tools
+================
+An examples user is provided for you to login to SnapBuddy with the credentials
+Username: devenmartinez@hotmail.com; Password: PS1Ljv4NPs.
+
+The interact.py script provided in the examples directory will allow you to simulate user interactions.
+
+The start_exchange_verifier.sh script provided in the examples directory will allow you to generate a public
+key to be used for the user authentication of the GabFeed server. The script will also provide the expected
+server response to the user's public key input.
+
+The start script (start.sh) for the SnapBuddy server is located in the challenge_program directory. Once the 
+server is started the script will output "Server started on port 8080".
+
+Notes
+=====
+The start.sh script, the ServerPasswordKey.txt, the ServerPrivateKey.txt, and the files in the 
+challenge_program/bin directory are provided to start the SnapBuddy server. These files would not be available 
+to SnapBuddy users.
+
+There are files in the resources directory (snapbuddy.jks, accesspoints.csv, and several initial*.csv) that are 
+not in scope. They are used to seed the application to a realistic state. These files and how they are parsed 
+are not intended to be analyzed nor should malicious data be inserted into these files.

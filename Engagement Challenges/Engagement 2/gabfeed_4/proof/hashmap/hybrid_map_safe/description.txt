@@ -1,0 +1,6 @@
+HashMap_4: Bad Red Black Hash Table
+-----------------------------------
+Algorithmic Complexity Vulnerability
+Type: Time
+
+This article uses a hash table that uses a red black tree, but fails to balance the tree on puts and is therefore vulnerable to denial of service.  An attacker can post one large message with words that have hash collisions, and the time limit will be exceeded.

@@ -1,0 +1,12 @@
+Start eavesdropping on user
+User logs in and displays their friends - something unknown to the attacker
+Stop eavesdropping
+Skipping building of profile image table, if you want to rebuild it run this script as ./malicious.sh rebuild
+Find the user's friends based on the packet sizes extracted from the pcap
+Target is: Deven Martinez
+
+Target has the following friends:
+Joseph Brown
+Madison Martinez
+Santiago White
+Sofia Thomas

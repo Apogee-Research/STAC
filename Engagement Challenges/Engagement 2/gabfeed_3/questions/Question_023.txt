@@ -1,0 +1,29 @@
+Challenge Program:
+
+    gabfeed_3.jar
+
+Challenge Question:
+
+    Is there a side channel in time in the challenge program with which a third party 
+    can identify how many 'special' search terms a user has searched for within the
+    operational budget?
+
+Additional background for question:
+
+    For the purpose of the question, assume that a user session will include at most 30 
+    HTTP request/recieve response pairs.
+
+Available Operations:
+
+    Passive Operations: observe the encrypted request and corresponding response packets
+                        and timings thereof for a single user session
+                        (cost: 1 per observed user session)
+    Active Operations:  issue an HTTP request and receive a response (no cost per request)
+    Oracle queries:     query the oracle with the candidate number of 'special' searches and
+                        receive a binary response (yes/no) as to whether the candidate number
+                        of 'special' search terms is correct. (cost: 1 per query)
+
+Operational Budget:
+
+    Max number of operations : 2 operations
+    Probability of success  :  90%

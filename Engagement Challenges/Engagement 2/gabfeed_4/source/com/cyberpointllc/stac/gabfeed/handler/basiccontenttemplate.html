@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        html,
+        body {
+        height: 100%;
+        min-height: 100%;
+        }
+
+        main {
+        min-height: calc(100vh - 2em); /* subtract the footer height */
+        }
+
+        header {
+        text-align: center;
+        padding: 5px;
+        }
+
+        footer {
+        clear: both;
+        height: 2em;
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: center;
+        }
+
+        td, th {
+        border: 1px solid #999;
+        padding: 0.5rem;
+        }
+
+        div#hmenu {
+        margin: 0;
+        padding: .3em 0 .3em 0;
+        background: #898989;
+        width: 100%;
+        text-align: left;
+        }
+
+        div#hmenu ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        }
+
+        div#hmenu ul li {
+        margin: 0;
+        padding: 0;
+        display: inline;
+        }
+
+        div#hmenu ul a:link{
+        margin: 0;
+        padding: .3em .4em .3em .4em;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: medium;
+        color: #ff6418;
+        }
+
+        div#hmenu ul a:visited{
+        margin: 0;
+        padding: .3em .4em .3em .4em;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: medium;
+        color: #fff;
+        }
+
+        div#hmenu ul a:active{
+        margin: 0;
+        padding: .3em .4em .3em .4em;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: medium;
+        color: #fff;
+        }
+
+        div#hmenu ul a:hover{
+        margin: 0;
+        padding: .3em .4em .3em .4em;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: medium;
+        color: #ff6418;
+        background-color: #fff;
+        }
+    </style>
+    <title>GabFeed - Keep gabbing!</title>
+</head>
+<body>
+<main>
+    <!-- Main Content Section -->
+    <section>
+        <h1>GabFeed! - {{title}}</h1>
+
+        <div align="right">
+            Hi <a href="/user/{{userId}}">{{displayName}}</a>!
+        </div>
+        <div id="hmenu">
+            <ul>
+                {{main_menu}}
+            </ul>
+        </div>
+        <br/>
+
+        <div>
+            <script type="text/javascript">
+                function getWidth(tagName) {
+                    var xhttpRequest = new XMLHttpRequest();
+                    var elementWidth = document.documentElement.getElementsByTagName(tagName)[0].clientWidth;
+                    xhttpRequest.open("PUT", "/width/" + elementWidth, true);
+                    xhttpRequest.send();
+                }
+            </script>
+            {{contents}}
+        </div>
+    </section>
+</main>
+</body>
+</html>

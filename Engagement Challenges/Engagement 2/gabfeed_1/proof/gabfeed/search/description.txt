@@ -1,0 +1,21 @@
+Search_1: Search Side Channel
+-----------------------------
+Side Channel Vulnerability,
+Type: Time and Size
+
+GabFeed search is vulnerable to a side channel attack as follows:
+
+GabFeed offers a feature where, each day, there are special search terms that GabFeed provides educational information on (in addition to messages containing those terms) when a user searches for them.
+
+There is a significant difference in timing in responses to these special search terms and ordinary searches. (Other GabFeed operations are distinct from these special searches in both request size and their timing.), allowing an attacker to detect when a user has searched for one of these special terms. 
+
+Given the limited number of these search terms (which are published on the GabFeeed search page), an attacker can readily determine which term was searched for by the size of the response.  (If there are terms with responses of the same size, the attacker can increase the size of the response to a particular term by posting a message containing that term.)
+
+In our proof the user is simulated with the interact_gab.py script (present under gabfeed_<num>/benign).  The attack
+can work if the user uses Firefox as well, however doing so may require tweaking the sizes by some amount as Firefox
+post requests differ in size from the method the attack uses to grab sizes.  The searchattack.py find command has a
+'useffadjustment' option that was computed after observing the differences in size between our interact.py script and
+Firefox with user agent: "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:42.0) Gecko/20100101 Firefox/42.0".
+
+In our attack proof we have pre-computed the database that stores statistics on the timings of special search operations, and the sizes of requests/responses for each of the current special terms. This speeds up testing. However,
+if desired, or if the contents of the GabFeed message board has changed since this was built, the database can be rebuilt when performing the attack by executing './malicious.sh rebuild'.

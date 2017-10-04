@@ -1,0 +1,10 @@
+sort_2: Polymorphic sort with bad partitioning
+----------------------------------------------
+Algorithmic Complexity Vulnerability,
+Type: Time
+
+The sorting algorithm typically has O(nlogn) behavior but can have O(n^2) or worse
+behavior depending on what recurrence relation this instance of the sort was given.
+This vulnerability is triggered by incorrect division of the sorting problem, which occurs
+for inputs of a certain length. This vulnerability does not depend on the contents of the collection
+being sorted, only on the size of the collection.

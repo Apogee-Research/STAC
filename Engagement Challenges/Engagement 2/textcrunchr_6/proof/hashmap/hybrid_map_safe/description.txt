@@ -1,0 +1,5 @@
+HashMap_3: Good Red Black Hash Table
+------------------------------------
+Benign
+
+This hash table balances itself using a red black tree and isn't vulnerable to HashDoS

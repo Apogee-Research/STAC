@@ -1,0 +1,8 @@
+Start eavesdropping on user
+User sets their location to something unknown to the attacker
+Stop eavesdropping
+Skipping building of location table, if you want to rebuild it run this script as ./malicious.sh rebuild
+Find the user's location based on the packet sizes extracted from the pcap
+Target is in: 
+1152 944
+Malabo - Equatorial Guinea

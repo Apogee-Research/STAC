@@ -1,0 +1,21 @@
+General Description
+===================
+TextCrunchr is a text analysis program. It can perform some useful analysis (word frequency, word length,
+etc...) and includes some fun stuff too (automatic enigma encryption of input). TextCrunchr can process 
+plain text files and can handle compressed files as well (which it will uncompress to analyze the contents). 
+Researchers at Zooomblr (a startup search company) are using it in the back-end to analyze a large corpus 
+of data from the Internet. These researchers have set up a web crawler to download pages and compressed 
+files from various websites. The files from those websites are automatically fed into TextCrunchr which 
+emits the results of the analysis (which can be console, xml or graphical).
+
+Given a zip, bz2, or tar file that contains text files, TextCrunchr will analyze each file.
+
+Interactions
+============
+For help and to see available options
+$ challenge_program/bin/textcrunchrhost_1 -h
+
+To run TextCrunchr on a file
+$ challenge_program/bin/textcrunchrhost_1 [filename] [options] [option args]
+
+The examples directory contains additional examples

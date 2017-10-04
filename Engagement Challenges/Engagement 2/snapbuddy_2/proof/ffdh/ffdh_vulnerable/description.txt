@@ -1,0 +1,26 @@
+ffdh_1: Key Exchange
+--------------------
+Side Channel Vulnerability,
+Type: Time
+
+Before logging in, the client can validate the server he or she is connected to is the real 
+one and not an imposter. This is done using the finite-field Diffie-Hellman key exchange. 
+The server has a secret key s, and has securely distributed to all clients its public 
+key p = 2^s mod m.  The client chooses a random value a and computes p^a mod m.  He also 
+transmits 2^a mod m to the server, who uses it to compute (2^a)^s mod m = (2^s)^a mod m = 
+p^a mod m, and sends it back to the client.  The client knows that only a server in posession 
+of s could correctly perform this computation, and he is then free to enter his credentials.
+
+The adversary is able to deduce the server's secret key through a timing attack, allowing him 
+or her to impersonate the server and perform man in the middle attacks on all traffic.
+
+Note: the attacker must guess the first few bits of the secret before running the attack
+program.  In our proof we assume that we've guessed the first 3 bits correctly already.
+In a real attack scenario an attacker could simply run the attack for the 4 legal values
+of the first 3 bits (all non-zero numbers have a leading first bit of 1) and then use 3
+oracle queries to determine which of the 4 possible values is correct.
+
+Thus the total observation budget is 13,515 (guessing 61 bits of the secret) * 4 (number
+of possible starting bits) + 3 oracle queries = 54063.
+
+In our 'question' we rounded this value up to 60,000.

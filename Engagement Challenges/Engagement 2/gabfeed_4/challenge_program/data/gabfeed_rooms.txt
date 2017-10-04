@@ -1,0 +1,14 @@
+1, Foodie Room, A room for talking about food
+2, Work Room, A room for talking about work
+3, Sports Room, Talk about sports here
+4, Travel Room, A room for travel discussions
+5, Anything Goes, Talk about anything you want here
+6, Music Room, Music chat here
+7, News Room, Post current news here
+8, Arts Room, Talk about art!
+9, Politics Room, Political discussions here
+10, Singles Room, Singles meet up here
+11, Relationships Room, Relationship vents and advice
+12, Event Announcements Room, A place to advertise events
+13, Rummage Room, Room for buying and selling stuff
+14, Fitness Room, Talk about fitness here

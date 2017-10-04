@@ -1,0 +1,26 @@
+friends_1: Friends Side Channel
+-------------------------------
+Side Channel Vulnerability,
+Type: Size
+
+In SnapBuddy, the profile for every person is public.  A SnapBuddy
+user is permitted to see the public profile of every other user either
+by displaying their friends or the users that can be invited to be
+friends.  As a result, the size of each profile photo image can be
+mapped directly to a user.  If there are collisions, the identity
+cannot be resolved from the profile photo image information alone.
+
+In the case of a collision we assume the attacker can make an oracle
+query to find the correct user.  In this data set, the maximum overlap is
+2 users.  As a result the attack can be successful in at most 2 observations.
+
+We assume the profile photo image to size mapping is fairly static and that
+an attacker has already queried the system to characterize generic responses.
+
+In our proof, the user is simulated with the interact.py script
+(located under snapbuddy_<num>/benign).
+
+In our attack proof, we have pre-computed the profile photo image->size
+database.  This speeds up testing a great deal.  However, if desired,
+the database can be rebuilt when performing the attack by executing
+'./malicious.sh rebuild'.

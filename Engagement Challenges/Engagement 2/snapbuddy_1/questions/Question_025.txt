@@ -1,0 +1,25 @@
+Challenge Program:
+
+    snapbuddy_1.jar
+
+Challenge Question:
+
+    Is there an algorithmic complexity in space that would cause the challenge 
+    program's memory usage to exceed the resource usage limit in one user session
+    given the input budget?
+
+
+Additional background for question:
+
+    SnapBuddy is a web based application that supports multiple users, however, this
+    question assumes there is only one user interacting with the system in any 
+    vulnerability demonstration.
+
+Input Budget:
+
+    Maximum sum of the PDU sizes of the HTTP requests sent from the user to the server: 10000 bytes
+    
+Resource Usage Limit:
+
+    Available Memory: 512 MB (total memory usage of the JVM shown under the RSS column in pmap -x <PID>)
+

@@ -1,0 +1,8 @@
+FilterHandler_1: Filter Image with No Limit on Number of Filters
+----------------------------------------------------------------
+Algorithmic Complexity Vulnerability, 
+Type: Time
+
+While the web page only allows the user to apply a certain number of filters, the POST handler
+does not impose this limitation. Thus an attack can make a direct post to add many filters
+to an image causing the sample to exceed the allotted time.

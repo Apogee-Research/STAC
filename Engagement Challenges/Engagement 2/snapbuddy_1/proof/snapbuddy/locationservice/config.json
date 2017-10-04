@@ -1,0 +1,5 @@
+{
+    "type": "sc_attack",
+    "wait_secs": 3600,
+    "ports": [8080]
+}
