@@ -1,0 +1,17 @@
+Challenge Program:
+
+	Category17.jar
+
+Challenge Question:
+
+	Is there an algorithmic complexity in time that would cause a
+	benign request of "1,0" to exceed the resource usage limit given
+	the input budget?
+
+Input Budget:
+
+	100 kB
+
+Resource Usage Limit:
+
+	Available time: 0.75 seconds
