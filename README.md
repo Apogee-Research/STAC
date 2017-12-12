@@ -30,10 +30,10 @@ is called the adversary's operational budget.
 
 Operations include:
         1. Provide the challenge program with one input and observe the
-        challenge program's outputs.
+        challenge program's outputs.  
         2. Passively observe the challenge program's outputs without providing
-        any input.
-        3. Query a notional oracle with a guess for the secret.
+        any input.  
+        3. Query a notional oracle with a guess for the secret.  
 
 Algorithmic Complexity (AC) Definition (V0)
 -------------------------------------------
