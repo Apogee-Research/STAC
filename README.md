@@ -28,7 +28,7 @@ program with a defined probability of success by executing a specifically
 bounded number of operations. This specific bound on the number of operations
 is called the adversary's operational budget.
 
-Operations include:
+Operations include:  
         1. Provide the challenge program with one input and observe the
         challenge program's outputs.  
         2. Passively observe the challenge program's outputs without providing
