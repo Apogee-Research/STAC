@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/Users/burkep/Projects/CollabProof/src/collab/proof/Proof.java</file>
+            <file>file:/Users/burkep/Projects/CollabProof/src/collab/proof/GenData.java</file>
+            <file>file:/Users/burkep/Projects/CollabProof/src/collab/proof/BTreeTests.java</file>
+            <file>file:/Users/burkep/Projects/CollabProof/src/collab/proof/ProofClientWrapper.java</file>
+            <file>file:/Users/burkep/Projects/CollabProof/src/collab/proof/BTreeTestsTimings.java</file>
+            <file>file:/Users/burkep/Projects/CollabProof/src/collab/proof/LogBufferTests.java</file>
+            <file>file:/Users/burkep/Projects/CollabProof/src/client/DStoreClient.java</file>
+            <file>file:/Users/burkep/Projects/CollabProof/src/client/CollabServer.java</file>
+            <file>file:/Users/burkep/Projects/CollabProof/src/collab/proof/LogBuffer.java</file>
+        </group>
+    </open-files>
+</project-private>

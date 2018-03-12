@@ -1,0 +1,34 @@
+This directory contains a few different components.
+
+Before you proceed, you should ensure that the ./prepare script has been run or these file may be
+missing or non-functional.
+
+Pre-canned packets:
+  The packets directories are "goodPackets" and "badPackets". Once the prepare script has been run
+  the packets directory will be populated with three packets; the handshake open, the message packet,
+  and the termination packet. These contain the forward segments of the communications that will
+  either send a message or hold up the listener thread.
+
+The packet builder:
+  This sits in the packetBuilder directory and is a gradle project and is a torn apart version of the
+  challenge that outputs packets to disk without waiting for response packets. This is OK for these
+  scripts because we are using the same precanned data as the challenge will be shipped with.
+  Use the prepare script to build and run the builder.
+  
+The keys folder:
+  This is where the precanned keys for building the packets are stored. The privatekey_{a,b}.pem
+  files are links to the /EL/build/resources copies of these files and the only restriction on these
+  is that they must be openssl genrsa <bitlength> generated files as required by the challenge.
+
+Running the proofs:
+  The two scripts are named after their actions:
+  [ ProofGood.py ]
+     1) Simply start the challenge somewhere without modifying the bind address and port.
+     2) Run the command 'python ProofGood.py' and see that the challenge application completes the
+        reception of the packets and displays the message before returning to send mode (Hit enter).
+     3) STOP THE CHALLENGE using its exit command or ^C.
+  [ ProofBad.py ]
+     1) Once again, start the challenge identically to ProofGood.py step 1.
+     2) Run the command 'python ProofBad.py' and see that the challenge application's listening thread
+        is locked up. (Measure this between the time the packet is sent and the size is returned)
+

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head lang="en">
+</head>
+<body>
+<div th:fragment="body">
+  <!--@thymesVar id="user" type="com.tweeter.model.hibernate.User"-->
+  <!--@thymesVar id="followersCount" type="int"-->
+  <!--@thymesVar id="followingCount" type="int"-->
+  <!--@thymesVar id="tweetCount" type="int"-->
+  <!--@thymesVar id="state" type="java.lang.String"-->
+  <div id="page-outer">
+    <div id="page-container" class="AppContent wrapper wrapper-home">
+
+      <div class="dashboard dashboard-left">
+
+        <div class="DashboardProfileCard  module">
+
+          <a class="DashboardProfileCard-bg u-bgUserColor u-block" th:href="${'/author/' + user.getUsername()}" tabindex="-1"
+             aria-hidden="true">
+          </a>
+
+          <div class="DashboardProfileCard-content">
+
+
+            <a class="DashboardProfileCard-avatarLink u-inlineBlock" th:href="${'/author/' + user.getUsername()}" th:title="${user.getFullname()}"
+               tabindex="-1" aria-hidden="true">
+              <img class="DashboardProfileCard-avatarImage js-action-profile-avatar"
+                   th:src="@{/avatar/me}" alt="">
+            </a>
+
+            <div class="DashboardProfileCard-userFields">
+              <div class="DashboardProfileCard-name u-textTruncate">
+                <a class="u-textInheritColor" th:href="${'/author/' + user.getUsername()}" th:text="${user.getFullname()}"> </a>
+              </div>
+        <span class="DashboardProfileCard-screenname u-inlineBlock u-dir" dir="ltr">
+          <a class="DashboardProfileCard-screennameLink u-linkComplex u-linkClean" th:href="${'/author/' + user.getUsername()}">@<span
+                  class="u-linkComplex-target" th:text="${user.getUsername()}"></span></a>
+        </span>
+            </div>
+
+            <div class="ProfileCardStats">
+              <ul class="ProfileCardStats-statList Arrange Arrange--bottom Arrange--equal">
+                <li class="ProfileCardStats-stat Arrange-sizeFit">
+                  <a class="ProfileCardStats-statLink u-textUserColor u-linkClean u-block js-nav" th:title="${tweetCount + ' Tweets'}"
+                     th:href="${'/author/' + user.getUsername()}" data-element-term="tweet_stats">
+                    <span class="ProfileCardStats-statLabel u-block">Tweets</span>
+                    <span class="ProfileCardStats-statValue" data-is-compact="false" th:text="${tweetCount}"></span>
+                  </a>
+                </li>
+                <li class="ProfileCardStats-stat Arrange-sizeFit">
+                  <a class="ProfileCardStats-statLink u-textUserColor u-linkClean u-block js-nav" th:title="${followingCount + ' Following'}"
+                     th:href="${'/following/' + user.getUsername()}" data-element-term="following_stats">
+                    <span class="ProfileCardStats-statLabel u-block">Following</span>
+                    <span class="ProfileCardStats-statValue" data-is-compact="false" th:text="${followingCount}"></span>
+                  </a>
+                </li>
+                <li class="ProfileCardStats-stat Arrange-sizeFit">
+                  <a class="ProfileCardStats-statLink u-textUserColor u-linkClean u-block js-nav" th:title="${followersCount + 'Followers'}"
+                     th:href="${'/followers/' + user.getUsername()}" data-element-term="follower_stats">
+                    <span class="ProfileCardStats-statLabel u-block">Followers</span>
+                    <span class="ProfileCardStats-statValue" data-is-compact="false" th:text="${followersCount}"></span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+
+            <div id="dashboard-profile-prompt"></div>
+
+          </div>
+        </div>
+
+
+        <div class="Trends module trends">
+          <!--/*/ <th:block th:include="fragments/twitter/trends :: trends"></th:block> /*/-->
+        </div>
+
+
+      </div>
+
+
+      <div role="main" aria-labelledby="content-main-heading" class="content-main top-timeline-tweetbox" id="timeline">
+
+        <div id="above-timeline-prompt"></div>
+
+        <div class="timeline-tweet-box" th:if="${state.equals('index')}">
+          <div class="home-tweet-box tweet-box component tweet-user">
+            <img class="top-timeline-tweet-box-user-image avatar size32" th:src="@{/avatar/me}"/>
+            <div th:replace="fragments/twitter/tweetform :: form"></div>
+          </div>
+        </div>
+
+        <div class="content-header visuallyhidden">
+          <div class="header-inner">
+            <h2 id="content-main-heading" class="js-timeline-title">Tweets</h2>
+          </div>
+        </div>
+
+        <div class="stream-container conversations-enabled" th:if="${state.equals('index')}">
+          <div th:replace="fragments/twitter/stream :: tweets"></div>
+        </div>
+        <div class="stream-container conversations-enabled" th:if="${state.equals('following')}">
+          <div th:replace="fragments/twitter/stream :: following"></div>
+        </div>
+        <div class="stream-container conversations-enabled" th:if="${state.equals('followers')}">
+          <div th:replace="fragments/twitter/stream :: followers"></div>
+        </div>
+        <div class="stream-container conversations-enabled" th:if="${state.equals('messages')}">
+          <div th:replace="fragments/twitter/stream :: messages"></div>
+        </div>
+        <div class="stream-container conversations-enabled" th:if="${state.equals('hashtags')}">
+          <div th:replace="fragments/twitter/stream :: hashtags"></div>
+        </div>
+
+      </div>
+
+      <div class="dashboard dashboard-right">
+        <div class="module roaming-module wtf-module js-wtf-module  has-content">
+
+          <div th:replace="fragments/twitter/recommendations :: whotofollow"></div>
+
+          <div class="flex-module import-prompt">
+            <div class="flex-module-footer u-table">
+              <a href="/who_to_follow/import" class="js-tooltip u-tableCell u-alignMiddle" title="Find people you know">
+                <span class="Icon Icon--follower Icon--small"></span><span
+                      class="u-hiddenVisually">Find people you know</span>
+              </a>
+              <a class="u-tableCell u-alignMiddle remove-discover-pymk" href="/who_to_follow/import">Find people you
+                know</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

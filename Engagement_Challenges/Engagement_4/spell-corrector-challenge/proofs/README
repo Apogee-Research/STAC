@@ -1,0 +1,20 @@
+Provided Scripts
+----------------
+
+./functions.sh: Curl routines for interacting with the web app and counting the request size.
+./timecomplexity.sh: Sends one bad tweet and measures the time it takes for the tweet to appear in the notifications tab.
+
+Note: functions.sh provides unit functions for interacting with the tweeting service. It is not intended as the primary interaction mechanism and should not be provided to the blue teams. The budgets are adjusted to account for the added information that a standard browser adds to the request like the user agent and extra headers.
+
+createUser must be called at some point in order for a tweeting user to exist.
+
+All functions.sh calls output their total cost and are used in the budget measurements (with the described adjustments).
+
+functions:
+  newCSRF acquires a new session and CSRF Token
+  updateCSRF acquires a new CSRF Token using the old session
+  createUser a a a creates a new user (fullname=a, username=a, password=a)
+  login a a logs in as (username=a, password=a)
+  tweet a a "message" sends a tweet as (username=a, password=a) with the tweet body "message"
+  tweetNoLogin "message" sends a tweet using the already logged in user.
+

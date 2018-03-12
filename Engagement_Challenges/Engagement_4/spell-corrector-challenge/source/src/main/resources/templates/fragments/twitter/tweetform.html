@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+</head>
+<body class="three-col">
+<div th:fragment="form">
+  <form class="t1-form tweet-form condensed is-minimalButtonLabels" method="post" data-condensed-text="What’s happening?"
+        action="/tweet" enctype="multipart/form-data"
+        data-poll-composer-rows="3" data-poll-duration="true">
+    <div class="TweetBox-photoIntent">
+      <div class="photo-selector" style="right:13px;">
+        <button aria-hidden="true" class="btn icon-btn js-tooltip" type="button" tabindex="-1"
+                data-original-title="Add photos or video" onclick="console.log($(this).closest('form').find('input[name=value]'));
+                $(this).closest('form').find('input[name=value]').val($('#tweet-box-home-timeline').text());
+                if ($(this).closest('form').find('input[name=value]').val().length <= 140) {
+                  $(this).closest('form').submit();
+                }">
+          <span title="Send" class="tweet-camera Icon Icon--envelope"></span>
+        </button>
+      </div>
+    </div>
+    <div class="RichEditor">
+      <div class="RichEditor-mozillaCursorWorkaround">&nbsp;</div>
+      <div class="RichEditor-scrollContainer">
+        <div name="tweet" id="tweet-box-home-timeline" class="" contenteditable="true"
+             spellcheck="true" role="textbox" style="width:100%;min-height:36px;background-color:white;color:#8899a6"
+             onfocus="if($(this).text().startsWith('What’s happening?')) $(this).text('');"
+             onblur="if($(this).text() == '') $(this).text('What’s happening?');"
+                onchange="if($(this).text().length > 140) {$(this).css('color', 'red'); return false;} else $(this).css('color', '#8899a6')"
+                >What’s happening?
+        </div>
+
+        <script>
+          $('body').on('focus', '[contenteditable]', function() {
+            var $this = $(this);
+            $this.data('before', $this.html());
+            return $this;
+          }).on('blur drop keyup paste input', '[contenteditable]', function() {
+            var $this = $(this);
+            if ($this.data('before') !== $this.html()) {
+              $this.data('before', $this.html());
+              $this.trigger('change');
+            }
+            return $this;
+          });
+        </script>
+      </div>
+      <div class="RichEditor-mozillaCursorWorkaround">&nbsp;</div>
+    </div>
+    <input type="hidden" name="value" value="">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+  </form>
+</div>
+</body>
+</html>

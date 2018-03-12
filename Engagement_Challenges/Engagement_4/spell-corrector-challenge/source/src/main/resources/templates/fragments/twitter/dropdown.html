@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+</head>
+<body>
+<div th:fragment="navbar">
+  <!--@thymesVar id="user" type="com.tweeter.model.hibernate.User"-->
+  <ul class="nav right-actions">
+    <li class="me dropdown session">
+      <button class="btn js-tooltip settings dropdown-toggle" data-toggle="dropdown" data-placement="bottom"
+              role="button" aria-haspopup="true" data-original-title="Profile and settings">
+        <img class="avatar size32" th:src="@{/avatar/me}" alt="Profile and settings"
+             data-user-id="350041321">
+        <span class="caret"></span>
+      </button>
+
+      <ul class="dropdown-menu">
+
+        <li class="current-user" data-name="profile">
+          <a th:href="${'/author/' + user.getUsername()}" class="account-summary account-summary-small js-nav"
+             data-nav="view_profile">
+            <div class="content">
+              <div class="account-group js-mini-current-user"><b class="fullname" th:text="${user.getFullname()}"></b><span
+                      class="screen-name hidden" dir="ltr" th:text="${'@' + user.getUsername()}"></span>
+                <small class="metadata">View profile</small>
+              </div>
+            </div>
+          </a>
+        </li>
+
+        <li class="dropdown-divider"></li>
+
+        <li><a href="/settings/account" data-nav="settings" class="js-nav">Settings</a></li>
+        <li class="js-signout-button" id="signout-button" data-nav="logout">
+          <form method="post" action="/logout">
+            <a class="dropdown-link" onclick="get_form(this).submit()"
+               data-placement="bottom" data-component-context="logout_button" data-original-title="logout">
+              Logout
+            </a>
+
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+          </form>
+        </li>
+
+      </ul>
+
+    </li>
+    <li role="complementary" aria-labelledby="global-new-tweet-button" class="topbar-tweet-btn" onclick="$('#tweet-box-home-timeline').focus()">
+      <button id="global-new-tweet-button" type="button"
+              class="js-global-new-tweet js-tooltip btn primary-btn tweet-btn js-dynamic-tooltip"
+              data-placement="bottom" data-component-context="new_tweet_button" data-original-title="">
+        <span class="Icon Icon--tweet Icon--large"></span>
+        <span class="text">Tweet</span>
+      </button>
+    </li>
+  </ul>
+</div>
+</body>
+</html>

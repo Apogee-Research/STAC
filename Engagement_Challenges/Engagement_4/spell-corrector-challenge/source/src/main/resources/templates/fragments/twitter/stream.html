@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+<div th:fragment="tweets">
+  <div class="stream">
+    <ol class="stream-items js-navigable-stream">
+
+      <li class="js-stream-item stream-item stream-item expanding-stream-item
+" data-item-id="720642658910216193" id="stream-item-tweet-720642658910216193" data-item-type="tweet">
+        <ol role="presentation"
+            class="expanded-conversation expansion-container js-expansion-container js-navigable-stream"
+            th:each="i : ${tweets}">
+          <!--/*/ <th:block th:include="fragments/twitter/tweet :: tweet"></th:block> /*/-->
+        </ol>
+
+      </li>
+
+    </ol>
+    <div class="stream-footer ">
+      <div class="timeline-end has-items has-more-items">
+        <div class="stream-end">
+          <div class="stream-end-inner">
+            <span class="Icon Icon--large Icon--logo"></span>
+
+            <p class="empty-text">
+              Your timeline is currently empty. Follow people and topics you find interesting to see their Tweets in
+              your timeline.
+
+            </p>
+
+            <p>
+              <button type="button" class="btn-link back-to-top hidden" style="display: inline-block;">Back to top ↑
+              </button>
+            </p>
+
+          </div>
+        </div>
+
+        <div class="stream-loading">
+          <div class="stream-end-inner">
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="stream-fail-container">
+      <div class="js-stream-whale-end stream-whale-end stream-placeholder centered-placeholder">
+        <div class="stream-end-inner">
+          <h2 class="title">Loading seems to be taking a while.</h2>
+
+          <p>
+            Twitter may be over capacity or experiencing a momentary hiccup. <a role="button" href="#"
+                                                                                class="try-again-after-whale">Try
+                                                                                                              again</a>
+            or visit <a target="_blank" href="http://status.twitter.com">Twitter Status</a> for more information. </p>
+        </div>
+      </div>
+    </div>
+
+    <ol class="hidden-replies-container"></ol>
+  </div>
+</div>
+<div th:fragment="hashtags">
+  <div class="stream">
+    <ol class="stream-items js-navigable-stream">
+
+      <li class="js-stream-item stream-item stream-item expanding-stream-item
+" data-item-id="720642658910216193" data-item-type="tweet">
+        <!--@thymesVar id="tweets" type="com.tweeter.model.hibernate.Tweet"-->
+        <ol role="presentation"
+            class="expanded-conversation expansion-container js-expansion-container js-navigable-stream"
+            th:each="i : ${tweets}">
+          <!--/*/ <th:block th:include="fragments/twitter/hashtag :: hashtag"></th:block> /*/-->
+        </ol>
+
+      </li>
+
+    </ol>
+    <div class="stream-footer ">
+      <div class="timeline-end has-items has-more-items">
+        <div class="stream-end">
+          <div class="stream-end-inner">
+            <span class="Icon Icon--large Icon--logo"></span>
+
+            <p class="empty-text">
+              Your timeline is currently empty. Follow people and topics you find interesting to see their Tweets in
+              your timeline.
+
+            </p>
+
+            <p>
+              <button type="button" class="btn-link back-to-top hidden" style="display: inline-block;">Back to top ↑
+              </button>
+            </p>
+
+          </div>
+        </div>
+
+        <div class="stream-loading">
+          <div class="stream-end-inner">
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="stream-fail-container">
+      <div class="js-stream-whale-end stream-whale-end stream-placeholder centered-placeholder">
+        <div class="stream-end-inner">
+          <h2 class="title">Loading seems to be taking a while.</h2>
+
+          <p>
+            Twitter may be over capacity or experiencing a momentary hiccup. <a role="button" href="#"
+                                                                                class="try-again-after-whale">Try
+                                                                                                              again</a>
+            or visit <a target="_blank" href="http://status.twitter.com">Twitter Status</a> for more information. </p>
+        </div>
+      </div>
+    </div>
+
+    <ol class="hidden-replies-container"></ol>
+  </div>
+</div>
+<div th:fragment="messages">
+  <div class="stream">
+    <ol class="stream-items js-navigable-stream">
+
+      <li class="js-stream-item stream-item stream-item expanding-stream-item" data-item-type="msg">
+        <!--@thymesVar id="messages" type="java.util.List<com.tweeter.model.hibernate.Tweet>"-->
+        <ol role="presentation"
+            class="expanded-conversation expansion-container js-expansion-container js-navigable-stream"
+            th:each="i,iterStat : ${messages}">
+          <!--/*/ <th:block th:include="fragments/twitter/message :: message"></th:block> /*/-->
+        </ol>
+
+      </li>
+
+    </ol>
+    <div class="stream-footer ">
+      <div class="timeline-end has-items has-more-items">
+        <div class="stream-end">
+          <div class="stream-end-inner">
+            <span class="Icon Icon--large Icon--logo"></span>
+
+            <p class="empty-text">
+              Your timeline is currently empty. Follow people and topics you find interesting to see their Tweets in
+              your timeline.
+
+            </p>
+
+            <p>
+              <button type="button" class="btn-link back-to-top hidden" style="display: inline-block;">Back to top ↑
+              </button>
+            </p>
+
+          </div>
+        </div>
+
+        <div class="stream-loading">
+          <div class="stream-end-inner">
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="stream-fail-container">
+      <div class="js-stream-whale-end stream-whale-end stream-placeholder centered-placeholder">
+        <div class="stream-end-inner">
+          <h2 class="title">Loading seems to be taking a while.</h2>
+
+          <p>
+            Twitter may be over capacity or experiencing a momentary hiccup. <a role="button" href="#"
+                                                                                class="try-again-after-whale">Try
+                                                                                                              again</a>
+            or visit <a target="_blank" href="http://status.twitter.com">Twitter Status</a> for more information. </p>
+        </div>
+      </div>
+    </div>
+
+    <ol class="hidden-replies-container"></ol>
+  </div>
+</div>
+<div th:fragment="following">
+  <!--@thymesVar id="user" type="com.tweeter.model.hibernate.User"-->
+  <div class="stream">
+    <ol class="stream-items js-navigable-stream" id="stream-items-id">
+
+      <li class="js-stream-item stream-item stream-item expanding-stream-item">
+        <ol role="presentation"
+            class="expanded-conversation expansion-container js-expansion-container js-navigable-stream"
+            th:each="i : ${user.getFollowing()}">
+          <div th:replace="fragments/twitter/user :: user"></div>
+
+        </ol>
+
+      </li>
+
+    </ol>
+    <div class="stream-footer ">
+      <div class="timeline-end has-items has-more-items">
+        <div class="stream-end">
+          <div class="stream-end-inner">
+            <span class="Icon Icon--large Icon--logo"></span>
+
+            <p class="empty-text">
+              Your timeline is currently empty. Follow people and topics you find interesting to see their Tweets in
+              your timeline.
+
+            </p>
+
+            <p>
+              <button type="button" class="btn-link back-to-top hidden" style="display: inline-block;">Back to top ↑
+              </button>
+            </p>
+
+          </div>
+        </div>
+
+        <div class="stream-loading">
+          <div class="stream-end-inner">
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="stream-fail-container">
+      <div class="js-stream-whale-end stream-whale-end stream-placeholder centered-placeholder">
+        <div class="stream-end-inner">
+          <h2 class="title">Loading seems to be taking a while.</h2>
+
+          <p>
+            Twitter may be over capacity or experiencing a momentary hiccup. <a role="button" href="#"
+                                                                                class="try-again-after-whale">Try
+                                                                                                              again</a>
+            or visit <a target="_blank" href="http://status.twitter.com">Twitter Status</a> for more information. </p>
+        </div>
+      </div>
+    </div>
+
+    <ol class="hidden-replies-container"></ol>
+  </div>
+</div>
+<div th:fragment="followers">
+  <!--@thymesVar id="followers" type="java.util.List"-->
+  <div class="stream">
+    <ol class="stream-items js-navigable-stream">
+
+      <li class="js-stream-item stream-item stream-item expanding-stream-item">
+        <ol role="presentation"
+            class="expanded-conversation expansion-container js-expansion-container js-navigable-stream"
+            th:each="i : ${followers}">
+          <div th:replace="fragments/twitter/follower :: follower"></div>
+        </ol>
+
+      </li>
+
+    </ol>
+    <div class="stream-footer ">
+      <div class="timeline-end has-items has-more-items">
+        <div class="stream-end">
+          <div class="stream-end-inner">
+            <span class="Icon Icon--large Icon--logo"></span>
+
+            <p class="empty-text">
+              Your timeline is currently empty. Follow people and topics you find interesting to see their Tweets in
+              your timeline.
+
+            </p>
+
+            <p>
+              <button type="button" class="btn-link back-to-top hidden" style="display: inline-block;">Back to top ↑
+              </button>
+            </p>
+
+          </div>
+        </div>
+
+        <div class="stream-loading">
+          <div class="stream-end-inner">
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="stream-fail-container">
+      <div class="js-stream-whale-end stream-whale-end stream-placeholder centered-placeholder">
+        <div class="stream-end-inner">
+          <h2 class="title">Loading seems to be taking a while.</h2>
+
+          <p>
+            Twitter may be over capacity or experiencing a momentary hiccup. <a role="button" href="#"
+                                                                                class="try-again-after-whale">Try
+                                                                                                              again</a>
+            or visit <a target="_blank" href="http://status.twitter.com">Twitter Status</a> for more information. </p>
+        </div>
+      </div>
+    </div>
+
+    <ol class="hidden-replies-container"></ol>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.stac.service.SpellCheckingService</OriginalElement>
+  <nodes>
+    <node x="525.3809523809523" y="300.0">com.stac.utility.TrieEdge</node>
+    <node x="218.00595238095235" y="715.0">com.stac.service.SpellCheckingService</node>
+    <node x="441.1428571428571" y="0.0">com.stac.utility.TrieNode</node>
+    <node x="260.38095238095235" y="333.0">com.stac.service.WordMatcher</node>
+    <node x="453.0" y="535.5">com.stac.service.Spelling</node>
+    <node x="168.5059523809524" y="906.0">com.stac.web.WelcomeController</node>
+    <node x="113.75595238095235" y="88.0">com.stac.service.IMatcher</node>
+    <node x="220.0" y="513.0">com.stac.service.SpellCheckingService.Task</node>
+    <node x="17.38095238095235" y="344.5">com.stac.service.FalseMatcher</node>
+    <node x="0.0" y="558.0">com.stac.service.SessionIdentifierGenerator</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.stac.service.Spelling" target="com.stac.utility.TrieNode">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.stac.utility.TrieNode" target="com.stac.utility.TrieEdge">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.stac.service.SpellCheckingService" target="com.stac.service.SpellCheckingService.Task">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.stac.service.SpellCheckingService" target="com.stac.service.Spelling">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.stac.service.SpellCheckingService" target="com.stac.service.SessionIdentifierGenerator">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.stac.service.SpellCheckingService.Task" target="com.stac.service.SpellCheckingService">
+      <point x="71.0" y="71.0" />
+      <point x="39.85714285714283" y="-70.5" />
+    </edge>
+    <edge source="com.stac.web.WelcomeController" target="com.stac.service.SpellCheckingService">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.stac.service.FalseMatcher" target="com.stac.service.IMatcher">
+      <point x="0.0" y="-37.0" />
+      <point x="128.88095238095235" y="275.0" />
+      <point x="169.50595238095235" y="275.0" />
+      <point x="-55.75" y="37.0" />
+    </edge>
+    <edge source="com.stac.service.Spelling" target="com.stac.service.WordMatcher">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.stac.service.WordMatcher" target="com.stac.service.IMatcher">
+      <point x="-61.25" y="-48.5" />
+      <point x="321.63095238095235" y="275.0" />
+      <point x="281.00595238095235" y="275.0" />
+      <point x="55.75" y="37.0" />
+    </edge>
+    <edge source="com.stac.service.WordMatcher" target="com.stac.utility.TrieNode">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.stac.utility.TrieEdge" target="com.stac.utility.TrieNode">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7004784688995215" x="404.7739071038252" y="429.6448087431694" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>Production</SCOPE>
+  <VISIBILITY>public</VISIBILITY>
+</Diagram>
+

@@ -1,0 +1,43 @@
+DESCRIPTION
+-----------
+
+This challenge consists of an HTTP service that calculates Traveling
+Salesman-style tours between sets of places specified by a user. The
+places must be chosen from among a fixed set of places with which the
+server is configured at startup. As delivered, the server is
+configured with the 25 largest cities in Massachusetts.
+
+A user submits an HTTP request specifying a list of places they want
+to visit. The service responds with a reordered list giving an
+approximately optimal order in which to visit them.
+
+
+SECURITY CONSIDERATIONS
+-----------------------
+
+Users might wish to keep private the set of places for which they
+submit a query. They might use the service to plan optimal orders for
+errands, meetings, and other movements of varying sensitivity. While
+the example configuration uses cities (in keeping with the classic
+formulation of the traveling saleman problem), the same service could
+be used to calculate tours between any set of geographical points with
+which it is configured.
+
+As delivered, the server is configured to use HTTPS.
+
+
+USAGE
+-----
+
+To start the server:
+
+    $ ./scripts/serve.sh
+
+To query the server, curl scripts are provided. To get the list of
+available cities:
+
+    $ ./scripts/query.sh places
+
+To calculate a tour:
+
+    $ ./scripts/query.sh tour place1 place2 ...

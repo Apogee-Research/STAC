@@ -1,0 +1,1 @@
+Is there a space side-channel which would, with 100% probability, reveal the address of a SmartMail mailing list’s administrator?

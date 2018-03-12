@@ -1,0 +1,143 @@
+Collab is a program for event scheduling. A user may create new events and de-conflict them with respect to his schedule. Additionally, a special class of users, called auditors, can schedule special auditing events for other users. The audit events scheduled by these auditors are invisible to the other users, so that the targets of said audits do not know when they are coming.
+
+The Collab calendar records a collection of scheduled events, with each event associated to a single user.  The only information recorded about an event is its time, which is represented as the number of time units since some unspecified epoch.  For instance, assume time units in hours and an epoch of Jan 1, 2016; then an event stored as 3,000 would denote Cinco de Mayo, since (May 5, 2016) - (Jan 1, 2016) = 125 days = 3,000 hours.  The definitions of epoch and time unit for a particular calendar are left up to the calendar's users.  In other words, each event has associated with it an integer ID, and it is up to the users to provide a mapping from an event ID to time.
+
+In order for a user to update his calendar, he works in a scheduling sandbox. A scheduling sandbox is a temporary calendar that is initially populated with all of a user' pre-existing events.  Within the sandbox, said user may create new events.  Note that no two events for the same user may have the same ID.  Once the user is happy with his scheduling, he may commit the contents of his sandbox onto the master calendar.  Alternatively, he may discard the sandbox without committing it.  The only way for a user to modify the master calendar is by way of a scheduling sandbox.
+
+Collab has been delivered with a pre-populated database.  One of the users included in the canned data (username 'picard'), is concerned that he may be audited soon.  Unfortunately for him, he doesn't know when the audit will occur.
+
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+
+The program is delivered as a single jar file, which can function under two operating modes: client and server.
+
+Server-mode Collab maintains the calendar, whereas client-mode Collab sends requests to the server to query or modify the calendar.  The server must be running in order for the client to function.
+
+Collab server is run with the following command:
+java -jar Collab.jar server
+
+Collab client is run with the following command:
+java -jar Collab.jar client
+
+The Collab client presents a command line interface, accepting the following commands:
+
+--------------------------------------------------------------------------------------
+
+1) Login <string:username> -- Creates a session for user with username <username>.
+
+Login example: After starting the client, you will see a prompt asking you for a user name.
+
+*******************************
+WELCOME TO THE COLLAB EVENT MANAGEMENT SYSTEM
+PLEASE LOGIN
+Enter Username:
+picard   <-------------YOU SUPPLY THE USERNAME (picard is pre-loaded in the database)
+You have successfully logged on!. (sessionid:1550503915)
+Enter Command (SEARCH, INSERT, DONE, UNDO, QUIT):
+*******************************
+
+Troubleshooting Login: If you see a failure message, one of the following reasons is the likely cause:
+1. Either the server is not running or is not accessible via the network. 
+2. You did not type 'picard' exactly as it appears above. 
+3. The session id is dynamically generated when you login. If the server is restarted, the session id will no longer be valid and you will need to restart the client and login again.
+
+--------------------------------------------------------------------------------------
+
+2) Search <int:min, int:max> -- Gets a list of all events in the logged-in user's scheduling sandbox for which the event identifier is in interval (<min>, <max>).
+
+Search Usage: After logging in, you may search the Colab database. 
+*******************************
+Enter Command (SEARCH, INSERT,DONE, UNDO, QUIT):
+SEARCH  <--YOU TYPE 'SEARCH' at the prompt.
+Enter Event time range to search
+min of range:
+0   <--YOU TYPE an integer representing the low end of the range you wish to search.
+max of range:
+2000000  <--YOU TYPE an integer representing the high end of the range you wish to search.
+status:waiting on results from server
+status:done receiving results from server
+	100000  <--THE CLIENT PRINTS A LIST OF EVENT TIMES BETWEEN YOUR SEARCH RANGE
+	200000
+	300000
+	400000
+	500000
+	600000
+	700000
+	800000
+	900000
+	1000000
+	1100000
+	1200000
+	1300000
+	1400000
+	1500000
+	1600000
+	1700000
+	1800000
+	1900000
+	2000000
+Enter Command (SEARCH, INSERT,DONE, UNDO, QUIT):
+*******************************
+
+Troubleshooting Search: If you see a failure message, one of the following reasons is the likely cause:
+1. Either the server is not running or is not accessible via the network. 
+2. You did not type an integer value in response to '[min|max] of range:'.
+3. You have restarted the server, but not the client. In this scenario, the session id has become invalid. Restart the client and login again.
+4. Another user has logged in using the same username as you, after you logged in. The system is cooperative; if another user logs in with the same username from elsewhere, they will replace your session id with a new one. You will need to tell the other user to stop and then restart the client.
+ 
+
+--------------------------------------------------------------------------------------
+
+3) Add <int:eventID> -- Adds a new event, with event identifier <eventID>, to the logged-in user's scheduling sandbox. If the logged-in user's scheduling sandbox had not already been initialized, the Add command does so before adding the new event.
+
+Add Usage: After logging in, you may add events to the Collab database. 
+*******************************
+Enter Command (SEARCH, ADD, DONE, UNDO, QUIT):
+ADD <--  YOU TYPE 'ADD' at the prompt.
+Enter event time to add:
+600004 <--  YOU ENTER AN EVENT TIME WHEN PROMPTED.
+status:1
+Enter Command (SEARCH, ADD, DONE, UNDO, QUIT):
+*******************************
+
+Troubleshooting Add: If you see a failure message, one of the following reasons is the likely cause:
+1. Either the server is not running or is not accessible via the network. 
+2. You did not type an integer value in response to '[Enter event time to add:]'.
+3. You have restarted the server, but not the client. If this is the case then your session id is likely invalid. Restart the client and login again.
+4. Another user has logged in using the same username as you, after you logged in. The system is cooperative; if another user logs in with the same username from elsewhere, they will replace your session id with a new one. You will need to tell the other user to stop and then restart the client.
+
+--------------------------------------------------------------------------------------
+
+4) Done -- Commits the contents of the logged-in user's scheduling sandbox onto the master calendar, then destroys the scheduling sandbox.
+
+Done usage:
+*******************************
+Enter Command (SEARCH, ADD, DONE, UNDO, QUIT):
+DONE <--  YOU TYPE 'DONE' at the prompt.
+status:1
+*******************************
+
+Troubleshooting Done: If you see a failure message, one of the following reasons is the likely cause:
+1. Either the server is not running or is not accessible via the network. 
+2. You have restarted the server, but not the client. If this is the case then your session id is likely invalid. Restart the client and login again.
+3. Another user has logged in using the same username as you, after you logged in. The system is cooperative; if another user logs in with the same username from elsewhere, they will replace your session id with a new one. You will need to tell the other user to stop and then restart the client.
+
+--------------------------------------------------------------------------------------
+
+Destroy -- Discards the logged-in user's scheduling sandbox without committing its contents onto the master calendar.
+Destroy usage:
+*******************************
+Enter Command (SEARCH, ADD, DONE, UNDO, QUIT):
+UNDO  <--  YOU TYPE 'UNDO' at the prompt.
+status:1
+*******************************
+Troubleshooting Destroy: Same as Commit
+
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+
+List of attacker controlled interfaces:
+Collab server UDP Port 7688
+
+
+

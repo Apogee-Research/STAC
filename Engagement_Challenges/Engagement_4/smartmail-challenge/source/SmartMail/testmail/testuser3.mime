@@ -1,0 +1,11 @@
+MIME-Version: 1.0
+Date: Tue, 21 Jun 2016 12:58:34 -0700
+From: John Doe <jdoe@machine.example>
+Message-ID: <Mime4j.0.bc0ac689582238f4.155748b00d2@machine.example>
+To: Mary Smith <mary@smartmail.com>
+To: Frank Drebin <fdrebin@smartmail.com>
+Subject: Saying Hello
+Content-Type: text/plain
+
+This is a message just to say hello.
+So, "Hello".

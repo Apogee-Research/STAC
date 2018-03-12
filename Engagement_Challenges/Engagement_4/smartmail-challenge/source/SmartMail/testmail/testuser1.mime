@@ -1,0 +1,83 @@
+From MAILER_DAEMON  Wed Aug 21 19:24:53 2013
+Date: Wed, 21 Aug 2013 19:24:53 +0800
+From: Mail System Internal Data <MAILER-DAEMON@mail.abc.com>
+Subject: DON'T DELETE THIS MESSAGE -- FOLDER INTERNAL DATA
+Message-ID: <1377084293@mail.abc.com>
+X-IMAP: 1377072167 0000000003
+Status: RO
+
+This text is part of the internal format of your mail folder, and is not
+a real message.  It is created automatically by the mail system software.
+If deleted, important folder data will be lost, and it will be re-created
+with the data reset to initial values.
+
+From testuser2@abc.com  Sat Aug 24 10:53:42 2013
+Return-Path: <testuser2@abc.com>
+X-Original-To: testuser1@abc.com
+Delivered-To: testuser1@abc.com
+Received: from shupc (unknown [192.168.75.130])
+by mail.abc.com (Postfix) with SMTP id C0F5B1EFBC3
+for <testuser1@abc.com>; Sat, 24 Aug 2013 10:53:42 +0800 (CST)
+Message-ID: <7F1C30C9CB284CA594D01CBE210257D3@shupc>
+From: "john" <testuser2@abc.com>
+To: "smith" <testuser1@abc.com>
+Subject: aaa
+Date: Sat, 24 Aug 2013 10:53:42 +0800
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+boundary="----=_NextPart_000_000B_01CEA0B8.32903020"
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 6.00.2900.5512
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.5512
+X-UID: 3                                                  
+Status: O
+Content-Length: 386430
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_000B_01CEA0B8.32903020
+Content-Type: multipart/alternative;
+boundary="----=_NextPart_001_000C_01CEA0B8.32903020"
+
+
+------=_NextPart_001_000C_01CEA0B8.32903020
+Content-Type: text/plain;
+charset="gb2312"
+Content-Transfer-Encoding: base64
+
+dGVzdCBhYSBiYiBjYw==
+
+------=_NextPart_001_000C_01CEA0B8.32903020
+Content-Type: text/html;
+    charset="gb2312"
+Content-Transfer-Encoding: base64
+
+PCFET0NUWVBFIEhUTUwgUFVCTElDICItLy9XM0MvL0RURCBIVE1MIDQuMCBUcmFuc2l0aW9uYWwv
+L0VOIj4NCjxIVE1MPjxIRUFEPg0KPE1FVEEgaHR0cC1lcXVpdj1Db250ZW50LVR5cGUgY29udGVu
+dD0idGV4dC9odG1sOyBjaGFyc2V0PWdiMjMxMiI+DQo8TUVUQSBjb250ZW50PSJNU0hUTUwgNi4w
+MC4yOTAwLjU1MTIiIG5hbWU9R0VORVJBVE9SPg0KPFNUWUxFPjwvU1RZTEU+DQo8L0hFQUQ+DQo8
+Qk9EWSBiZ0NvbG9yPSNmZmZmZmY+DQo8RElWPjxGT05UIHNpemU9Mj50ZXN0IGFhIGJiIGNjPC9G
+T05UPjwvRElWPjwvQk9EWT48L0hUTUw+DQo=
+
+------=_NextPart_001_000C_01CEA0B8.32903020--
+
+------=_NextPart_000_000B_01CEA0B8.32903020
+Content-Type: application/octet-stream;
+    name="10112716229607.doc"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+    filename="10112716229607.doc"
+
+0M8R4KGxGuEAAAAAAAAAAAAAAAAAAAAAPgADAP7/CQAGAAAAAAAAAAAAAAAFAAAAKAIAAAAAAAAA
+EAAAKgIAAAEAAAD+////AAAAACMCAAAkAgAAJQIAACYCAAAnAgAA////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////s
+pcEAcWAJBAAA8FK/AAAAAAAAEAAAAAAABgAArJ0CAA4AYmpianFQcVAAAAAAAAAAAAAAAAAAAAAA
+AAAECBYAOBIDABM6AQATOgEA1gwBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//w8AAAAA
+AAAAAAD//w8AAAAAAAAAAAD//w

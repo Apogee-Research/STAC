@@ -1,0 +1,23 @@
+group 'stac.stac'
+version '0.1'
+
+apply plugin: 'java'
+
+// WATCH OUT. SETTING the users key will destroy the vulnerability for this run of the program.
+
+jar {
+    manifest {
+        attributes "Main-Class": "stac.Main"
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile group: 'org.easymock', name: 'easymock', version: '3.4'
+    testCompile group: 'org.powermock', name: 'powermock-easymock-release-full', version: '1.6.4'
+}
+

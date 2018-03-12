@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+</head>
+<body class="three-col">
+<div th:fragment="navbar">
+  <!--/*@thymesVar id="notifications" type="java.lang.Integer"*/-->
+  <div class="topbar js-topbar">
+    <div class="global-nav" data-section-term="top_nav">
+      <div class="global-nav-inner">
+        <div class="container">
+
+          <h1 class="Icon Icon--bird bird-topbar-etched" style="display: inline-block; width: 24px; height: 21px;">
+            <span class="visuallyhidden">Twitter</span>
+          </h1>
+
+          <div class="pushstate-spinner"></div>
+
+
+          <div role="navigation" style="display: inline-block;">
+            <ul class="nav js-global-actions" id="global-actions">
+              <li id="global-nav-home" class="home active" data-global-action="home">
+                <a class="js-nav js-tooltip js-dynamic-tooltip" data-placement="bottom" href="/"
+                   data-component-context="home_nav" data-nav="home" data-original-title="">
+                  <span class="Icon Icon--home Icon--large"></span>
+                  <span class="text">Home</span>
+                </a>
+              </li>
+              <li class="moments js-moments-tab " data-global-action="moments">
+                <a role="button" href="/i/moments" class="js-nav js-tooltip js-dynamic-tooltip"
+                   data-component-context="moments_nav" data-nav="moments" data-placement="bottom"
+                   data-original-title="">
+                  <span class="Icon Icon--lightning Icon--large"></span>
+                  <span class="text">Moments</span>
+                </a>
+              </li>
+              <li class="people notifications" data-global-action="connect">
+                <a class="js-nav js-tooltip js-dynamic-tooltip" data-placement="bottom" href="/i/notifications"
+                   data-component-context="connect_nav" data-nav="connect" data-original-title="">
+                  <span class="Icon Icon--notifications Icon--large"></span>
+                  <span class="text">Notifications</span>
+            <span th:class="${notifications > 0} ? 'count new-count' : 'count'">
+              <span class="count-inner" th:text="${notifications}"></span>
+            </span>
+                </a>
+              </li>
+              <li class="dm-nav">
+                <a role="button" href="#" class="js-tooltip js-dynamic-tooltip global-dm-nav" data-placement="bottom"
+                   data-original-title="">
+                  <span class="Icon Icon--dm Icon--large"></span>
+                  <span class="text">Messages</span>
+                  <span class="dm-new"><span class="count-inner"></span></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+
+          <div class="pull-right" style="display: inline-block;">
+            <!--/*/ <th:block th:include="fragments/twitter/dropdown :: navbar"></th:block> /*/-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

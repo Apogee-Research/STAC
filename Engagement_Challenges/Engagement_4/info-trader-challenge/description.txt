@@ -1,0 +1,74 @@
+﻿InfoTrader is a document server for stock trading professionals.  Each document on the server is expected to contain research about a publicly traded company, and can also contain links to other documents on the server.  Users can upload new documents to the server and also get documents already on the server.  InfoTrader has been delivered with a pre-populated database of InfoTrader documents.
+
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+
+InfoTrader is run with the following command:
+java -jar InfoTrader.jar
+
+InfoTrader exposes an HTTP server via which a user may interact with the system.
+
+--------------------------------------------------------------------------------------
+
+1) Get Document - Gets a document from the server.
+
+URL example: http://server_address:8988/gdoc.cgi?name=*name*&getall=[true|false]
+The type of HTTP request is POST (not GET -- a POST with the gdoc in the URL is processed as a POST)
+
+*name*: The name of the document on the server.
+getall field: If false, returns just the requested document.
+              If true, returns the immediately requested document, all documents to which that one links, and so on transitively.
+
+For navigational purposes, a sitemap can be obtained by requesting Sitemap.xml, i.e.:
+URL example: http://server_address:8988/gdoc.cgi?name=Sitemap.xml&getall=[true|false]
+
+--------------------------------------------------------------------------------------
+
+2) Post Document - Adds a document to the InfoTrader server and updates the sitemap with its location.
+The type of HTTP request is POST.
+
+URL example: http://server_address:8988/doc.cgi
+POST data: content=*content*
+
+*content*: A GEDCOM formatted InfoTrader document, see below.
+
+--------------------------------------------------------------------------------------
+
+InfoTrader Document Format
+
+Example POST data:
+
+0 HEAD
+1 SOUR MSFT
+2 NAME Micosoft Zune Zooms -- Stock up 1000%
+1 NOTE Zune sales look promising. Customers can't get enough.
+0 @I10@ NOTE It wasn’t very easy to get my hands on a Zune. After Microsoft’s long-pitied music player won Slate’s Reader Takeov
+1 CONC er poll in which I’d promised to reassess an overlooked technology of yore, I had to scramble to get hold of a device I hadn’t use
+1 CONC d since at least 2008. My local Craigslist listings overflowed with iPods of every variety, but there were only a couple Zunes f
+1 CONC or sale, and they were the earliest, least-memorable versions of the device. I was looking for a later-model Zune, specifically, 
+1 CONC the 2009-era touch-screen Zune HD. This was the best Zune Microsoft ever made, though you might consider that damning with faint 
+1 CONC praise.
+0 SOUR
+1 TITL Top Buy is tops
+0 TRLR
+
+Explanation:
+
+An InfoTrader document is specified in the GEDCOM format.
+
+An InfoTrader document starts with a “0 HEAD” header line, followed by a “1 SOUR <ticker>” source line where <ticker> is the ticker of the company under whose InfoTrader directory the document should be recorded.  For instance, this example document would be placed under the MSFT directory.  Next is a “2 NAME <name>” name line, where <name> is the name of the document.
+
+The body of an InfoTrader document is specified using a “0 @<tag>@ NOTE <contents>” note line, where <tag> is any text and <contents> is the body of the document.  The body of the document can be written out entirely on that line or it may instead be broken across multiple lines by using “1 CONC” concatenation lines as per the example.
+
+Hyperlinks to another document are specified after the contents by using a “0 SOUR” source line followed by a “1 TITL <name>” title line, where <name> is the name of the document to which this document links, and a document may contain multiple hyperlinks.  For instance, the example document links to another whose name is “Top Buy is tops”.  As another example, if some other document were to link to this one, then that other document would include the following two lines after its contents section:
+
+0 SOUR
+1 TITL Micosoft Zune Zooms -- Stock up 1000%
+
+An InfoTrader document is concluded with a “0 TRLR” trailer line.
+
+--------------------------------------------------------------------------------------
+
+List of BT-controllable input interfaces:
+
+TCP Port 8988 (HTTP Interface)

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head lang="en">
+</head>
+<body>
+<div th:fragment="body">
+  <div id="page-outer">
+    <div id="page-container" class="AppContent wrapper wrapper-home">
+      <div role="main" aria-labelledby="content-centered-heading" class="content-centered col-md-4 col-md-push-4">
+        <div th:if="${param.invalid_username}" class="alert alert-danger" style="margin-top: 10px">
+          That username is invalid. Usernames must contain only upper or lower case letters.
+        </div>
+        <div th:if="${param.already_registered}" class="alert alert-danger" style="margin-top: 10px">
+          This username is taken. Please choose another
+        </div>
+        <div th:if="${param.passwords_not_matching}" class="alert alert-danger" style="margin-top: 10px">
+          Those passwords did not match. Please re-enter those details.
+        </div>
+        <form class="form" action="/register/create" method="post">
+          <div class="clearfix">&nbsp;</div>
+          <input id="fullname" autofocus class="form-control text-center" type="text" name="fullname" placeholder="Full Name"/>
+          <input id="username" class="form-control text-center" type="text" name="username" placeholder="Username"/>
+          <input id="password" class="form-control text-center" type="password" name="password" placeholder="Password"/>
+          <input id="password2" class="form-control text-center" type="password" name="password2" placeholder="Re-enter Password"/>
+          <div class="clearfix">&nbsp;</div>
+          <input id="register" class="form-control btn-block btn-info text-center" type="submit" name="register" value="Register"/>
+          <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="640.0" y="345.5">stac.permissions.Permissions.ACLEntry</node>
+    <node x="438.0" y="77.5">stac.permissions.Permissions</node>
+    <node x="129.5" y="345.0">stac.communications.CommunicationsHandler</node>
+    <node x="510.0" y="367.5">stac.permissions.Permissions.NoSuchUser</node>
+    <node x="258.84375" y="492.0">stac.communications.CommunicationsHandler.MalformedCommunicationException</node>
+    <node x="148.84375" y="470.0">stac.communications.CommunicationsHandler.Action</node>
+    <node x="0.0" y="0.0">stac.crypto.RSA_PEM</node>
+    <node x="774.0" y="367.5">stac.permissions.Permissions.AccessDenied</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="stac.permissions.Permissions.ACLEntry" target="stac.permissions.Permissions">
+      <point x="0.0" y="-37.0" />
+      <point x="697.0" y="320.0" />
+      <point x="679.25" y="320.0" />
+      <point x="48.25" y="70.0" />
+    </edge>
+    <edge source="stac.permissions.Permissions.NoSuchUser" target="stac.permissions.Permissions">
+      <point x="0.0" y="-15.0" />
+      <point x="565.0" y="320.0" />
+      <point x="582.75" y="320.0" />
+      <point x="-48.25" y="70.0" />
+    </edge>
+    <edge source="stac.communications.CommunicationsHandler" target="stac.permissions.Permissions">
+      <point x="79.5" y="-37.5" />
+      <point x="368.0" y="320.0" />
+      <point x="486.25" y="320.0" />
+      <point x="-144.75" y="70.0" />
+    </edge>
+    <edge source="stac.permissions.Permissions.AccessDenied" target="stac.permissions.Permissions">
+      <point x="0.0" y="-15.0" />
+      <point x="835.0" y="320.0" />
+      <point x="775.75" y="320.0" />
+      <point x="144.75" y="70.0" />
+    </edge>
+    <edge source="stac.communications.CommunicationsHandler" target="stac.crypto.RSA_PEM">
+      <point x="-79.5" y="-37.5" />
+      <point x="0.0" y="147.5" />
+    </edge>
+    <edge source="stac.communications.CommunicationsHandler.Action" target="stac.communications.CommunicationsHandler">
+      <point x="0.0" y="-37.0" />
+      <point x="193.84375" y="445.0" />
+      <point x="209.0" y="445.0" />
+      <point x="-79.5" y="37.5" />
+    </edge>
+    <edge source="stac.communications.CommunicationsHandler.MalformedCommunicationException" target="stac.communications.CommunicationsHandler">
+      <point x="0.0" y="-15.0" />
+      <point x="390.34375" y="445.0" />
+      <point x="368.0" y="445.0" />
+      <point x="79.5" y="37.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="448.0" y="272.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>public</VISIBILITY>
+</Diagram>
+

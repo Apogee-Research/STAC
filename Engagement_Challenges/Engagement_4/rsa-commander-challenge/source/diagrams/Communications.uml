@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="216.0" y="632.0">stac.crypto.RSA_PEM</node>
+    <node x="0.0" y="709.0">stac.crypto.Rijndael</node>
+    <node x="144.06666666666666" y="977.0">stac.crypto.rsa.Communications</node>
+    <node x="196.31666666666663" y="0.0">stac.crypto.RSA_PEM.INTEGER</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="stac.crypto.rsa.Communications" target="stac.crypto.RSA_PEM">
+      <point x="0.0" y="-48.0" />
+      <point x="417.56666666666666" y="952.0" />
+      <point x="425.0" y="952.0" />
+      <point x="0.0" y="147.5" />
+    </edge>
+    <edge source="stac.crypto.RSA_PEM" target="stac.crypto.RSA_PEM.INTEGER">
+      <point x="0.0" y="-147.5" />
+      <point x="425.0" y="607.0" />
+      <point x="361.8166666666666" y="607.0" />
+      <point x="-165.5" y="291.0" />
+    </edge>
+    <edge source="stac.crypto.rsa.Communications" target="stac.crypto.RSA_PEM.INTEGER">
+      <point x="182.33333333333337" y="-48.0" />
+      <point x="599.9000000000001" y="952.0" />
+      <point x="644.5" y="952.0" />
+      <point x="644.5" y="607.0" />
+      <point x="692.8166666666666" y="607.0" />
+      <point x="165.49999999999997" y="291.0" />
+    </edge>
+    <edge source="stac.crypto.rsa.Communications" target="stac.crypto.Rijndael">
+      <point x="-182.33333333333337" y="-48.0" />
+      <point x="235.2333333333333" y="952.0" />
+      <point x="98.0" y="952.0" />
+      <point x="0.0" y="70.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="429.5" y="536.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>Production</SCOPE>
+  <VISIBILITY>public</VISIBILITY>
+</Diagram>
+

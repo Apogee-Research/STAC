@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+</head>
+<body class="three-col">
+<div th:fragment="navbar">
+  <div class="topbar js-topbar">
+    <div class="global-nav" data-section-term="top_nav">
+      <div class="global-nav-inner">
+        <div class="container">
+
+          <h1 class="Icon Icon--bird bird-topbar-etched" style="display: inline-block; width: 24px; height: 21px;">
+            <span class="visuallyhidden">Twitter</span>
+          </h1>
+
+          <div class="pushstate-spinner"></div>
+
+
+          <div role="navigation" style="display: inline-block;">
+            <ul class="nav js-global-actions" id="global-actions">
+              <li id="global-nav-home" class="home active" data-global-action="home">
+                <a class="js-nav js-tooltip js-dynamic-tooltip" data-placement="bottom" href="/"
+                   data-component-context="home_nav" data-nav="home" data-original-title="">
+                  <span class="Icon Icon--home Icon--large"></span>
+                  <span class="text">Login</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

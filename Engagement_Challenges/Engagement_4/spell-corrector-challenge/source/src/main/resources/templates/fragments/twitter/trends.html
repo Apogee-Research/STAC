@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<div th:fragment="trends" class="trends-inner">
+  <div class="flex-module trends-container context-trends-container">
+    <div class="flex-module-header">
+
+      <h3><span class="trend-location js-trend-location">Trends</span></h3>
+      <span class="middot">·</span> <a role="button" href="#" data-modal="change-trends"
+                                       class="change-trends js-trend-toggle">Change</a>
+    </div>
+    <div class="flex-module-inner">
+      <!--@thymesVar id="trending" type="java.util.List<com.fasterxml.jackson.databind.node.ObjectNode>"-->
+      <ul class="trend-items js-trends" th:each="i : ${trending}">
+        <li class="trend-item js-trend-item  context-trend-item">
+
+          <a class="js-nav u-linkComplex" th:href="${'/hashtag/' + i.get('hashTag').asText() + '?src=tren'}"
+             data-query-source="trend_click">
+            <span class="u-linkComplex-target trend-name" dir="ltr" th:text="${'#' + i.get('hashTag').asText()}"></span>
+
+            <div class="js-nav trend-item-context"></div>
+            <div class="js-nav trend-item-stats" th:text="${i.get('tweeted').asText()}"></div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>

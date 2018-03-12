@@ -1,0 +1,107 @@
+Twitter clone
+=============
+
+This is a basic clone of twitter. Registered users are able to tag one another in their messages and they are able to write posts about a topic using the hashtag paradigm.
+
+Usage
+-----
+This is a ___single jar___ application.
+
+Usage: *java -Xint -jar Twitter-1.0.jar*
+
+Interaction
+-----------
+
+The twitter clone is a web application and all interaction is performed through the exposed web interface.
+
+The urls allowed as input to the application are:
+
+<table>
+	<tr>
+		<th>Method</th>
+		<th>URL</th>
+	</tr>
+	
+	<tr>
+		<td>GET/POST</td><td>/</td>
+	</tr>
+	<tr>
+		<td>GET/POST</td><td>/follow/author/{<em>username:.+</em>}</td>
+	</tr>
+	<tr>
+		<td>GET/POST</td><td>/unfollow/author/{<em>username:.+</em>}</td>
+	</tr>
+	<tr>
+		<td>POST</td><td>/tweet</td>
+	</tr>
+	<tr>
+		<td>GET</td><td>/register</td>
+	</tr>
+	<tr>
+		<td>GET</td><td>/register/create</td>
+	</tr>
+	<tr>
+		<td>POST</td><td>/register/create</td>
+	</tr>
+	<tr>
+		<td>GET</td><td>/login</td>
+	</tr>
+	<tr>
+		<td>GET/POST</td><td>/logout</td>
+	</tr>
+	<tr>
+		<td>GET/POST</td><td>/following/{<em>username:.+</em>}</td>
+	</tr>
+	<tr>
+		<td>GET/POST</td><td>/followers/{<em>username:.+</em>}</td>
+	</tr>
+	<tr>
+		<td>GET/POST</td><td>/i/moments</td>
+	</tr>
+	<tr>
+		<td>GET/POST</td><td>/i/notifications</td>
+	</tr>
+	<tr>
+		<td>GET/POST</td><td>/hashtag/{<em>tag:.+</em>}</td>
+	</tr>
+	<tr>
+		<td>GET/POST</td><td>/author/{<em>username:.+</em>}</td>
+	</tr>
+	<tr>
+		<td>GET/POST</td><td>/changeWord</td>
+	</tr>
+	<tr>
+		<td>GET/POST</td><td>/deleteStaged</td>
+	</tr>
+	<tr>
+		<td>GET/POST</td><td>/avatar/me</td>
+	</tr>
+	<tr>
+		<td>GET/POST</td><td>/avatar/id/{<em>userid</em>}</td>
+	</tr>
+	<tr>
+		<td>GET/POST</td><td>/avatar/username/{<em>user:.+</em>}</td>
+	</tr>
+	<tr>
+		<td>GET</td><td>/js/*, /css/*, /images/*, /font/*</td>
+	</tr>
+</table>
+
+Supported Operations
+--------------------
+
+1. Creating new users:
+    1. http://localhost:8080/register
+2. Logging a user in:
+    1. http://localhost:8080/login
+    2. This is the default route for unauthenticated users
+3. Sending tweets:
+    1. Use the "What's happening" input box on the index page. Click the message icon to send. Messages will be checked for spelling before they are allowed on the feed. See the "Correcting messages" point below for more on this
+4. Viewing hashtags:
+    1. Hashtags will show up in the trending box under the avatar
+5. Viewing other user's messages or posts mentioning them:
+    1. Clicking on a user's name will show their feed
+6. Correcting messages before they become posts
+    1. All posts are checked for spelling. Click the notifications tab to see pending posts
+7. Deleting pending posts
+

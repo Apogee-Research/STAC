@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<li th:fragment="hashtag" role="presentation" class="original-tweet-container">
+  <!--@thymesVar id="i" type="com.tweeter.model.hibernate.Tweet"-->
+  <div class="tweet js-stream-tweet js-actionable-tweet js-profile-popup-actionable original-tweet js-original-tweet has-cards cards-forward">
+    <div class="content">
+      <div class="stream-item-header">
+        <a class="account-group js-account-group js-action-profile js-user-profile-link js-nav"
+           th:href="${'/' + i.getAuthor().getUsername()}"> <img class="avatar js-action-profile-avatar"
+                                                                th:src="${'/avatar/username/' + i.getAuthor().getUsername()}">
+          <strong class="fullname js-action-profile-name show-popup-with-id"
+                  th:text="${i.getAuthor().getFullname()}"></strong>
+          <span class="username js-action-profile-name">
+            <s>@</s><b th:text="${i.getAuthor().getFullname()}"></b>
+          </span> </a>
+        <small class="time">
+          <span class="tweet-timestamp js-permalink js-nav js-tooltip">
+             <span class="_timestamp js-short-timestamp js-relative-timestamp" aria-hidden="true"
+                   th:text="${i.getAge()}"></span>
+          </span>
+        </small>
+      </div>
+      <div class="js-tweet-text-container">
+        <p class="TweetTextSize  js-tweet-text tweet-text" lang="en" data-aria-label-part="0"
+           th:text="${i.getText()}"></p>
+      </div>
+      <div class="stream-item-footer">
+        <div class="ProfileTweet-actionList js-actions" role="group" aria-label="Tweet actions">
+          <div class="ProfileTweet-action ProfileTweet-action--reply">
+            <button class="ProfileTweet-actionButton u-textUserColorHover js-actionButton js-actionReply"
+                    data-modal="ProfileTweet-reply" type="button" th:onclick="${i.getAuthor().getFullname()}">
+              <div class="IconContainer js-tooltip" title="Reply">
+                <span class="Icon Icon--reply"></span>
+              </div>
+            </button>
+          </div>
+          <div class="ProfileTweet-action ProfileTweet-action--retweet js-toggleState js-toggleRt">
+            <button class="ProfileTweet-actionButton  js-actionButton js-actionRetweet"
+                    data-modal="ProfileTweet-retweet" type="button">
+              <div class="IconContainer js-tooltip" title="Retweet">
+                <span class="Icon Icon--retweet"></span>
+              </div>
+              <div class="IconTextContainer">
+                <span class="ProfileTweet-actionCount">
+                  <span class="ProfileTweet-actionCountForPresentation" aria-hidden="true">1</span>
+                </span>
+              </div>
+            </button>
+          </div>
+          <div class="ProfileTweet-action ProfileTweet-action--favorite js-toggleState"></div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+
+
+</li>
+</body>
+</html>

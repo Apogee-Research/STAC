@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head lang="en">
+</head>
+<body>
+<div th:fragment="body">
+  <div id="page-outer">
+    <div id="page-container" class="AppContent wrapper wrapper-home">
+      <div role="main" aria-labelledby="content-centered-heading" class="content-centered col-md-4 col-md-push-4">
+        <div th:if="${param.error}" class="alert alert-danger" style="margin-top: 10px">
+          Invalid username and password.
+        </div>
+        <div th:if="${param.logout}" class="alert alert-success" style="margin-top: 10px">
+          You have been logged out.
+        </div>
+        <div th:if="${param.created}" class="alert alert-success" style="margin-top: 10px">
+          Account created! Please login.
+        </div>
+        <form class="form" action="/login" method="post">
+          <div class="clearfix">&nbsp;</div>
+          <input id="username" autofocus class="form-control text-center" type="text" name="username" placeholder="Username"/>
+          <input id="password" class="form-control text-center" type="password" name="password" placeholder="Password"/>
+          <div class="clearfix">&nbsp;</div>
+          <input id="login" class="form-control btn-block btn-info text-center" type="submit" name="login" value="Login"/>
+          <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+          <p th:if="not ${param.created}" class="form-control-static text-center"><a href="/register">Create new account</a> </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

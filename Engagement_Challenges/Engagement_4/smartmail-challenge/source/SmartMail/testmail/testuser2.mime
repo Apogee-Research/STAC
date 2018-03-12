@@ -1,0 +1,18 @@
+MIME-Version: 1.0
+Date: Tue, 21 Jun 2016 12:58:34 -0700
+From: John Doe <jdoe@machine.example>
+Message-ID: <Mime4j.0.bc0ac689582238f4.155748b00d2@machine.example>
+To: Andy Smith <andy@smartmail.com>
+To: Andy Smith <andy@smartmail.com>
+To: Frank Smith <frank@smartmail.com>
+To: Jck Smith <jack@smartmail.com>
+To: Jck Smith <jack@smartmail.com>
+To: Jck Smith <jack@smartmail.com>
+To: Linda Smith <linda@smartmail.com>
+To: Nick Smith <nick@smartmail.com>
+To: Nick Smith <zelda@smartmail.com>
+Subject: Saying Hello
+Content-Type: text/plain
+
+This is a message just to say hello.
+So, "Hello". jack@smartmail.com

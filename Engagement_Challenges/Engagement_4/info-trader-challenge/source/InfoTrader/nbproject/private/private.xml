@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/Users/burkep/Projects/STAC/InfoTrader/ITgit2/InfoTrader/EL/source/InfoTrader/src/infotrader/dataprocessing/DocumentDisplayGenerator.java</file>
+            <file>file:/Users/burkep/Projects/STAC/InfoTrader/ITgit2/InfoTrader/EL/source/InfoTrader/src/infotrader/userinteraction/DocumentParser.java</file>
+            <file>file:/Users/burkep/Projects/STAC/InfoTrader/ITgit2/InfoTrader/EL/source/InfoTrader/src/infotrader/sitedatastorage/DocumentStore.java</file>
+            <file>file:/Users/burkep/Projects/STAC/InfoTrader/ITgit2/InfoTrader/EL/source/InfoTrader/src/infotrader/messaging/controller/module/RunInfoTrader.java</file>
+            <file>file:/Users/burkep/Projects/STAC/InfoTrader/ITgit2/InfoTrader/EL/source/InfoTrader/src/infotrader/userinteraction/SitemapServlet.java</file>
+            <file>file:/Users/burkep/Projects/STAC/InfoTrader/ITgit2/InfoTrader/EL/source/InfoTrader/src/infotrader/dataprocessing/SiteMapGenerator.java</file>
+            <file>file:/Users/burkep/Projects/STAC/InfoTrader/ITgit2/InfoTrader/EL/source/InfoTrader/src/infotrader/datamodel/SerializationPosition.java</file>
+            <file>file:/Users/burkep/Projects/STAC/InfoTrader/ITgit2/InfoTrader/EL/source/InfoTrader/src/infotrader/dataprocessing/ContentProcessor.java</file>
+            <file>file:/Users/burkep/Projects/STAC/InfoTrader/ITgit2/InfoTrader/EL/source/InfoTrader/src/infotrader/dataprocessing/ContentExtractor.java</file>
+            <file>file:/Users/burkep/Projects/STAC/InfoTrader/ITgit2/InfoTrader/EL/source/InfoTrader/src/infotrader/dataprocessing/Extractor.java</file>
+            <file>file:/Users/burkep/Projects/STAC/InfoTrader/ITgit2/InfoTrader/EL/source/InfoTrader/src/infotrader/dataprocessing/NodeCreationException.java</file>
+            <file>file:/Users/burkep/Projects/STAC/InfoTrader/ITgit2/InfoTrader/EL/source/InfoTrader/src/infotrader/parser/exception/InfoTraderValidationException.java</file>
+            <file>file:/Users/burkep/Projects/STAC/InfoTrader/ITgit2/InfoTrader/EL/source/InfoTrader/src/infotrader/userinteraction/RequestHandler.java</file>
+            <file>file:/Users/burkep/Projects/STAC/InfoTrader/ITgit2/InfoTrader/EL/source/InfoTrader/src/infotrader/datamodel/Directory.java</file>
+            <file>file:/Users/burkep/Projects/STAC/InfoTrader/ITgit2/InfoTrader/EL/source/InfoTrader/src/infotrader/datamodel/DocumentI.java</file>
+            <file>file:/Users/burkep/Projects/STAC/InfoTrader/ITgit2/InfoTrader/EL/source/InfoTrader/src/infotrader/datamodel/HyperLink.java</file>
+            <file>file:/Users/burkep/Projects/STAC/InfoTrader/ITgit2/InfoTrader/EL/source/InfoTrader/src/infotrader/datamodel/NodeBase.java</file>
+        </group>
+    </open-files>
+</project-private>

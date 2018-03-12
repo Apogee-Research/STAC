@@ -1,0 +1,80 @@
+﻿SmartMail is a service that receives email-like messages from a client and delivers them to one or more recipients.  It also provides mailing list functionality, including the ability to send a message to a mailing list and to retrieve the addresses of all the public subscribers to a mailing list.
+
+SmartMail addresses are of the form user@smartmail.com, where user is letters only, case insensitive, and has max length 25.
+
+When a user sends a message, the service analyzes it and records statistics regarding the delivery.
+
+Each SmartMail mailing lists is associated with a SmartMail address; i.e., any message addressed to that address is delivered to each of the mailing lists' subscribers.  Each SmartMail mailing list has a special subscriber, the administrator.  A list's administrator is subscribed to the list, but his address is confidential.  As such, the response for a request to get the list's subscribers does not include the administrator's address.
+
+SmartMail has been delivered with a pre-populated database of users and mailing lists.
+
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+
+The SmartMail server is run with the following command:
+java -jar SmartMail.jar
+
+The SmartMail server accepts requests via HTTP.  It accepts the following three requests:
+
+--------------------------------------------------------------------------------------
+
+1) Send Message Request: Sends a message to one or more recipients.
+
+http://server_address:8988/email.cgi?from=*from*&to=*to*&subj=*subj*&content=*content*
+
+
+server_address: IP address of server, probably localhost or 127.0.0.1
+port: 8988
+path: /email.cgi
+*from*: The SmartMail address of the message’s sender, of form user@smartmail.com.
+*to*: List of recipient addresses, separated using semicolons.
+*subj*: A plain text description of the message.
+*content*:  The plain text content of the message.
+Expected Result: "OK"
+
+Sample CURL call:
+curl -X POST "http://127.0.0.1:8988/email.cgi?from=me@smartmail.com&to=nick@smartmail.com;linda@smartmail.com&subj=Subject&content=somedata"
+Result 
+"OK"
+
+--------------------------------------------------------------------------------------
+
+2) Get Mailing List Subscribers Request: Retrieves the list of subscribers to a specified mailing list.
+
+http://127.0.0.1:8988/address.cgi?list=*list*
+
+*list*: Address of the mailing list.  The SmartMail address of the mailing list.
+Expected Result: List of subscriber addresses, separated with semicolons.
+
+Sample CURL call:
+curl -X POST http://127.0.0.1:8988/address.cgi?list=security@smartmail.com
+Result: 
+"andrew@smartmail.com;frank@smartmail.com;linda@smartmail.com;nick@smartmail.com;zelda@smartmail.com;"
+
+
+ 
+
+--------------------------------------------------------------------------------------
+
+3) Retrieve Message Request: Retrieves a message which was sent to the specified user. The message received is the next item in a FIFO queue.  Each retrieve request pops a message off the queue.
+
+http://server_address:8988/mbox.cgi?mbox=*user*
+
+*mbox*: The address of the user for which a message should be retrieved.
+Expected Result: The subject and contents of a retrieved message.
+
+Sample CURL call:
+curl -X POST http://127.0.0.1:8988/mbox.cgi?mbox=linda@smartmail.com
+Result:
+"From:me@smartmail.com
+Subject:Subject
+Message:somedata""
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+
+List of BT-controllable input interfaces:
+TCP Port 8988 (HTTP Interface)
+
+
+
+

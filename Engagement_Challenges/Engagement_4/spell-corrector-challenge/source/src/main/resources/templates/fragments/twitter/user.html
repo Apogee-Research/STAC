@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<li th:fragment="user" role="presentation" class="original-tweet-container">
+  <!--@thymesVar id="i" type="com.tweeter.model.hibernate.User"-->
+  <div style="margin: 10px">
+    <a class="account-group" th:href="${'/author/' + i.getUsername()}" >
+      <img class="avatar" style="display: inline-block; vertical-align: top;" th:src="${'/avatar/username/' + i.getUsername()}">
+    </a>
+      <div class="account-group-inner" style="display: inline-block;">
+        <a class="account-group" th:href="${'/author/' + i.getUsername()}" >
+          <b class="fullname" th:text="${i.getFullname()}"></b>
+          <span class="username"><s>@</s><span class="js-username" th:text="${i.getUsername()}"></span></span>
+        </a>
+        <div class="user-actions not-following not-muting">
+          <a th:href="${'/unfollow/author/' + i.getUsername()}">
+            <button class="small-follow-btn follow-btn btn small follow-button js-recommended-item" type="button">
+              <div class="js-action-follow follow-text action-text">
+                <span class="Icon Icon--unfollow"></span>
+                Unfollow
+              </div>
+            </button>
+          </a>
+        </div>
+      </div>
+
+  </div>
+
+</li>
+</body>
+</html>
