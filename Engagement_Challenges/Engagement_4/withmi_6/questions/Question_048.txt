@@ -1,0 +1,26 @@
+Challenge Program:
+
+        withmi_6.jar
+
+Challenge Question:
+
+        Is there an algorithmic complexity vulnerability in space
+        that would cause the challenge program's memory usage to
+	exceed the resource usage limit given the input budget?
+
+Additional background for question:
+
+	The WithMi application can support multiple users. For
+        the purpose of this question assume that a single attacker
+	is a participant in the network environment defined by
+        example_multiuser.sh.
+
+Input Budget:
+
+        Maximum sum of the PDU sizes of the application requests sent from
+        the user to the server: 10,000 bytes
+
+Resource Usage Limit:
+
+        Available Memory: 2000 MB (total memory usage of the JVM shown 
+	under the RSS column in pmap -x <PID>)

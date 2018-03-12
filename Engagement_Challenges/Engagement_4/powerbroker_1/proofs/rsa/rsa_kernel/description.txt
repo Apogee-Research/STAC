@@ -1,0 +1,24 @@
+rsa_unreachable: RSA Decryption
+---------------------
+Benign??
+
+This RSA is potentially vulnerable, but the vulnerability requires extra operations
+to exploit because the connection handshake does not allow the attacker to
+ask the victim to decrypt multiple challenge messages in a single handshake.
+
+Specifically, in the comms framework, during the connection setup, there is a step
+where the two peers (call them "Alice" and "Bob") exchange RSA public
+keys. Alice will challenge Bob to make sure that he is really in
+possession of the secret key associated to the transmitted public key.
+To do this, she sends him a random value, encrypted with his public
+key, and asks that he decrypt it and send her back the value as
+proof. In this version, if he answers incorrectly, instead of sending him another challenge,
+she tells him that he has failed, and the connection is terminated. If Alice
+were to send him another challenge, he would not respond to her.
+
+The connection setup takes place in comms.internal.CryptoState.
+
+In the literature, attacks on RSA implemented this way require very few timings -- 300 for a 1024-bit key when timing operations on a smart card.
+The STAC environment is noisier, and this version requires a separate handshake for each challenge, quadrupling the operations needed.  It is
+unclear whether an attack exists that can exploit this version in the provided operational budget.
+

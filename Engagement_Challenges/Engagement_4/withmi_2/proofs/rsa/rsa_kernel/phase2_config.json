@@ -1,0 +1,11 @@
+{
+  "type": "sc_benign",
+  
+
+  "wait_secs": 2400,
+  "ports": [9000],
+  "network_mode": "bridge",
+
+  "return_code": 1
+  
+}

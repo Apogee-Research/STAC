@@ -1,0 +1,8 @@
+graph_connectivity_nd: Vulnerable Graph Properties Handler
+-----------------------------------------------
+Benign
+
+This article displays graph properties in such a way that the size of the packet does NOT reveal whether or not the graph is connected.
+
+In this version, all property values are padded to exactly 19 characters.
+

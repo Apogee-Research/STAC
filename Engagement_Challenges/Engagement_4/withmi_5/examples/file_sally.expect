@@ -1,0 +1,34 @@
+set timeout -1
+
+# Ensure the data directory is empty at the start
+catch {exec rm -fr ../challenge_program/data/sally}
+
+spawn ../challenge_program/bin/withmi -d ../challenge_program/data -s ../challenge_program/data/sally -i sally.id
+expect {WithMi>}
+send "createchat megansBday\n"
+expect {Successfully created megansBday}
+expect {WithMi>}
+
+send "connect localhost 9002\n"
+expect {megan. callback on: localhost:9002}
+expect {WithMi>}
+
+send "adduser megan\n"
+expect {Added user to group}
+expect {WithMi>}
+expect {megan: will you bake me a pie for my birthday?}
+expect {WithMi>}
+
+send "availablefiles\n"
+expect {WithMi>}
+
+send "sendfile 2\n"
+
+expect {pi.txt sent}
+expect {megan: ha}
+expect {Removing megan from all chats}
+expect {WithMi>}
+
+send "exit\n"
+expect eof
+

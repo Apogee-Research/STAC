@@ -1,0 +1,8 @@
+graph_size_benign_random: Safe Graph Matrix Handler with random content padding
+-----------------------------------------------
+Type: Benign
+
+This article displays the graph submitted by a user in a "standard" form, which does not reveal the size of the graph.  The graph is
+displayed in table form, with the number of edges between each pair of nodes. Entries in this table are padded with random whitespace,
+so that the number of nodes does not uniquely determine the size of the overall content.
+

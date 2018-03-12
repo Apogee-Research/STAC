@@ -1,0 +1,31 @@
+over_logging_1: Over Logging When Disconnected During Connection Phase
+----------------------------------------------------------------------
+Benign
+
+This article limits the number of times the victim tries to connect to the attacker.
+
+In method tryConnecting() in class powerbroker.phase.ConnectionPhase, we have:
+try {
+    logger.info("Attempting to connect to " + other.toString());
+    CommsConnection connection = getPhaseManager().connect(other);
+    connections.put(connection.getTheirIdentity().getCallbackAddress(), connection);
+    connection.write(connectMsgBytes);
+    return true;
+} catch (Exception e) {
+    logger.info("Attempt failed, trying again " + (--numAttempts)); // decrementing here eliminates the vulnerability
+    logger.error(e.getMessage(), e.getCause());
+    try {
+        if (numAttempts > 0) {
+            Set<CommsNetworkAddress> keys = connections.keySet();
+            if (keys.contains(other)) {
+                return tryConnecting(other, numAttempts);
+            }
+            Thread.sleep(SLEEP_BETWEEN_ATTEMPTS);
+            return tryConnecting(other, --numAttempts);
+        }
+        return false;
+    } catch (InterruptedException e1) {
+        return false;
+    }
+}
+Note that package, class, and method names may be modified by transformers.

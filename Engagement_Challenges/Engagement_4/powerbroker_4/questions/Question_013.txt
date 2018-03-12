@@ -1,0 +1,37 @@
+Challenge Program:
+
+	powerbroker_4.jar
+
+Challenge Question:
+
+	Is there a side channel in time in the challenge program from which
+	an attacker can learn information that allows them to impersonate 
+	another user?
+
+Additional background for question:
+
+	None
+
+Available Operations:
+
+	Passive Operations:	observe the request and corresponding response 
+				packets and timings thereof for a single application 
+				request and response between two PowerBroker users
+				(cost: 1 per observed request and corresponding
+                                response)
+
+	Active Operations:	issue a single application request and monitor
+                                the induced response traffic for this single
+                                request
+				(cost: 1 per request)
+
+	Oracle queries:		query the oracle with information to impersonate
+                                a given user and receive a binary response (yes/no)
+                                as to whether the provided information can be used
+                                to impersonate the user 
+				(cost: 1 per query)
+
+Operational Budget:
+
+	Max number of operations : 75,000 Operations
+	Probability of success   : 80%

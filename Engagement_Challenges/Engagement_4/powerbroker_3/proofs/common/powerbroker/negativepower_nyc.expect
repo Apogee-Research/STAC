@@ -1,0 +1,30 @@
+#!/usr/bin/expect
+set timeout -1
+
+spawn ../../../challenge_program/bin/powerbroker -i ../../../challenge_program/data/nyc/nyc.id
+expect {PowerBroker>}
+sleep 1
+
+send "begin ../../../examples/connectionlist2.txt profile_negativeusage.json\n"
+expect {Problem processing command: Usage cannot be less than 0, but is: -10}
+expect {PowerBroker>}
+sleep 1
+
+send "begin ../../../examples/connectionlist2.txt profile_negativebudget.json\n"
+expect {Problem processing command: budget cannot be < 0, is -20}
+expect {PowerBroker>}
+sleep 1
+
+send "begin ../../../examples/connectionlist2.txt profile_negativegeneration.json\n"
+expect {Problem processing command: capacity cannot be < 0, is -20}
+expect {PowerBroker>}
+sleep 1
+
+send "begin ../../../examples/connectionlist2.txt profile_negativecost.json\n"
+expect {Problem processing command: cost per unit cannot be < 0, is -5}
+expect {PowerBroker>}
+sleep 1
+
+send "exit\n"
+expect eof
+

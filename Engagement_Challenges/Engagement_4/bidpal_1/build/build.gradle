@@ -1,0 +1,45 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.7
+
+dependencies {
+    compile 'commons-io:commons-io:2.2'
+    compile 'org.apache.commons:commons-lang3:3.4'
+    compile 'org.apache.httpcomponents:httpclient:4.5.1'
+    compile 'org.mapdb:mapdb:2.0-beta8'
+    compile 'commons-cli:commons-cli:1.3'
+    compile 'commons-fileupload:commons-fileupload:1.3.1'
+    compile 'jline:jline:2.8'
+    compile 'io.netty:netty-all:4.0.34.Final'
+    compile 'com.google.protobuf:protobuf-java:3.0.0-beta-2'
+    compile 'log4j:log4j:1.2.17'
+
+    testCompile 'junit:junit:4.12'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['../source']
+        }
+        resources {
+            srcDirs = ['../source']
+        }
+    }
+}
+
+jar {
+    baseName = 'bidpal_1'
+    manifest {
+        attributes 'Main-Class': 'edu.computerapex.origin.StacMain'
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.14'
+}
+

@@ -1,0 +1,79 @@
+Route Map Formats
+=================
+There are three different formats you can use to upload a route map.
+The format is selected by the file's suffix.
+
+Plain Text
+----------
+The general .txt file format:
+
+(number of airports n)
+(airport name 1)
+(airport name 2)
+...
+(airport name n)
+(number of flights m)
+(origin airport name 1) (destination airport name 1) (fuel costs 1) (distance 1) (travel time 1) (number of crew members 1) (weight limit 1) (number of passengers 1)
+...
+(origin airport name m) (destination airport name m) (fuel costs m) (distance m) (travel time m) (number of crew members m) (weight limit m) (number of passengers m)
+
+Example:
+3
+LAX
+SFO
+BWI
+2
+LAX SFO 3000 400 2 3 4000 200
+SFO BWI 8000 3000 6 5 4000 200
+
+XML
+---
+The general .xml file format:
+
+<route>
+    <airport name="name 1" />
+    <airport name="name 2" />
+    <flight origin="origin name 1" dst="destination name 1" cost="cost" distance="distance" time="travelTime"
+    crew="numCrewMembers" weight="weightCapacity passengers="numPassengers" />
+</route>
+
+Example:
+<route>
+    <airport name="LAX" />
+    <airport name="BWI" />
+    <flight origin="LAX dst="BWI" cost="3000"
+    distance="3000" time="6" crew="3" weight="5000"
+    passengers="400" />
+</route>
+
+JSON
+----
+The general .json file format:
+{
+    "airports": [{"name": "airport 1"}, {"name": "airport 2"}, ...],
+    "flights": [{
+        "origin": "origin airport 1",
+        "dst":"destination airport 1",
+         "cost": cost, "distance": distance,
+         "time": time,
+         "crew": numberOfCrewMembers,
+         "weight": weightCapacity,
+         "passengers": numberOfPassengers },
+          ...]
+}
+
+Example:
+{
+    "airports": [{"name": "LAX"}, {"name": "SFO"}],
+    "flights": [{
+        "origin": "LAX",
+        "dst": "SFO",
+        "cost": 4000,
+        "distance": 400,
+        "time": 2,
+        "crew": 3,
+        "weight": 4000,
+        "passengers": "300"
+    }]
+}
+

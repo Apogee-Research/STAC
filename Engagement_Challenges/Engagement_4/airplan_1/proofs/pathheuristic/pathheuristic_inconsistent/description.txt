@@ -1,0 +1,19 @@
+AStar_2: A* with inconsistent heuristic
+---------------------------------------
+Algorithmic Complexity Vulnerability,
+Type: Time
+
+A* is an algorithm for computing the shortest path between two nodes in a graph.
+
+The time complexity of A* depends on the heuristic used to consider routes.
+The optimal, consistent heuristic results in a linear complexity, while an
+inconsistent heuristic results in exponential time.
+
+This kernel implements an inconsistent heuristic which an adversary can exploit via carefully crafted input and as a
+result, it is vulnerable to an attack. For description of vulnerable input, see our exploit, or see Martelli, Alberto. 
+"On the complexity of admissible search algorithms." Artificial Intelligence 8, no. 1 (1977): 1-13.
+
+The vulnerability is reachable via the following method calls:    
+ShortestPathHandler.getContents()->GraphProxy.getShortestPath->ShortestPath.shortestPath()
+This would be called upon the user's selection to perform the shortest path on a specified route map.
+

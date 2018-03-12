@@ -1,0 +1,17 @@
+#!/usr/challenge_program/bin/expect
+
+set timeout -1
+
+lassign $argv id profile connectionlist
+
+spawn ../challenge_program/bin/powerbroker -i $id
+expect {PowerBroker>}
+# wait for other instances to come up
+sleep 10
+send "begin $connectionlist $profile\n"
+
+expect {Connection list contained too many peers.  I am dropping out.}
+
+sleep 5
+
+expect eof

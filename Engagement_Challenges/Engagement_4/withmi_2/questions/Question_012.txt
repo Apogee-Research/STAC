@@ -1,0 +1,36 @@
+Challenge Program:
+
+        withmi_2.jar
+
+Challenge Question:
+
+        Is there a side channel in space in the challenge program from which
+        an attacker can determine which file was transferred from the victim
+	user to the participants of a chat that the attacker is not invited to?
+
+Additional background for question:
+	
+	For the purpose of this question assume that the victim user is on a
+        shared machine and that the attacker has access to this machine. The
+	victim user will only send the set of files contained within the
+	challenge_program/data/files/ directory. The attacker has access to
+        this set of files and can view the file contents and metadata.
+
+Available Operations:
+
+        Passive Operations:	observe the packets generated and timings
+                                thereof for a single WithMi session
+				(cost: 1 per observed session)
+
+        Active Operations:      None
+
+        Oracle queries:         query the oracle with a file and receive a
+                                binary response (yes/no) as to whether the
+                                candidate file was the file transferred between
+				the two WithMi users
+                                (cost: 1 per query)
+
+Operational Budget:
+
+        Max number of operations : 2 Operations
+        Probability of success   : 99%

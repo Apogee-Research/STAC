@@ -1,0 +1,7 @@
+rle_5 Benign Run Length Encoding-Based Compression Algorithm
+----------------------------------
+Benign
+
+This article uses run length encoding for compression/decompression. It correctly guards against excessive growth of the 
+decompressed file.
+

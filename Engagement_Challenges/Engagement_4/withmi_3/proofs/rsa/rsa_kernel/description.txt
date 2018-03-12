@@ -1,0 +1,27 @@
+rsa_random: RSA Decryption
+---------------------
+Benign
+This RSA implementation is not vulnerable to our RSA attack.
+
+The decrypt algorithm decrypts a random multiple of the actual message. Then, it
+uses basic modular inverse operations to get the message. Since the attacker does not know
+what value is actually being decrypted, she cannot use our attack to determine the key.
+
+Specifically, in math.RSAPrivateKey.decrypt(BigInteger ciphertext), we have:
+BigInteger m;
+
+Random rand = new Random();
+BigInteger r = new BigInteger(1024, rand);
+r = r.mod(modulus);
+ciphertext = ciphertext.multiply(r).mod(modulus); // ciphertext multiplied by a random factor
+BigInteger inverse_multiplier = r.modPow(d,modulus).modInverse(modulus); // for undoing random factor
+
+BigInteger m1 = montP.exponentiate(ciphertext, dp);
+BigInteger m2 = montQ.exponentiate(ciphertext, dq);
+
+BigInteger h = qInv.multiply(m1.subtract(m2)).mod(p);
+m = m2.add(h.multiply(q));
+
+m = m.multiply(inverse_multiplier).mod(modulus); // undo randomness
+return m;
+

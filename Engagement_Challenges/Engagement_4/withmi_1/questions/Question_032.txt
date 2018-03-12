@@ -1,0 +1,32 @@
+Challenge Program:
+
+        withmi_1.jar
+
+Challenge Question:
+
+        Is there a side channel in space in the challenge program from which
+        an attacker can determine how many WithMi users are involved in
+	a chat which the attacker has not been invited to?
+
+Additional background for question:
+
+	None
+
+Available Operations:
+
+        Passive Operations:     observe the packets generated and timings
+                                thereof for a single WithMi session
+                                (cost: 1 per observed session)
+
+        Active Operations:      None
+
+        Oracle queries:         query the oracle with a candidate number of 
+				users and receive a binary response (yes/no) as 
+				to whether the candidate number of users is 
+				correct
+                                (cost: 1 per query)
+
+Operational Budget:
+
+        Max number of operations : 2 Operations
+        Probability of success   : 99%

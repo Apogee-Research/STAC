@@ -1,0 +1,17 @@
+spawn ../../../challenge_program/bin/withmi -d ../../../challenge_program/data -s ../../../challenge_program/data/victim -i ../../../examples/sally.id
+Using identity: id: sally
+p: 11596099774396158322018119307489374176719768178187029036963674881781855245644675783626407047958098277678322004721413011537690663474262264715230755104859763 q: 12779504296444577624146214854853652316918820462562687894406586790374531262898806626659208638593412098892438230781659284889825796676628361941841229668054591
+Listening on port 9000
+WithMi> -Connected to new user attacker
+-Added new chat myChat
+-Adding attacker to myChat
+-Received badcompression from attacker in chat myChat 0
+-attacker: all done
+-Removing connection from list of 1
+-Removing attacker from all chats
+exit
+Goodbye
+-Closing connections...
+- sally: read receipt for 0
+- sally: read receipt for 0
+- sally: read receipt for 1

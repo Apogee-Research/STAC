@@ -1,0 +1,39 @@
+syntax="proto2";
+package com.cyberpointllc.stac.withmi;
+import "comms.proto";
+
+message WithMiMsg {
+    enum Type {CHAT = 1; FILE = 2; READ_RECEIPT = 3; CHAT_STATE = 4;}
+
+    required Type type = 1;
+    required string chatId = 2;
+    required string user = 3;
+    required float messageId = 4;
+    optional ChatMsg textMsg = 5;
+    optional FileMsg fileMsg = 6;
+    optional ReceiptMsg receiptMsg = 7;
+    optional ChatStateMsg chatStateMsg = 8;
+}
+
+message ChatMsg {
+    required string textMsg = 2;
+}
+
+message FileMsg {
+    required string fileName = 1;
+    required bytes content = 2;
+    required uint32 totalSize = 3;
+    required uint32 currentOffset = 4;
+    optional bool zlibCompression = 5 [default = false];
+    optional bool done = 6 [default = false];
+
+}
+
+message ReceiptMsg {
+    required float ackedMessageId = 1;
+    required bool success = 2;
+}
+
+message ChatStateMsg {
+    repeated comms.Identity publicId = 1;
+}

@@ -1,0 +1,122 @@
+rsa_1 : RSA Decryption
+----------------------
+Side Channel
+Type: Time
+
+In the comms framework, during the connection setup, there is a step
+where the two peers (call them "Alice" and "Bob") exchange RSA public
+keys. Alice will challenge Bob to make sure that he is really in
+possession of the secret key associated to the transmitted public key.
+To do this, she sends him a random value, encrypted with his public
+key, and asks that he decrypt it and send her back the value as
+proof. If he answers incorrectly, she can send another challenge, in
+case of something like a dropped packet or flipped bit. This allows an
+attacker to issue the many decryption requests necessary for the
+attack.  (Note that Bob challenges Alice in the same way, but it is
+only necessary to analyze one direction for the purposes of the
+attack.)
+
+The program flow is as follows: (Note that class and method name may be modified by transformers.)
+
+    comms.internal.CommsNettyHandler.channelRead() (challenge received)
+    comms.internal.CommsCryptoState.processNextSetupMessage()
+    comms.internal.CommsCryptoState.handleClientResultsAndTest() (alternatively comms.internal.CommsCryptoState.handleClientResponse or
+                                                                  handleServerSetupMsg)
+    comms.internal.CommsCryptoState.processRSATestMsg()
+    rsa.PrivateKey.decrypt() (decryption performed)
+
+The response is sent (after these other methods complete) in comms.internal.CommsNettyHandler.channelRead().
+
+There is a vulnerability in the RSA implementation that allows an
+attacker, by analyzing the timing of a decryption, to tell if a given
+number is close to a multiple of one of the RSA primes.  The attack is
+due to an extra reduction step during the Montgomery multiplication
+used in the modular exponentiation, as well as the fact that this
+exponentiation is done modulo the secret primes because we are using
+the Chinese Remainder Theorem version of RSA.
+
+The vulnerable code is in the following two methods:
+
+// class math.RSAPrivateKey:
+public BigInteger decrypt(BigInteger ciphertext) {
+    BigInteger m;
+    BigInteger m1 = montP.exponentiate(ciphertext, dp);
+    BigInteger m2 = montQ.exponentiate(ciphertext, dq);
+    BigInteger h = qInv.multiply(m1.subtract(m2)).mod(p);
+    m = m2.add(h.multiply(q));
+    return m;
+}
+
+// class math.MontgomeryMultiplier:
+private BigInteger montgomeryMultiply(BigInteger aBar, BigInteger bBar) {
+
+    BigInteger t = aBar.multiply(bBar);
+    BigInteger u = t.multiply(Mstar);
+    u = u.and(Rminus1); // mod u by R efficiently
+    u = t.add(u.multiply(M));
+    u = u.shiftRight(w); // divide by R efficiently
+    // u is now (t + tM*(modR))M)/R
+    if ((u.compareTo(M)) > 0) { // this is the extra reduction step whose presence/absence is revealed via timing and provides information about the primes
+       u = u.mod(M);
+    }
+    return u;
+}
+
+The attack is a slight variant of the one that is used in a smart-card scenario
+in [1].  To help increase the timing differences, we use an inefficient
+implementation of the Montgomery multiplication that replaces a
+subtraction operation with a modular reduction. Even with this change,
+we need to perform certain statistical tricks from [2] in order to
+make that attack work in the noisier Java environment.  In addition,
+we found that, due to the increased noise, doubling the timing
+thresholds from the original attack part of the way through the main
+loop resulted in a much better success rate.
+
+Using this attack, one can narrow an interval around a multiple of the
+secret prime to the point that it is trivial to find it by performing
+a small number of gcd computations against the public modulus.  Once
+the attacker successfully recovers the secret primes they can
+impersonate the user or decrypt traffic intended for only him.
+
+Each correct run through the attack loop effectively halves the
+interval around the prime.  Since the prime is 512 bits, we need at
+most 502 of these iterations to get us within about 1000 of a multiple
+of the prime.  Because of repeats, we perform 120 observations per
+iteration, meaning that we need roughly 502*120.  The gcd computations
+then effectively act as oracle queries, (but are very fast compared to
+getting timings), so we then perform 1000 of those.  Meaning that our
+attack should take no more than 502*120 + 1000 = 61240 observations.
+
+In our question we will round this value up to the more round 75,000
+observations. (Please note that RSA-1024 is purported to have security
+equal to roughly 2^80 against the most advanced attack known.  No one
+has ever factored a properly constructed RSA-1024 bit modulus.  Our
+attack recovers it in about 3.5 hours on a NUC.)
+
+Note
+----
+It is important to specify in the questions associated with this vulnerability
+that an attacker is allowed to "attempt to connect" to the user once and only once.
+Attempting to connect is defined as entering or causing the other
+user to enter the initChannel method in the CommsChannelInitializer class.
+At a higher level, it is defined as beginning the connection handshake with the victim.
+The attacker can perform any operation she wants in the handshake, but she is
+not allowed to try to reconnect after leaving the handshake (regardless of whether
+she successfully established a connection with the victim).
+
+This is important because there are cases where the RSA implementation is vulnerable,
+but the vulnerability is not reachable because the connection handshake does
+not allow the attacker to ask the victim to decrypt multiple challenge messages
+within a single handshake. However, if the attacker is allowed to connect to the
+victim more than once, it is possible for her to ask the victim to decrypt
+multiple challenge messages, one per connection. This would allow the attack
+to be run successfully.
+
+
+
+[1] Schindler, Werner. "A timing attack against RSA with the Chinese
+remainder theorem." Cryptographic Hardware and Embedded Systems—CHES
+2000. Springer Berlin Heidelberg, 2000.
+
+[2] Morgan, Timothy D., and Jason W. Morgan. "Web Timing Attacks Made
+Practical." (2015).

@@ -1,0 +1,6 @@
+
+sort_3: Polymorphic sort without vulnerability
+----------------------------------------------
+Benign
+
+This sorting algorithm is not vulnerable and has O(nlogn) behavior.

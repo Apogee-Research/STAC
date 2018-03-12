@@ -1,0 +1,36 @@
+Challenge Program:
+
+	powerbroker_3.jar
+
+Challenge Question:
+
+	Is there a side channel in time and space in the challenge program 
+	from which an attacker, over the course of a full PowerBroker session, 
+	can determine the power generation demand (from their config file) of 
+	another buyer?
+
+Additional background for question:
+
+	None
+
+Available Operations:
+
+	Passive Operations:	observe the packets generated and timings
+                                thereof for a single PowerBroker run
+                                (cost: 1 per observed run)
+
+	Active Operations:	issue a single application request and monitor
+                                the induced response traffic for this single
+                                request
+				(cost: 1 per request)
+
+	Oracle queries:		query the oracle with a candidate power 
+				generation demand for a user and receive a 
+				binary response (yes/no) as to whether the 
+				candidate power generation demand is correct
+				(cost: 1 per query)
+
+Operational Budget:
+
+	Max number of operations : 5 Operations
+	Probability of success   : 80%

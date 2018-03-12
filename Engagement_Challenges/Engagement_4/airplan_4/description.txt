@@ -1,0 +1,42 @@
+Overview
+========
+AirPlan is a web application for airlines. It provides the ability to analyze potential 
+flight routes.
+
+Airlines can log in to AirPlan to upload route maps. Route maps contain airports and the 
+flights between those airports. Flight data, such as the cost of the flight and the number 
+of passengers a flight can carry, is also stored. After uploading a route map, an airline 
+can perform various analyses on the map. For example, AirPlan can determine the cheapest 
+way to get from one airport to another. Saved route maps will be stored even after an 
+airline logs out of the system.
+
+
+Interactions
+============
+Users can interact with AirPlan using a web browser. Once the AirPlan server is running,
+users can navigate to the server at https://localhost:8443. Once logged in, users can 
+view any of the stored route maps, upload a new route map, or delete a stored route map.
+
+When a user uploads a new route map, the user will select a file to upload, specify the
+weight type of the route map, get the properties list for the route map, and follow each
+of the "Next" links until the user arrives back at the AirPlan main page.
+
+Examples of user interactions are provided in the examples directory along with detailed
+descriptions of the route map input formats accepted by the AirPlan application 
+(Route_Map_Formats.txt).
+
+Engagement Tools
+================
+The start script (startServer.sh) for the AirPlan server is located in the challenge_program
+directory. Once the server is started the script will output "Server started on port 8443"
+
+An example user is provided: Username: usr Password: pwd
+
+The airplan_client.py script provided in the examples directory will allow you to simulate
+user interactions.
+
+Notes
+=====
+The files in the challenge_program directory are used to populate the AirPlan server on launch. 
+These files should not be directly modified nor should malicious data be directly inserted into 
+them. An attacker would not have access to the files in the challenge_program directory.

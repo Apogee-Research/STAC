@@ -1,0 +1,10 @@
+uploading route map lol.xml
+The response was not a redirect
+ <html>
+<body>
+<h1>Error</h1>
+Error code = 400
+Message = org.xml.sax.SAXParseException; lineNumber: 1; columnNumber: 1; JAXP00010001: The parser has encountered more than "64000" entity expansions in this document; this is the limit imposed by the JDK.
+</body>
+</html>
+

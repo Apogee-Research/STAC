@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<main>
+    <!-- Main Content Section -->
+    <section>
+        <h1>{{title}}</h1>
+        <hr>
+
+        <div>
+            <center>
+            <form action="{{path}}" method="post" enctype="multipart/form-data">
+                The server generated master secret is<br/>
+                <textarea rows="10" cols="100">{{masterSecret}}</textarea><br/>
+                Username: <input type="text" name="username" placeholder="Enter your username"/><br/>
+                Password: <input type="password" name="password" placeholder="Enter your password"/><br/>
+                <input type="submit" value="Log in" name="submit" />
+            </form>
+            </center>
+        </div>
+    </section>
+</main>
+
+<!-- Footer Section -->
+<footer>
+    <hr>
+    <div style="text-align: right;">
+        {{timestamp}} ({{duration}} ns)
+    </div>
+</footer>
+</body>
+</html>

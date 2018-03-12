@@ -1,0 +1,6 @@
+adduser_2 Not Vulnerable to Number of People in a Chat Side Channel
+-------------------------------------------------
+Benign
+
+All chat state messages are padded to be similar lengths. An attacker can determine which messages are chat state
+messages, but they are unable to determine how many people are in a chat.

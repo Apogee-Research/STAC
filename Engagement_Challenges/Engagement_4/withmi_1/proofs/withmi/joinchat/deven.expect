@@ -1,0 +1,16 @@
+set timeout -1
+
+# Ensure the data directory is empty at the start
+catch {exec rm -fr ../data/deven}
+
+spawn ../../../challenge_program/bin/withmi -d ../../../challenge_program/data -s data/deven -i ../../../examples/deven.id
+
+expect {WithMi>}
+expect {Everyone should exit now}
+expect {Removing sally from all chats}
+expect {WithMi>}
+sleep 3
+send "exit\n"
+
+expect eof
+

@@ -1,0 +1,13 @@
+FROM localhost:5000/stac_base:v5
+RUN yum install -y nmap-ncat.x86_64
+RUN yum install -y expect.x86_64
+RUN yum install -y python-requests.noarch
+RUN yum install -y java-1.7.0-openjdk-devel-1:1.7.0.85-2.6.1.2.el7_1.x86_64
+RUN yum install -y python-setuptools python-devel scipy gmp-devel.x86_64 tcpdump
+RUN yum -y groupinstall --skip-broken "Development Tools" "Development Libraries"
+RUN easy_install pip
+RUN pip install gmpy scapy==2.3.2 pycrypto protobuf==3.0.0-beta-2 psutil==3.1.1 pexpect
+RUN yum install -y vim-enhanced.x86_64
+ADD proofs /home/proofs
+ADD Draper_q_51_proof /home/Draper_q_51_proof
+WORKDIR /home

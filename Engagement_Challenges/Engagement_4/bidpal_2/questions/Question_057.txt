@@ -1,0 +1,38 @@
+Challenge Program:
+
+	bidpal_2.jar
+
+Challenge Question:
+
+	Is there a side channel in time in the challenge program from which
+	an attacker can determine another user's bid to within $30 in the 
+	case where that user's bid is not equal to the highest bid?
+
+Additional background for question:
+
+	None
+
+Available Operations:
+
+	Passive Operations:	observe the request and corresponding response 
+				packets and timings thereof for a single 
+				application request and response between two 
+				BidPal users
+				(cost: 1 per observed request and corresponding
+				response)
+
+	Active Operations:	issue a single application request and monitor
+                                the induced response traffic for this single
+                                request
+				(cost: 1 per request)
+
+	Oracle queries:		query the oracle with a candidate bid for a 
+				user and receive a binary response (yes/no) as 
+				to whether the candidate bid is within $30 of
+				the user's bid
+				(cost: 1 per query)
+
+Operational Budget:
+
+	Max number of operations : 2 Operations
+	Probability of success   : 75%

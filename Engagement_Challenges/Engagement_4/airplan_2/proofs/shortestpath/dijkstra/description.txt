@@ -1,0 +1,8 @@
+ShortestPath_2: Dijkstra's Algorithm
+------------------------------------
+Benign
+Dijkstra's algorithm has a complexity of O(ElogV), where E is the number of edges and V
+is the number of vertices, but it does not work in the presence of negative edge weights.
+
+This variation, does not follow negative edge weight cycles and rejects running on
+any graph that has them. As a result it is not vulnerable.

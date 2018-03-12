@@ -1,0 +1,25 @@
+graph_connectivity_sc: Vulnerable Graph Properties Handler
+-----------------------------------------------
+Side Channel Vulnerability
+Type: Space
+
+This article displays route map properties in such a way that the size of the packet reveals whether or not the map is connected.
+
+Each of the properties is formatted, with padding, to a certain size.  This size is initially set to be 19 characters, large
+enough to  contain all of the properties strings.  However, when formatting the properties,  there is a check to ensure this space is
+sufficient; this check is implemented with a '<' where there should be a '<='.  If the space is deemed insufficient (which it never
+would be with the <=), the space used for the current property (and each subsequent property) is doubled.  Because the disconnected
+graph property string takes up exactly 19 characters, in the case of a disconnected graph, the broken guard mistakenly allocates more
+space for this property (and all subsequent properties), making the  properties packet detectably larger, and yielding distinct, identifiable
+size ranges for graph properties pages for connected and disconnected graphs, respectively.
+
+Note that it is possible for other packets to have the same size as the disconnected and connected properties packets, respectively.  We
+use a sequence of packet sizes in our attack to ensure (with very high probability) that we're looking at a properties packet.
+
+In particular, when a user uploads a route map, Airplan requires them to view a sequence of pages, in order, (wizard-style) before they are able to
+access the majority of Airplan's features.  So, there is a sequence of packets that an attacker can identify. First, after uploading a graph,
+the user has to select which of the edge weights to use for the properties page.  This weight selector page has an identifiable size range.
+This is followed by the graph properties page.
+
+The side channel resides in methods format() and getContentForPost() in the airplan.MapPropertiesHandler class, which gets called when a user views
+the map properties page.

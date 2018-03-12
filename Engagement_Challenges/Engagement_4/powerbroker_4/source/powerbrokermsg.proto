@@ -1,0 +1,33 @@
+syntax="proto2";
+package com.cyberpointllc.stac.powerbroker;
+
+message BaseMessage {
+    enum Type {
+        CONNECTION_START = 1;
+        AUCTION_ANNOUNCE = 2;
+        AUCTION_BEGIN = 3;
+        BIDDING_FINISHED = 4;
+        AUCTION_DATA = 5; // contains data used by the underlying auction API
+        AUCTION_END = 6;
+        RESULTS_END = 7;
+        PROCESS_START = 8;
+    }
+
+    required Type type = 1;
+    // we announce all of the auctions we're holding at the same time
+    repeated AuctionAnnounceMessage auctionAnnounce = 2;
+    // you're only allowed to start one auction at a time
+    optional AuctionBeginMessage auctionBegin = 3;
+    // the bytes for auction api messageds
+    optional bytes auctionData = 4;
+}
+
+message AuctionAnnounceMessage {
+    required uint32 powerAmount = 1;
+    required string id = 2;
+}
+
+message AuctionBeginMessage {
+    required string auctionId = 1;
+    required uint32 powerAmount = 2;
+}

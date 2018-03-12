@@ -1,0 +1,17 @@
+bid_amount_3 Bid Amount Non-vulnerable
+------------------------------------
+Benign
+
+This auction protocol is not vulnerable to timing side channel attack for determining the amount of a user's bid.
+
+In this implementation, the creation of a bid comparison message is slow, but the time it
+takes is independent of the user's bid.
+
+checksum_ac_2 Safe Checksum
+------------------------------------------------
+Benign
+
+After a comparison message is created, some checks are performed, which are meant to look like typical checks for validity of the username
+and auction id, and a sanity check on the bytes of the serialized message.  Were these checks to fail, the program would repeatedly re-create
+the message (which is already expensive to create), which would cause the program to exceed its time budget.  However, these checks have been
+designed so that they cannot fail.

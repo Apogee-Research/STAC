@@ -1,0 +1,26 @@
+rle_3  Run Length Encoding Based Compression Algorithm with disk space vulnerability 
+in decompression
+----------------------------------
+Algorithmic Complexity Vulnerability
+Type: Space
+
+This article uses compression/decompression with run length encoding.  This simply compresses consecuive identical
+bits within a file.  E.g., "00000011100000" would be represented "0-6-1-3-0-5".
+
+This version achieves decompression with a loop of the form "while (num != 0) { write b; num--; }", where num 
+is the count of consecutive appearances of byte b in the decompressed file.  An attacker can provide a 
+"compressed" file with a negative value for num, causing this loop to proceed until num reaches Integer.MIN_VALUE, 
+while not increasing (and, in fact, decreasing) the calculated size of the file.
+
+The vulnerability can be exploited by a user (the attacker) sending a malicious file to another (the victim).  The victim's WithMi Client will follow the
+following chain of method calls: (Note that package, class, and method names may be modified by transformers.)
+
+withmi.WithMi.handle() (this receives the message)
+withmi.WithMiDispatcher.handleMessage() (this puts the message in a queue for processing)
+withmi.WithMiDispatcher.MessageHandler.run() (this gets called to process the message when it is removed from the queue)
+withmi.filetransfer.FileTransfer.receive() (this pulls the file content out of the message(s) – file content may be spread over multiple messages)
+In the "negative" vulnerability, the vulnerability lies in the lines
+while (num != 0) {  // num might be negative!
+   outStream.write((byte)b);
+   num--;
+}

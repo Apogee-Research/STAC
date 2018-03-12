@@ -1,0 +1,8 @@
+huffman_compression_3: Benign Huffman Compression Algorithm
+Benign
+
+This article uses Huffman encoding for compression.  In particular, the method getZeroRun() (which enables the BAD_SPACE compression vulnerability,
+always returns the empty string, so that there is no padding added that would cause an exponential blow-up of sequences of '0' in the encoding; also,
+compression.BinaryInput.read() throws an exception if an attempt is made to read beyond the end of the input stream, thus allowing the input budget
+itself to limit the time decompression takes.
+

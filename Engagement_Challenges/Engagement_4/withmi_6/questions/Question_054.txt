@@ -1,0 +1,27 @@
+Challenge Program:
+
+        withmi_6.jar
+
+Challenge Question:
+
+        Is there an algorithmic complexity vulnerability in time
+        that would cause the real runtime of the challenge program
+        (on the reference platform) to exceed the resource usage
+        limit given the input budget?
+
+Additional background for question:
+
+	The WithMi application can support multiple users. For
+        the purpose of this question assume that a single attacker
+	is a participant in the network environment defined by
+        example_multiuser.sh.        
+
+Input Budget:
+
+        Maximum sum of the PDU sizes of the application requests sent from
+        the user to the server: 10,000 bytes
+
+Resource Usage Limit:
+
+        Runtime: 300 seconds measured from the submission of the
+        last request to the transmission of the response.

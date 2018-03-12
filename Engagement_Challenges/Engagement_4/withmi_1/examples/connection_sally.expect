@@ -1,0 +1,42 @@
+set timeout -1
+
+# Ensure the data directory is empty at the start
+catch {exec rm -fr ../challenge_program/data/sally}
+
+spawn ../challenge_program/bin/withmi -d ../challenge_program/data -s ../challenge_program/data/sally -i sally.id
+expect {WithMi>}
+expect {Connected to new user megan. callback on: localhost:9002}
+expect {WithMi>}
+
+send "adduser megan\n"
+expect {WithMi>}
+
+# try to connect to megan again
+send "connect localhost 9002\n"
+expect {WithMi>}
+
+# try to connect with megan using the reconnect command
+send "reconnect megan\n"
+expect {WithMi>}
+
+send "I can only connect once, I guess\n"
+# megan should disconnect
+expect {I will disconnect}
+expect {Removing megan from all chats}
+expect {Reconnected to megan. callback on: localhost:9002}
+expect {WithMi>}
+
+# wait for reconnection to settle
+sleep 1
+
+send "adduser megan\n"
+expect {bye}
+expect {Removing megan from all chats}
+expect {WithMi>}
+
+# try to connect to megan when she does not exist
+send "reconnect megan\n"
+expect {WithMi>}
+
+send "exit\n"
+expect eof

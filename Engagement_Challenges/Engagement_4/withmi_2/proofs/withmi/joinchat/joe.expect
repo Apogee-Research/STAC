@@ -1,0 +1,48 @@
+set timeout -1
+
+# Ensure the data directory is empty at the start
+catch {exec rm -fr ../data/joe}
+
+spawn ../../../challenge_program/bin/withmi -d ../../../challenge_program/data -s data/joe -i joe.id
+
+expect {WithMi>}
+
+send "createchat everyone\n"
+expect {Successfully created everyone}
+expect {WithMi>}
+
+send "connect localhost 9000\n"
+expect {sally. callback on: localhost:9000}
+expect {WithMi>}
+
+send "adduser sally\n"
+expect {Added user to group}
+expect {WithMi>}
+
+send "connect localhost 9001\n"
+expect {deven. callback on: localhost:9001}
+expect {WithMi>}
+
+send "adduser deven\n"
+expect {Added user to group}
+expect {WithMi>}
+
+send "connect localhost 9002\n"
+expect {megan. callback on: localhost:9002}
+expect {WithMi>}
+
+send "adduser megan\n"
+expect {Added user to group}
+expect {WithMi>}
+sleep 10
+
+send "Everyone should exit now aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n"
+expect {Removing sally from all chats}
+expect {Removing deven from all chats}
+expect {Removing megan from all chats}
+expect {WithMi>}
+sleep 3
+
+send "exit\n"
+expect eof
+

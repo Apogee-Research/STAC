@@ -1,0 +1,39 @@
+bid_amount_0 Bid Amount Side Channel
+------------------------------------
+Side Channel Vulnerability
+Type: Time
+
+The peer-to-peer auction protocol is vulnerable to a timing side channel attack that allows
+an attacker to guess a user's bid within some margin of error.  Specifically, the creation of 
+a bid comparison message is slow and takes time proportional to a function of that user's bid.
+
+NOTE: - bid_amount_0 and bid_amount_1 are vulnerable to the same attack.
+      - PowerBroker and BidPal both contain this vulnerability, but they require separate analysis and attacks.
+        Blue teams will NOT be able to use the same exploit for both programs.
+
+Of the two vulnerable versions, this one is less obvious, as the loop is indexed from 0 and the
+behavior of the expensive method is modified via a method call.
+
+The bid comparison message is the message that a user A sends to another user B to allow
+B to determine whether his bid is greater than or equal to B's, without revealing A's bid.
+
+A passive attacker can measure this time by observing the time between a user sending a 
+bid commitment message and his receiving a bid comparison message in response.
+
+Our attack computes a database of timings for a few different bid amounts and uses these to interpolate a guess of
+the bid amount in an observed session.
+
+checksum_ac_1 Checksum Vulnerability
+------------------------------------------------
+AC Vulnerability
+Type: Time
+
+The peer-to-peer auction protocol is vulnerable to an algorithmic complexity attack which can cause it to exceed its time budget.
+
+After a comparison message is created, some checks are performed, which are meant to look like typical checks for validity of the username
+and auction id, and a sanity check on the bytes of the serialized message.  Under normal operation, these will all pass, however, an attacker
+with the right username and right auction id can cause them to fail, in which case the program will repeatedly re-create the message
+(which is already expensive to create), causing the program to exceed its time budget.  (Note: The ability to start an auction with a specified
+auction id is an unadvertised and undocumented feature -- in normal operation as documented, the auction id is automatically generated and the vulnerability
+cannot be triggered.)
+

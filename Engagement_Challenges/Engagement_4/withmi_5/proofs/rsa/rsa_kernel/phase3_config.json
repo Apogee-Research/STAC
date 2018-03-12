@@ -1,0 +1,8 @@
+{
+  
+  "type": "sc_attack",
+  
+  "wait_secs": 600,
+  "ports": [9000],
+  "network_mode": "bridge"
+}

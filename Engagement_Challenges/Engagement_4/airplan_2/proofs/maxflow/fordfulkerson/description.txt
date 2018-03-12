@@ -1,0 +1,12 @@
+MaxFlow_3: Benign Ford Fulkerson
+-------------------------
+Benign
+
+The Ford-Fulkerson algorithm for computing maximum flow has worst-case algorithmic
+complexity O(E*f), where is E is the number of edges and f is the maximum flow. Generally,
+Ford-Fulkerson runs much faster: as the capacity of the augmenting path gets close to the maximum
+flow, the runtime approaches O(E). The worst-case algorithmic complexity arises when
+the capacity of the augmenting path is very small, but the maximum flow is extremely
+large. However, in this implementation, the order in which paths are explored is fixed, so
+this worst-case cannot be achieved.
+

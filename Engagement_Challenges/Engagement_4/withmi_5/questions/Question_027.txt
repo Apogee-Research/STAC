@@ -1,0 +1,33 @@
+Challenge Program:
+
+        withmi_5.jar
+
+Challenge Question:
+
+        Is there a side channel in time in the challenge program from which
+        an attacker can determine whether two users (neither of whom is the 
+	attacker) in the process of connecting have been previously connected?
+
+Additional background for question:
+
+        For the purpose of this question assume that the attacker observes
+	the WithMi session from the start and that the WithMi session being
+	observed only contains two users.
+
+Available Operations:
+
+        Passive Operations:     observe the packets generated and timings
+                                thereof for a single WithMi session
+                                (cost: 1 per observed session)
+
+        Active Operations:      issue a single application request and monitor
+                                the induced response traffic for this single
+                                request
+                                (cost: 1 per request)
+
+        Oracle queries:         none
+
+Operational Budget:
+
+        Max number of operations : 2 Operations
+        Probability of success   : 80%

@@ -1,0 +1,17 @@
+set timeout -1
+
+# Ensure the data directory is empty at the start
+catch {exec rm -fr ../data/sally}
+
+spawn ../../../challenge_program/bin/withmi -d ../../../challenge_program/data -s data/sally -i ../../../examples/sally.id
+
+expect {WithMi>}
+
+expect {Everyone should exit now}
+expect {aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa}
+expect {WithMi>}
+sleep 3
+
+send "exit\n"
+expect eof
+

@@ -1,0 +1,54 @@
+huffman_compression_1: Vulnerable Huffman Decompression Algorithm
+-------------------------------------------------------
+Algorithmic Complexity Vulnerability,
+Type: Time
+
+This article uses compression/decompression with Huffman encoding.  In brief, this 
+compression involves computing statistics over a file to create a code, represented 
+by a trie, specifically for that file, which encodes frequent strings with shorter codes. 
+A compressed file includes this trie, followed by the size of the uncompressed file, 
+followed by the encoding of the file.  
+
+This version has an algorithmic complexity vulnerability due to two "bugs" in the 
+implementation.  First, method readBoolean in BinaryIn.java mistakenly returns false, 
+rather than throwing an error, when reading beyond the end of the stream.  This allows an 
+attacker to submit a malicious "compressed" file, causing the decompression algorithm to 
+read beyond the end of the stream.  There is a guard preventing the decompression algorithm
+from getting stuck in the trie-reading phase, forever looking for the leaves that
+terminate the trie -- the program detects this and exits with an error message.
+The program further attempts to prevent spending too much time in decompression by checking the
+overall length of the submitted file; however the readBoolean allows an attacker to get
+around that by submitting a "compressed" file that lists a longer size than the included
+data encodes; finally, the program has an incorrectly implemented guard against this: there is a
+bound on the number of characters to decode, but it erroneously only counts the
+characters decoded in the case where the encoding ended with a '1'/'true'.
+
+This/these vulnerabilities are all exploited by a user (the attacker) sending a malicious file to another (the victim).
+In all cases, the victim's WithMi client will follow the following chain of method calls:
+
+-withmi.WithMi.handle() (this receives the message)
+-withmi.WithMiDispatcher.handleMessage() (this puts the message in a queue for processing)
+-withmi.WithMiDispatcher.MessageHandler.run() (this gets called to process the message when it is removed from the queue)
+-withmi.filetransfer.FileTransfer.receive() (this pulls the file content out of the message(s))
+
+For the time AC decompression vulnerability, the above method call chain is followed by a call to *compression.SpiffyCompression.expand()
+
+The vulnerability involves the following portions of withmi.compression.SpiffyCompression.expand()
+
+if (next){ // incorrectly only incrementing read if the last bit in the encoding was 1.  This if shouldn't be there.
+   read++;
+}
+
+The above allows an attacker to get around the guard:
+if (read > CHAR_LIM){
+    throw new Exception("Decompression exceeded maximum allowed characters");
+}
+
+And the following portion of compression.BinaryInput.readBoolean() allows reading past the end of a stream
+(and similarly in peakBoolean()).  This allows an attacker to trigger the above vulnerability with a malicious file that
+doesn't exceed the input budget, as the victim will read bytes that aren't there.
+
+if (isEmpty()) {
+    return false; // this should throw an exception as we've gone past the end of the stream; instead it acts as if it read a 0
+}
+

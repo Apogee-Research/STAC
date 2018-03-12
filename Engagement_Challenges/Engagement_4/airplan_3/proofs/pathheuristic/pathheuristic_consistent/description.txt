@@ -1,0 +1,9 @@
+AStar_1: A* with consistent heuristic
+-------------------------------------
+Benign
+
+The time complexity of A* depends on the heuristic used to consider routes.
+The optimal, consistent heuristic results in a linear complexity, while an
+inconsistent heuristic results in exponential time.
+
+This kernel uses a consistent heuristic and is thus not vulnerable to an attack.

@@ -1,0 +1,20 @@
+rsa_no_crt: RSA Decryption
+---------------------
+Benign??
+WE THINK this RSA implementation is not vulnerable to our RSA attack.
+This implementation does not use the Chinese Remainder Theorem. Thus, the Montgomery
+reduction is done modulo the public modulus rather than the prime, and our attack
+is not applicable.
+
+In math.RSAPrivateKey.decrypt(), we have:
+BigInteger m;
+m = montN.exponentiate(ciphertext, d); // Montgomery reduction is done mod the modulus, not the primes
+return m;
+
+where montN = new MontgomeryMultiplier(modulus); // defined in the constructor
+
+
+In the literature, attacks on RSA implemented this way require 5000 operations for a 512-bit key when timing operations on a smart card.
+Our keys are up to 1024 bits, and the STAC environment is noisier.
+
+

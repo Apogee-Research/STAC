@@ -1,0 +1,5 @@
+{
+  "type": "disk_benign",
+  "wait_secs": 210,
+  "output_dir": "victim"
+}

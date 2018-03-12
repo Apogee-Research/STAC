@@ -1,0 +1,8 @@
+Start eavesdropping on user
+User performs transactions
+Stop eavesdropping
+Start building a file->size signature DB
+Find what files the user sent based on the packet sizes extracted from the pcap
+pcap contains transfers of the following files:
+twinkle.txt and
+abc.txt

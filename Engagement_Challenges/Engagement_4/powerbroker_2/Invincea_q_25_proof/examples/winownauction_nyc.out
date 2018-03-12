@@ -1,0 +1,47 @@
+spawn ../challenge_program/bin/powerbroker -i ../challenge_program/data/nyc/nyc.id
+Loaded id: id: nyc
+p: 11180510381699803188148670656873557408341871813236295825761162705921432370422145289961723565869814389599834322433334435306525963306491414142178858985856469 q: 12729288918291096898516781676355808914201117479854397090626394544947803881968857184583972933637799609067951711431812408331192967742285263399981468965090739
+PowerBroker> begin connectionlist2.txt profile_woa_other.json
+GenerationPlan:
+Allocated: 
+	generator1 Amount: 10 Divisible: true Total Cost: 50
+Total power allocated: 10
+Total required power: 30
+Cost to generate: 50
+-------------------
+Power deficit!
+20
+-------------------
+BidPlan:
+Needed Power: 20
+Budget: 3
+
+PowerBroker> [1G[KAuction started: la:50
+[1G[KPowerBroker> [1G[KBidding 3 on 50
+[1G[KPowerBroker> [1G[KAuction ended: la:50
+[1G[KPowerBroker> [1G[KPower still needed: 20
+Current budget: 3
+[1G[KPowerBroker> [1G[KAuction started: la:50
+[1G[KPowerBroker> [1G[KBidding 3 on 50
+[1G[KPowerBroker> [1G[KAuction ended: la:50
+[1G[KPowerBroker> [1G[KPower still needed: 20
+Current budget: 3
+[1G[KPowerBroker> [1G[KAuction started: la:50
+[1G[KPowerBroker> [1G[KBidding 3 on 50
+[1G[KPowerBroker> [1G[KAuction ended: la:50
+[1G[KPowerBroker> [1G[KPower still needed: 20
+Current budget: 3
+[1G[KPowerBroker> [1G[KAuction started: la:50
+[1G[KPowerBroker> [1G[KBidding 3 on 50
+[1G[KPowerBroker> [1G[KAuction ended: la:50
+[1G[KPowerBroker> [1G[KPower still needed: 20
+Current budget: 3
+[1G[KPowerBroker> [1G[KAuction started: la:50
+[1G[KPowerBroker> [1G[KBidding 3 on 50
+[1G[KPowerBroker> [1G[KAuction ended: la:50
+[1G[KPowerBroker> [1G[KDone processing power profile
+Ended with budget: 3 and needed power: 20
+[1G[KPowerBroker> [1G[KDisconnected from all users
+[1G[KPowerBroker> exit
+Goodbye
+

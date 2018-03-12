@@ -1,0 +1,54 @@
+syntax="proto2";
+package com.cyberpointllc.stac.auction;
+
+option java_package = "com.cyberpointllc.stac.auction";
+option java_outer_classname = "AuctionProtos";
+
+message AuctionMsg {
+    enum Type { AUCTION_START= 1; BID_COMMITMENT = 2; BID_RECEIPT=3; BID_COMPARISON = 4; BIDDING_OVER=5;
+                CLAIM_WIN = 6; CONCEDE =7; AUCTION_END=8;}
+
+    required string auctionId = 1;
+    required Type type = 2;
+    optional BidCommitmentMsg commitment = 3;
+    optional BidComparisonMsg comparison = 4;
+    optional AuctionStartMsg start = 5;
+    optional RevealBidMsg reveal = 6;
+    optional AuctionEndMsg end = 7;
+
+}
+
+message BidCommitmentMsg {
+    required bytes hash = 1;
+    required double r1 = 2;
+    required BigIntegerMsg sharedVal = 3;
+}
+
+message BidComparisonMsg{
+    repeated BigIntegerMsg values = 1;
+    required BigIntegerMsg prime = 2;
+    required bool needReturnComparison = 3;
+}
+
+message AuctionStartMsg{
+    optional string itemDescription = 1;
+}
+
+message AuctionEndMsg{
+    required string winner=1;
+    required int32 winningBid=2;
+}
+
+message RevealBidMsg{
+    required double r1 = 1; // this isn't strictly necessary for the protocol, but is convenient to have
+    required double r2 = 2;
+    required BigIntegerMsg x = 3;
+    required int32 bid = 4;
+}
+
+message BigIntegerMsg{
+    required bytes value = 1;
+}
+
+
+

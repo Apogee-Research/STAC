@@ -1,0 +1,74 @@
+Overview
+========
+BidPal is a peer-to-peer application that allows users to buy and sell items via a single-round
+highest-bidder-wins auction with secret bids.
+
+Interactions
+============
+Users can launch a BidPal instance by running ./challenge_program/bin/bidpal <port> <username> 
+where <port> is the port the program will listen on, and <username> is the name the user will 
+be referred to in the auction network. A BidPal run is defined as a single synchronized run
+of the BidPal application between a set of BidPal users each running their own instance of the
+BidPal application.
+
+User commands:
+--------------
+connect <host> <port>
+	Connect to another BidPal user at the specified host and port.
+
+start <description>	
+	Start an auction (as the seller) with the given description for the item. An auction 
+	ID will be assigned to the resulting auction.
+
+listauctions		
+	Get a list of auctions and their status
+
+status <auction ID>	
+	Get the status of the specified auction
+
+bid <auction ID> <amount>	
+	Place a bid of the specified amount in the specified auction. At this point the client
+	will announce to all other participants of the auction that a bid has been placed by
+	this user. After receiving bid information from other clients, any client that believes 
+	their bid is the highest will announce it.
+
+close <auction ID>	
+	Close bidding on the specified auction. (Can only be performed by the seller)
+
+listbidders <auction ID>	
+	List the users who've bid on the specified auction and whether they've claimed to 
+	have won the auction.
+
+winner <auction ID> <winner> <winningBid>	
+	Announce that you have accepted the winner of the auction ID with the specified bid. 
+	(Only the seller can do this, and the specified winner must be the auctual winner -- 
+	the seller only has a choice in the event of a tie.)
+
+quit	
+	close the program
+
+Typical usage:
+--------------
+1.  User connects to desired peers.
+2.  An auction is announced by a peer.
+3.  Interested users bid.
+4.  The seller closes the auction.
+5.  The seller uses the listbidders command to see who the highest bidder is (or bidders in 
+    case of a tie).
+6.  The seller announces the winner and the winning bid
+
+Example user interaction scripts are provided in the examples directory.
+Note: example script may take up to 5 minutes to complete.
+
+Engagement Tools
+================
+BidPal requires at least two users running independent BidPal instances simultaneously. 
+The example user interaction scripts use the linux utility "expect" to send commands and process 
+responses from BidPal. The included Dockerfile, run by the provided challenge program Docker 
+registry script, provides a running Docker container with "expect" installed.
+
+Notes
+=====
+The files in the challenge programs directory are used to provide working example interactions. 
+During normal usage each BidPal user would have a separate instance of BidPal running on 
+their own system. Malicious data should not be inserted into these files.

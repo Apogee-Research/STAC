@@ -1,0 +1,13 @@
+{
+  "users":[
+    {"id": "subscriber1", "usage": "100", "units": "kWh"},
+    {"id": "subscriber2", "usage": "200", "units": "kWh"},
+    {"id": "subscriber3", "usage": "200", "units": "kWh"}
+
+  ],
+
+  "generators":[
+  ],
+
+  "budget": 25000
+}

@@ -1,0 +1,158 @@
+spawn ../../../challenge_program/bin/powerbroker -i ../../../challenge_program/data/detroit/detroit.id
+Loaded id: id: detroit
+p: 9739163282356647205961370465538717274720884095781168250213331986352640333583925144850105822083132845683468479911548534436085398617490134844637044452205089 q: 9779263323370267504123328744501510840984546839545043065331874868935316157643792721058199531039454085504302251242338234285630307268405899018861614333422041
+PowerBroker> begin connectionlistmax.txt profile_needmax.json
+GenerationPlan:
+Allocated: 
+Total power allocated: 0
+Total required power: 500
+Cost to generate: 0
+-------------------
+Power deficit!
+500
+-------------------
+BidPlan:
+Needed Power: 500
+Budget: 25000
+
+PowerBroker> [1G[KAuction started: nyc:50
+[1G[KPowerBroker> [1G[KBidding 500 on 50
+[1G[KPowerBroker> [1G[KAuction ended: nyc:50
+[1G[KPowerBroker> [1G[KPower still needed: 500
+Current budget: 25000
+[1G[KPowerBroker> [1G[KAuction started: nyc:50
+[1G[KPowerBroker> [1G[KBidding 500 on 50
+[1G[KPowerBroker> [1G[KAuction ended: nyc:50
+[1G[KPowerBroker> [1G[KPower still needed: 500
+Current budget: 25000
+[1G[KPowerBroker> [1G[KAuction started: nyc:50
+[1G[KPowerBroker> [1G[KBidding 500 on 50
+[1G[KPowerBroker> [1G[KAuction ended: nyc:50
+[1G[KPowerBroker> [1G[KPower still needed: 500
+Current budget: 25000
+[1G[KPowerBroker> [1G[KAuction started: nyc:50
+[1G[KPowerBroker> [1G[KBidding 500 on 50
+[1G[KPowerBroker> [1G[KAuction ended: nyc:50
+[1G[KPowerBroker> [1G[KPower still needed: 500
+Current budget: 25000
+[1G[KPowerBroker> [1G[KAuction started: nyc:50
+[1G[KPowerBroker> [1G[KBidding 500 on 50
+[1G[KPowerBroker> [1G[KAuction ended: nyc:50
+[1G[KPowerBroker> [1G[KDone processing power profile
+Ended with budget: 25000 and needed power: 500
+[1G[KPowerBroker> [1G[KDisconnected from all users
+[1G[KPowerBroker> exit
+Goodbye
+
+spawn ../../../challenge_program/bin/powerbroker -i ../../../challenge_program/data/la/la.id
+Loaded id: id: la
+p: 12034897224951748025833592238053876377067820904096509192536149349781037329052580094061605775398014604253737747306217381002604052997669212348180537336320981 q: 12333164867133450536586672631879160490520715886184676211480109328022169384515993524226570277008046135282465822863784347609229113088949522816269190097292289
+PowerBroker> begin connectionlistmax.txt profile_needmax.json
+GenerationPlan:
+Allocated: 
+Total power allocated: 0
+Total required power: 500
+Cost to generate: 0
+-------------------
+Power deficit!
+500
+-------------------
+BidPlan:
+Needed Power: 500
+Budget: 25000
+
+PowerBroker> [1G[KAuction started: nyc:50
+[1G[KPowerBroker> [1G[KBidding 500 on 50
+[1G[KPowerBroker> [1G[KAuction ended: nyc:50
+[1G[KPowerBroker> [1G[KBought 50 power for 500 from nyc
+[1G[KPowerBroker> [1G[KPower still needed: 450
+Current budget: 24500
+[1G[KPowerBroker> [1G[KAuction started: nyc:50
+[1G[KPowerBroker> [1G[KBidding 500 on 50
+[1G[KPowerBroker> [1G[KAuction ended: nyc:50
+[1G[KPowerBroker> [1G[KBought 50 power for 500 from nyc
+[1G[KPowerBroker> [1G[KPower still needed: 400
+Current budget: 24000
+[1G[KPowerBroker> [1G[KAuction started: nyc:50
+[1G[KPowerBroker> [1G[KBidding 500 on 50
+[1G[KPowerBroker> [1G[KAuction ended: nyc:50
+[1G[KPowerBroker> [1G[KBought 50 power for 500 from nyc
+[1G[KPowerBroker> [1G[KPower still needed: 350
+Current budget: 23500
+[1G[KPowerBroker> [1G[KAuction started: nyc:50
+[1G[KPowerBroker> [1G[KBidding 500 on 50
+[1G[KPowerBroker> [1G[KAuction ended: nyc:50
+[1G[KPowerBroker> [1G[KBought 50 power for 500 from nyc
+[1G[KPowerBroker> [1G[KPower still needed: 300
+Current budget: 23000
+[1G[KPowerBroker> [1G[KAuction started: nyc:50
+[1G[KPowerBroker> [1G[KBidding 500 on 50
+[1G[KPowerBroker> [1G[KAuction ended: nyc:50
+[1G[KPowerBroker> [1G[KBought 50 power for 500 from nyc
+[1G[KPowerBroker> [1G[KDone processing power profile
+Ended with budget: 22500 and needed power: 250
+[1G[KPowerBroker> [1G[KDisconnected from all users
+[1G[KPowerBroker> exit
+Goodbye
+
+spawn ../../../challenge_program/bin/powerbroker -i ../../../challenge_program/data/nyc/nyc.id
+Loaded id: id: nyc
+p: 11180510381699803188148670656873557408341871813236295825761162705921432370422145289961723565869814389599834322433334435306525963306491414142178858985856469 q: 12729288918291096898516781676355808914201117479854397090626394544947803881968857184583972933637799609067951711431812408331192967742285263399981468965090739
+PowerBroker> begin connectionlistmax.txt profile_maxauctions.json
+GenerationPlan:
+Allocated: 
+Excess: 
+	generator3 Amount: 100 Divisible: true Total Cost: 500
+	generator4 Amount: 100 Divisible: true Total Cost: 500
+	generator2 Amount: 100 Divisible: true Total Cost: 500
+	generator1 Amount: 100 Divisible: true Total Cost: 500
+Total power allocated: 0
+Total required power: 0
+Cost to generate: 0
+BidPlan:
+Needed Power: 0
+Budget: 0
+Sell Actions:
+	Sell: 50 min price: 250
+	Sell: 50 min price: 250
+	Sell: 50 min price: 250
+	Sell: 50 min price: 250
+	Sell: 50 min price: 250
+	Sell: 50 min price: 250
+	Sell: 50 min price: 250
+	Sell: 50 min price: 250
+PowerBroker> Too many auctions required.  Not going to announce any more.
+[1G[KAuction started: nyc:50
+[1G[KPowerBroker> [1G[KBidding 250 on 50
+[1G[KPowerBroker> [1G[KAuction ended: nyc:50
+[1G[KPowerBroker> [1G[KSold 50 power for 500 to la
+[1G[KPowerBroker> [1G[KPower still needed: 0
+Current budget: 500
+[1G[KPowerBroker> [1G[KAuction started: nyc:50
+[1G[KPowerBroker> [1G[KBidding 250 on 50
+[1G[KPowerBroker> [1G[KAuction ended: nyc:50
+[1G[KPowerBroker> [1G[KSold 50 power for 500 to la
+[1G[KPowerBroker> [1G[KPower still needed: 0
+Current budget: 1000
+[1G[KPowerBroker> [1G[KAuction started: nyc:50
+[1G[KPowerBroker> [1G[KBidding 250 on 50
+[1G[KPowerBroker> [1G[KAuction ended: nyc:50
+[1G[KPowerBroker> [1G[KSold 50 power for 500 to la
+[1G[KPowerBroker> [1G[KPower still needed: 0
+Current budget: 1500
+[1G[KPowerBroker> [1G[KAuction started: nyc:50
+[1G[KPowerBroker> [1G[KBidding 250 on 50
+[1G[KPowerBroker> [1G[KAuction ended: nyc:50
+[1G[KPowerBroker> [1G[KSold 50 power for 500 to la
+[1G[KPowerBroker> [1G[KPower still needed: 0
+Current budget: 2000
+[1G[KPowerBroker> [1G[KAuction started: nyc:50
+[1G[KPowerBroker> [1G[KBidding 250 on 50
+[1G[KPowerBroker> [1G[KAuction ended: nyc:50
+[1G[KPowerBroker> [1G[KSold 50 power for 500 to la
+[1G[KPowerBroker> [1G[KDone processing power profile
+Ended with budget: 2500 and needed power: 0
+[1G[KPowerBroker> [1G[KDisconnected from all users
+[1G[KPowerBroker> exit
+Goodbye
+

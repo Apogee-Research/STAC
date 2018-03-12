@@ -1,0 +1,19 @@
+#!/usr/bin/expect
+
+spawn ../../../challenge_program/bin/withmi -d ../../../challenge_program/data -s ../../../challenge_program/data/victim -i ../../../examples/sally.id
+
+send "createchat transfer\n"
+expect {Successfully created transfer}
+
+send "connect localhost 9002\n"
+expect {megan. callback on: localhost:9002}
+send "adduser megan\n"
+send "sendFile 3\n"
+send "sendFile 0\n"
+expect "all done"
+expect {Removing attacker from all chats}
+
+send "exit\n"
+
+expect "Closing connections..."
+

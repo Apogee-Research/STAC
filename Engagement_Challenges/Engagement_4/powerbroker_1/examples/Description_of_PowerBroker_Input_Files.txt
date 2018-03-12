@@ -1,0 +1,32 @@
+A user id file is a JSON file with the following form:
+{
+    "id": "nyc",
+    "callbackHost": "localhost",
+    "callbackPort": 9002,
+    "privateKey": {
+        "p": "11180510381699803188148670656873557408341871813236295825761162705921432370422145289961723565869814389599834322433334435306525963306491414142178858985856469"
+        "q": "12729288918291096898516781676355808914201117479854397090626394544947803881968857184583972933637799609067951711431812408331192967742285263399981468965090739"
+    }
+}
+
+A connection list is a simple text file that lists each host:port pair on a separate line with the following form:
+localhost:9000
+localhost:9001
+localhost:9002
+
+And a power profile is a JSON file with the following form:
+{
+  "users":[
+    {"id": "subscriber1", "usage": "10", "units": "kWh"},
+    {"id": "subscriber2", "usage": "20", "units": "kWh"}
+  ],
+
+  "generators":[
+    {"id": "generator1", "status": "online", "capacity": "40", "units": "kWh", "divisible": "true", "cost_per_unit": "5"},
+    {"id": "generator2", "status": "online", "capacity": "13", "units": "kWh", "divisible": "true", "cost_per_unit": "10"},
+    {"id": "generator3", "status": "offline", "capacity": "0", "units": "kWh", "divisible": "true", "cost_per_unit": "100"},
+    {"id": "generator4", "status": "online", "capacity": "5", "units": "kWh", "divisible": "true", "cost_per_unit": "27"}
+  ],
+
+  "budget": 200
+}

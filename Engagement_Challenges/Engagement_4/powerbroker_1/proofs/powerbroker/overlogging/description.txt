@@ -1,0 +1,42 @@
+over_logging_0: Over Logging When Disconnected During Connection Phase
+----------------------------------------------------------------------
+Algorithmic Complexity Vulnerability,
+Type: Space (Disk Space)
+
+This vulnerability forces the victim to continuously try to connect to the attacker, logging to a file during each attempt.
+This fills the log file until it exceeds the allowed disk space.
+
+The attacker connects to the victim, sends the victim a connect message, and then disconnects from the victim. When the
+victim is deciding whether or not to move to the next phase, he makes sure he is still connected to all other users. He
+sees that he is not connected to the attacker and tries to reconnect. A bug in the recursive method forces the victim to
+try to connect forever, adding to the log each recursive call.
+
+Each powerbroker instance has its own log file.
+
+The excessive disk space usage arises in method tryConnecting() in class powerbroker.phase.ConnectionPhase, which is
+called by powerbroker.phase.ConnectionPhase.shouldTransitionToNextPhase()
+try {
+        logger.info("Attempting to connect to " + other.toString()); // filling up the log here
+        CommsConnection connection = getPhaseManager().connect(other);
+        connections.put(connection.getTheirIdentity().getCallbackAddress(), connection);
+        connection.write(connectMsgBytes);
+        return true;
+    } catch (Exception e) {
+        logger.info("Attempt failed, trying again " + (numAttempts)); // filling up the log here
+        logger.error(e.getMessage(), e.getCause()); // filling up the log here
+        try {
+            if (numAttempts > 0) {
+                Set<CommsNetworkAddress> keys = connections.keySet();
+                if (keys.contains(other)) {
+                    return tryConnecting(other, numAttempts); // numAttempts hasn't been decremented, so this will cause an infinite loop
+                }
+                Thread.sleep(SLEEP_BETWEEN_ATTEMPTS);
+                return tryConnecting(other, --numAttempts);
+            }
+            return false;
+        } catch (InterruptedException e1) {
+            return false;
+        }
+    }
+
+Note that package, class, and method names may be modified by transformers.

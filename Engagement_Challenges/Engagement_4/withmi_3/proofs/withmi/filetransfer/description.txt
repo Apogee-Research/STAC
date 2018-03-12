@@ -1,0 +1,7 @@
+transfer_2 File Transfer Non-Vulnerable
+-------------------------------------
+Benign
+
+This version of file transfer first compresses the file and then splits it into fixed size chunks to be sent.  Since some files 
+compress more than others, a random amount of padding is added at the end, to prevent an observer from identifying a file by its
+total compressed size.

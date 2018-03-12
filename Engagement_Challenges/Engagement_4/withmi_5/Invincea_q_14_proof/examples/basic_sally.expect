@@ -1,0 +1,64 @@
+set timeout -1
+
+# Ensure the data directory is empty at the start
+catch {exec rm -fr ../challenge_program/data/sally}
+
+spawn ../challenge_program/bin/withmi -d ../challenge_program/data -s ../challenge_program/data/sally -i sally.id
+expect {WithMi>}
+
+# test connecting to a new user
+send "connect localhost 9001\n"
+expect {Connected to new user deven. callback on: localhost:9001}
+expect {WithMi>}
+
+# test adduser
+send "adduser deven\n"
+expect {Added user to group}
+expect {deven: hi Sally, nice to see you}
+expect {WithMi>}
+send "nice to see you too. it's been a while\n"
+expect {WithMi>}
+
+# test help
+send "help\n"
+expect {Commands:}
+expect {WithMi>}
+
+send "what happens when I repeat commands?\n"
+expect {WithMi>}
+
+# test repeat
+send "repeat 3\n"
+expect {Commands:}
+expect {WithMi>}
+
+send "I want to create a new chat without you\n"
+send "createchat alone\n"
+expect {Successfully created alone}
+expect {WithMi>}
+
+send "Now what?\n"
+expect {WithMi>}
+
+sleep 5
+
+send "listchats\n"
+expect {WithMi>}
+
+send "joinchat myFirstChat\n"
+expect {I hope you enjoy being alone!}
+expect {WithMi>}
+
+
+# test history
+send "history\n"
+expect {WithMi>}
+
+send "I'm going to disconnect\n"
+expect {bye}
+expect {WithMi>}
+send "disconnect deven\n"
+expect {WithMi>}
+sleep 5
+send "exit\n"
+expect eof

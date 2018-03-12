@@ -1,0 +1,23 @@
+set timeout -1
+
+spawn ../challenge_program/bin/withmi -d ../challenge_program/data -s ../challenge_program/data/sally -i sally.id
+
+expect WithMi>
+
+send "connect localhost 9001\n"
+expect {callback on: localhost:9001}
+expect {WithMi>}
+send "createchat everyone\n"
+expect {Successfully created everyone}
+expect {WithMi>}
+send "adduser deven\n"
+expect {Added user to group}
+expect {WithMi>}
+send "sendfile 0\n"
+expect {sent}
+expect {WithMi>}
+
+send "exit\n"
+
+expect eof
+

@@ -1,0 +1,37 @@
+PreviousConnections_2: Previous Connections Side Channel
+--------------------------------------------------------
+Benign
+
+WithMi's communications framework is set up such that a user provides her identity, a string, with her
+RSA public key to the user with whom she is connecting. Users store the information of everyone they have connected to
+in a file called previous_users.txt. If userA has never connected to userB before, userA stores userB's identity and
+her public key in that file when they first connect. If userA has connected to userB before, userA does not need to
+store userB's information.
+In the vulnerable version, userA sends a message to userB once he has finished handling userB's information.
+In this benign version, userA sends the message before userA has determined whether or not he needs to store
+userB's information. UserA always sends this message independent of whether they have connected to userB before,
+and an attacker is not able to determine if userA and userB have previously connected.
+
+In the UserManager class (or a class created by our transformers from the UserManager class), in method addUserToUserHistory(), we have:
+    // this message is what the attacker would see
+    withMi.sendReceipt(true, 0, user);
+
+    // this is the code that takes a significant amount of time
+    // since this happens after withMi.sendReceipt(), an attacker is not able to see
+    // how long this takes
+    if (!previouslyConnected) {
+        storeUser(user);
+    }
+
+This portion of code is reached after a user issues a command to connect to this user, leading to the following chain of methods on the victim's side:
+
+withmi.WithMiDispatcher.handleNewConnection()
+java.util.ExecutorService.submit()
+withmi.WithMiDispatcher.NewConnectionHandler.run()  (called by java.util.ExecutorService)
+withmi.WithMi.handleConnection()
+withmi.UserManager.addUserToUserHistory()
+
+(The same method is also reached for the user issuing a connect command, but no other user can time how long it takes in that case, since
+they don't know when the command was issued.)
+
+Note that package, class, and method names may be modified by transformers.

@@ -1,0 +1,18 @@
+graph_size_sc: Vulnerable Graph Matrix Handler
+-----------------------------------------------
+Side Channel Vulnerability
+Type: Space
+
+This article displays the graph submitted by a user in a "standard" form, which reveals the size of the graph.  The graph is
+displayed in table form, with a row and column for each node, with the capacity between each pair of nodes. Both vertex names
+and capacities are padded so that the number of nodes uniquely determines the size of the overall content -- the size of this
+table is on the order of n^2, where n is the number of nodes. An observer can therefore
+determine the size of the graph uploaded by the size of the server's response packet.
+
+When a user uploads a route map, Airplan requires them to view a sequence of pages, in order, (wizard-style) before they are able to
+access the majority of Airplan's features.  So, there is a sequence of packets that an attacker can identify. First, after uploading a graph,
+the user has to select which of the edge weights to use for the properties page.  This weight selector page has an identifiable size range.
+This is followed by the graph properties page, which also has an identifiable size range.  Finally, the page after that is the graph matrix.
+
+The vulnerable code lies in FlightMatrixHandler.handleGet(), which is called upon a user uploading a route map and clicking through the
+weight selector page.

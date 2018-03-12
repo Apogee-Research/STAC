@@ -1,0 +1,7 @@
+{
+    
+    "type": "benign",
+    
+    "wait_secs": 1200,
+    "use_docker": false
+}

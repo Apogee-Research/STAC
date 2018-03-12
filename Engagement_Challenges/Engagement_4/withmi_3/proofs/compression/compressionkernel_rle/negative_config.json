@@ -1,0 +1,6 @@
+{
+    "type": "ac_disk",
+    "wait_secs": 300,
+    "output_dir": "victim",
+    "use_docker": "true"
+}

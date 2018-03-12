@@ -1,0 +1,74 @@
+syntax="proto2";
+package com.cyberpointllc.stac.comms;
+
+message DHPublicKey {
+    required bytes key = 1;
+}
+
+message CommsMsg {
+    enum Type {CLIENT_SETUP = 1; SERVER_SETUP = 2; }
+
+    required Type type = 1;
+    optional ClientSetup clientSetup = 2;
+    optional ServerSetup serverSetup = 3;
+}
+
+message ClientSetup {
+    required Identity identity = 1;
+    required DHPublicKey key = 2;
+}
+
+message ServerSetup {
+    required Identity identity = 1;
+    required DHPublicKey key = 2;
+    required RsaTest rsaTest = 3;
+}
+
+message ClientResponse {
+    required RsaResponse rsaResponse = 1;
+    required RsaTest rsaTest = 2;
+}
+
+message ServerResponse {
+    required RsaResponse rsaResponse = 1;
+    required RsaResults rsaResults = 2;
+}
+
+message NetworkAddress {
+    required string host = 1;
+    required int32 port = 2;
+}
+
+message Identity {
+    required string id = 1;
+    required PublicKey publicKey = 2;
+    optional NetworkAddress callbackAddress = 3;
+}
+
+message PublicKey {
+    required bytes e = 1;
+    required bytes modulus = 2;
+}
+
+message SignedMessage {
+    required bytes data = 1;
+    required bytes signedHash = 2;
+    optional RsaTest rsaTest = 3;
+}
+
+message RsaTest {
+    required bytes test = 1;
+}
+
+message RsaResponse {
+    required bytes response = 1;
+}
+
+message RsaResults{
+    required bytes results = 1;
+}
+
+message ClientResponseToFailure {
+    required RsaResults rsaResults = 1;
+    required RsaTest rsaTest = 2;
+}

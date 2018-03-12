@@ -1,0 +1,42 @@
+PreviousConnections_1: Previous Connections Side Channel
+--------------------------------------------------------
+Side Channel Vulnerability,
+Type: Time
+
+WithMi's communications framework is set up such that a user provides her identity, a string, and her
+RSA public key to the user with whom she is connecting. Users store the identity and public key of each user they have
+connected to in a file called previous_users.txt. If userA has never connected to userB before, userA stores userB's
+identity and her public key in that file when they first connect. If userA has connected to userB before, userA does
+not need to store userB's information.
+After userA finishes handling userB's information, userA sends a message indicating that he is done. The attacker
+measures how long it takes userA to respond after userA and userB began their connection. If userA takes a relatively
+long time to respond, the attacker knows that userA did not know userB because he had to take the time to store
+userB's information in previous_users.txt. If userA responds quickly, userA knows userB and did not need to store
+userB's information.
+
+
+In the UserManager class (or a class created by our transformers from the UserManager class), in method addUserToUserHistory(), we have:
+    if (!previouslyConnected) {
+                // if we haven't previously connected, add this new user to our file
+                // this takes a significant amount of time
+                storeUser(user);
+                stringBuilder.append("Connected to new user ");
+    } else {
+                stringBuilder.append("Reconnected to ");
+    }
+    ....
+    // this message is what the attacker is waiting for
+    withMi.sendReceipt(true, 0, user);
+
+This portion of code is reached after a user issues a command to connect to this user, leading to the following chain of methods on the victim's side:
+
+withmi.WithMiDispatcher.handleNewConnection()
+java.util.ExecutorService.submit()
+withmi.WithMiDispatcher.NewConnectionHandler.run()  (called by java.util.ExecutorService)
+withmi.WithMi.handleConnection()
+withmi.UserManager.addUserToUserHistory()
+
+(The same method is also reached for the user issuing a connect command, but no other user can time how long it takes in that case, since
+they don't know when the command was issued.)
+
+Note that package, class, and method names may be modified by transformers.

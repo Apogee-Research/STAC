@@ -1,0 +1,14 @@
+#!/usr/bin/expect
+
+set timeout -1
+
+spawn ../../../bin/bidpal 9000 niceguy
+expect {Commands:}
+expect {/quit}
+expect {Connected to NO_USER_OUTBIDS_ME}
+expect {niceguy received auction start announcement NO_AUCTION_ID~~~~~~~~~~~~}
+expect {niceguy received a bid commitment from NO_USER_OUTBIDS_ME}
+send "/bid NO_AUCTION_ID~~~~~~~~~~~~ 250 \n"
+expect {niceguyreceived a bid receipt from NO_USER_OUTBIDS_ME for auction NO_AUCTION_ID~~~~~~~~~~~~}
+
+

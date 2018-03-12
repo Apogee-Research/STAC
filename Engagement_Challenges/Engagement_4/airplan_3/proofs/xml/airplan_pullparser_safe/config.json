@@ -1,0 +1,5 @@
+{
+    "type": "benign",
+    "wait_secs": 30,
+    "return_code": 1
+}

@@ -1,0 +1,14 @@
+set timeout -1
+
+spawn ../../../challenge_program/bin/withmi -d test_cases/megan -s test_cases/megan -i test_cases/megan.id
+
+expect {WithMi>}
+
+send "connect localhost 9002\n"
+expect {sally. callback on: localhost:9002}
+expect {WithMi>}
+sleep 5
+
+send "exit\n"
+expect "Closing connections ..."
+

@@ -1,0 +1,1 @@
+This folder will contain the log file when the test is run in docker.

@@ -1,0 +1,28 @@
+xml_1: XML Bomb
+---------------
+Algorithmic Complexity Vulnerability,
+Type: Space (memory) 
+
+The XML parser is vulnerable to the "Billion LOLs" attack wherein
+XML entity references are expanded without bound, allowing the
+ attacker to force exponential behavior.
+
+The same (or slighly modified vulnerability) allows for recursive
+XML entity declarations. An example file exhibiting this behavior is available in
+'lol.xml'.
+
+When an XML file is loaded, the following methods are called:
+stac.airplan.handler.AddRouteMapHandler.handlePost()
+stac.common.graph.XmlFileLoader.loadGraph()
+
+The following methods get called repeatedly...
+org.kxml2.io.KXmlParser.next()
+org.kxml2.io.KXmlParser.readValue()
+org.kxml2.io.KXmlParser.readEntity()
+java.lang.StringBuilder.append()
+java.lang.AbstractStringBuilder.append()
+... until heap space is exhausted
+
+Note: These method calls are subject to our renaming transform.
+
+

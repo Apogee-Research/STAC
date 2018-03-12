@@ -1,0 +1,98 @@
+Overview
+========
+WithMi is a peer-to-peer text chat and file transfer program. Users can connect to one another, create and
+join multi-party chat rooms, and share files. 
+
+Connecting
+----------
+WithMi users have to connect to each other before they can interact. If userA wants to connect to userB, he
+must know userB's host and port number. With this information userA can connect to userB then add userB to
+a chat and send messages and/or files. A WithMi session for a user is defined as the user starting a single 
+WithMi instance.
+
+Chatting
+--------
+All WithMi conversations happen in a chat room called a chat. The chat's creater is the only one in the chat
+until he adds other users. Once another user is added to the chat, that user can also add users to the chat.
+Users must be connected before they can add each other to chats.
+
+File Transfer
+-------------
+When starting WithMi, the user must tell WithMi the directory for files to send and where to put received 
+files. Once set, the user can choose to send one of those files to everyone in the current chat.
+
+
+Interactions
+============
+WithMi Commands:
+	adduser		- Adds a known user to the current group chat
+	availablefiles	- Lists files that can be sent
+	connect		- Connects to the specified host
+	createchat	- Creates a group chat with the specified name
+	currentusers	- Lists the cusers currently connected
+	exit		- Exits the program
+	help		- Displays help for commands
+	history		- Prints the command history
+	joinchat	- Joins the specified chat
+	listchats	- Lists the chats you are a part of
+	pastusers	- Lists disconnected users
+	reconnect	- Reconnects to the specified user
+	repeat		- Repeats the last n commands
+	script		- Runs a script
+	sendfile	- Sends the specified file
+
+Start a WithMi Instance
+-----------------------
+$ challenge_program/bin/withmi -d [data directory] -s [storage directory] -i [identity file]
+	[data directory]    - The directory that holds all the files a user might want to send to other 
+			      users. Example data directories for the example WithMi users are in the 
+			      challenge_programs/data directory.
+	[storage directory] - The directory where incoming files are stored
+	[identity file]     - A json file that stores all the information the user needs to maintain their
+                              identify and connect to other users. The file holds the user's name (or "id"),
+ 			      the user's host and port, and the user's RSA primes.
+
+Connecting to Other Users and Chatting
+--------------------------------------
+Users need to connect to each other before they can chat. If userA wants to chat with userB, userA must know
+userB's host and port. Given userA knows userB's host is localhost and her port is 9000, and userB has a
+running WithMi instance, userA starts a WithMi instance and runs:
+	connect: 	WithMi> connect localhost 9000
+		 	WithMi responds with either: "Connected to user userB. callback on: localhost:9000" 
+			or "Reconnected to userB. callback on: localhost:9000" depending on whether userA 
+			and userB have been previously connected.
+	createchat: 	WithMi> createchat Hello
+		    	WithMi responds with "Successfully created Hello"
+	adduser: 	WithMi> adduser UserB
+			WithMi responds with "Added user to group"
+If userA and userB get disconnected, they can easily reconnect using the reconnect command.
+
+Sending and Receiving Files
+---------------------------
+A WithMi user can send a file to everyone in a chat (we assume only userB is in the chat for this example). 
+UserA checks the available files, then chooses one to send.
+	availablefiles:	WithMi> availablefiles
+			WithMi responds with a numbered list of available files for userA from userA's data 
+			directory i.e.:
+				0. file1.txt
+				1. file2.txt
+				2. anotherfile.txt
+	sendfile:	WithMi> sendfile 2
+			WithMi responds with "anotherfile.txt"
+UserB in the chat receives the file sent by userA.
+
+Example identity files and example user interaction scripts are in the examples folder.
+
+Engagement Tools
+================
+WithMi requires at least two users running independent WithMi instances simultaneously. The example user
+interaction scripts use the linux utility "expect" to send commands and process responses from WithMi. The 
+included Dockerfile, run by the provided challenge program docker registry script, provides a running docker 
+container with "expect" installed.
+
+
+Notes
+=====
+The files in the challenge programs directory are used to provide working example interactions. During normal
+usage each WithMi user would have a separate instance of WithMi running on their own system. Malicious data
+should not be inserted into these files.

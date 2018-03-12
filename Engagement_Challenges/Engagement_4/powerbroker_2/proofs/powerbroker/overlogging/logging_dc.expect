@@ -1,0 +1,11 @@
+set timeout -1
+
+spawn ../../../challenge_program/bin/powerbroker -i dc.id
+expect {PowerBroker>}
+
+send "begin logging_connectionlist.txt dc_profile.json\n"
+expect {GenerationPlan:}
+
+expect {Done processing power profile}
+expect {PowerBroker>}
+

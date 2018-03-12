@@ -1,0 +1,10 @@
+graph_connectivity_rp: Vulnerable Graph Properties Handler
+-----------------------------------------------
+Benign
+
+This article displays graph properties in such a way that the size of the packet does NOT reveal whether or not the graph is connected.
+
+In this version, all property values are padded randomly.  However, the parameter that causes the random padding is well-hidden.  It is
+controlled by the parameter "should_adjust" in the ParameterHandler held by the MapPropertiesHandler. It appears that this value
+is set to false in the MapProperties constructor.  However, it is misspelled there, with the number 1 in place of the letter l in "should".
+Therefore, it is determined by the default value returned for unknown parameters, which is true in this version.

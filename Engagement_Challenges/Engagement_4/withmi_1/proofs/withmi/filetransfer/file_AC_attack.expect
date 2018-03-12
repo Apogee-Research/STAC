@@ -1,0 +1,27 @@
+set timeout -1
+
+# Ensure the data directory is empty at the start
+catch {exec rm -fr ../data/sally}
+
+spawn ../../../challenge_program/bin/withmi -d . -s ../../../challenge_program/data/sally -i ../../../examples/sally.id
+
+expect {WithMi>}
+send "createchat danger\n"
+expect {Successfully created danger}
+expect {WithMi>}
+
+send "connect localhost 9002\n"
+expect {megan. callback on: localhost:9002}
+expect {WithMi>}
+
+send "adduser megan\n"
+expect {Added user to group}
+expect {WithMi>}
+
+send "sendfilezlib 0\n"
+
+expect {all_zeroes.txt sent}
+sleep 5
+send "exit\n"
+expect eof
+

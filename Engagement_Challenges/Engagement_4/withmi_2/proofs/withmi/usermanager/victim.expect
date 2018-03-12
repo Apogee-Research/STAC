@@ -1,0 +1,14 @@
+set timeout -1
+
+spawn ../../../challenge_program/bin/withmi -d victim -s victim -i victim.id
+
+expect {WithMi>}
+
+send "connect localhost 9002\n"
+expect {known. callback on: localhost:9002}
+expect {WithMi>}
+sleep 5
+
+send "exit\n"
+expect "Closing connections ..."
+

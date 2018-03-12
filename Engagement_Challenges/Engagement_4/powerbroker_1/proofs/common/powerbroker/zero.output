@@ -1,0 +1,56 @@
+spawn ../../../challenge_program/bin/powerbroker -i ../../../challenge_program/data/la/la.id
+Loaded id: id: la
+p: 12034897224951748025833592238053876377067820904096509192536149349781037329052580094061605775398014604253737747306217381002604052997669212348180537336320981 q: 12333164867133450536586672631879160490520715886184676211480109328022169384515993524226570277008046135282465822863784347609229113088949522816269190097292289
+PowerBroker> begin ../../../examples/connectionlist2.txt profile_one.json
+GenerationPlan:
+Allocated: 
+	generator1 Amount: 5 Divisible: true Total Cost: 25
+Total power allocated: 5
+Total required power: 10
+Cost to generate: 25
+-------------------
+Power deficit!
+5
+-------------------
+BidPlan:
+Needed Power: 5
+Budget: 0
+
+PowerBroker> [1G[KAuction started: nyc:15
+[1G[KPowerBroker> [1G[KBidding 0 on 15
+[1G[KPowerBroker> [1G[KAuction ended: nyc:15
+[1G[KPowerBroker> [1G[KBought 15 power for 0 from nyc
+[1G[KPowerBroker> [1G[KDone processing power profile
+Ended with budget: 0 and needed power: 0
+[1G[KPowerBroker> [1G[KDisconnected from all users
+[1G[KPowerBroker> exit
+Goodbye
+
+spawn ../../../challenge_program/bin/powerbroker -i ../../../challenge_program/data/nyc/nyc.id
+Loaded id: id: nyc
+p: 11180510381699803188148670656873557408341871813236295825761162705921432370422145289961723565869814389599834322433334435306525963306491414142178858985856469 q: 12729288918291096898516781676355808914201117479854397090626394544947803881968857184583972933637799609067951711431812408331192967742285263399981468965090739
+PowerBroker> begin ../../../examples/connectionlist2.txt profile_zero.json
+GenerationPlan:
+Allocated: 
+	generator2 Amount: 5 Divisible: true Total Cost: 0
+	generator1 Amount: 5 Divisible: true Total Cost: 0
+Excess: 
+	generator1 Amount: 15 Divisible: true Total Cost: 0
+Total power allocated: 10
+Total required power: 10
+Cost to generate: 0
+BidPlan:
+Needed Power: 0
+Budget: 0
+Sell Actions:
+	Sell: 15 min price: 0
+PowerBroker> [1G[KAuction started: nyc:15
+[1G[KPowerBroker> [1G[KBidding 0 on 15
+[1G[KPowerBroker> [1G[KAuction ended: nyc:15
+[1G[KPowerBroker> [1G[KSold 15 power for 0 to la
+[1G[KPowerBroker> [1G[KDone processing power profile
+Ended with budget: 0 and needed power: 0
+[1G[KPowerBroker> [1G[KDisconnected from all users
+[1G[KPowerBroker> exit
+Goodbye
+

@@ -1,0 +1,20 @@
+#!/usr/challenge_program/bin/expect
+
+set timeout -1
+
+lassign $argv id profile connectionlist
+
+spawn ../challenge_program/bin/powerbroker -i $id
+expect {PowerBroker>}
+# wait for other instances to come up
+sleep 10
+send "begin $connectionlist $profile\n"
+
+expect {GenerationPlan:}
+
+expect {Done processing power profile}
+expect {PowerBroker>}
+sleep 5
+
+send "exit\n"
+expect eof

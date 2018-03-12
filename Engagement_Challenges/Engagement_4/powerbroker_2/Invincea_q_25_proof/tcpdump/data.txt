@@ -1,0 +1,107 @@
+20:45:54.305255 IP localhost.dynamid > localhost.49112: Flags [S.], seq 4073891192, ack 3435887024, win 14480, options [mss 1460,sackOK,TS val 25611486 ecr 25611486,nop,wscale 7], length 0
+20:45:54.343964 IP localhost.dynamid > localhost.49112: Flags [.], ack 201, win 122, options [nop,nop,TS val 25611525 ecr 25611525], length 0
+20:45:54.544881 IP localhost.dynamid > localhost.49112: Flags [P.], seq 1:200, ack 201, win 122, options [nop,nop,TS val 25611726 ecr 25611525], length 199
+20:45:54.925317 IP localhost.dynamid > localhost.49112: Flags [.], ack 753, win 131, options [nop,nop,TS val 25612106 ecr 25612106], length 0
+20:45:55.259868 IP localhost.dynamid > localhost.49112: Flags [P.], seq 200:888, ack 753, win 131, options [nop,nop,TS val 25612441 ecr 25612106], length 688
+20:45:55.523833 IP localhost.dynamid > localhost.49112: Flags [.], ack 976, win 139, options [nop,nop,TS val 25612705 ecr 25612705], length 0
+20:45:55.755670 IP localhost.dynamid > localhost.49112: Flags [P.], seq 888:982, ack 976, win 139, options [nop,nop,TS val 25612937 ecr 25612705], length 94
+20:45:55.762977 IP localhost.dynamid > localhost.49112: Flags [.], ack 1031, win 139, options [nop,nop,TS val 25612944 ecr 25612944], length 0
+20:45:55.767906 IP localhost.dynamid > localhost.49112: Flags [.], ack 1085, win 139, options [nop,nop,TS val 25612949 ecr 25612949], length 0
+20:45:55.768114 IP localhost.dynamid > localhost.49112: Flags [P.], seq 982:1036, ack 1085, win 139, options [nop,nop,TS val 25612949 ecr 25612949], length 54
+20:45:55.770999 IP localhost.dynamid > localhost.49112: Flags [P.], seq 1036:1090, ack 1085, win 139, options [nop,nop,TS val 25612952 ecr 25612949], length 54
+20:45:55.810528 IP localhost.dynamid > localhost.49112: Flags [.], ack 1139, win 139, options [nop,nop,TS val 25612992 ecr 25612952], length 0
+20:46:15.548447 IP localhost.dynamid > localhost.49112: Flags [.], ack 1248, win 139, options [nop,nop,TS val 25632729 ecr 25632729], length 0
+20:46:15.552955 IP localhost.dynamid > localhost.49112: Flags [P.], seq 1090:1144, ack 1248, win 139, options [nop,nop,TS val 25632734 ecr 25632729], length 54
+20:46:15.598980 IP localhost.dynamid > localhost.49112: Flags [.], ack 1423, win 139, options [nop,nop,TS val 25632780 ecr 25632766], length 0
+20:46:15.610092 IP localhost.dynamid > localhost.49112: Flags [P.], seq 1144:1209, ack 1423, win 139, options [nop,nop,TS val 25632791 ecr 25632766], length 65
+20:46:15.654940 IP localhost.dynamid > localhost.49112: Flags [P.], seq 1209:1455, ack 1669, win 148, options [nop,nop,TS val 25632836 ecr 25632832], length 246
+20:46:15.658094 IP localhost.dynamid > localhost.49112: Flags [P.], seq 1455:1520, ack 1669, win 148, options [nop,nop,TS val 25632839 ecr 25632836], length 65
+20:46:15.698528 IP localhost.dynamid > localhost.49112: Flags [.], ack 1734, win 148, options [nop,nop,TS val 25632880 ecr 25632840], length 0
+20:48:04.611570 IP localhost.dynamid > localhost.49112: Flags [.], seq 1520:4416, ack 1734, win 148, options [nop,nop,TS val 25741793 ecr 25632840], length 2896
+20:48:04.611605 IP localhost.dynamid > localhost.49112: Flags [.], seq 4416:7312, ack 1734, win 148, options [nop,nop,TS val 25741793 ecr 25632840], length 2896
+20:48:04.611620 IP localhost.dynamid > localhost.49112: Flags [.], seq 7312:10208, ack 1734, win 148, options [nop,nop,TS val 25741793 ecr 25632840], length 2896
+20:48:04.611635 IP localhost.dynamid > localhost.49112: Flags [P.], seq 10208:11628, ack 1734, win 148, options [nop,nop,TS val 25741793 ecr 25632840], length 1420
+20:48:06.615035 IP localhost.dynamid > localhost.49112: Flags [.], ack 4630, win 193, options [nop,nop,TS val 25743796 ecr 25743796], length 0
+20:48:06.615048 IP localhost.dynamid > localhost.49112: Flags [.], ack 7526, win 238, options [nop,nop,TS val 25743796 ecr 25743796], length 0
+20:48:06.615059 IP localhost.dynamid > localhost.49112: Flags [.], ack 10422, win 284, options [nop,nop,TS val 25743796 ecr 25743796], length 0
+20:48:06.615067 IP localhost.dynamid > localhost.49112: Flags [.], ack 11838, win 289, options [nop,nop,TS val 25743796 ecr 25743796], length 0
+20:48:06.656666 IP localhost.dynamid > localhost.49112: Flags [.], ack 11892, win 306, options [nop,nop,TS val 25743838 ecr 25743838], length 0
+20:48:06.658606 IP localhost.dynamid > localhost.49112: Flags [P.], seq 11628:11682, ack 11892, win 306, options [nop,nop,TS val 25743840 ecr 25743838], length 54
+20:48:06.664858 IP localhost.dynamid > localhost.49112: Flags [P.], seq 11682:11747, ack 11957, win 306, options [nop,nop,TS val 25743846 ecr 25743844], length 65
+20:48:06.686127 IP localhost.dynamid > localhost.49112: Flags [.], ack 12139, win 306, options [nop,nop,TS val 25743867 ecr 25743847], length 0
+20:48:06.692385 IP localhost.dynamid > localhost.49112: Flags [P.], seq 11747:11801, ack 12193, win 306, options [nop,nop,TS val 25743873 ecr 25743871], length 54
+20:48:06.704601 IP localhost.dynamid > localhost.49112: Flags [P.], seq 11801:11855, ack 12247, win 306, options [nop,nop,TS val 25743886 ecr 25743883], length 54
+20:48:06.722276 IP localhost.dynamid > localhost.49112: Flags [.], ack 12422, win 306, options [nop,nop,TS val 25743903 ecr 25743900], length 0
+20:48:06.726264 IP localhost.dynamid > localhost.49112: Flags [P.], seq 11855:11920, ack 12422, win 306, options [nop,nop,TS val 25743907 ecr 25743900], length 65
+20:48:06.750708 IP localhost.dynamid > localhost.49112: Flags [P.], seq 11920:12166, ack 12422, win 306, options [nop,nop,TS val 25743932 ecr 25743900], length 246
+20:48:06.759160 IP localhost.dynamid > localhost.49112: Flags [P.], seq 12166:12231, ack 12734, win 329, options [nop,nop,TS val 25743940 ecr 25743934], length 65
+20:49:55.372992 IP localhost.dynamid > localhost.49112: Flags [.], seq 12231:15127, ack 12734, win 329, options [nop,nop,TS val 25852554 ecr 25743980], length 2896
+20:49:55.373026 IP localhost.dynamid > localhost.49112: Flags [.], seq 15127:18023, ack 12734, win 329, options [nop,nop,TS val 25852554 ecr 25743980], length 2896
+20:49:55.373040 IP localhost.dynamid > localhost.49112: Flags [.], seq 18023:20919, ack 12734, win 329, options [nop,nop,TS val 25852554 ecr 25743980], length 2896
+20:49:55.373054 IP localhost.dynamid > localhost.49112: Flags [P.], seq 20919:22339, ack 12734, win 329, options [nop,nop,TS val 25852554 ecr 25743980], length 1420
+20:49:56.850052 IP localhost.dynamid > localhost.49112: Flags [.], ack 22845, win 289, options [nop,nop,TS val 25854031 ecr 25854031], length 0
+20:49:56.892266 IP localhost.dynamid > localhost.49112: Flags [P.], seq 22339:22393, ack 22899, win 329, options [nop,nop,TS val 25854073 ecr 25854071], length 54
+20:49:56.896914 IP localhost.dynamid > localhost.49112: Flags [P.], seq 22393:22458, ack 23072, win 329, options [nop,nop,TS val 25854078 ecr 25854076], length 65
+20:49:56.912906 IP localhost.dynamid > localhost.49112: Flags [.], ack 23200, win 329, options [nop,nop,TS val 25854094 ecr 25854093], length 0
+20:49:56.914748 IP localhost.dynamid > localhost.49112: Flags [P.], seq 22458:22512, ack 23200, win 329, options [nop,nop,TS val 25854096 ecr 25854093], length 54
+20:49:56.925859 IP localhost.dynamid > localhost.49112: Flags [P.], seq 22512:22566, ack 23254, win 329, options [nop,nop,TS val 25854107 ecr 25854105], length 54
+20:49:56.943167 IP localhost.dynamid > localhost.49112: Flags [.], ack 23429, win 329, options [nop,nop,TS val 25854124 ecr 25854121], length 0
+20:49:56.947150 IP localhost.dynamid > localhost.49112: Flags [P.], seq 22566:22631, ack 23429, win 329, options [nop,nop,TS val 25854128 ecr 25854121], length 65
+20:49:56.971649 IP localhost.dynamid > localhost.49112: Flags [P.], seq 22631:22878, ack 23429, win 329, options [nop,nop,TS val 25854153 ecr 25854121], length 247
+20:49:56.976043 IP localhost.dynamid > localhost.49112: Flags [P.], seq 22878:22943, ack 23676, win 330, options [nop,nop,TS val 25854157 ecr 25854154], length 65
+20:49:57.015519 IP localhost.dynamid > localhost.49112: Flags [.], ack 23741, win 330, options [nop,nop,TS val 25854197 ecr 25854157], length 0
+20:51:45.649480 IP localhost.dynamid > localhost.49112: Flags [.], seq 22943:25839, ack 23741, win 330, options [nop,nop,TS val 25962830 ecr 25854157], length 2896
+20:51:45.649505 IP localhost.dynamid > localhost.49112: Flags [.], seq 25839:28735, ack 23741, win 330, options [nop,nop,TS val 25962830 ecr 25854157], length 2896
+20:51:45.649522 IP localhost.dynamid > localhost.49112: Flags [.], seq 28735:31631, ack 23741, win 330, options [nop,nop,TS val 25962831 ecr 25854157], length 2896
+20:51:45.649531 IP localhost.dynamid > localhost.49112: Flags [P.], seq 31631:33052, ack 23741, win 330, options [nop,nop,TS val 25962831 ecr 25854157], length 1421
+20:51:45.669549 IP localhost.dynamid > localhost.49112: Flags [P.], seq 31631:33052, ack 23741, win 330, options [nop,nop,TS val 25962851 ecr 25854157], length 1421
+20:51:47.273973 IP localhost.dynamid > localhost.49112: Flags [.], ack 26637, win 327, options [nop,nop,TS val 25964455 ecr 25964455], length 0
+20:51:47.273992 IP localhost.dynamid > localhost.49112: Flags [.], ack 29533, win 313, options [nop,nop,TS val 25964455 ecr 25964455], length 0
+20:51:47.274004 IP localhost.dynamid > localhost.49112: Flags [.], ack 32429, win 298, options [nop,nop,TS val 25964455 ecr 25964455], length 0
+20:51:47.274015 IP localhost.dynamid > localhost.49112: Flags [.], ack 33850, win 289, options [nop,nop,TS val 25964455 ecr 25964455], length 0
+20:51:47.314750 IP localhost.dynamid > localhost.49112: Flags [.], ack 33904, win 330, options [nop,nop,TS val 25964496 ecr 25964496], length 0
+20:51:47.316887 IP localhost.dynamid > localhost.49112: Flags [P.], seq 33052:33106, ack 33904, win 330, options [nop,nop,TS val 25964498 ecr 25964496], length 54
+20:51:47.321527 IP localhost.dynamid > localhost.49112: Flags [P.], seq 33106:33171, ack 34078, win 330, options [nop,nop,TS val 25964502 ecr 25964500], length 65
+20:51:47.337606 IP localhost.dynamid > localhost.49112: Flags [.], ack 34206, win 330, options [nop,nop,TS val 25964519 ecr 25964517], length 0
+20:51:47.339546 IP localhost.dynamid > localhost.49112: Flags [P.], seq 33171:33225, ack 34206, win 330, options [nop,nop,TS val 25964521 ecr 25964517], length 54
+20:51:47.351053 IP localhost.dynamid > localhost.49112: Flags [P.], seq 33225:33279, ack 34260, win 330, options [nop,nop,TS val 25964532 ecr 25964530], length 54
+20:51:47.369869 IP localhost.dynamid > localhost.49112: Flags [.], ack 34435, win 330, options [nop,nop,TS val 25964551 ecr 25964547], length 0
+20:51:47.373691 IP localhost.dynamid > localhost.49112: Flags [P.], seq 33279:33344, ack 34435, win 330, options [nop,nop,TS val 25964555 ecr 25964547], length 65
+20:51:47.420193 IP localhost.dynamid > localhost.49112: Flags [P.], seq 33344:33591, ack 34435, win 330, options [nop,nop,TS val 25964601 ecr 25964595], length 247
+20:51:47.424982 IP localhost.dynamid > localhost.49112: Flags [P.], seq 33591:33656, ack 34681, win 330, options [nop,nop,TS val 25964606 ecr 25964602], length 65
+20:51:47.464520 IP localhost.dynamid > localhost.49112: Flags [.], ack 34746, win 330, options [nop,nop,TS val 25964646 ecr 25964606], length 0
+20:53:36.480807 IP localhost.dynamid > localhost.49112: Flags [.], seq 33656:36552, ack 34746, win 330, options [nop,nop,TS val 26073662 ecr 25964606], length 2896
+20:53:36.480826 IP localhost.dynamid > localhost.49112: Flags [.], seq 36552:39448, ack 34746, win 330, options [nop,nop,TS val 26073662 ecr 25964606], length 2896
+20:53:36.480834 IP localhost.dynamid > localhost.49112: Flags [.], seq 39448:42344, ack 34746, win 330, options [nop,nop,TS val 26073662 ecr 25964606], length 2896
+20:53:36.480840 IP localhost.dynamid > localhost.49112: Flags [P.], seq 42344:43761, ack 34746, win 330, options [nop,nop,TS val 26073662 ecr 25964606], length 1417
+20:53:36.504523 IP localhost.dynamid > localhost.49112: Flags [P.], seq 42344:43761, ack 34746, win 330, options [nop,nop,TS val 26073686 ecr 25964606], length 1417
+20:53:38.031447 IP localhost.dynamid > localhost.49112: Flags [.], ack 37642, win 327, options [nop,nop,TS val 26075212 ecr 26075212], length 0
+20:53:38.031460 IP localhost.dynamid > localhost.49112: Flags [.], ack 40538, win 313, options [nop,nop,TS val 26075212 ecr 26075212], length 0
+20:53:38.031470 IP localhost.dynamid > localhost.49112: Flags [.], ack 43434, win 298, options [nop,nop,TS val 26075212 ecr 26075212], length 0
+20:53:38.031478 IP localhost.dynamid > localhost.49112: Flags [.], ack 44856, win 289, options [nop,nop,TS val 26075212 ecr 26075212], length 0
+20:53:38.071625 IP localhost.dynamid > localhost.49112: Flags [.], ack 44910, win 330, options [nop,nop,TS val 26075253 ecr 26075253], length 0
+20:53:38.073619 IP localhost.dynamid > localhost.49112: Flags [P.], seq 43761:43815, ack 44910, win 330, options [nop,nop,TS val 26075255 ecr 26075253], length 54
+20:53:38.078188 IP localhost.dynamid > localhost.49112: Flags [P.], seq 43815:43880, ack 45083, win 330, options [nop,nop,TS val 26075259 ecr 26075257], length 65
+20:53:38.094219 IP localhost.dynamid > localhost.49112: Flags [.], ack 45211, win 330, options [nop,nop,TS val 26075275 ecr 26075274], length 0
+20:53:38.096136 IP localhost.dynamid > localhost.49112: Flags [P.], seq 43880:43934, ack 45211, win 330, options [nop,nop,TS val 26075277 ecr 26075274], length 54
+20:53:38.107847 IP localhost.dynamid > localhost.49112: Flags [P.], seq 43934:43988, ack 45265, win 330, options [nop,nop,TS val 26075289 ecr 26075287], length 54
+20:53:38.125468 IP localhost.dynamid > localhost.49112: Flags [.], ack 45440, win 330, options [nop,nop,TS val 26075306 ecr 26075303], length 0
+20:53:38.129533 IP localhost.dynamid > localhost.49112: Flags [P.], seq 43988:44053, ack 45440, win 330, options [nop,nop,TS val 26075311 ecr 26075303], length 65
+20:53:38.154275 IP localhost.dynamid > localhost.49112: Flags [P.], seq 44053:44299, ack 45440, win 330, options [nop,nop,TS val 26075335 ecr 26075303], length 246
+20:53:38.157810 IP localhost.dynamid > localhost.49112: Flags [P.], seq 44299:44364, ack 45686, win 330, options [nop,nop,TS val 26075339 ecr 26075336], length 65
+20:53:38.197519 IP localhost.dynamid > localhost.49112: Flags [.], ack 45751, win 330, options [nop,nop,TS val 26075379 ecr 26075339], length 0
+20:55:26.649548 IP localhost.dynamid > localhost.49112: Flags [.], seq 44364:47260, ack 45751, win 330, options [nop,nop,TS val 26183831 ecr 26075339], length 2896
+20:55:26.649573 IP localhost.dynamid > localhost.49112: Flags [.], seq 47260:50156, ack 45751, win 330, options [nop,nop,TS val 26183831 ecr 26075339], length 2896
+20:55:26.649584 IP localhost.dynamid > localhost.49112: Flags [.], seq 50156:53052, ack 45751, win 330, options [nop,nop,TS val 26183831 ecr 26075339], length 2896
+20:55:26.673549 IP localhost.dynamid > localhost.49112: Flags [P.], seq 53052:54472, ack 45751, win 330, options [nop,nop,TS val 26183855 ecr 26075339], length 1420
+20:55:28.155783 IP localhost.dynamid > localhost.49112: Flags [.], ack 48647, win 327, options [nop,nop,TS val 26185337 ecr 26185337], length 0
+20:55:28.155796 IP localhost.dynamid > localhost.49112: Flags [.], ack 51543, win 313, options [nop,nop,TS val 26185337 ecr 26185337], length 0
+20:55:28.155806 IP localhost.dynamid > localhost.49112: Flags [.], ack 54439, win 298, options [nop,nop,TS val 26185337 ecr 26185337], length 0
+20:55:28.155814 IP localhost.dynamid > localhost.49112: Flags [.], ack 55861, win 289, options [nop,nop,TS val 26185337 ecr 26185337], length 0
+20:55:28.195979 IP localhost.dynamid > localhost.49112: Flags [.], ack 55915, win 330, options [nop,nop,TS val 26185377 ecr 26185377], length 0
+20:55:28.197975 IP localhost.dynamid > localhost.49112: Flags [P.], seq 54472:54526, ack 55915, win 330, options [nop,nop,TS val 26185379 ecr 26185377], length 54
+20:55:28.202430 IP localhost.dynamid > localhost.49112: Flags [P.], seq 54526:54591, ack 56088, win 330, options [nop,nop,TS val 26185383 ecr 26185381], length 65
+20:55:28.218471 IP localhost.dynamid > localhost.49112: Flags [.], ack 56216, win 330, options [nop,nop,TS val 26185399 ecr 26185398], length 0
+20:55:28.220339 IP localhost.dynamid > localhost.49112: Flags [P.], seq 54591:54645, ack 56216, win 330, options [nop,nop,TS val 26185401 ecr 26185398], length 54
+20:55:28.231249 IP localhost.dynamid > localhost.49112: Flags [P.], seq 54645:54699, ack 56270, win 330, options [nop,nop,TS val 26185412 ecr 26185410], length 54
+20:55:28.537960 IP localhost.dynamid > localhost.49112: Flags [F.], seq 54699, ack 56271, win 330, options [nop,nop,TS val 26185719 ecr 26185719], length 0

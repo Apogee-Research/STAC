@@ -1,0 +1,14 @@
+adduser_1 Number of People in a Chat Side Channel
+-------------------------------------------------
+Side Channel Vulnerability
+Type: Space
+
+When a user is invited to a chat, they receive a chat state message. These messages
+are bigger than all other WithMi messages, and their sizes differ depending on how many people are
+currently in the chat. An attacker can create a database that maps packet size to the number of
+users in a chat. The attacker can then determine how many people are in a chat by looking at the
+packets sent when a user is invited to a chat.
+
+Chat state messages are created in withmi.MessageUtils.createChatStateMsgBuilder().  (This is called from withmi.AddUserCommand.execute(),
+which is called when a user adds another to a chat.)  Note that class and method names may be modified by transformers.
+

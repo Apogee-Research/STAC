@@ -1,0 +1,48 @@
+Overview
+========
+PowerBroker is a peer-to-peer program used by power suppliers for exchanging power. Suppliers with excess supply
+attempt to sell power, and suppliers with a shortfall attempt to purchase it.
+
+
+Interactions
+============
+When PowerBroker is started, it reads from a list of other PowerBroker instances (host/port pairs) to connect to.
+It then processes a profile to determine its own power generation capabilities and needs and proceeds to either 
+announce power for sale or bid to purchase power. A PowerBroker run is defined as a single synchronized run of
+the PowerBroker application between a set of PowerBroker users each running their own instance of the application.
+
+Using PowerBroker (the examples directory contains example user interactions):
+1. Start PowerBroker with a user id file containing host, port, and RSA keys
+	challenge_program/bin/powerbroker -i <user id file>
+	<user id file> - Example user id files are in challenge_program/data/<city>/<city>.id files.
+
+2. Provide PowerBroker with a list of other PowerBroker hosts and ports, and a power profile to process. (note:
+in order for power to exchanged, PowerBroker instances should be started for each of the listed host:port pairs,
+each with the same connectionlist file.)
+	PowerBroker> begin <connection list file> <profile file>
+	<connection list file> - List of other PowerBroker hosts and ports. Example connection list files are in
+				 the examples folder in the connectionlist*.txt files.
+	<profile file> - Power profile file. Example power profile files are in the examples folder in the 
+			 profile*.json files
+
+3. PowerBroker will then run until it successfully sells all of its excess power or until it purchases all of the
+power it needs or there are no more sellers from whom to purchase or until the maximum number of auctions has
+been reached. 
+
+Examples user interaction scripts and descriptions of user id files, connection lists, and power profile files (
+Description_of_PowerBroker_Input_Files.txt) are in the examples directory.
+Note: some example scripts may take up to 22 minutes to complete.
+
+Engagement Tools
+================
+PowerBroker requires at least two users running independent PowerBroker instances simultaneously. The example user
+interaction scripts use the linux utility "expect" to send commands and process responses from PowerBroker. The 
+included Dockerfile, run by the provided challenge program Docker registry script, provides a running Docker 
+container with "expect" installed.
+
+
+Notes
+=====
+The files in the challenge programs directory are used to provide working example interactions. During normal
+usage each PowerBroker user would have a separate instance of PowerBroker running on their own system. Malicious 
+data should not be inserted into these files.

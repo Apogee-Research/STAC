@@ -1,0 +1,13 @@
+ShortestPath_1: Bad Dijkstra's Algorithm
+----------------------------------------
+Algorithmic Complexity Vulnerability,
+Type: Time
+Dijkstra's algorithm has a complexity of O(ElogV), where E is the number of edges and V
+is the number of vertices, but it does not work in the presence of negative edge weights.
+
+This variation of Dijkstra's algorithm, when subjected to negative edge-weight cycles,
+continues to follow the cycle, greedily decreasing the total cost, and never terminating.
+
+The vulnerable code can be reached via the following sequence of method calls:
+ShortestPathHandler.getContents()->GraphProxy.getShortestPath->ShortestPath.shortestPath().
+This would occur when a user elects to perform a shortest path computation.

@@ -1,0 +1,10 @@
+xml_2: Safe from XML Bomb
+---------------
+Algorithmic Complexity Vulnerability,
+Type: Benign
+
+The XML parser is NOT vulnerable to the "Billion LOLs" attack wherein
+XML entity references are expanded without bound.  The XML parser used in this
+article limits itself to 64000 entity expansions.
+
+

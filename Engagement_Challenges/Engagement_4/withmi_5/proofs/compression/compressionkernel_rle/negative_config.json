@@ -1,0 +1,6 @@
+{
+    "type": "disk_benign",
+    "wait_secs": 300,
+    "output_dir": "victim",
+    "use_docker": "true"
+}

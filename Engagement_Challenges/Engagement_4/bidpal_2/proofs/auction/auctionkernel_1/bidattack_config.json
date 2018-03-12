@@ -1,0 +1,7 @@
+{
+    
+    "type": "sc_attack",
+    
+    "wait_secs": 1200,
+    "use_docker": false
+}

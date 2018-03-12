@@ -1,0 +1,12 @@
+{
+  "users":[
+    {"id": "subscriber1", "usage": "0", "units": "kWh"}
+  ],
+
+  "generators":[
+    {"id": "generator1", "status": "offline", "capacity": "100", "units": "kWh", "divisible": "true", "cost_per_unit": "0"},
+    {"id": "generator2", "status": "online", "capacity": "1", "units": "kWh", "divisible": "true", "cost_per_unit": "0"}
+  ],
+
+  "budget": 0
+}

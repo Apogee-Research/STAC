@@ -1,0 +1,5 @@
+{
+  "type": "disk_benign",
+  "output_dir": "staclog",
+  "wait_secs": 720
+}

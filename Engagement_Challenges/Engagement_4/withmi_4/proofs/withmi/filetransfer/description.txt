@@ -1,0 +1,18 @@
+transfer_1 File Transfer Side Channel
+------------------------------------
+Side Channel Vulnerability
+Type: Space
+
+This version of file transfer splits a file into fixed sized chunks and then compresses them, yielding a unique size fingerprint for 
+each of the included files (in spite of their all having the same original size.)  Thus, an attacker observing network packet sizes
+can determine which file has been sent.  (Note: random padding is added to mask the size of the sent chunks but only after the end of 
+the actual compressed file bytes, leaving the size signature intact in the first chunks sent.)
+
+This can be exploited when a user issues the command to send a file (\sendfile i). This leads to the following chain of method calls:
+(Note that package, class, and method names may be modified by transformers.)
+
+console.Console.executeCommand()
+withmi.SendFileCommand.execute()
+withmi.filetransfer.FileTransfer.send()
+
+

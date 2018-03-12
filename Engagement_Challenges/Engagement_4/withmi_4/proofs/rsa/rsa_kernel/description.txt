@@ -1,0 +1,65 @@
+rsa_no_crt: RSA Decryption
+---------------------
+Benign??
+WE THINK this RSA implementation is not vulnerable to our RSA attack.
+This implementation does not use the Chinese Remainder Theorem. Thus, the Montgomery
+reduction is done modulo the public modulus rather than the prime, and our attack
+is not applicable.
+
+In math.RSAPrivateKey.decrypt(), we have:
+BigInteger m;
+m = montN.exponentiate(ciphertext, d); // Montgomery reduction is done mod the modulus, not the primes
+return m;
+
+where montN = new MontgomeryMultiplier(modulus); // defined in the constructor
+
+
+In the literature, attacks on RSA implemented this way require 5000 operations for a 512-bit key when timing operations on a smart card.
+Our keys are up to 1024 bits, and the STAC environment is noisier.
+
+
+rsa_always_reduce: RSA Decryption
+---------------------
+Benign
+This RSA implementation is not vulnerable to our RSA attack.
+
+The montgomery multiply method always performs the extra reduction step, which blocks
+our attack.
+
+Specifically in math.MontgomeryMultiplier.montgomeryMultiply(), we have:
+BigInteger t = aBar.multiply(bBar);
+BigInteger u = t.multiply(Mstar);
+u = u.and(Rminus1); // mod u by R efficiently
+u = t.add(u.multiply(M));
+u = u.shiftRight(w); // divide by R efficiently
+
+for (int i=0; i< additions; i++){ // vulnerability mitigation -- make sure extra reduction step always happens, and that timing of the reduction doesn't give away info
+   u = u.add(M); 
+}
+u = u.mod(M);
+
+return u;
+rsa_unreachable: RSA Decryption
+---------------------
+Benign??
+
+This RSA is potentially vulnerable, but the vulnerability requires extra operations
+to exploit because the connection handshake does not allow the attacker to
+ask the victim to decrypt multiple challenge messages in a single handshake.
+
+Specifically, in the comms framework, during the connection setup, there is a step
+where the two peers (call them "Alice" and "Bob") exchange RSA public
+keys. Alice will challenge Bob to make sure that he is really in
+possession of the secret key associated to the transmitted public key.
+To do this, she sends him a random value, encrypted with his public
+key, and asks that he decrypt it and send her back the value as
+proof. In this version, if he answers incorrectly, instead of sending him another challenge,
+she tells him that he has failed, and the connection is terminated. If Alice
+were to send him another challenge, he would not respond to her.
+
+The connection setup takes place in comms.internal.CryptoState.
+
+In the literature, attacks on RSA implemented this way require very few timings -- 300 for a 1024-bit key when timing operations on a smart card.
+The STAC environment is noisier, and this version requires a separate handshake for each challenge, quadrupling the operations needed.  It is
+unclear whether an attack exists that can exploit this version in the provided operational budget.
+

@@ -1,0 +1,27 @@
+Challenge Program:
+
+        withmi_4.jar
+
+Challenge Question:
+
+        Is there an algorithmic complexity vulnerability in space
+        that would cause the challenge program to store a file
+        with a logical size that exceeds the resource usage limit
+        given the input budget?
+
+Additional background for question:
+
+        The WithMi application can support multiple users. For
+        the purpose of this question assume that a single attacker
+	is a participant in the network environment defined by
+	example_multiuser.sh.
+
+Input Budget:
+
+        Maximum sum of the PDU sizes of the application requests sent from
+        the user to the server: 10,000 bytes
+
+Resource Usage Limit:
+
+        Available Logical Size: 120 MB (logical size of outputfile
+        measured with 'stat')

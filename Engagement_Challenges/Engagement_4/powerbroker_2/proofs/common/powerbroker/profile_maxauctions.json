@@ -1,0 +1,14 @@
+{
+  "users":[
+  ],
+
+  "generators":[
+    {"id": "generator1", "status": "online", "capacity": "100", "units": "kWh", "divisible": "true", "cost_per_unit": "5"},
+    {"id": "generator2", "status": "online", "capacity": "100", "units": "kWh", "divisible": "true", "cost_per_unit": "5"},
+    {"id": "generator3", "status": "online", "capacity": "100", "units": "kWh", "divisible": "true", "cost_per_unit": "5"},
+    {"id": "generator4", "status": "online", "capacity": "100", "units": "kWh", "divisible": "true", "cost_per_unit": "5"}
+
+  ],
+
+  "budget": 0
+}

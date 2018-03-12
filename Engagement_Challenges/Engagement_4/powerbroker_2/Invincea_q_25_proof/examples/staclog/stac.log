@@ -1,0 +1,797 @@
+0      [           main] INFO  werbroker.stage.PeriodOverseer  - Entering ConnectionPeriod
+2      [           main] INFO  rbroker.stage.ConnectionPeriod  - We can now start connecting
+0      [           main] INFO  werbroker.stage.PeriodOverseer  - Entering ConnectionPeriod
+1      [           main] INFO  rbroker.stage.ConnectionPeriod  - We can now start connecting
+2      [           main] INFO  rbroker.stage.ConnectionPeriod  - Attempting to connect to localhost:9002
+89981  [ntLoopGroup-2-1] INFO  rbroker.stage.ConnectionPeriod  - Connected to 1 others
+1589   [ntLoopGroup-2-1] INFO  rbroker.stage.ConnectionPeriod  - Connected to 1 others
+89981  [ntLoopGroup-2-1] INFO  rbroker.stage.ConnectionPeriod  - Moving to process phase
+1589   [ntLoopGroup-2-1] INFO  rbroker.stage.ConnectionPeriod  - Moving to process phase
+89981  [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving ConnectionPeriod
+1589   [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving ConnectionPeriod
+89981  [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering ProcessPeriod
+1589   [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering ProcessPeriod
+89981  [ntLoopGroup-2-1] INFO  owerbroker.stage.ProcessPeriod  - sending final message
+1590   [ntLoopGroup-2-1] INFO  owerbroker.stage.ProcessPeriod  - sending final message
+89984  [ntLoopGroup-2-1] INFO  owerbroker.stage.ProcessPeriod  - Moving to auction announce phase
+1592   [ntLoopGroup-2-1] INFO  owerbroker.stage.ProcessPeriod  - Moving to auction announce phase
+89986  [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving ProcessPeriod
+1594   [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving ProcessPeriod
+89986  [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering SelloffAnnouncePeriod
+1594   [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering SelloffAnnouncePeriod
+21367  [ntLoopGroup-2-1] INFO  er.stage.SelloffAnnouncePeriod  - sending final message
+21368  [ntLoopGroup-2-1] INFO  er.stage.SelloffAnnouncePeriod  - received: 0 expected: 1. Senders:
+21368  [ntLoopGroup-2-1] INFO  er.stage.SelloffAnnouncePeriod  - expecting from 
+21368  [ntLoopGroup-2-1] INFO  er.stage.SelloffAnnouncePeriod  - nyc
+109762 [ntLoopGroup-2-1] INFO  er.stage.SelloffAnnouncePeriod  - received announce message from la
+109762 [ntLoopGroup-2-1] INFO  er.stage.SelloffAnnouncePeriod  - Got announcement from la for power: 50
+109763 [ntLoopGroup-2-1] INFO  er.stage.SelloffAnnouncePeriod  - Got announcement from la for power: 50
+109763 [ntLoopGroup-2-1] INFO  er.stage.SelloffAnnouncePeriod  - Got announcement from la for power: 50
+109763 [ntLoopGroup-2-1] INFO  er.stage.SelloffAnnouncePeriod  - Got announcement from la for power: 50
+109763 [ntLoopGroup-2-1] INFO  er.stage.SelloffAnnouncePeriod  - Got announcement from la for power: 50
+109763 [ntLoopGroup-2-1] INFO  er.stage.SelloffAnnouncePeriod  - sending final message
+109765 [ntLoopGroup-2-1] INFO  er.stage.SelloffAnnouncePeriod  - received: 1 expected: 1. Senders:
+109765 [ntLoopGroup-2-1] INFO  er.stage.SelloffAnnouncePeriod  - 	la
+109765 [ntLoopGroup-2-1] INFO  er.stage.SelloffAnnouncePeriod  - expecting from 
+109765 [ntLoopGroup-2-1] INFO  er.stage.SelloffAnnouncePeriod  - la
+109765 [ntLoopGroup-2-1] INFO  er.stage.SelloffAnnouncePeriod  - Moving to auction begin phase
+21373  [ntLoopGroup-2-1] INFO  er.stage.SelloffAnnouncePeriod  - received announce message from nyc
+21374  [ntLoopGroup-2-1] INFO  er.stage.SelloffAnnouncePeriod  - received: 1 expected: 1. Senders:
+21374  [ntLoopGroup-2-1] INFO  er.stage.SelloffAnnouncePeriod  - 	nyc
+21374  [ntLoopGroup-2-1] INFO  er.stage.SelloffAnnouncePeriod  - expecting from 
+21374  [ntLoopGroup-2-1] INFO  er.stage.SelloffAnnouncePeriod  - nyc
+21374  [ntLoopGroup-2-1] INFO  er.stage.SelloffAnnouncePeriod  - Moving to auction begin phase
+109779 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - adding user la
+109779 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving SelloffAnnouncePeriod
+109779 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering SelloffBeginPeriod
+109780 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Not my turn to send message
+21388  [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - adding user nyc
+21388  [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving SelloffAnnouncePeriod
+21388  [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering SelloffBeginPeriod
+21388  [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Starting auction...
+21388  [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - We're selling 50 units of power for at least 250
+21388  [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - Starting auction: la:50
+21389  [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - starting auction la:50 - id='la:50', amountOfPower=50, reserve=250
+21403  [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending to nyc
+21404  [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sent auction start announcement for auction la:50
+21406  [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Sending auction begin message...
+21415  [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - sending final message
+109808 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - newAuction: la:50: id='la:50', amountOfPower=50, reserve=250
+109810 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Added la:50 to auctions
+109812 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - received begin message from la
+109812 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - We're observing this auction, we might bid
+109813 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Sending auction begin message...
+109820 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - sending final message
+109822 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - received: 1 expected: 1. Senders:
+109822 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - 	la
+109822 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - expecting from 
+109822 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - la
+109822 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Moving to bidding phase
+21431  [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - received begin message from nyc
+21431  [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - received: 1 expected: 1. Senders:
+21431  [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - 	nyc
+21431  [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - expecting from 
+21431  [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - nyc
+21432  [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Moving to bidding phase
+109824 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving SelloffBeginPeriod
+109824 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering BiddingPeriod
+109824 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Bidding 3 for 50 units 
+21433  [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving SelloffBeginPeriod
+21433  [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering BiddingPeriod
+21434  [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Going to make a reserve bid of 250
+21434  [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - have auction la:50 reserve 250
+21434  [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Going to make a reserve bid of 250
+21434  [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - have auction la:50 reserve 250
+21434  [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Going to make a reserve bid of 250
+21434  [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - have auction la:50 reserve 250
+21434  [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Going to make a reserve bid of 250
+21434  [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - have auction la:50 reserve 250
+21435  [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Going to make a reserve bid of 250
+21435  [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - have auction la:50 reserve 250
+109827 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - Bidding: 3 on auctionIdla:50
+21435  [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Bidding 250 for 50 units 
+109827 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - AuctionProcessor.makeBid called for la:50 with bid of 3
+21437  [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - Bidding: 250 on auctionIdla:50
+21438  [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - AuctionProcessor.makeBid called for la:50 with bid of 250
+109845 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending commit to la
+21455  [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending commit to nyc
+21471  [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - la sent bid commitment.
+109867 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - nyc sent bid commitment.
+109868 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidCommitmentReceived from la
+109868 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - received bid commitment from la
+21477  [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidCommitmentReceived from nyc
+21478  [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - received bid commitment from nyc
+218823 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - sent a comparison to la for la:50
+218823 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 0 identityToConnection.size(): 1
+218823 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - handleMsg: still waiting for bids
+218824 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidReceiptReceived: la:50 from la
+218825 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 0 identityToConnection.size(): 1
+218825 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - handleMsg: still waiting for bids
+132435 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - sent a comparison to nyc for la:50
+132435 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 0 identityToConnection.size(): 1
+132435 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - handleMsg: still waiting for bids
+132436 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidReceiptReceived: la:50 from nyc
+132436 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 0 identityToConnection.size(): 1
+132436 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - handleMsg: still waiting for bids
+220865 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidComparisonReceived: la:50 from la
+220866 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Got comparison from la mineAsBig? false
+220866 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - BidComparison from la requested a response
+220866 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Not sending comparison, already sent: la:50-la
+220866 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 1 identityToConnection.size(): 1
+132475 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidComparisonReceived: la:50 from nyc
+132475 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Got comparison from nyc mineAsBig? true
+132475 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - BidComparison from nyc requested a response
+132475 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Not sending comparison, already sent: la:50-nyc
+132475 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 1 identityToConnection.size(): 1
+132475 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - sending final message
+132476 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - received: 0 expected: 1. Senders:
+132476 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - expecting from 
+132476 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - nyc
+220869 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - sending final message
+220870 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - received: 1 expected: 1. Senders:
+220870 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - 	la
+220870 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - expecting from 
+220870 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - la
+132479 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - received: 1 expected: 1. Senders:
+132479 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - 	nyc
+132479 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - expecting from 
+132479 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - nyc
+220872 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving BiddingPeriod
+220872 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering SelloffEndPeriod
+132481 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving BiddingPeriod
+132481 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering SelloffEndPeriod
+132481 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending to nyc
+132482 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending claim
+220875 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - biddingEnded: la:50
+220876 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - handleMsg: still waiting for claims and concessions
+132485 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending to nyc
+132486 [ntLoopGroup-2-1] INFO   org.digitalapex.trade.Selloff  - claimedResult: mineAsBig? true
+132486 [ntLoopGroup-2-1] INFO   org.digitalapex.trade.Selloff  - recordedResult: mineAsBig? true
+220881 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - winClaimReceived: from la: la:50: bid: 250
+220881 [ntLoopGroup-2-1] INFO   org.digitalapex.trade.Selloff  - claimedResult: mineAsBig? false
+220881 [ntLoopGroup-2-1] INFO   org.digitalapex.trade.Selloff  - recordedResult: mineAsBig? false
+132499 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - concessionReceived: la:50 from nyc
+220893 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - handleMsg: still waiting for claims and concessions
+132502 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - claims received: 0
+132502 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - handleMsg: I won! bid: 250 announcing...
+132504 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending to nyc
+132506 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - sending final message
+220900 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - auctionOver: la:50
+220900 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - handleMsg: la won. bid: 250
+132510 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - received: 0 expected: 1. Senders:
+132510 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - expecting from 
+132510 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - nyc
+220903 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - sending final message
+220904 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - received: 1 expected: 1. Senders:
+220904 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - 	la
+220904 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - expecting from 
+220904 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - la
+132513 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - received: 1 expected: 1. Senders:
+132513 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - 	nyc
+132513 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - expecting from 
+132513 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - nyc
+220911 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - Moving to results phase
+132519 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - Moving to results phase
+220911 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving SelloffEndPeriod
+220911 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering ResultsPeriod
+132519 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving SelloffEndPeriod
+220911 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - la won. bid: 250
+132520 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering ResultsPeriod
+132520 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - I won. bid: 250
+132521 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - Sending results end message
+132521 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - sending final message
+220915 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - recevied RESULTS_END from la
+220915 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - Sending results end message
+220915 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - sending final message
+220916 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - received: 1 expected: 1. Senders:
+220916 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - 	la
+220916 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - expecting from 
+220916 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - la
+132525 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - recevied RESULTS_END from nyc
+132525 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - received: 1 expected: 1. Senders:
+132525 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - 	nyc
+132525 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - expecting from 
+132525 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - nyc
+220918 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - Moving to begin phase
+220919 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - adding user la
+220919 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving ResultsPeriod
+220919 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering SelloffBeginPeriod
+220919 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Not my turn to send message
+132537 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - Moving to begin phase
+132537 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - adding user nyc
+132537 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving ResultsPeriod
+132537 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering SelloffBeginPeriod
+132537 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Starting auction...
+132537 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - We're selling 50 units of power for at least 250
+132537 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - Starting auction: la:50
+132537 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - starting auction la:50 - id='la:50', amountOfPower=50, reserve=250
+132537 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending to nyc
+132539 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sent auction start announcement for auction la:50
+132539 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Sending auction begin message...
+220932 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - newAuction: la:50: id='la:50', amountOfPower=50, reserve=250
+220932 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Added la:50 to auctions
+132541 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - sending final message
+220935 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - received begin message from la
+220935 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - We're observing this auction, we might bid
+220935 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Sending auction begin message...
+220937 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - sending final message
+220938 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - received: 1 expected: 1. Senders:
+220938 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - 	la
+220938 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - expecting from 
+220938 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - la
+220938 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Moving to bidding phase
+220938 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving SelloffBeginPeriod
+220938 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering BiddingPeriod
+220938 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Bidding 3 for 50 units 
+132547 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - received begin message from nyc
+132547 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - received: 1 expected: 1. Senders:
+132547 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - 	nyc
+132547 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - expecting from 
+132547 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - nyc
+132547 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Moving to bidding phase
+132547 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving SelloffBeginPeriod
+132547 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering BiddingPeriod
+132548 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Going to make a reserve bid of 250
+132548 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - have auction la:50 reserve 250
+132548 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Going to make a reserve bid of 250
+132548 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - have auction la:50 reserve 250
+132548 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Going to make a reserve bid of 250
+132548 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - have auction la:50 reserve 250
+132548 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Going to make a reserve bid of 250
+132548 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - have auction la:50 reserve 250
+132548 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Bidding 250 for 50 units 
+220940 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - Bidding: 3 on auctionIdla:50
+220940 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - AuctionProcessor.makeBid called for la:50 with bid of 3
+132550 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - Bidding: 250 on auctionIdla:50
+132550 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - AuctionProcessor.makeBid called for la:50 with bid of 250
+220952 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending commit to la
+132562 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending commit to nyc
+220962 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - nyc sent bid commitment.
+132572 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - la sent bid commitment.
+220966 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidCommitmentReceived from la
+220966 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - received bid commitment from la
+132574 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidCommitmentReceived from nyc
+132574 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - received bid commitment from nyc
+329585 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - sent a comparison to la for la:50
+329585 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 0 identityToConnection.size(): 1
+329585 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - handleMsg: still waiting for bids
+329586 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidReceiptReceived: la:50 from la
+329586 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 0 identityToConnection.size(): 1
+329586 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - handleMsg: still waiting for bids
+242669 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - sent a comparison to nyc for la:50
+242670 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 0 identityToConnection.size(): 1
+242670 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - handleMsg: still waiting for bids
+242671 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidReceiptReceived: la:50 from nyc
+242671 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 0 identityToConnection.size(): 1
+242671 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - handleMsg: still waiting for bids
+331100 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidComparisonReceived: la:50 from la
+331100 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Got comparison from la mineAsBig? false
+242708 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidComparisonReceived: la:50 from nyc
+331100 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - BidComparison from la requested a response
+331100 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Not sending comparison, already sent: la:50-la
+242708 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Got comparison from nyc mineAsBig? true
+331101 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 1 identityToConnection.size(): 1
+242709 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - BidComparison from nyc requested a response
+242709 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Not sending comparison, already sent: la:50-nyc
+242709 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 1 identityToConnection.size(): 1
+242709 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - sending final message
+242710 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - received: 0 expected: 1. Senders:
+242710 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - expecting from 
+242710 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - nyc
+331103 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - sending final message
+331104 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - received: 1 expected: 1. Senders:
+331104 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - 	la
+331104 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - expecting from 
+331104 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - la
+331104 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving BiddingPeriod
+331104 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering SelloffEndPeriod
+242713 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - received: 1 expected: 1. Senders:
+242713 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - 	nyc
+242713 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - expecting from 
+242713 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - nyc
+242713 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving BiddingPeriod
+242713 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering SelloffEndPeriod
+242713 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending to nyc
+242714 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending claim
+242715 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending to nyc
+331107 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - biddingEnded: la:50
+242716 [ntLoopGroup-2-1] INFO   org.digitalapex.trade.Selloff  - claimedResult: mineAsBig? true
+242716 [ntLoopGroup-2-1] INFO   org.digitalapex.trade.Selloff  - recordedResult: mineAsBig? true
+331108 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - handleMsg: still waiting for claims and concessions
+331110 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - winClaimReceived: from la: la:50: bid: 250
+331110 [ntLoopGroup-2-1] INFO   org.digitalapex.trade.Selloff  - claimedResult: mineAsBig? false
+331110 [ntLoopGroup-2-1] INFO   org.digitalapex.trade.Selloff  - recordedResult: mineAsBig? false
+242727 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - concessionReceived: la:50 from nyc
+331122 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - handleMsg: still waiting for claims and concessions
+242730 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - claims received: 0
+242730 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - handleMsg: I won! bid: 250 announcing...
+242730 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending to nyc
+242731 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - sending final message
+331124 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - auctionOver: la:50
+242732 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - received: 0 expected: 1. Senders:
+331124 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - handleMsg: la won. bid: 250
+242732 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - expecting from 
+242732 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - nyc
+331125 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - sending final message
+331126 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - received: 1 expected: 1. Senders:
+331126 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - 	la
+331126 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - expecting from 
+331127 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - la
+242735 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - received: 1 expected: 1. Senders:
+242736 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - 	nyc
+242736 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - expecting from 
+242736 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - nyc
+331133 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - Moving to results phase
+331133 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving SelloffEndPeriod
+331133 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering ResultsPeriod
+331133 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - la won. bid: 250
+242742 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - Moving to results phase
+242742 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving SelloffEndPeriod
+242742 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering ResultsPeriod
+242742 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - I won. bid: 250
+242742 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - Sending results end message
+242742 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - sending final message
+331136 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - recevied RESULTS_END from la
+331136 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - Sending results end message
+331136 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - sending final message
+331137 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - received: 1 expected: 1. Senders:
+331138 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - 	la
+331138 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - expecting from 
+331138 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - la
+242746 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - recevied RESULTS_END from nyc
+242746 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - received: 1 expected: 1. Senders:
+242747 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - 	nyc
+242747 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - expecting from 
+242747 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - nyc
+331140 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - Moving to begin phase
+331140 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - adding user la
+331140 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving ResultsPeriod
+331140 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering SelloffBeginPeriod
+331140 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Not my turn to send message
+242757 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - Moving to begin phase
+242758 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - adding user nyc
+242758 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving ResultsPeriod
+242758 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering SelloffBeginPeriod
+242758 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Starting auction...
+242758 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - We're selling 50 units of power for at least 250
+242758 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - Starting auction: la:50
+242758 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - starting auction la:50 - id='la:50', amountOfPower=50, reserve=250
+242758 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending to nyc
+242760 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sent auction start announcement for auction la:50
+242760 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Sending auction begin message...
+331153 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - newAuction: la:50: id='la:50', amountOfPower=50, reserve=250
+331153 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Added la:50 to auctions
+242762 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - sending final message
+331156 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - received begin message from la
+331156 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - We're observing this auction, we might bid
+331156 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Sending auction begin message...
+331158 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - sending final message
+331159 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - received: 1 expected: 1. Senders:
+331159 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - 	la
+331159 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - expecting from 
+331159 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - la
+331159 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Moving to bidding phase
+331159 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving SelloffBeginPeriod
+331159 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering BiddingPeriod
+331159 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Bidding 3 for 50 units 
+242768 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - received begin message from nyc
+242768 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - received: 1 expected: 1. Senders:
+242768 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - 	nyc
+242768 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - expecting from 
+242768 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - nyc
+242768 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Moving to bidding phase
+242768 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving SelloffBeginPeriod
+242768 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering BiddingPeriod
+242768 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Going to make a reserve bid of 250
+242768 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - have auction la:50 reserve 250
+242768 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Going to make a reserve bid of 250
+242768 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - have auction la:50 reserve 250
+242769 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Going to make a reserve bid of 250
+242769 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - have auction la:50 reserve 250
+242769 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Bidding 250 for 50 units 
+331161 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - Bidding: 3 on auctionIdla:50
+331161 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - AuctionProcessor.makeBid called for la:50 with bid of 3
+242771 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - Bidding: 250 on auctionIdla:50
+242771 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - AuctionProcessor.makeBid called for la:50 with bid of 250
+331173 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending commit to la
+242782 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending commit to nyc
+331183 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - nyc sent bid commitment.
+242793 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - la sent bid commitment.
+331186 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidCommitmentReceived from la
+331186 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - received bid commitment from la
+242795 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidCommitmentReceived from nyc
+242795 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - received bid commitment from nyc
+439861 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - sent a comparison to la for la:50
+439861 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 0 identityToConnection.size(): 1
+439861 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - handleMsg: still waiting for bids
+439862 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidReceiptReceived: la:50 from la
+439862 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 0 identityToConnection.size(): 1
+439862 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - handleMsg: still waiting for bids
+353094 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - sent a comparison to nyc for la:50
+353094 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 0 identityToConnection.size(): 1
+353094 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - handleMsg: still waiting for bids
+353095 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidReceiptReceived: la:50 from nyc
+353095 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 0 identityToConnection.size(): 1
+353095 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - handleMsg: still waiting for bids
+353133 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidComparisonReceived: la:50 from nyc
+353133 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Got comparison from nyc mineAsBig? true
+353133 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - BidComparison from nyc requested a response
+353133 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Not sending comparison, already sent: la:50-nyc
+353133 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 1 identityToConnection.size(): 1
+353133 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - sending final message
+441526 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidComparisonReceived: la:50 from la
+441526 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Got comparison from la mineAsBig? false
+441526 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - BidComparison from la requested a response
+441526 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Not sending comparison, already sent: la:50-la
+441526 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 1 identityToConnection.size(): 1
+353134 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - received: 0 expected: 1. Senders:
+353134 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - expecting from 
+353134 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - nyc
+441527 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - sending final message
+441528 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - received: 1 expected: 1. Senders:
+441529 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - 	la
+441529 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - expecting from 
+441529 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - la
+441529 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving BiddingPeriod
+441529 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering SelloffEndPeriod
+353137 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - received: 1 expected: 1. Senders:
+353137 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - 	nyc
+353138 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - expecting from 
+353138 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - nyc
+353138 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving BiddingPeriod
+353138 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering SelloffEndPeriod
+353138 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending to nyc
+353139 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending claim
+353139 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending to nyc
+441532 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - biddingEnded: la:50
+353140 [ntLoopGroup-2-1] INFO   org.digitalapex.trade.Selloff  - claimedResult: mineAsBig? true
+353141 [ntLoopGroup-2-1] INFO   org.digitalapex.trade.Selloff  - recordedResult: mineAsBig? true
+441533 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - handleMsg: still waiting for claims and concessions
+441535 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - winClaimReceived: from la: la:50: bid: 250
+441535 [ntLoopGroup-2-1] INFO   org.digitalapex.trade.Selloff  - claimedResult: mineAsBig? false
+441535 [ntLoopGroup-2-1] INFO   org.digitalapex.trade.Selloff  - recordedResult: mineAsBig? false
+353152 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - concessionReceived: la:50 from nyc
+441546 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - handleMsg: still waiting for claims and concessions
+353154 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - claims received: 0
+353155 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - handleMsg: I won! bid: 250 announcing...
+353155 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending to nyc
+353156 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - sending final message
+441549 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - auctionOver: la:50
+353157 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - received: 0 expected: 1. Senders:
+353157 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - expecting from 
+441549 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - handleMsg: la won. bid: 250
+353157 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - nyc
+441550 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - sending final message
+441551 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - received: 1 expected: 1. Senders:
+441551 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - 	la
+441551 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - expecting from 
+441551 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - la
+353160 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - received: 1 expected: 1. Senders:
+353160 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - 	nyc
+353160 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - expecting from 
+353160 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - nyc
+441558 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - Moving to results phase
+441558 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving SelloffEndPeriod
+441558 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering ResultsPeriod
+441559 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - la won. bid: 250
+353167 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - Moving to results phase
+353167 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving SelloffEndPeriod
+353167 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering ResultsPeriod
+353167 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - I won. bid: 250
+353167 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - Sending results end message
+353167 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - sending final message
+441561 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - recevied RESULTS_END from la
+441561 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - Sending results end message
+441562 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - sending final message
+441563 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - received: 1 expected: 1. Senders:
+441563 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - 	la
+441563 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - expecting from 
+441563 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - la
+353172 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - recevied RESULTS_END from nyc
+353172 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - received: 1 expected: 1. Senders:
+353172 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - 	nyc
+353172 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - expecting from 
+353172 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - nyc
+441566 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - Moving to begin phase
+441566 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - adding user la
+441566 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving ResultsPeriod
+441566 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering SelloffBeginPeriod
+441566 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Not my turn to send message
+353184 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - Moving to begin phase
+353184 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - adding user nyc
+353184 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving ResultsPeriod
+353184 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering SelloffBeginPeriod
+353184 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Starting auction...
+353184 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - We're selling 50 units of power for at least 250
+353184 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - Starting auction: la:50
+353184 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - starting auction la:50 - id='la:50', amountOfPower=50, reserve=250
+353184 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending to nyc
+353186 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sent auction start announcement for auction la:50
+353186 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Sending auction begin message...
+441579 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - newAuction: la:50: id='la:50', amountOfPower=50, reserve=250
+441579 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Added la:50 to auctions
+353188 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - sending final message
+441582 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - received begin message from la
+441582 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - We're observing this auction, we might bid
+441582 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Sending auction begin message...
+441584 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - sending final message
+441585 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - received: 1 expected: 1. Senders:
+441585 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - 	la
+441585 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - expecting from 
+441586 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - la
+441586 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Moving to bidding phase
+441586 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving SelloffBeginPeriod
+441586 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering BiddingPeriod
+441586 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Bidding 3 for 50 units 
+353194 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - received begin message from nyc
+353195 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - received: 1 expected: 1. Senders:
+353195 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - 	nyc
+353195 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - expecting from 
+353195 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - nyc
+353195 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Moving to bidding phase
+353195 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving SelloffBeginPeriod
+353195 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering BiddingPeriod
+353195 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Going to make a reserve bid of 250
+353196 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - have auction la:50 reserve 250
+353196 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Going to make a reserve bid of 250
+353196 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - have auction la:50 reserve 250
+353196 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Bidding 250 for 50 units 
+441589 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - Bidding: 3 on auctionIdla:50
+441589 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - AuctionProcessor.makeBid called for la:50 with bid of 3
+353198 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - Bidding: 250 on auctionIdla:50
+353199 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - AuctionProcessor.makeBid called for la:50 with bid of 250
+441612 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending commit to la
+353221 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending commit to nyc
+441632 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - nyc sent bid commitment.
+353241 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - la sent bid commitment.
+441635 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidCommitmentReceived from la
+441635 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - received bid commitment from la
+353243 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidCommitmentReceived from nyc
+353243 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - received bid commitment from nyc
+550692 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - sent a comparison to la for la:50
+550693 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 0 identityToConnection.size(): 1
+550693 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - handleMsg: still waiting for bids
+550694 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidReceiptReceived: la:50 from la
+550694 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 0 identityToConnection.size(): 1
+550694 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - handleMsg: still waiting for bids
+463851 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - sent a comparison to nyc for la:50
+463851 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 0 identityToConnection.size(): 1
+463851 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - handleMsg: still waiting for bids
+463852 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidReceiptReceived: la:50 from nyc
+463852 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 0 identityToConnection.size(): 1
+463852 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - handleMsg: still waiting for bids
+552281 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidComparisonReceived: la:50 from la
+552281 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Got comparison from la mineAsBig? false
+552281 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - BidComparison from la requested a response
+552281 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Not sending comparison, already sent: la:50-la
+552281 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 1 identityToConnection.size(): 1
+463890 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidComparisonReceived: la:50 from nyc
+463890 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Got comparison from nyc mineAsBig? true
+463890 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - BidComparison from nyc requested a response
+463890 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Not sending comparison, already sent: la:50-nyc
+463890 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 1 identityToConnection.size(): 1
+463890 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - sending final message
+463891 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - received: 0 expected: 1. Senders:
+463891 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - expecting from 
+463891 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - nyc
+552284 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - sending final message
+552285 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - received: 1 expected: 1. Senders:
+552285 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - 	la
+552285 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - expecting from 
+552285 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - la
+552285 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving BiddingPeriod
+552286 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering SelloffEndPeriod
+463894 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - received: 1 expected: 1. Senders:
+463894 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - 	nyc
+463894 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - expecting from 
+463894 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - nyc
+463894 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving BiddingPeriod
+463894 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering SelloffEndPeriod
+463895 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending to nyc
+463896 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending claim
+463896 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending to nyc
+552289 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - biddingEnded: la:50
+463897 [ntLoopGroup-2-1] INFO   org.digitalapex.trade.Selloff  - claimedResult: mineAsBig? true
+463897 [ntLoopGroup-2-1] INFO   org.digitalapex.trade.Selloff  - recordedResult: mineAsBig? true
+552290 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - handleMsg: still waiting for claims and concessions
+552291 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - winClaimReceived: from la: la:50: bid: 250
+552291 [ntLoopGroup-2-1] INFO   org.digitalapex.trade.Selloff  - claimedResult: mineAsBig? false
+552291 [ntLoopGroup-2-1] INFO   org.digitalapex.trade.Selloff  - recordedResult: mineAsBig? false
+463908 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - concessionReceived: la:50 from nyc
+552303 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - handleMsg: still waiting for claims and concessions
+463911 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - claims received: 0
+463911 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - handleMsg: I won! bid: 250 announcing...
+463911 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending to nyc
+463912 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - sending final message
+552305 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - auctionOver: la:50
+463913 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - received: 0 expected: 1. Senders:
+463914 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - expecting from 
+552306 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - handleMsg: la won. bid: 250
+463914 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - nyc
+552307 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - sending final message
+552308 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - received: 1 expected: 1. Senders:
+552308 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - 	la
+552308 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - expecting from 
+552308 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - la
+463917 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - received: 1 expected: 1. Senders:
+463917 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - 	nyc
+463917 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - expecting from 
+463917 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - nyc
+552315 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - Moving to results phase
+552315 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving SelloffEndPeriod
+552315 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering ResultsPeriod
+552315 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - la won. bid: 250
+463924 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - Moving to results phase
+463924 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving SelloffEndPeriod
+463924 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering ResultsPeriod
+463924 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - I won. bid: 250
+463924 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - Sending results end message
+463924 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - sending final message
+552318 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - recevied RESULTS_END from la
+552318 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - Sending results end message
+552318 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - sending final message
+552319 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - received: 1 expected: 1. Senders:
+552320 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - 	la
+552320 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - expecting from 
+552320 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - la
+463928 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - recevied RESULTS_END from nyc
+463928 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - received: 1 expected: 1. Senders:
+463928 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - 	nyc
+463929 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - expecting from 
+463929 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - nyc
+552322 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - Moving to begin phase
+552322 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - adding user la
+552322 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving ResultsPeriod
+552322 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering SelloffBeginPeriod
+552322 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Not my turn to send message
+463940 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - Moving to begin phase
+463940 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - adding user nyc
+463940 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving ResultsPeriod
+463940 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering SelloffBeginPeriod
+463940 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Starting auction...
+463940 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - We're selling 50 units of power for at least 250
+463940 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - Starting auction: la:50
+463940 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - starting auction la:50 - id='la:50', amountOfPower=50, reserve=250
+463940 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending to nyc
+463942 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sent auction start announcement for auction la:50
+463942 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Sending auction begin message...
+552335 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - newAuction: la:50: id='la:50', amountOfPower=50, reserve=250
+552335 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Added la:50 to auctions
+463944 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - sending final message
+552338 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - received begin message from la
+552338 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - We're observing this auction, we might bid
+552338 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Sending auction begin message...
+552340 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - sending final message
+552341 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - received: 1 expected: 1. Senders:
+552341 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - 	la
+552341 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - expecting from 
+552341 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - la
+552341 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Moving to bidding phase
+552341 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving SelloffBeginPeriod
+552342 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering BiddingPeriod
+552342 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Bidding 3 for 50 units 
+463950 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - received begin message from nyc
+463950 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - received: 1 expected: 1. Senders:
+463950 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - 	nyc
+463950 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - expecting from 
+463950 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - nyc
+463950 [ntLoopGroup-2-1] INFO  roker.stage.SelloffBeginPeriod  - Moving to bidding phase
+463950 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving SelloffBeginPeriod
+463951 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering BiddingPeriod
+463951 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Going to make a reserve bid of 250
+463951 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - have auction la:50 reserve 250
+463951 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - Bidding 250 for 50 units 
+552343 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - Bidding: 3 on auctionIdla:50
+552344 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - AuctionProcessor.makeBid called for la:50 with bid of 3
+463953 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - Bidding: 250 on auctionIdla:50
+463953 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - AuctionProcessor.makeBid called for la:50 with bid of 250
+552355 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending commit to la
+463964 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending commit to nyc
+552366 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - nyc sent bid commitment.
+463975 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - la sent bid commitment.
+552368 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidCommitmentReceived from la
+552368 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - received bid commitment from la
+463976 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidCommitmentReceived from nyc
+463976 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - received bid commitment from nyc
+660861 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - sent a comparison to la for la:50
+660861 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 0 identityToConnection.size(): 1
+660861 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - handleMsg: still waiting for bids
+660862 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidReceiptReceived: la:50 from la
+660862 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 0 identityToConnection.size(): 1
+660863 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - handleMsg: still waiting for bids
+573975 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - sent a comparison to nyc for la:50
+573976 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 0 identityToConnection.size(): 1
+573976 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - handleMsg: still waiting for bids
+573977 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidReceiptReceived: la:50 from nyc
+573977 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 0 identityToConnection.size(): 1
+573977 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - handleMsg: still waiting for bids
+662406 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidComparisonReceived: la:50 from la
+662406 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Got comparison from la mineAsBig? false
+662406 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - BidComparison from la requested a response
+662406 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Not sending comparison, already sent: la:50-la
+574014 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - bidComparisonReceived: la:50 from nyc
+662406 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 1 identityToConnection.size(): 1
+574014 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Got comparison from nyc mineAsBig? true
+574014 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - BidComparison from nyc requested a response
+574014 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Not sending comparison, already sent: la:50-nyc
+574014 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - hasReceivedAllExpectedBids numComparisonsReceived: 1 identityToConnection.size(): 1
+574014 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - sending final message
+574016 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - received: 0 expected: 1. Senders:
+574016 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - expecting from 
+574016 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - nyc
+662408 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - sending final message
+662410 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - received: 1 expected: 1. Senders:
+662410 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - 	la
+662410 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - expecting from 
+662410 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - la
+662410 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving BiddingPeriod
+662410 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering SelloffEndPeriod
+574018 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - received: 1 expected: 1. Senders:
+574018 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - 	nyc
+574019 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - expecting from 
+574019 [ntLoopGroup-2-1] INFO  owerbroker.stage.BiddingPeriod  - nyc
+574019 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving BiddingPeriod
+574019 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering SelloffEndPeriod
+574019 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending to nyc
+574020 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending claim
+574020 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending to nyc
+662413 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - biddingEnded: la:50
+574021 [ntLoopGroup-2-1] INFO   org.digitalapex.trade.Selloff  - claimedResult: mineAsBig? true
+574021 [ntLoopGroup-2-1] INFO   org.digitalapex.trade.Selloff  - recordedResult: mineAsBig? true
+662414 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - handleMsg: still waiting for claims and concessions
+662415 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - winClaimReceived: from la: la:50: bid: 250
+662416 [ntLoopGroup-2-1] INFO   org.digitalapex.trade.Selloff  - claimedResult: mineAsBig? false
+662416 [ntLoopGroup-2-1] INFO   org.digitalapex.trade.Selloff  - recordedResult: mineAsBig? false
+574033 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - concessionReceived: la:50 from nyc
+662427 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - handleMsg: still waiting for claims and concessions
+574035 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - claims received: 0
+574035 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - handleMsg: I won! bid: 250 announcing...
+574036 [ntLoopGroup-2-1] INFO  italapex.trade.SelloffOperator  - Sending to nyc
+574037 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - sending final message
+662430 [ntLoopGroup-2-1] INFO  werbroker.trade.SelloffAdapter  - auctionOver: la:50
+574038 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - received: 0 expected: 1. Senders:
+574038 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - expecting from 
+662430 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - handleMsg: la won. bid: 250
+574038 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - nyc
+662431 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - sending final message
+662432 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - received: 1 expected: 1. Senders:
+662432 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - 	la
+662432 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - expecting from 
+662432 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - la
+574041 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - received: 1 expected: 1. Senders:
+574041 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - 	nyc
+574041 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - expecting from 
+574041 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - nyc
+662438 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - Moving to results phase
+662438 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving SelloffEndPeriod
+662438 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering ResultsPeriod
+662438 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - la won. bid: 250
+574047 [ntLoopGroup-2-1] INFO  rbroker.stage.SelloffEndPeriod  - Moving to results phase
+574047 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving SelloffEndPeriod
+574047 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering ResultsPeriod
+574047 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - I won. bid: 250
+574047 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - Sending results end message
+574048 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - sending final message
+662442 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - recevied RESULTS_END from la
+662442 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - Sending results end message
+662442 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - sending final message
+662443 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - received: 1 expected: 1. Senders:
+662443 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - 	la
+662443 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - expecting from 
+662443 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - la
+574052 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - recevied RESULTS_END from nyc
+574052 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - received: 1 expected: 1. Senders:
+574052 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - 	nyc
+574052 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - expecting from 
+574052 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - nyc
+662445 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - Moving to disconnect phase
+662445 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving ResultsPeriod
+662446 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering DisconnectPeriod
+662446 [ntLoopGroup-2-1] INFO  rbroker.stage.DisconnectPeriod  - We can now start storing users we want to disconnect from
+574356 [ntLoopGroup-2-1] INFO  owerbroker.stage.ResultsPeriod  - Moving to disconnect phase
+574356 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Leaving ResultsPeriod
+574356 [ntLoopGroup-2-1] INFO  werbroker.stage.PeriodOverseer  - Entering DisconnectPeriod
+574357 [ntLoopGroup-2-1] INFO  rbroker.stage.DisconnectPeriod  - We can now start storing users we want to disconnect from
+574357 [ntLoopGroup-2-1] INFO  rbroker.stage.DisconnectPeriod  - Disconnect from localhost:9002
+667451 [           main] INFO  werbroker.stage.PeriodOverseer  - Shutting down powerbroker
+579362 [           main] INFO  werbroker.stage.PeriodOverseer  - Shutting down powerbroker

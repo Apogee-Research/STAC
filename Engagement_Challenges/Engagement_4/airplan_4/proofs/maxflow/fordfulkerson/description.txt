@@ -1,0 +1,7 @@
+MaxFlow_2: Edmonds-Karp
+-------------------------
+Benign
+
+The Edmonds-Karp algorithm for computing maximum flow has worst-case algorithmic
+complexity O(V*E^2), where is E is the number of edges and V is the number of vertices.
+

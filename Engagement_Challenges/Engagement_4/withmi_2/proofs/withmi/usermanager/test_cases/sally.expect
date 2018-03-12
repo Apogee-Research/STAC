@@ -1,0 +1,13 @@
+set timeout -1
+
+spawn ../../../challenge_program/bin/withmi -d test_cases/sally -s test_cases/sally -i test_cases/sally.id
+
+expect {WithMi>}
+expect {megan. callback on: localhost:9000}
+expect {Removing megan from all chats}
+expect {WithMi>}
+sleep 5
+
+send "exit\n"
+expect "Closing connections ..."
+

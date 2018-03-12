@@ -1,0 +1,29 @@
+MaxFlow_1: Vulnerable Ford Fulkerson
+-------------------------
+Algorithmic Complexity Vulnerability,
+Type: Time
+
+The Ford-Fulkerson algorithm for computing maximum flow has worst-case algorithmic
+complexity O(E*f), where is E is the number of edges and f is the maximum flow. Generally,
+Ford-Fulkerson runs much faster: as the capacity of the augmenting path gets close to the maximum
+flow, the runtime approaches O(E). The worst-case algorithmic complexity arises when
+the capacity of the augmenting path is very small, but the maximum flow is extremely
+large.  While textbooks, etc., provide an example graph that can display worst-case time performance,
+we have engineered the order in which our edges are explored so that the algorithm handles
+that example with ease.  Only if such a malicious graph is input with many additional edges prior to the
+source/sink will the algorithm exhibit the worst-case performance.
+
+In particular, the algorithm used to find the augmenting path searches the graph in a depth-first manner.
+However, the order in which the edges from a given vertex are explored (depth-first) matters.  In our algorithm,
+this is generally done in order of increasing edge ID.  Edges that exist in the actual graph are assigned odd IDs
+starting from 1, and backward edges (that only exist for reverting a flow in the algorithm) are assigned even IDs,
+starting from 200.  The exception to this order of exploration is that, when exploring edges from the source node,
+it alternates, every other time exploring the edges in either ascending or descending order.  This alternation is
+necessary to attain the worst case complexity in the standard textbook example
+(e.g. https://lucatrevisan.wordpress.com/2011/02/04/cs-261-lecture-10-the-fattest-path/).  To achieve the worst case
+with this example, it is also necessary to explore the backward edge (a->b in the example) whenever it has capacity.
+Thus, by assigning the backward edges high IDs, we prevent the classic textbook example from being vulnerable in our implementation.
+
+In AirPlan, route maps are mapped to graphs to expose this vulnerability. Airports are mapped to
+vertices, and flights are mapped to edges.
+

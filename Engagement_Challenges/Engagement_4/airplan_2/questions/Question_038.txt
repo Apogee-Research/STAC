@@ -1,0 +1,38 @@
+Challenge Program:
+
+	airplan_2.jar
+
+Challenge Question:
+
+	Is there a side channel in space in the challenge program from which
+	an attacker can determine the number of airports in another user's
+	stored route map?
+
+Additional background for question:
+
+	For the purpose of this question assume that the airline is a current
+        AirPlan user and when the user logs in to AirPlan their first interaction
+        will be to upload a route map.
+
+Available Operations:
+
+	Passive Operations:	observe the request and corresponding response 
+				packets and timings thereof within a single user 
+				session
+				(cost: 1 per observed session)
+
+	Active Operations:	issue a single application request and monitor
+                                the induced response traffic for this single
+                                request
+				(cost: 1 per request)
+
+	Oracle queries:		query the oracle with a candidate number of
+				airports and receive a binary response (yes/no) 
+				as to whether the candidate number of airports
+				is correct
+				(cost: 1 per query)
+
+Operational Budget:
+
+	Max number of operations : 2 Operations
+	Probability of success   : 99%
