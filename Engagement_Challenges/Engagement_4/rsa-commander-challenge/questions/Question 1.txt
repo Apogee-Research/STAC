@@ -1,1 +1,0 @@
-By sending a total of Y bytes or less to the RSA Commander port, can X time elapse between the receipt of a complete Message packet and RSA Commander's response with an Acknowledge packet?

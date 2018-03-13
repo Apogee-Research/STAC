@@ -1,0 +1,16 @@
+Worst Case
+----------
+Error: 0.9999583173256467
+Cities: ['Boston', 'Worcester', 'Springfield', 'Lowell', 'Brockton']
+MST: [['Boston', 'Brockton'], ['Boston', 'Lowell'], ['Worcester', 'Lowell'], ['Worcester', 'Springfield']]
+MST Edge Indexes: [91, 122, 154, 197]
+MST Edge Errors: [0.9956074728770657, 0.8303502653606997, 0.7458348978619709, 0.779924336973139]
+
+
+Best Case
+----------
+Error: 0.4967860074509767
+Cities: ['Brockton', 'Fall River', 'Haverhill', 'Malden', 'Medford']
+MST: [['Malden', 'Medford'], ['Haverhill', 'Medford'], ['Brockton', 'Medford'], ['Brockton', 'Fall River']]
+MST Edge Indexes: [1, 112, 119, 120]
+MST Edge Errors: [0.3856141804635712, 0.05742403877669355, 0.038430480054812866, 0.09632040242575524]

@@ -1,0 +1,29 @@
+Mean
+Best Case:
+650.483918067 ['Brookline', 'Fall River', 'Lawrence', 'Revere', 'Weymouth']
+
+Worst Case:
+4539.15071413 ['Chicopee', 'Fall River', 'Framingham', 'Haverhill', 'Plymouth']
+-------------------
+10
+Best Case:
+118.183916422 ['Peabody', 'Plymouth', 'Revere', 'Somerville', 'Weymouth']
+
+Worst Case:
+1708.97641521 ['Chicopee', 'Fall River', 'Framingham', 'Haverhill', 'Plymouth']
+-------------------
+25
+Best Case:
+253.852100564 ['Lynn', 'Malden', 'Newton', 'Taunton', 'Weymouth']
+
+Worst Case:
+2845.36767504 ['Chicopee', 'Fall River', 'Framingham', 'Haverhill', 'Plymouth']
+-------------------
+-------------------
+50
+Best Case:
+507.330646885 ['Brookline', 'Fall River', 'Lawrence', 'Revere', 'Weymouth']
+
+Worst Case:
+4351.64457151 ['Chicopee', 'Fall River', 'Framingham', 'Haverhill', 'Plymouth']
+-------------------

@@ -1,0 +1,190 @@
+Libraries
+---------
+netty-all-4.0.36.Final.jar
+
+Method Use
+----------
+io.netty.bootstrap.Bootstrap()
+io.netty.bootstrap.Bootstrap.bind(int): io.netty.channel.ChannelFuture
+io.netty.bootstrap.Bootstrap.channel(java.lang.Class): io.netty.bootstrap.AbstractBootstrap
+io.netty.bootstrap.Bootstrap.group(io.netty.channel.EventLoopGroup): io.netty.bootstrap.AbstractBootstrap
+io.netty.bootstrap.Bootstrap.handler(io.netty.channel.ChannelHandler): io.netty.bootstrap.AbstractBootstrap
+io.netty.bootstrap.Bootstrap.<init>(): void
+io.netty.bootstrap.Bootstrap.option(io.netty.channel.ChannelOption,java.lang.Object): io.netty.bootstrap.AbstractBootstrap
+io.netty.buffer.ByteBufAllocator.directBuffer(int): io.netty.buffer.ByteBuf
+io.netty.buffer.ByteBuf.getByte(int): byte
+io.netty.buffer.ByteBuf.getChar(int): char
+io.netty.buffer.ByteBuf.getInt(int): int
+io.netty.buffer.ByteBuf.writeByte(int): io.netty.buffer.ByteBuf
+io.netty.buffer.ByteBuf.writeInt(int): io.netty.buffer.ByteBuf
+io.netty.channel.Channel.closeFuture(): io.netty.channel.ChannelFuture
+io.netty.channel.ChannelFuture.await(): io.netty.channel.ChannelFuture
+io.netty.channel.ChannelFuture.channel(): io.netty.channel.Channel
+io.netty.channel.ChannelFuture.sync(): io.netty.channel.ChannelFuture
+io.netty.channel.ChannelHandlerContext.flush(): io.netty.channel.ChannelHandlerContext
+io.netty.channel.ChannelHandlerContext.write(java.lang.Object): io.netty.channel.ChannelFuture
+io.netty.channel.EventLoopGroup.shutdownGracefully(): io.netty.util.concurrent.Future
+io.netty.channel.nio.NioEventLoopGroup()
+io.netty.channel.nio.NioEventLoopGroup.<init>(): void
+io.netty.channel.SimpleChannelInboundHandler()
+io.netty.channel.SimpleChannelInboundHandler.<init>(): void
+io.netty.channel.socket.DatagramPacket.content(): java.lang.Object
+io.netty.channel.socket.DatagramPacket.<init>(io.netty.buffer.ByteBuf,java.net.InetSocketAddress): void
+io.netty.channel.socket.DatagramPacket(io.netty.buffer.ByteBuf,java.net.InetSocketAddress)
+io.netty.channel.socket.DatagramPacket.sender(): java.net.SocketAddress
+java.io.BufferedReader.close(): void
+java.io.BufferedReader.<init>(java.io.Reader): void
+java.io.BufferedReader(java.io.Reader)
+java.io.BufferedReader.readLine(): java.lang.String
+java.io.File.delete(): boolean
+java.io.File.<init>(java.lang.String): void
+java.io.File.isDirectory(): boolean
+java.io.File(java.lang.String)
+java.io.File.listFiles(): java.io.File[]
+java.io.File.mkdir(): boolean
+java.io.FileNotFoundException.<init>(java.lang.String): void
+java.io.FileNotFoundException(java.lang.String)
+java.io.FileOutputStream.<init>(java.lang.String): void
+java.io.FileOutputStream(java.lang.String)
+java.io.FileWriter.close(): void
+java.io.FileWriter(java.lang.String,boolean)
+java.io.FileWriter.write(java.lang.String): void
+java.io.InputStreamReader.<init>(java.io.InputStream,java.lang.String): void
+java.io.InputStreamReader.<init>(java.io.InputStream): void
+java.io.InputStreamReader(java.io.InputStream)
+java.io.InputStreamReader(java.io.InputStream,java.lang.String)
+java.io.PrintStream.println(java.lang.String): void
+java.io.PrintStream.println(): void
+java.io.PrintWriter.close(): void
+java.io.PrintWriter.flush(): void
+java.io.PrintWriter.<init>(java.io.OutputStream): void
+java.io.PrintWriter.<init>(java.lang.String): void
+java.io.PrintWriter(java.io.OutputStream)
+java.io.PrintWriter(java.lang.String)
+java.io.PrintWriter.print(char[]): void
+java.io.PrintWriter.print(java.lang.String): void
+java.io.PrintWriter.println(java.lang.String): void
+java.lang.Boolean.valueOf(boolean): java.lang.Boolean
+java.lang.Class.getName(): java.lang.String
+java.lang.ClassLoader.getResourceAsStream(java.lang.String): java.io.InputStream
+java.lang.Exception()
+java.lang.Exception.getMessage(): java.lang.String
+java.lang.Exception.<init>(java.lang.String): void
+java.lang.Exception.<init>(): void
+java.lang.Exception(java.lang.String)
+java.lang.IllegalArgumentException.<init>(java.lang.String): void
+java.lang.IllegalArgumentException(java.lang.String)
+java.lang.Integer.intValue(): int
+java.lang.Integer.parseInt(java.lang.String): int
+java.lang.Integer.toString(int): java.lang.String
+java.lang.Integer.valueOf(int): java.lang.Integer
+java.lang.Long.longValue(): long
+java.lang.Long.parseLong(java.lang.String): long
+java.lang.Long.valueOf(long): java.lang.Long
+java.lang.Object()
+java.lang.Object.equals(java.lang.Object): boolean
+java.lang.Object.hashCode(): int
+java.lang.Object.<init>(): void
+java.lang.RuntimeException()
+java.lang.RuntimeException(java.lang.String)
+java.lang.StringBuffer()
+java.lang.StringBuffer.append(int): java.lang.StringBuffer
+java.lang.StringBuffer.append(java.lang.String): java.lang.StringBuffer
+java.lang.StringBuffer.<init>(): void
+java.lang.StringBuffer.toString(): java.lang.String
+java.lang.StringBuilder()
+java.lang.StringBuilder.append(boolean): java.lang.StringBuilder
+java.lang.StringBuilder.append(char): java.lang.StringBuilder
+java.lang.StringBuilder.append(int): java.lang.StringBuilder
+java.lang.StringBuilder.append(java.lang.Object): java.lang.StringBuilder
+java.lang.StringBuilder.append(java.lang.String): java.lang.StringBuilder
+java.lang.StringBuilder.append(long): java.lang.StringBuilder
+java.lang.StringBuilder.<init>(): void
+java.lang.StringBuilder.toString(): java.lang.String
+java.lang.String(byte[],int,int,java.lang.String)
+java.lang.String.charAt(int): char
+java.lang.String.contains(java.lang.CharSequence): boolean
+java.lang.String.equalsIgnoreCase(java.lang.String): boolean
+java.lang.String.equals(java.lang.Object): boolean
+java.lang.String.hashCode(): int
+java.lang.String.<init>(byte[],int,int,java.lang.String): void
+java.lang.String.<init>(java.lang.String): void
+java.lang.String(java.lang.String)
+java.lang.String.lastIndexOf(int): int
+java.lang.String.length(): int
+java.lang.String.substring(int,int): java.lang.String
+java.lang.String.valueOf(java.lang.Object): java.lang.String
+java.lang.System.arraycopy(java.lang.Object,int,java.lang.Object,int,int): void
+java.lang.System.currentTimeMillis(): long
+java.lang.System.exit(int): void
+java.lang.System.gc(): void
+java.lang.System.getProperty(java.lang.String,java.lang.String): java.lang.String
+java.lang.System.nanoTime(): long
+java.lang.Thread.currentThread(): java.lang.Thread
+java.lang.Thread.getContextClassLoader(): java.lang.ClassLoader
+java.lang.Throwable.addSuppressed(java.lang.Throwable): void
+java.lang.UnsupportedOperationException(java.lang.String)
+java.net.DatagramPacket(byte[],int)
+java.net.DatagramPacket(byte[],int,java.net.InetAddress,int)
+java.net.DatagramPacket.getData(): byte[]
+java.net.DatagramPacket.getLength(): int
+java.net.DatagramPacket.<init>(byte[],int,java.net.InetAddress,int): void
+java.net.DatagramPacket.<init>(byte[],int): void
+java.net.DatagramSocket()
+java.net.DatagramSocket.<init>(): void
+java.net.DatagramSocket.receive(java.net.DatagramPacket): void
+java.net.DatagramSocket.send(java.net.DatagramPacket): void
+java.net.InetAddress.getByName(java.lang.String): java.net.InetAddress
+java.nio.ByteBuffer.allocate(int): java.nio.ByteBuffer
+java.nio.ByteBuffer.array(): byte[]
+java.nio.ByteBuffer.get(): byte
+java.nio.ByteBuffer.getInt(): int
+java.nio.ByteBuffer.put(byte): java.nio.ByteBuffer
+java.nio.ByteBuffer.putChar(char): java.nio.ByteBuffer
+java.nio.ByteBuffer.putInt(int): java.nio.ByteBuffer
+java.nio.ByteBuffer.wrap(byte[],int,int): java.nio.ByteBuffer
+java.nio.CharBuffer.allocate(int): java.nio.CharBuffer
+java.nio.CharBuffer.array(): char[]
+java.nio.CharBuffer.clear(): java.nio.Buffer
+java.nio.CharBuffer.put(java.lang.String): java.nio.CharBuffer
+java.util.ArrayDeque.<init>(int): void
+java.util.ArrayDeque(int)
+java.util.ArrayList()
+java.util.ArrayList.add(java.lang.Object): boolean
+java.util.ArrayList.get(int): java.lang.Object
+java.util.ArrayList.<init>(): void
+java.util.ArrayList.iterator(): java.util.Iterator
+java.util.ArrayList.size(): int
+java.util.ArrayList.toArray(java.lang.Object[]): java.lang.Object[]
+java.util.Arrays.copyOf(java.lang.Object[],int): java.lang.Object[]
+java.util.Arrays.fill(int[],int): void
+java.util.Collections.sort(java.util.List): void
+java.util.Deque.addLast(java.lang.Object): void
+java.util.Deque.peekLast(): java.lang.Object
+java.util.Deque.poll(): java.lang.Object
+java.util.Deque.removeLast(): java.lang.Object
+java.util.HashMap()
+java.util.HashMap.get(java.lang.Object): java.lang.Object
+java.util.HashMap.<init>(): void
+java.util.HashMap.put(java.lang.Object,java.lang.Object): java.lang.Object
+java.util.Iterator.hasNext(): boolean
+java.util.Iterator.next(): java.lang.Object
+java.util.List.addAll(java.util.Collection): boolean
+java.util.List.add(java.lang.Object): boolean
+java.util.List.get(int): java.lang.Object
+java.util.List.iterator(): java.util.Iterator
+java.util.List.size(): int
+java.util.logging.Formatter.format(java.util.logging.LogRecord): java.lang.String
+java.util.logging.Handler()
+java.util.logging.Handler.<init>(): void
+java.util.logging.Logger.getLogger(java.lang.String): java.util.logging.Logger
+java.util.logging.Logger.log(java.util.logging.Level,java.lang.String,java.lang.Throwable): void
+java.util.logging.LogRecord.<init>(java.util.logging.Level,java.lang.String): void
+java.util.logging.LogRecord(java.util.logging.Level,java.lang.String)
+java.util.logging.XMLFormatter()
+java.util.logging.XMLFormatter.<init>(): void
+java.util.Map.get(java.lang.Object): java.lang.Object
+java.util.Map.put(java.lang.Object,java.lang.Object): java.lang.Object
+java.util.Random.<init>(long): void
+java.util.Random(long)
+java.util.Random.nextInt(int): int

@@ -1,0 +1,139 @@
+Libraries
+---------
+gson-2.4.jar
+nanohttpd-2.2.0.jar
+
+Method Use
+----------
+com.google.gson.Gson()
+com.google.gson.Gson.fromJson(com.google.gson.stream.JsonReader,java.lang.reflect.Type): java.lang.Object
+com.google.gson.Gson.fromJson(java.lang.String,java.lang.Class): java.lang.Object
+com.google.gson.Gson.toJson(java.lang.Object): java.lang.String
+com.google.gson.stream.JsonReader(java.io.Reader)
+fi.iki.elonen.NanoHTTPD$IHTTPSession.getInputStream(): java.io.InputStream
+fi.iki.elonen.NanoHTTPD(int)
+fi.iki.elonen.NanoHTTPD.newFixedLengthResponse(fi.iki.elonen.NanoHTTPD$Response$IStatus,java.lang.String,java.lang.String): fi.iki.elonen.NanoHTTPD$Response
+fi.iki.elonen.NanoHTTPD.start(int,boolean): void
+java.io.BufferedReader.close(): void
+java.io.BufferedReader(java.io.Reader)
+java.io.BufferedReader.readLine(): java.lang.String
+java.io.DataOutputStream.close(): void
+java.io.DataOutputStream.flush(): void
+java.io.DataOutputStream(java.io.OutputStream)
+java.io.DataOutputStream.write(byte[]): void
+java.io.InputStream.close(): void
+java.io.InputStreamReader(java.io.InputStream)
+java.io.IOException.printStackTrace(): void
+java.io.OutputStream.close(): void
+java.io.OutputStream.flush(): void
+java.io.OutputStream.write(byte[]): void
+java.io.PrintStream.printf(java.lang.String,java.lang.Object[]): java.io.PrintStream
+java.io.PrintStream.println(java.lang.Object): void
+java.io.PrintStream.println(java.lang.String): void
+java.io.PrintStream.println(long): void
+java.lang.AssertionError()
+java.lang.Class.desiredAssertionStatus(): boolean
+java.lang.Comparable.compareTo(java.lang.Object): int
+java.lang.Double.doubleValue(): double
+java.lang.Double.intValue(): int
+java.lang.Double.isNaN(double): boolean
+java.lang.Double.parseDouble(java.lang.String): double
+java.lang.Double.valueOf(double): java.lang.Double
+java.lang.Exception.getLocalizedMessage(): java.lang.String
+java.lang.Exception.getMessage(): java.lang.String
+java.lang.Exception.printStackTrace(): void
+java.lang.Float(float)
+java.lang.Float.intValue(): int
+java.lang.IllegalArgumentException()
+java.lang.IllegalArgumentException(java.lang.String)
+java.lang.IndexOutOfBoundsException()
+java.lang.IndexOutOfBoundsException(java.lang.String)
+java.lang.Integer.intValue(): int
+java.lang.Integer.parseInt(java.lang.String): int
+java.lang.Integer.valueOf(int): java.lang.Integer
+java.lang.InterruptedException(java.lang.String)
+java.lang.InterruptedException.printStackTrace(): void
+java.lang.Iterable.iterator(): java.util.Iterator
+java.lang.Math.abs(double): double
+java.lang.Math.exp(double): double
+java.lang.Math.log(double): double
+java.lang.Math.max(double,double): double
+java.lang.Math.pow(double,double): double
+java.lang.Math.round(double): long
+java.lang.Math.sqrt(double): double
+java.lang.Object()
+java.lang.Object.getClass(): java.lang.Class
+java.lang.Runtime.availableProcessors(): int
+java.lang.RuntimeException(java.lang.String,java.lang.Throwable)
+java.lang.Runtime.getRuntime(): java.lang.Runtime
+java.lang.StringBuffer()
+java.lang.StringBuffer.append(char): java.lang.StringBuffer
+java.lang.StringBuffer.append(java.lang.String): java.lang.StringBuffer
+java.lang.StringBuffer.toString(): java.lang.String
+java.lang.StringBuilder()
+java.lang.StringBuilder.append(double): java.lang.StringBuilder
+java.lang.StringBuilder.append(int): java.lang.StringBuilder
+java.lang.StringBuilder.append(java.lang.Object): java.lang.StringBuilder
+java.lang.StringBuilder.append(java.lang.String): java.lang.StringBuilder
+java.lang.StringBuilder.append(long): java.lang.StringBuilder
+java.lang.StringBuilder.toString(): java.lang.String
+java.lang.String.equalsIgnoreCase(java.lang.String): boolean
+java.lang.String.format(java.lang.String,java.lang.Object[]): java.lang.String
+java.lang.String.getBytes(): byte[]
+java.lang.String.length(): int
+java.lang.String.matches(java.lang.String): boolean
+java.lang.String.split(java.lang.String): java.lang.String[]
+java.lang.System.currentTimeMillis(): long
+java.lang.System.exit(int): void
+java.lang.System.gc(): void
+java.lang.System.getProperty(java.lang.String): java.lang.String
+java.lang.Thread.currentThread(): java.lang.Thread
+java.lang.Thread.getId(): long
+java.lang.Thread.getName(): java.lang.String
+java.lang.Thread(java.lang.Runnable)
+java.lang.Thread.join(): void
+java.lang.Thread.setName(java.lang.String): void
+java.lang.Thread.sleep(long): void
+java.lang.Thread.start(): void
+java.lang.UnsupportedOperationException()
+java.net.ServerSocket.accept(): java.net.Socket
+java.net.ServerSocket.close(): void
+java.net.ServerSocket(int)
+java.net.Socket.close(): void
+java.net.Socket.getInputStream(): java.io.InputStream
+java.net.Socket.getOutputStream(): java.io.OutputStream
+java.net.Socket(java.lang.String,int)
+java.net.UnknownHostException.printStackTrace(): void
+java.util.Collection.iterator(): java.util.Iterator
+java.util.concurrent.BlockingQueue.add(java.lang.Object): boolean
+java.util.concurrent.BlockingQueue.isEmpty(): boolean
+java.util.concurrent.BlockingQueue.take(): java.lang.Object
+java.util.concurrent.ConcurrentHashMap()
+java.util.concurrent.ConcurrentHashMap.containsKey(java.lang.Object): boolean
+java.util.concurrent.ConcurrentHashMap.get(java.lang.Object): java.lang.Object
+java.util.concurrent.ConcurrentHashMap.keySet(): java.util.Set
+java.util.concurrent.ConcurrentHashMap.put(java.lang.Object,java.lang.Object): java.lang.Object
+java.util.concurrent.ConcurrentHashMap.size(): int
+java.util.concurrent.LinkedBlockingQueue()
+java.util.Iterator.hasNext(): boolean
+java.util.Iterator.next(): java.lang.Object
+java.util.LinkedList()
+java.util.LinkedList.add(java.lang.Object): boolean
+java.util.LinkedList.iterator(): java.util.Iterator
+java.util.List.add(java.lang.Object): boolean
+java.util.List.get(int): java.lang.Object
+java.util.List.iterator(): java.util.Iterator
+java.util.List.size(): int
+java.util.MissingFormatArgumentException(java.lang.String)
+java.util.NoSuchElementException()
+java.util.NoSuchElementException(java.lang.String)
+java.util.Random()
+java.util.Random.nextDouble(): double
+java.util.Random.nextFloat(): float
+java.util.Random.nextInt(int): int
+java.util.Random.setSeed(long): void
+java.util.Set.iterator(): java.util.Iterator
+java.util.Vector()
+java.util.Vector.addElement(java.lang.Object): void
+java.util.Vector.get(int): java.lang.Object
+java.util.Vector.size(): int

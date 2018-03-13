@@ -1,0 +1,26 @@
+Challenge Program:
+
+        linalgservice.jar
+
+Challenge Question:
+
+        Is there an algorithmic complexity vulnerability in time
+        that would cause the real runtime of the challenge program
+        (on the reference platform) to exceed the resource usage
+        limit given the input budget?
+
+Additional background for question:
+
+        The Linear Algebra Platform can support multiple users. For
+	the purpose of this question assume there is only one user
+	connected to the Linear Algebra Platform server.
+
+Input Budget:
+
+        Maximum sum of the PDU sizes of the application requests sent from
+        the user to the server: 15,250,000 bytes
+
+Resource Usage Limit:
+
+        Runtime: 230 seconds measured from the submission of the
+        last request to the transmission of the response.

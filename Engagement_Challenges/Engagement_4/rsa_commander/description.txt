@@ -1,0 +1,44 @@
+Overview
+========
+RSA Commander is a secure P2P messaging application. Any user can send any other user an 
+RSA/DES encrypted message with an OpenSSL private key, provided they know the hostname and port 
+of another RSA Commander instance.
+
+
+Interactions
+============
+By default, RSA Commander will bind to localhost:8080. To message another instance, the
+other instance will need to be on another port.
+
+The startup command line options for RSA Commander are:
+	--client (-c)           This one must always be present in order to start client mode
+	--client-key (-ckey)    An OpenSSL Private key file (RSA key file ending in .pem)
+	--bind-address (-b)     The hostname to bind to... (Probably localhost in your case)
+	--bind-port (-p)        The port to bind to (Must be unique to each RSA Commander instance)
+
+The run_client.sh script in the examples folder starts an instance of RSA Commander bound to 
+localhost:8080. There are three available commands to the application: help, send, and exit.
+
+Send a message:
+The command "send <destination> <port>" will start the message input mode of the application. In 
+this mode you will be asked for the receiver name and the message body. The message body is 
+terminated by the statement 'EOM' on a new line followed immediately by another new line
+
+Receive a message:
+All instances of RSA commander listen on their bound port. Incoming messages are parsed and 
+displayed on standard out.
+
+Note: a message sent from one running instance of RSA Commander to another running instance may 
+take up to 5 minutes to be received.
+
+Engagement Tools
+================
+The challenge_program directory contains two private keys. These can be used to start two running
+instances of the challenge application.
+
+
+Notes
+=====
+An attacker will not have access to another user's private key. The private keys provided in the 
+challenge_program directory are outside of scope for injection of a vulnerability. Any key can
+be used for the challenge application however the private keys are not valid attacker inputs.

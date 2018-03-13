@@ -1,0 +1,4 @@
+Best Case:
+[1, ['Brockton', 'New Bedford', 'Peabody', 'Plymouth', 'Worcester']]
+Worst Case:
+[1484, ['Boston', 'Brockton', 'Brookline', 'Lynn', 'Springfield']]

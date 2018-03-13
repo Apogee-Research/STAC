@@ -1,0 +1,15 @@
+				Vulnerable
+==================================================================================
+		Samples (n) 	Mean Split	Stdev		SM = Stdev/sqrt(n)
+P_Split		4800		1440.208 us	121.473 us	1.753 us
+P_No Split 	19160		280.426 us	50.980 us	0.368 us
+
+J_Split		4800		1445.238 us	144.800 us	2.090 us
+J_No Split 	19160		273.005 us	51.425 us	0.371 us
+
+
+				Not Vulnerable
+==================================================================================
+		Samples (n) 	Mean Split	Stdev		SM = Stdev/sqrt(n)
+J_Split		4800		1481.612 us	361.592 us	5.219 us
+J_No Split 	19160		1426.624 us	235.222 us	1.699 us

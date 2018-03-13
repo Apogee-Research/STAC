@@ -1,0 +1,4 @@
+Best Case:
+[1, ['Boston', 'Chicopee', 'New Bedford', 'Springfield', 'Worcester']]
+Worst Case:
+[75, ['Boston', 'Brockton', 'Brookline', 'Chicopee', 'Somerville']]

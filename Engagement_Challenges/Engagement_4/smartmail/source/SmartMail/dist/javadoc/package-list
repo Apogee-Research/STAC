@@ -1,0 +1,9 @@
+smartmail.datamodel
+smartmail.email.manager.module.addressbook
+smartmail.email.manager.module.parser
+smartmail.email.manager.module.parser.email.xtra
+smartmail.logging.module
+smartmail.logging.module.crypto
+smartmail.messaging.controller.module
+smartmail.process.controller.module
+smartmail.process.controller.module.seqfile

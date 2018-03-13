@@ -1,0 +1,29 @@
+Mean
+Best Case:
+645.957878855 ['Cambridge', 'Fall River', 'Lawrence', 'Waltham', 'Weymouth']
+
+Worst Case:
+4768.60289779 ['Haverhill', 'New Bedford', 'Springfield', 'Weymouth', 'Worcester']
+-------------------
+10
+Best Case:
+117.413233154 ['Cambridge', 'Peabody', 'Quincy', 'Taunton', 'Waltham']
+
+Worst Case:
+2142.31086013 ['Haverhill', 'New Bedford', 'Springfield', 'Weymouth', 'Worcester']
+-------------------
+25
+Best Case:
+251.07272553 ['Brockton', 'Lynn', 'New Bedford', 'Peabody', 'Quincy']
+
+Worst Case:
+3268.6030837 ['Haverhill', 'New Bedford', 'Springfield', 'Weymouth', 'Worcester']
+-------------------
+-------------------
+50
+Best Case:
+495.397616048 ['Boston', 'Fall River', 'Haverhill', 'Lawrence', 'Weymouth']
+
+Worst Case:
+4655.82029677 ['Haverhill', 'New Bedford', 'Springfield', 'Weymouth', 'Worcester']
+-------------------

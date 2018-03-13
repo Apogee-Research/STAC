@@ -1,0 +1,87 @@
+Overview
+========
+The Linear Algebra Service (LAS) is a JSON Remote Procedure Call service that allows for 
+computation of common linear algebra and graph analysis operations. The service allows users 
+to offload large computation tasks such as path queries, spanning trees, multiplications, 
+heuristic calculations and decompositions. LAS is publicly available and a list of supported 
+interactions with the system are specified below.
+
+
+Interactions
+============
+This is a service that performs common linear algebra and graph analysis tasks. It performs 
+JSON RPC over HTTP on port 8080 utilizing the following JSON request structure.
+
+Request Object:
+
+        {"operation": <int>, "numberOfArguments": <int>,  "args": [<arg 1>,…,<arg n> ]}
+
+where args are matrices encoded as dictionaries in JSON utilizing the following format:
+
+	{"rows": <int>, "cols": <int>, "matrix": <csv string representing a rows x cols 
+	 matrix with at least 10 decimal points of precision>}
+
+Responses are also JSON encoded and of the following format:
+
+        {"operation": <int>, “success”: <boolean>,  “returnValue”: <string>}
+
+Where “success” indicates the success of the operation, and returnValue is a CSV encoded 
+matrix with the results of the operation.
+
+Supported Operations:
+        Matrix Multiplication:
+                - Performs basic multiplication of 2 matrices
+                Request:
+                        - Operation ID = 1
+                        - Number of Arguments = 2
+                        - Arg 1 = Square matrix
+                        - Arg 2 = Square matrix of same size as arg1
+                Response:
+                        - A CSV encoded square matrix containing the resulting product
+
+        Multi point Shortest Path:
+                - Given k vertices, compute the shortest path length from those k vertices 
+		  to every other vertex in the matrix
+                Request:
+                        - Operation ID = 2
+                        - Number of Arguments = 2
+                        - Arg1 = A weighted adjacency matrix with N nodes
+                        - Arg2 = A (1 x K) vector containing the K points to find shortest 
+			  distances from
+                Response:
+                        - A CSV encoded (k x n) matrix containing the shortest paths from 
+			  the K specified nodes to other vertices.
+
+        Graph Laplacian:
+                - Computes the laplacian of a graph given its adjacency matrix
+                Request:
+                        - Operation ID = 3
+                        - Number of Arguments = 1
+                        - Arg1 = An adjacency matrix with N nodes
+                Response:
+                        - The laplacian of the input graph.
+
+        Minimum Spanning Tree:
+                - Computes the minimum spanning tree of a weighted non directed graph
+                Request:
+                        - Operation ID = 4
+                        - Number of Arguments = 1
+                        - Arg1 = An adjacency matrix with N nodes
+                Response:
+                        - A (N x N) adjacency matrix defining the minimum spanning tree for 
+			  G that preserves original indices.
+
+The example script for user interactions is located in the examples directory.
+
+
+Engagement Tools
+================
+The start script (startServer.sh) for the Linear Algebra Platform server is located in the
+challenge_program directory.
+
+
+Notes
+=====
+The operations listed in the interactions segment above are the only inputs considered to be 
+controlled by the adversary, and any communication with the system outside of these methods is 
+not in scope.

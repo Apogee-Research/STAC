@@ -1,2 +1,0 @@
-1) Does there exist a sequence of HTTP requests to InfoTrader, of cumulative size no larger than X bytes (including HTTP headers), which results in InfoTrader writing a file to disk with size in excess of Y bytes?
-2) <RED HERRING> Does there exist a sequence of HTTP requests to InfoTrader, of cumulative size no larger than X bytes (including HTTP headers), which causes the response to any individual request to take longer than 120 seconds?

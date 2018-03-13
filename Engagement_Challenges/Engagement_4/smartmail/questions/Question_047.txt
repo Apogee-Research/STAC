@@ -1,0 +1,38 @@
+Challenge Program:
+
+	SmartMail.jar
+
+Challenge Question:
+
+	Is there a side channel in time and space in the challenge program from 
+	which an attacker can reveal the email address of any SmartMail mailing
+	list's administrator?
+
+Additional background for question:
+
+	The attacker is not provided an a-priori list of all emails in the 
+	SmartMail application.
+
+Available Operations:
+
+	Passive Operations:	observe the application's interaction with the
+				log files in the challenge program directory
+				(no cost per observation)
+
+	Active Operations:	send a single message addressed to any number of
+				recipients; request a list of subscribers to a 
+				SmartMail mailing list; receive a message as a
+				given user
+				(cost: 1 per query)
+
+	Oracle queries:		query the oracle with a candidate administrator
+				address and receive a binary response (yes/no) 
+				as to whether the candidate mailing address is 
+				the mailing address of the administrator of a 
+				given SmartMail mailing list
+				(cost: 1 per query)
+
+Operational Budget:
+
+	Max number of operations : 200 Operations     
+	Probability of success   : 99%

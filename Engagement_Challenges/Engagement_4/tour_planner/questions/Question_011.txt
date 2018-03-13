@@ -1,0 +1,37 @@
+Challenge Program:
+
+	challenge.jar
+
+Challenge Question:
+
+	Is there a side channel in space in the challenge program from which a 
+	third party can discover which cities the user would like to visit
+	(unordered list)?
+
+Additional background for question:
+
+	For the purpose of the question, assume that the user's query will 
+	consist of 5 cities.
+
+Available Operations:
+
+	Passive Operations:	observe the request and corresponding response 
+				packets and sizes thereof for a single user 
+				request. 
+				(cost: 1 per observed user session)
+
+	Active Operations:	issue a single application request and monitor
+                                the induced response traffic for this single
+                                request
+				(no cost per query)
+
+	Oracle queries:		query the oracle with a candidate user query 
+				and receive a binary response (yes/no) as to 
+				whether the unordered variant of the candidate 
+				query is correct. 
+				(cost: 1 per query)
+
+Operational Budget:
+
+	Max number of operations : 3000 Operations     
+	Probability of success   : 99%

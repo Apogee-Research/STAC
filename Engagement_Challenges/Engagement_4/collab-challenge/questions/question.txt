@@ -1,5 +1,0 @@
-
-Question to ask R&D teams:
-
-With respect to the canned data supplied with Collab, does there exist a timing side-channel vulnerability which would enable Collab user 'picard' to discover the event ID of his scheduled, hidden auditing event with 100% certainty?
-

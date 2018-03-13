@@ -1,0 +1,781 @@
+Libraries
+---------
+deps.jar
+
+Method Use
+----------
+com.google.inject.AbstractModule()
+com.google.inject.AbstractModule.bind(com.google.inject.TypeLiteral): com.google.inject.binder.AnnotatedBindingBuilder
+com.google.inject.AbstractModule.binder(): com.google.inject.Binder
+com.google.inject.AbstractModule.bind(java.lang.Class): com.google.inject.binder.AnnotatedBindingBuilder
+com.google.inject.AbstractModule.install(com.google.inject.Module): void
+com.google.inject.binder.AnnotatedBindingBuilder.annotatedWith(java.lang.annotation.Annotation): com.google.inject.binder.LinkedBindingBuilder
+com.google.inject.binder.AnnotatedBindingBuilder.in(java.lang.Class): void
+com.google.inject.binder.AnnotatedBindingBuilder.toInstance(java.lang.Object): void
+com.google.inject.binder.LinkedBindingBuilder.toInstance(java.lang.Object): void
+com.google.inject.Binder.requireExplicitBindings(): void
+com.google.inject.Guice.createInjector(com.google.inject.Module[]): com.google.inject.Injector
+com.google.inject.Injector.getInstance(java.lang.Class): java.lang.Object
+com.google.inject.name.Names.named(java.lang.String): com.google.inject.name.Named
+com.google.inject.servlet.GuiceServletContextListener()
+com.google.inject.servlet.ServletModule()
+com.google.inject.servlet.ServletModule.bind(java.lang.Class): com.google.inject.binder.AnnotatedBindingBuilder
+com.google.inject.servlet.ServletModule.filter(java.lang.String,java.lang.String[]): com.google.inject.servlet.ServletModule$FilterKeyBindingBuilder
+com.google.inject.servlet.ServletModule$FilterKeyBindingBuilder.through(java.lang.Class,java.util.Map): void
+com.google.inject.servlet.ServletModule$FilterKeyBindingBuilder.through(java.lang.Class): void
+com.google.inject.servlet.ServletModule.serve(java.lang.String,java.lang.String[]): com.google.inject.servlet.ServletModule$ServletKeyBindingBuilder
+com.google.inject.servlet.ServletModule$ServletKeyBindingBuilder.with(java.lang.Class): void
+com.google.inject.TypeLiteral()
+com.google.protobuf.ByteString.toByteArray(): byte[]
+com.google.protobuf.ByteString.toStringUtf8(): java.lang.String
+com.google.protobuf.ProtocolStringList.iterator(): java.util.Iterator
+com.graphhopper.storage.index.LocationIndexTree$InMemLeafEntry.get(int): int
+com.sun.management.OperatingSystemMXBean.getFreePhysicalMemorySize(): long
+com.sun.management.OperatingSystemMXBean.getTotalPhysicalMemorySize(): long
+gnu.trove.iterator.TIntIterator.hasNext(): boolean
+gnu.trove.iterator.TIntIterator.next(): int
+gnu.trove.iterator.TIntIterator.remove(): void
+gnu.trove.list.array.TIntArrayList()
+gnu.trove.list.array.TIntArrayList.add(int): boolean
+gnu.trove.list.array.TIntArrayList.binarySearch(int): int
+gnu.trove.list.array.TIntArrayList.contains(int): boolean
+gnu.trove.list.array.TIntArrayList.get(int): int
+gnu.trove.list.array.TIntArrayList(gnu.trove.TIntCollection)
+gnu.trove.list.array.TIntArrayList.insert(int,int): void
+gnu.trove.list.array.TIntArrayList(int)
+gnu.trove.list.array.TIntArrayList(int[])
+gnu.trove.list.array.TIntArrayList(int,int)
+gnu.trove.list.array.TIntArrayList.reset(): void
+gnu.trove.list.array.TIntArrayList.size(): int
+gnu.trove.list.array.TIntArrayList.toArray(): int[]
+gnu.trove.list.array.TIntArrayList.trimToSize(): void
+gnu.trove.list.array.TLongArrayList()
+gnu.trove.list.array.TLongArrayList(int)
+gnu.trove.list.array.TLongArrayList(long[])
+gnu.trove.list.TIntList.add(int): boolean
+gnu.trove.list.TIntList.fill(int,int,int): void
+gnu.trove.list.TIntList.get(int): int
+gnu.trove.list.TIntList.isEmpty(): boolean
+gnu.trove.list.TIntList.reverse(): void
+gnu.trove.list.TIntList.set(int,int): int
+gnu.trove.list.TIntList.shuffle(java.util.Random): void
+gnu.trove.list.TIntList.size(): int
+gnu.trove.list.TLongList.add(long): boolean
+gnu.trove.list.TLongList.clear(): void
+gnu.trove.list.TLongList.get(int): long
+gnu.trove.list.TLongList.set(int,long): long
+gnu.trove.list.TLongList.size(): int
+gnu.trove.list.TLongList.toArray(int,int): long[]
+gnu.trove.map.hash.TIntIntHashMap.clear(): void
+gnu.trove.map.hash.TIntIntHashMap.ensureCapacity(int): void
+gnu.trove.map.hash.TIntIntHashMap.get(int): int
+gnu.trove.map.hash.TIntIntHashMap(int,float,int,int)
+gnu.trove.map.hash.TIntIntHashMap.put(int,int): int
+gnu.trove.map.hash.TIntLongHashMap(int,float,int,long)
+gnu.trove.map.hash.TIntObjectHashMap()
+gnu.trove.map.hash.TIntObjectHashMap.clear(): void
+gnu.trove.map.hash.TIntObjectHashMap.get(int): java.lang.Object
+gnu.trove.map.hash.TIntObjectHashMap(int)
+gnu.trove.map.hash.TIntObjectHashMap.put(int,java.lang.Object): java.lang.Object
+gnu.trove.map.hash.TLongIntHashMap.capacity(): int
+gnu.trove.map.hash.TLongIntHashMap.clear(): void
+gnu.trove.map.hash.TLongIntHashMap.get(long): int
+gnu.trove.map.hash.TLongIntHashMap(int,float,long,int)
+gnu.trove.map.hash.TLongIntHashMap.put(long,int): int
+gnu.trove.map.hash.TLongIntHashMap.size(): int
+gnu.trove.map.hash.TLongLongHashMap.get(long): long
+gnu.trove.map.hash.TLongLongHashMap(int,float,long,long)
+gnu.trove.map.hash.TLongLongHashMap.put(long,long): long
+gnu.trove.map.hash.TLongLongHashMap.size(): int
+gnu.trove.map.hash.TLongObjectHashMap()
+gnu.trove.map.TIntLongMap.get(int): long
+gnu.trove.map.TIntLongMap.put(int,long): long
+gnu.trove.map.TIntObjectMap.forEachValue(gnu.trove.procedure.TObjectProcedure): boolean
+gnu.trove.map.TIntObjectMap.get(int): java.lang.Object
+gnu.trove.map.TIntObjectMap.put(int,java.lang.Object): java.lang.Object
+gnu.trove.map.TLongLongMap.get(long): long
+gnu.trove.map.TLongLongMap.put(long,long): long
+gnu.trove.map.TLongLongMap.size(): int
+gnu.trove.map.TLongObjectMap.get(long): java.lang.Object
+gnu.trove.map.TLongObjectMap.put(long,java.lang.Object): java.lang.Object
+gnu.trove.map.TLongObjectMap.valueCollection(): java.util.Collection
+gnu.trove.set.hash.TIntHashSet()
+gnu.trove.set.hash.TIntHashSet.addAll(gnu.trove.TIntCollection): boolean
+gnu.trove.set.hash.TIntHashSet.add(int): boolean
+gnu.trove.set.hash.TIntHashSet.clear(): void
+gnu.trove.set.hash.TIntHashSet.contains(int): boolean
+gnu.trove.set.hash.TIntHashSet.forEach(gnu.trove.procedure.TIntProcedure): boolean
+gnu.trove.set.hash.TIntHashSet(gnu.trove.TIntCollection)
+gnu.trove.set.hash.TIntHashSet(int)
+gnu.trove.set.hash.TIntHashSet(int,float,int)
+gnu.trove.set.hash.TIntHashSet.isEmpty(): boolean
+gnu.trove.set.hash.TIntHashSet.iterator(): gnu.trove.iterator.TIntIterator
+gnu.trove.set.hash.TIntHashSet.removeAll(gnu.trove.TIntCollection): boolean
+gnu.trove.set.hash.TIntHashSet.remove(int): boolean
+gnu.trove.set.hash.TIntHashSet.size(): int
+gnu.trove.set.hash.TIntHashSet.toString(): java.lang.String
+gnu.trove.set.hash.TLongHashSet()
+gnu.trove.set.TLongSet.add(long): boolean
+gnu.trove.set.TLongSet.contains(long): boolean
+gnu.trove.set.TLongSet.size(): int
+gnu.trove.stack.array.TIntArrayStack()
+gnu.trove.stack.array.TIntArrayStack.pop(): int
+gnu.trove.stack.array.TIntArrayStack.push(int): void
+gnu.trove.stack.array.TIntArrayStack.size(): int
+[I.clone(): java.lang.Object
+java.awt.Color(int,int,int,int)
+java.awt.Graphics.dispose(): void
+java.awt.Graphics.drawLine(int,int,int,int): void
+java.awt.Graphics.setColor(java.awt.Color): void
+java.awt.image.BufferedImage.getGraphics(): java.awt.Graphics
+java.awt.image.BufferedImage(int,int,int)
+java.awt.image.BufferedImage.setRGB(int,int,int,int,int[],int,int): void
+java.awt.image.Raster.getHeight(): int
+java.awt.image.Raster.getPixel(int,int,int[]): int[]
+java.awt.image.Raster.getWidth(): int
+java.io.BufferedInputStream(java.io.InputStream)
+java.io.BufferedInputStream(java.io.InputStream,int)
+java.io.BufferedInputStream.read(byte[]): int
+java.io.BufferedOutputStream.close(): void
+java.io.BufferedOutputStream(java.io.OutputStream,int)
+java.io.BufferedOutputStream.write(byte[],int,int): void
+java.io.BufferedReader.close(): void
+java.io.BufferedReader(java.io.Reader)
+java.io.BufferedReader(java.io.Reader,int)
+java.io.BufferedReader.readLine(): java.lang.String
+java.io.BufferedWriter.append(char): java.io.Writer
+java.io.BufferedWriter.append(java.lang.CharSequence): java.io.Writer
+java.io.BufferedWriter.close(): void
+java.io.BufferedWriter(java.io.Writer)
+java.io.ByteArrayOutputStream()
+java.io.ByteArrayOutputStream(int)
+java.io.ByteArrayOutputStream.toByteArray(): byte[]
+java.io.ByteArrayOutputStream.toString(java.lang.String): java.lang.String
+java.io.ByteArrayOutputStream.write(byte[],int,int): void
+java.io.Closeable.close(): void
+java.io.DataInputStream.close(): void
+java.io.DataInputStream(java.io.InputStream)
+java.io.DataInputStream.readFully(byte[]): void
+java.io.DataInputStream.readInt(): int
+java.io.File.createNewFile(): boolean
+java.io.File.delete(): boolean
+java.io.FileDescriptor.sync(): void
+java.io.File.exists(): boolean
+java.io.File.getAbsoluteFile(): java.io.File
+java.io.File.getAbsolutePath(): java.lang.String
+java.io.File.getCanonicalFile(): java.io.File
+java.io.File.getName(): java.lang.String
+java.io.File.getPath(): java.lang.String
+java.io.FileInputStream(java.io.File)
+java.io.FileInputStream(java.lang.String)
+java.io.File.isDirectory(): boolean
+java.io.File(java.io.File,java.lang.String)
+java.io.File(java.lang.String)
+java.io.File.length(): long
+java.io.File.listFiles(): java.io.File[]
+java.io.File.mkdir(): boolean
+java.io.File.mkdirs(): boolean
+java.io.FileOutputStream.close(): void
+java.io.FileOutputStream(java.io.File)
+java.io.FileOutputStream(java.lang.String)
+java.io.FileOutputStream.write(byte[],int,int): void
+java.io.FileReader.close(): void
+java.io.FileReader(java.io.File)
+java.io.File.renameTo(java.io.File): boolean
+java.io.File.toString(): java.lang.String
+java.io.InputStream.close(): void
+java.io.InputStream.mark(int): void
+java.io.InputStream.read(byte[]): int
+java.io.InputStreamReader(java.io.InputStream)
+java.io.InputStreamReader(java.io.InputStream,java.nio.charset.Charset)
+java.io.InputStream.read(): int
+java.io.InputStream.reset(): void
+java.io.IOException.getMessage(): java.lang.String
+java.io.IOException(java.lang.Throwable)
+java.io.PrintStream.close(): void
+java.io.PrintStream.format(java.lang.String,java.lang.Object[]): java.io.PrintStream
+java.io.PrintStream(java.io.File)
+java.io.PrintStream.println(double): void
+java.io.PrintStream.println(java.lang.Object): void
+java.io.PrintStream.println(java.lang.String): void
+java.io.PrintStream.println(): void
+java.io.PrintWriter.append(java.lang.CharSequence): java.io.PrintWriter
+java.io.PrintWriter.flush(): void
+java.io.RandomAccessFile.close(): void
+java.io.RandomAccessFile.getChannel(): java.nio.channels.FileChannel
+java.io.RandomAccessFile.getFD(): java.io.FileDescriptor
+java.io.RandomAccessFile(java.io.File,java.lang.String)
+java.io.RandomAccessFile(java.lang.String,java.lang.String)
+java.io.RandomAccessFile.length(): long
+java.io.RandomAccessFile.read(byte[]): int
+java.io.RandomAccessFile.readInt(): int
+java.io.RandomAccessFile.readLong(): long
+java.io.RandomAccessFile.readUTF(): java.lang.String
+java.io.RandomAccessFile.seek(long): void
+java.io.RandomAccessFile.setLength(long): void
+java.io.RandomAccessFile.write(byte[]): void
+java.io.RandomAccessFile.writeInt(int): void
+java.io.RandomAccessFile.writeLong(long): void
+java.io.RandomAccessFile.writeUTF(java.lang.String): void
+java.io.StringReader(java.lang.String)
+java.io.StringWriter()
+java.io.StringWriter.toString(): java.lang.String
+java.io.Writer.append(java.lang.CharSequence): java.io.Writer
+java.io.Writer.flush(): void
+java.lang.ArrayIndexOutOfBoundsException(java.lang.String)
+java.lang.AssertionError()
+java.lang.AssertionError(boolean)
+java.lang.AssertionError(java.lang.Object)
+java.lang.Boolean.parseBoolean(java.lang.String): boolean
+java.lang.Boolean.valueOf(boolean): java.lang.Boolean
+java.lang.Character.toUpperCase(char): char
+java.lang.Class.desiredAssertionStatus(): boolean
+java.lang.Class.forName(java.lang.String): java.lang.Class
+java.lang.Class.getConstructor(java.lang.Class[]): java.lang.reflect.Constructor
+java.lang.Class.getMethod(java.lang.String,java.lang.Class[]): java.lang.reflect.Method
+java.lang.Class.getName(): java.lang.String
+java.lang.Class.getResourceAsStream(java.lang.String): java.io.InputStream
+java.lang.Class.getSimpleName(): java.lang.String
+java.lang.Class.isAssignableFrom(java.lang.Class): boolean
+java.lang.Double.compare(double,double): int
+java.lang.Double.doubleToLongBits(double): long
+java.lang.Double.doubleToRawLongBits(double): long
+java.lang.Double.doubleValue(): double
+java.lang.Double.isInfinite(double): boolean
+java.lang.Double.isNaN(double): boolean
+java.lang.Double.longBitsToDouble(long): double
+java.lang.Double.parseDouble(java.lang.String): double
+java.lang.Double.valueOf(double): java.lang.Double
+java.lang.Double.valueOf(java.lang.String): java.lang.Double
+java.lang.Enum(java.lang.String,int)
+java.lang.Enum.valueOf(java.lang.Class,java.lang.String): java.lang.Enum
+java.lang.Exception.getMessage(): java.lang.String
+java.lang.Float.floatToRawIntBits(float): int
+java.lang.Float.intBitsToFloat(int): float
+java.lang.Float.valueOf(float): java.lang.Float
+java.lang.IllegalArgumentException(java.lang.String)
+java.lang.IllegalArgumentException(java.lang.String,java.lang.Throwable)
+java.lang.IllegalMonitorStateException(java.lang.String)
+java.lang.IllegalStateException(java.lang.String)
+java.lang.IllegalStateException(java.lang.String,java.lang.Throwable)
+java.lang.IllegalStateException(java.lang.Throwable)
+java.lang.IllegalThreadStateException(java.lang.String)
+java.lang.Integer(int)
+java.lang.Integer.intValue(): int
+java.lang.Integer.parseInt(java.lang.String): int
+java.lang.Integer.valueOf(int): java.lang.Integer
+java.lang.Long.longValue(): long
+java.lang.Long.parseLong(java.lang.String): long
+java.lang.Long.valueOf(long): java.lang.Long
+java.lang.management.ManagementFactory.getOperatingSystemMXBean(): java.lang.management.OperatingSystemMXBean
+java.lang.Math.abs(double): double
+java.lang.Math.abs(float): float
+java.lang.Math.abs(int): int
+java.lang.Math.asin(double): double
+java.lang.Math.atan2(double,double): double
+java.lang.Math.cos(double): double
+java.lang.Math.floor(double): double
+java.lang.Math.log10(double): double
+java.lang.Math.log(double): double
+java.lang.Math.max(double,double): double
+java.lang.Math.max(int,int): int
+java.lang.Math.max(long,long): long
+java.lang.Math.min(double,double): double
+java.lang.Math.min(int,int): int
+java.lang.Math.min(long,long): long
+java.lang.Math.pow(double,double): double
+java.lang.Math.round(double): long
+java.lang.Math.round(float): int
+java.lang.Math.signum(double): double
+java.lang.Math.sin(double): double
+java.lang.Math.sqrt(double): double
+java.lang.Math.toDegrees(double): double
+java.lang.Math.toRadians(double): double
+java.lang.NullPointerException(java.lang.String)
+java.lang.Number.doubleValue(): double
+java.lang.Number.intValue(): int
+java.lang.Object()
+java.lang.Object.canBeOverwritten(long): boolean
+java.lang.Object.clone(): java.lang.Object
+java.lang.Object.close(): void
+java.lang.Object.copyPropertiesTo(com.graphhopper.util.EdgeIteratorState): com.graphhopper.util.EdgeIteratorState
+java.lang.Object.create(long): java.lang.Object
+java.lang.Object.detach(boolean): com.graphhopper.util.EdgeIteratorState
+java.lang.Object.ensureNode(int): void
+java.lang.Object.equals(java.lang.Object): boolean
+java.lang.Object.fetchWayGeometry(int): com.graphhopper.util.PointList
+java.lang.Object.flush(): void
+java.lang.Object.getAdjNode(): int
+java.lang.Object.getBaseNode(): int
+java.lang.Object.getBytes(long,byte[],int): void
+java.lang.Object.getCapacity(): long
+java.lang.Object.getClass(): java.lang.Class
+java.lang.Object.getDimension(): int
+java.lang.Object.getDistance(): double
+java.lang.Object.getEdge(): int
+java.lang.Object.getElevation(int): double
+java.lang.Object.getFlags(): long
+java.lang.Object.getInt(long): int
+java.lang.Object.getLat(int): double
+java.lang.Object.getLatitude(int): double
+java.lang.Object.getLongitude(int): double
+java.lang.Object.getLon(int): double
+java.lang.Object.getMaxId(): int
+java.lang.Object.getNodeAccess(): com.graphhopper.storage.NodeAccess
+java.lang.Object.getNodes(): int
+java.lang.Object.getSkippedEdge1(): int
+java.lang.Object.getSkippedEdge2(): int
+java.lang.Object.getType(): com.graphhopper.storage.DAType
+java.lang.Object.getVersion(): int
+java.lang.Object.hashCode(): int
+java.lang.Object.is3D(): boolean
+java.lang.Object.isBackward(com.graphhopper.routing.util.FlagEncoder): boolean
+java.lang.Object.isClosed(): boolean
+java.lang.Object.isForward(com.graphhopper.routing.util.FlagEncoder): boolean
+java.lang.Object.isShortcut(): boolean
+java.lang.Object.loadExisting(): boolean
+java.lang.Object.next(): boolean
+java.lang.Object.setDistance(double): com.graphhopper.util.EdgeIteratorState
+java.lang.Object.setFlags(long): com.graphhopper.util.EdgeIteratorState
+java.lang.Object.setNode(int,double,double,double): void
+java.lang.Object.setNode(int,double,double): void
+java.lang.Object.setSkippedEdges(int,int): void
+java.lang.Object.setWeight(double): com.graphhopper.util.CHEdgeIteratorState
+java.lang.Object.toString(): java.lang.String
+java.lang.OutOfMemoryError.getMessage(): java.lang.String
+java.lang.OutOfMemoryError(java.lang.String)
+java.lang.Package.getName(): java.lang.String
+java.lang.reflect.Constructor.newInstance(java.lang.Object[]): java.lang.Object
+java.lang.reflect.Method.invoke(java.lang.Object,java.lang.Object[]): java.lang.Object
+java.lang.reflect.Method.setAccessible(boolean): void
+java.lang.RuntimeException()
+java.lang.RuntimeException(java.lang.String)
+java.lang.RuntimeException(java.lang.String,java.lang.Throwable)
+java.lang.RuntimeException(java.lang.Throwable)
+java.lang.Runtime.freeMemory(): long
+java.lang.Runtime.getRuntime(): java.lang.Runtime
+java.lang.Runtime.totalMemory(): long
+java.lang.StringBuilder()
+java.lang.StringBuilder.append(boolean): java.lang.StringBuilder
+java.lang.StringBuilder.append(char): java.lang.StringBuilder
+java.lang.StringBuilder.append(double): java.lang.StringBuilder
+java.lang.StringBuilder.append(float): java.lang.StringBuilder
+java.lang.StringBuilder.append(int): java.lang.StringBuilder
+java.lang.StringBuilder.append(java.lang.Object): java.lang.StringBuilder
+java.lang.StringBuilder.append(java.lang.String): java.lang.StringBuilder
+java.lang.StringBuilder.append(long): java.lang.StringBuilder
+java.lang.StringBuilder(int)
+java.lang.StringBuilder(java.lang.String)
+java.lang.StringBuilder.length(): int
+java.lang.StringBuilder.toString(): java.lang.String
+java.lang.String(byte[],java.nio.charset.Charset)
+java.lang.String.charAt(int): char
+java.lang.String.contains(java.lang.CharSequence): boolean
+java.lang.String.endsWith(java.lang.String): boolean
+java.lang.String.equalsIgnoreCase(java.lang.String): boolean
+java.lang.String.equals(java.lang.Object): boolean
+java.lang.String.format(java.lang.String,java.lang.Object[]): java.lang.String
+java.lang.String.getBytes(java.nio.charset.Charset): byte[]
+java.lang.String.hashCode(): int
+java.lang.String.indexOf(int): int
+java.lang.String.indexOf(java.lang.String): int
+java.lang.String.isEmpty(): boolean
+java.lang.String.lastIndexOf(java.lang.String): int
+java.lang.String.length(): int
+java.lang.String.replaceAll(java.lang.String,java.lang.String): java.lang.String
+java.lang.String.replace(java.lang.CharSequence,java.lang.CharSequence): java.lang.String
+java.lang.String.split(java.lang.String): java.lang.String[]
+java.lang.String.startsWith(java.lang.String): boolean
+java.lang.String.substring(int,int): java.lang.String
+java.lang.String.substring(int): java.lang.String
+java.lang.String.toLowerCase(): java.lang.String
+java.lang.String.toString(): java.lang.String
+java.lang.String.toUpperCase(): java.lang.String
+java.lang.String.trim(): java.lang.String
+java.lang.System.arraycopy(java.lang.Object,int,java.lang.Object,int,int): void
+java.lang.System.currentTimeMillis(): long
+java.lang.System.gc(): void
+java.lang.System.getProperties(): java.util.Properties
+java.lang.System.getProperty(java.lang.String): java.lang.String
+java.lang.System.nanoTime(): long
+java.lang.Thread.interrupt(): void
+java.lang.Thread.isAlive(): boolean
+java.lang.Thread(java.lang.Runnable,java.lang.String)
+java.lang.Thread.sleep(long): void
+java.lang.Thread.start(): void
+java.lang.Throwable.addSuppressed(java.lang.Throwable): void
+java.lang.Throwable.getMessage(): java.lang.String
+java.lang.UnsupportedOperationException()
+java.lang.UnsupportedOperationException(java.lang.String)
+java.net.HttpURLConnection.connect(): void
+java.net.HttpURLConnection.getContentEncoding(): java.lang.String
+java.net.HttpURLConnection.getContentLength(): int
+java.net.HttpURLConnection.getErrorStream(): java.io.InputStream
+java.net.HttpURLConnection.getInputStream(): java.io.InputStream
+java.net.HttpURLConnection.getResponseCode(): int
+java.net.HttpURLConnection.setConnectTimeout(int): void
+java.net.HttpURLConnection.setDoOutput(boolean): void
+java.net.HttpURLConnection.setReadTimeout(int): void
+java.net.HttpURLConnection.setRequestProperty(java.lang.String,java.lang.String): void
+java.net.HttpURLConnection.setUseCaches(boolean): void
+java.net.URLEncoder.encode(java.lang.String,java.lang.String): java.lang.String
+java.net.URL(java.lang.String)
+java.net.URL.openConnection(): java.net.URLConnection
+java.nio.ByteBuffer.capacity(): int
+java.nio.ByteBuffer.get(byte[],int,int): java.nio.ByteBuffer
+java.nio.ByteBuffer.getInt(int): int
+java.nio.ByteBuffer.getShort(int): short
+java.nio.ByteBuffer.order(java.nio.ByteOrder): java.nio.ByteBuffer
+java.nio.ByteBuffer.position(int): java.nio.Buffer
+java.nio.ByteBuffer.put(byte[],int,int): java.nio.ByteBuffer
+java.nio.ByteBuffer.put(byte[]): java.nio.ByteBuffer
+java.nio.ByteBuffer.putInt(int,int): java.nio.ByteBuffer
+java.nio.ByteBuffer.putShort(int,short): java.nio.ByteBuffer
+java.nio.channels.FileChannel.close(): void
+java.nio.channels.FileChannel.map(java.nio.channels.FileChannel$MapMode,long,long): java.nio.MappedByteBuffer
+java.nio.channels.FileChannel.tryLock(long,long,boolean): java.nio.channels.FileLock
+java.nio.channels.FileLock.release(): void
+java.nio.charset.Charset.forName(java.lang.String): java.nio.charset.Charset
+java.nio.MappedByteBuffer.force(): java.nio.MappedByteBuffer
+java.nio.MappedByteBuffer.isLoaded(): boolean
+java.security.AccessController.doPrivileged(java.security.PrivilegedExceptionAction): java.lang.Object
+java.text.DecimalFormat.format(java.lang.Object): java.lang.String
+java.text.DecimalFormat(java.lang.String)
+java.text.NumberFormat.format(long): java.lang.String
+java.text.NumberFormat.getInstance(java.util.Locale): java.text.NumberFormat
+java.text.SimpleDateFormat.format(java.lang.Object): java.lang.String
+java.text.SimpleDateFormat.format(java.util.Date): java.lang.String
+java.text.SimpleDateFormat(java.lang.String)
+java.text.SimpleDateFormat.setTimeZone(java.util.TimeZone): void
+java.util.ArrayList()
+java.util.ArrayList.add(java.lang.Object): boolean
+java.util.ArrayList.get(int): java.lang.Object
+java.util.ArrayList(int)
+java.util.ArrayList.iterator(): java.util.Iterator
+java.util.ArrayList(java.util.Collection)
+java.util.ArrayList.remove(int): java.lang.Object
+java.util.ArrayList.size(): int
+java.util.Arrays.asList(java.lang.Object[]): java.util.List
+java.util.Arrays.copyOf(byte[],int): byte[]
+java.util.Arrays.copyOf(double[],int): double[]
+java.util.Arrays.copyOf(float[],int): float[]
+java.util.Arrays.copyOf(int[],int): int[]
+java.util.Arrays.copyOf(java.lang.Object[],int): java.lang.Object[]
+java.util.Arrays.copyOf(long[],int): long[]
+java.util.Arrays.fill(double[],double): void
+java.util.Arrays.fill(float[],float): void
+java.util.Arrays.fill(float[],int,int,float): void
+java.util.Arrays.fill(int[],int,int,int): void
+java.util.Arrays.fill(int[],int): void
+java.util.Arrays.fill(java.lang.Object[],java.lang.Object): void
+java.util.Arrays.toString(int[]): java.lang.String
+java.util.BitSet()
+java.util.BitSet.cardinality(): int
+java.util.BitSet.clear(int): void
+java.util.BitSet.get(int): boolean
+java.util.BitSet(int)
+java.util.BitSet.nextClearBit(int): int
+java.util.BitSet.nextSetBit(int): int
+java.util.BitSet.or(java.util.BitSet): void
+java.util.BitSet.set(int): void
+java.util.BitSet.size(): int
+java.util.Collection.add(java.lang.Object): boolean
+java.util.Collection.isEmpty(): boolean
+java.util.Collection.iterator(): java.util.Iterator
+java.util.Collections.emptyList(): java.util.List
+java.util.Collections.emptyMap(): java.util.Map
+java.util.Collection.size(): int
+java.util.Collections.nCopies(int,java.lang.Object): java.util.List
+java.util.Collections.singletonList(java.lang.Object): java.util.List
+java.util.Collections.sort(java.util.List,java.util.Comparator): void
+java.util.Collections.unmodifiableList(java.util.List): java.util.List
+java.util.Collections.unmodifiableSet(java.util.Set): java.util.Set
+java.util.concurrent.atomic.AtomicInteger.get(): int
+java.util.concurrent.atomic.AtomicInteger.incrementAndGet(): int
+java.util.concurrent.atomic.AtomicInteger(int)
+java.util.concurrent.atomic.AtomicInteger.set(int): void
+java.util.concurrent.BlockingQueue.isEmpty(): boolean
+java.util.concurrent.BlockingQueue.poll(long,java.util.concurrent.TimeUnit): java.lang.Object
+java.util.concurrent.BlockingQueue.put(java.lang.Object): void
+java.util.concurrent.ExecutorService.execute(java.lang.Runnable): void
+java.util.concurrent.ExecutorService.shutdownNow(): java.util.List
+java.util.concurrent.Executors.newFixedThreadPool(int): java.util.concurrent.ExecutorService
+java.util.concurrent.LinkedBlockingQueue(int)
+java.util.concurrent.locks.Condition.await(): void
+java.util.concurrent.locks.Condition.signal(): void
+java.util.concurrent.locks.Lock.lock(): void
+java.util.concurrent.locks.Lock.newCondition(): java.util.concurrent.locks.Condition
+java.util.concurrent.locks.Lock.unlock(): void
+java.util.concurrent.locks.ReentrantLock()
+java.util.Date()
+java.util.Date.getTime(): long
+java.util.Date(long)
+java.util.EnumSet.allOf(java.lang.Class): java.util.EnumSet
+java.util.HashMap()
+java.util.HashMap(int)
+java.util.HashMap(java.util.Map)
+java.util.HashSet()
+java.util.HashSet.add(java.lang.Object): boolean
+java.util.HashSet.contains(java.lang.Object): boolean
+java.util.HashSet(int)
+java.util.Iterator.hasNext(): boolean
+java.util.Iterator.next(): java.lang.Object
+java.util.LinkedHashMap()
+java.util.LinkedHashSet()
+java.util.LinkedHashSet(java.util.Collection)
+java.util.LinkedList()
+java.util.List.addAll(java.util.Collection): boolean
+java.util.List.add(java.lang.Object): boolean
+java.util.List.clear(): void
+java.util.List.contains(java.lang.Object): boolean
+java.util.List.equals(java.lang.Object): boolean
+java.util.List.get(int): java.lang.Object
+java.util.List.hashCode(): int
+java.util.List.isEmpty(): boolean
+java.util.List.iterator(): java.util.Iterator
+java.util.List.remove(java.lang.Object): boolean
+java.util.List.set(int,java.lang.Object): java.lang.Object
+java.util.List.size(): int
+java.util.List.subList(int,int): java.util.List
+java.util.List.toArray(java.lang.Object[]): java.lang.Object[]
+java.util.Locale.equals(java.lang.Object): boolean
+java.util.Locale.getCountry(): java.lang.String
+java.util.Locale.getLanguage(): java.lang.String
+java.util.Locale(java.lang.String)
+java.util.Locale(java.lang.String,java.lang.String)
+java.util.Locale.toString(): java.lang.String
+java.util.logging.Logger.finer(java.lang.String): void
+java.util.logging.Logger.getLogger(java.lang.String): java.util.logging.Logger
+java.util.logging.Logger.isLoggable(java.util.logging.Level): boolean
+java.util.logging.Logger.log(java.util.logging.Level,java.lang.String,java.lang.Throwable): void
+java.util.Map.clear(): void
+java.util.Map.containsKey(java.lang.Object): boolean
+java.util.Map$Entry.getKey(): java.lang.Object
+java.util.Map$Entry.getValue(): java.lang.Object
+java.util.Map.entrySet(): java.util.Set
+java.util.Map.get(java.lang.Object): java.lang.Object
+java.util.Map.isEmpty(): boolean
+java.util.Map.keySet(): java.util.Set
+java.util.Map.putAll(java.util.Map): void
+java.util.Map.put(java.lang.Object,java.lang.Object): java.lang.Object
+java.util.Map.remove(java.lang.Object): java.lang.Object
+java.util.Map.values(): java.util.Collection
+java.util.PriorityQueue.add(java.lang.Object): boolean
+java.util.PriorityQueue(int)
+java.util.PriorityQueue.isEmpty(): boolean
+java.util.PriorityQueue.poll(): java.lang.Object
+java.util.PriorityQueue.remove(java.lang.Object): boolean
+java.util.Properties.entrySet(): java.util.Set
+java.util.Queue.add(java.lang.Object): boolean
+java.util.Queue.remove(): java.lang.Object
+java.util.Queue.size(): int
+java.util.Random()
+java.util.Random(long)
+java.util.Random.nextInt(int): int
+java.util.Set.addAll(java.util.Collection): boolean
+java.util.Set.add(java.lang.Object): boolean
+java.util.Set.contains(java.lang.Object): boolean
+java.util.Set.isEmpty(): boolean
+java.util.Set.iterator(): java.util.Iterator
+java.util.Set.size(): int
+java.util.Stack()
+java.util.Stack.empty(): boolean
+java.util.Stack.pop(): java.lang.Object
+java.util.Stack.push(java.lang.Object): java.lang.Object
+java.util.TimeZone.getTimeZone(java.lang.String): java.util.TimeZone
+java.util.TreeMap()
+java.util.TreeMap.clear(): void
+java.util.TreeMap.entrySet(): java.util.Set
+java.util.TreeMap.firstEntry(): java.util.Map$Entry
+java.util.TreeMap.get(java.lang.Object): java.lang.Object
+java.util.TreeMap.isEmpty(): boolean
+java.util.TreeMap.lastEntry(): java.util.Map$Entry
+java.util.TreeMap.pollFirstEntry(): java.util.Map$Entry
+java.util.TreeMap.put(java.lang.Object,java.lang.Object): java.lang.Object
+java.util.TreeMap.remove(java.lang.Object): java.lang.Object
+java.util.TreeMap.size(): int
+java.util.TreeMap.toString(): java.lang.String
+java.util.zip.Deflater()
+java.util.zip.Deflater.deflate(byte[]): int
+java.util.zip.Deflater.end(): void
+java.util.zip.Deflater.finished(): boolean
+java.util.zip.Deflater.finish(): void
+java.util.zip.Deflater.setInput(byte[],int,int): void
+java.util.zip.Deflater.setLevel(int): void
+java.util.zip.GZIPInputStream(java.io.InputStream)
+java.util.zip.GZIPInputStream(java.io.InputStream,int)
+java.util.zip.Inflater()
+java.util.zip.Inflater(boolean)
+java.util.zip.Inflater.end(): void
+java.util.zip.Inflater.finished(): boolean
+java.util.zip.Inflater.inflate(byte[]): int
+java.util.zip.InflaterInputStream(java.io.InputStream,java.util.zip.Inflater)
+java.util.zip.Inflater.setInput(byte[]): void
+java.util.zip.ZipEntry.getCompressedSize(): long
+java.util.zip.ZipEntry.getName(): java.lang.String
+java.util.zip.ZipEntry.getSize(): long
+java.util.zip.ZipEntry.isDirectory(): boolean
+java.util.zip.ZipInputStream.closeEntry(): void
+java.util.zip.ZipInputStream.close(): void
+java.util.zip.ZipInputStream.getNextEntry(): java.util.zip.ZipEntry
+java.util.zip.ZipInputStream(java.io.InputStream)
+java.util.zip.ZipInputStream.read(byte[]): int
+javax.imageio.ImageIO.write(java.awt.image.RenderedImage,java.lang.String,java.io.File): boolean
+javax.servlet.FilterChain.doFilter(javax.servlet.ServletRequest,javax.servlet.ServletResponse): void
+javax.servlet.http.HttpServlet()
+javax.servlet.http.HttpServletRequest.getAttribute(java.lang.String): java.lang.Object
+javax.servlet.http.HttpServletRequest.getHeader(java.lang.String): java.lang.String
+javax.servlet.http.HttpServletRequest.getLocale(): java.util.Locale
+javax.servlet.http.HttpServletRequest.getParameterMap(): java.util.Map
+javax.servlet.http.HttpServletRequest.getPathInfo(): java.lang.String
+javax.servlet.http.HttpServletRequest.getQueryString(): java.lang.String
+javax.servlet.http.HttpServletRequest.getRemoteAddr(): java.lang.String
+javax.servlet.http.HttpServletRequest.getRequestURL(): java.lang.StringBuffer
+javax.servlet.http.HttpServletResponse.flushBuffer(): void
+javax.servlet.http.HttpServletResponse.getWriter(): java.io.PrintWriter
+javax.servlet.http.HttpServletResponse.sendError(int): void
+javax.servlet.http.HttpServletResponse.setCharacterEncoding(java.lang.String): void
+javax.servlet.http.HttpServletResponse.setContentType(java.lang.String): void
+javax.servlet.http.HttpServletResponse.setHeader(java.lang.String,java.lang.String): void
+javax.servlet.http.HttpServletResponse.setStatus(int): void
+javax.servlet.ServletRequest.getParameter(java.lang.String): java.lang.String
+javax.servlet.ServletRequest.getRemoteAddr(): java.lang.String
+javax.xml.parsers.DocumentBuilderFactory.newDocumentBuilder(): javax.xml.parsers.DocumentBuilder
+javax.xml.parsers.DocumentBuilderFactory.newInstance(): javax.xml.parsers.DocumentBuilderFactory
+javax.xml.parsers.DocumentBuilder.newDocument(): org.w3c.dom.Document
+javax.xml.stream.XMLInputFactory.createXMLStreamReader(java.io.InputStream,java.lang.String): javax.xml.stream.XMLStreamReader
+javax.xml.stream.XMLInputFactory.newInstance(): javax.xml.stream.XMLInputFactory
+javax.xml.stream.XMLStreamReader.close(): void
+javax.xml.stream.XMLStreamReader.getAttributeValue(java.lang.String,java.lang.String): java.lang.String
+javax.xml.stream.XMLStreamReader.getEventType(): int
+javax.xml.stream.XMLStreamReader.getLocalName(): java.lang.String
+javax.xml.stream.XMLStreamReader.next(): int
+javax.xml.stream.XMLStreamReader.nextTag(): int
+javax.xml.transform.dom.DOMSource(org.w3c.dom.Node)
+javax.xml.transform.stream.StreamResult(java.io.Writer)
+javax.xml.transform.TransformerFactory.newInstance(): javax.xml.transform.TransformerFactory
+javax.xml.transform.TransformerFactory.newTransformer(): javax.xml.transform.Transformer
+javax.xml.transform.Transformer.transform(javax.xml.transform.Source,javax.xml.transform.Result): void
+[Ljava.lang.Object(): java.lang.Object
+org.apache.commons.lang3.StringUtils.join(double[],char): java.lang.String
+org.apache.commons.lang3.StringUtils.join(java.lang.Iterable,char): java.lang.String
+org.apache.commons.lang3.StringUtils.split(java.lang.String,char): java.lang.String[]
+org.apache.commons.lang3.StringUtils.strip(java.lang.String): java.lang.String
+org.apache.xmlgraphics.image.codec.tiff.TIFFDecodeParam()
+org.apache.xmlgraphics.image.codec.tiff.TIFFImageDecoder.decodeAsRaster(): java.awt.image.Raster
+org.apache.xmlgraphics.image.codec.tiff.TIFFImageDecoder(org.apache.xmlgraphics.image.codec.util.SeekableStream,org.apache.xmlgraphics.image.codec.tiff.TIFFDecodeParam)
+org.apache.xmlgraphics.image.codec.util.SeekableStream.wrapInputStream(java.io.InputStream,boolean): org.apache.xmlgraphics.image.codec.util.SeekableStream
+org.eclipse.jetty.server.handler.ErrorHandler()
+org.eclipse.jetty.server.handler.HandlerList()
+org.eclipse.jetty.server.handler.HandlerList.setHandlers(org.eclipse.jetty.server.Handler[]): void
+org.eclipse.jetty.server.handler.ResourceHandler()
+org.eclipse.jetty.server.handler.ResourceHandler.setDirectoriesListed(boolean): void
+org.eclipse.jetty.server.handler.ResourceHandler.setResourceBase(java.lang.String): void
+org.eclipse.jetty.server.handler.ResourceHandler.setWelcomeFiles(java.lang.String[]): void
+org.eclipse.jetty.server.Server()
+org.eclipse.jetty.server.Server.addConnector(org.eclipse.jetty.server.Connector): void
+org.eclipse.jetty.server.Server.setHandler(org.eclipse.jetty.server.Handler): void
+org.eclipse.jetty.server.Server.start(): void
+org.eclipse.jetty.server.Server.stop(): void
+org.eclipse.jetty.server.ssl.SslSelectChannelConnector()
+org.eclipse.jetty.server.ssl.SslSelectChannelConnector.getSslContextFactory(): org.eclipse.jetty.util.ssl.SslContextFactory
+org.eclipse.jetty.server.ssl.SslSelectChannelConnector.setHost(java.lang.String): void
+org.eclipse.jetty.server.ssl.SslSelectChannelConnector.setPort(int): void
+org.eclipse.jetty.servlet.FilterHolder(javax.servlet.Filter)
+org.eclipse.jetty.servlet.ServletContextHandler.addFilter(org.eclipse.jetty.servlet.FilterHolder,java.lang.String,java.util.EnumSet): void
+org.eclipse.jetty.servlet.ServletContextHandler.addServlet(org.eclipse.jetty.servlet.ServletHolder,java.lang.String): void
+org.eclipse.jetty.servlet.ServletContextHandler(int)
+org.eclipse.jetty.servlet.ServletContextHandler.setContextPath(java.lang.String): void
+org.eclipse.jetty.servlet.ServletContextHandler.setErrorHandler(org.eclipse.jetty.server.handler.ErrorHandler): void
+org.eclipse.jetty.servlet.ServletHolder(javax.servlet.Servlet)
+org.eclipse.jetty.servlets.GzipFilter()
+org.eclipse.jetty.servlets.GzipFilter.doFilter(javax.servlet.ServletRequest,javax.servlet.ServletResponse,javax.servlet.FilterChain): void
+org.eclipse.jetty.servlets.UserAgentFilter()
+org.eclipse.jetty.servlets.UserAgentFilter.doFilter(javax.servlet.ServletRequest,javax.servlet.ServletResponse,javax.servlet.FilterChain): void
+org.eclipse.jetty.util.ssl.SslContextFactory.setKeyManagerPassword(java.lang.String): void
+org.eclipse.jetty.util.ssl.SslContextFactory.setKeyStore(java.lang.String): void
+org.eclipse.jetty.util.ssl.SslContextFactory.setKeyStorePassword(java.lang.String): void
+org.eclipse.jetty.util.ssl.SslContextFactory.setTrustAll(boolean): void
+org.eclipse.jetty.util.ssl.SslContextFactory.setTrustStore(java.lang.String): void
+org.eclipse.jetty.util.ssl.SslContextFactory.setTrustStorePassword(java.lang.String): void
+org.json.JSONArray()
+org.json.JSONArray.getInt(int): int
+org.json.JSONArray.getJSONObject(int): org.json.JSONObject
+org.json.JSONArray(java.lang.String)
+org.json.JSONArray.length(): int
+org.json.JSONArray.put(double): org.json.JSONArray
+org.json.JSONArray.put(java.lang.Object): org.json.JSONArray
+org.json.JSONObject()
+org.json.JSONObject.getDouble(java.lang.String): double
+org.json.JSONObject.getInt(java.lang.String): int
+org.json.JSONObject.get(java.lang.String): java.lang.Object
+org.json.JSONObject.getJSONArray(java.lang.String): org.json.JSONArray
+org.json.JSONObject.getJSONObject(java.lang.String): org.json.JSONObject
+org.json.JSONObject.getLong(java.lang.String): long
+org.json.JSONObject.getString(java.lang.String): java.lang.String
+org.json.JSONObject.has(java.lang.String): boolean
+org.json.JSONObject(java.lang.String)
+org.json.JSONObject(java.util.Map)
+org.json.JSONObject.put(java.lang.String,boolean): org.json.JSONObject
+org.json.JSONObject.put(java.lang.String,double): org.json.JSONObject
+org.json.JSONObject.put(java.lang.String,int): org.json.JSONObject
+org.json.JSONObject.put(java.lang.String,java.lang.Object): org.json.JSONObject
+org.json.JSONObject.put(java.lang.String,java.util.Collection): org.json.JSONObject
+org.json.JSONObject.put(java.lang.String,java.util.Map): org.json.JSONObject
+org.json.JSONObject.toString(int): java.lang.String
+org.json.JSONObject.toString(): java.lang.String
+org.openstreetmap.osmosis.osmbinary.Fileformat$Blob.getRaw(): com.google.protobuf.ByteString
+org.openstreetmap.osmosis.osmbinary.Fileformat$Blob.getRawSize(): int
+org.openstreetmap.osmosis.osmbinary.Fileformat$Blob.getZlibData(): com.google.protobuf.ByteString
+org.openstreetmap.osmosis.osmbinary.Fileformat$Blob.hasRaw(): boolean
+org.openstreetmap.osmosis.osmbinary.Fileformat$Blob.hasZlibData(): boolean
+org.openstreetmap.osmosis.osmbinary.Fileformat$BlobHeader.getDatasize(): int
+org.openstreetmap.osmosis.osmbinary.Fileformat$BlobHeader.getType(): java.lang.String
+org.openstreetmap.osmosis.osmbinary.Fileformat$BlobHeader.parseFrom(byte[]): org.openstreetmap.osmosis.osmbinary.Fileformat$BlobHeader
+org.openstreetmap.osmosis.osmbinary.Fileformat$Blob.parseFrom(byte[]): org.openstreetmap.osmosis.osmbinary.Fileformat$Blob
+org.openstreetmap.osmosis.osmbinary.Osmformat$DenseNodes.getIdList(): java.util.List
+org.openstreetmap.osmosis.osmbinary.Osmformat$DenseNodes.getKeysValsList(): java.util.List
+org.openstreetmap.osmosis.osmbinary.Osmformat$DenseNodes.getLatList(): java.util.List
+org.openstreetmap.osmosis.osmbinary.Osmformat$DenseNodes.getLonList(): java.util.List
+org.openstreetmap.osmosis.osmbinary.Osmformat$HeaderBlock.getRequiredFeaturesList(): com.google.protobuf.ProtocolStringList
+org.openstreetmap.osmosis.osmbinary.Osmformat$HeaderBlock.parseFrom(byte[]): org.openstreetmap.osmosis.osmbinary.Osmformat$HeaderBlock
+org.openstreetmap.osmosis.osmbinary.Osmformat$Node.getId(): long
+org.openstreetmap.osmosis.osmbinary.Osmformat$Node.getKeysList(): java.util.List
+org.openstreetmap.osmosis.osmbinary.Osmformat$Node.getLat(): long
+org.openstreetmap.osmosis.osmbinary.Osmformat$Node.getLon(): long
+org.openstreetmap.osmosis.osmbinary.Osmformat$Node.getValsList(): java.util.List
+org.openstreetmap.osmosis.osmbinary.Osmformat$PrimitiveBlock.getDateGranularity(): int
+org.openstreetmap.osmosis.osmbinary.Osmformat$PrimitiveBlock.getGranularity(): int
+org.openstreetmap.osmosis.osmbinary.Osmformat$PrimitiveBlock.getLatOffset(): long
+org.openstreetmap.osmosis.osmbinary.Osmformat$PrimitiveBlock.getLonOffset(): long
+org.openstreetmap.osmosis.osmbinary.Osmformat$PrimitiveBlock.getPrimitivegroupList(): java.util.List
+org.openstreetmap.osmosis.osmbinary.Osmformat$PrimitiveBlock.getStringtable(): org.openstreetmap.osmosis.osmbinary.Osmformat$StringTable
+org.openstreetmap.osmosis.osmbinary.Osmformat$PrimitiveBlock.parseFrom(byte[]): org.openstreetmap.osmosis.osmbinary.Osmformat$PrimitiveBlock
+org.openstreetmap.osmosis.osmbinary.Osmformat$PrimitiveGroup.getDense(): org.openstreetmap.osmosis.osmbinary.Osmformat$DenseNodes
+org.openstreetmap.osmosis.osmbinary.Osmformat$PrimitiveGroup.getNodesList(): java.util.List
+org.openstreetmap.osmosis.osmbinary.Osmformat$PrimitiveGroup.getRelationsList(): java.util.List
+org.openstreetmap.osmosis.osmbinary.Osmformat$PrimitiveGroup.getWaysList(): java.util.List
+org.openstreetmap.osmosis.osmbinary.Osmformat$Relation.getId(): long
+org.openstreetmap.osmosis.osmbinary.Osmformat$Relation.getKeysList(): java.util.List
+org.openstreetmap.osmosis.osmbinary.Osmformat$Relation.getMemidsList(): java.util.List
+org.openstreetmap.osmosis.osmbinary.Osmformat$Relation.getRolesSidList(): java.util.List
+org.openstreetmap.osmosis.osmbinary.Osmformat$Relation.getTypesList(): java.util.List
+org.openstreetmap.osmosis.osmbinary.Osmformat$Relation.getValsList(): java.util.List
+org.openstreetmap.osmosis.osmbinary.Osmformat$StringTable.getSCount(): int
+org.openstreetmap.osmosis.osmbinary.Osmformat$StringTable.getS(int): com.google.protobuf.ByteString
+org.openstreetmap.osmosis.osmbinary.Osmformat$Way.getId(): long
+org.openstreetmap.osmosis.osmbinary.Osmformat$Way.getKeysList(): java.util.List
+org.openstreetmap.osmosis.osmbinary.Osmformat$Way.getRefsList(): java.util.List
+org.openstreetmap.osmosis.osmbinary.Osmformat$Way.getValsList(): java.util.List
+org.slf4j.Logger.debug(java.lang.String): void
+org.slf4j.Logger.error(java.lang.String,java.lang.Throwable): void
+org.slf4j.Logger.error(java.lang.String): void
+org.slf4j.LoggerFactory.getLogger(java.lang.Class): org.slf4j.Logger
+org.slf4j.Logger.info(java.lang.String): void
+org.slf4j.Logger.isDebugEnabled(): boolean
+org.slf4j.Logger.warn(java.lang.String): void
+org.w3c.dom.Document.appendChild(org.w3c.dom.Node): org.w3c.dom.Node
+org.w3c.dom.Document.createElement(java.lang.String): org.w3c.dom.Element
+org.w3c.dom.Element.appendChild(org.w3c.dom.Node): org.w3c.dom.Node
+org.w3c.dom.Element.setAttribute(java.lang.String,java.lang.String): void
+org.w3c.dom.Element.setTextContent(java.lang.String): void

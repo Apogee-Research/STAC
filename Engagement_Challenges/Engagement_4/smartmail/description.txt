@@ -1,0 +1,58 @@
+Overview
+========
+SmartMail is an email application which allows users to send and receive messages from other 
+SmartMail users. The application provides a mailing list functionality. SmartMail mailing 
+lists are composed of public subscribers and a special subscriber known as an administrator. 
+The addresses of public subsribers is public information, but the addresses of administrators 
+are confidential information. Users can query the application for the subscribers of any 
+SmartMail mailing list. This will return the addresses of the public subscribers.
+
+
+Interactions
+============
+The SmartMail application accepts requests via HTTP. It accepts the following three requests:
+
+1) Send Message Request - Sends a message to one or more recipients.
+
+Request:
+	http://172.10.0.1:8988/email.cgi?from=*from*&to=*to*&subj=*subj*&content=*content*
+
+	*from*: The SmartMail address of the message's sender, of form user@smartmail.com.
+	*to*: List of recipient addresses and mailing lists, separated using semicolons.
+	*subj*: A plain text description of the message.
+	*content*:  The plain text content of the message.
+
+Expected Result: "OK"
+
+2) Get Mailing List Subscribers Request - Retrieves the list of public subscribers to a 
+					  specified mailing list.
+Request:
+	http://127.0.0.1:8988/address.cgi?list=*list*
+
+	*list*: The SmartMail address of the mailing list.
+
+Expected Result: Semicolon-separated list of public subscriber addresses
+
+3) Retrieve Message Request - Messages are maintained in a FIFO queue. This request pops a
+			      message off the queue and returns it
+Request:
+	http://server_address:8988/mbox.cgi?mbox=*user*
+
+	*mbox*: The address of the user for which a message should be retrieved.
+
+Expected Result: The subject and contents of a retrieved message.
+
+Examples of each of the three requests are in the "examples" directory
+
+
+Engagement Tools
+================
+The start script (startServer.sh) for the Smartmail server is located in the challenge_program
+directory
+
+
+Notes
+=====
+The SmartMail application sits on a common server. Users of the common server can see the size
+of SmartMail files but can neither view nor write to them. Users of the common server can install 
+and run programs to allow for automated monitoring of the size of SmartMail files.

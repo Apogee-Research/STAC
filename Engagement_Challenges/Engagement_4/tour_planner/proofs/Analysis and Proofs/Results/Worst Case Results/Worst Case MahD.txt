@@ -1,0 +1,13 @@
+1 Sigma
+Best Case:
+1 ['Boston', 'Haverhill', 'New Bedford', 'Revere', 'Worcester']
+
+Worst Case:
+219 ['Chicopee', 'Malden', 'Revere', 'Somerville', 'Waltham']
+-------------------
+0.1 Sigma
+Best Case:
+1 ['Boston', 'Chicopee', 'Lowell', 'Springfield', 'Worcester']
+
+Worst Case:
+21 ['Brockton', 'Chicopee', 'Newton', 'Peabody', 'Worcester']

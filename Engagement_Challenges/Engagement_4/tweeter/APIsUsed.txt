@@ -1,0 +1,860 @@
+Libraries
+---------
+
+Method Use
+----------
+
+com.fasterxml.jackson.databind.node.JsonNodeFactory(boolean)
+com.fasterxml.jackson.databind.node.JsonNodeFactory.objectNode(): com.fasterxml.jackson.databind.node.ObjectNode
+com.fasterxml.jackson.databind.node.ObjectNode.put(java.lang.String,java.lang.String): com.fasterxml.jackson.databind.node.ObjectNode
+ec.util.MersenneTwisterFast(int[])
+ec.util.MersenneTwisterFast(long)
+ec.util.MersenneTwisterFast.nextBoolean(): boolean
+ec.util.MersenneTwisterFast.nextBoolean(double): boolean
+ec.util.MersenneTwisterFast.nextBoolean(float): boolean
+ec.util.MersenneTwisterFast.nextByte(): byte
+ec.util.MersenneTwisterFast.nextBytes(byte[]): void
+ec.util.MersenneTwisterFast.nextDouble(): double
+ec.util.MersenneTwisterFast.nextFloat(): float
+ec.util.MersenneTwisterFast.nextGaussian(): double
+ec.util.MersenneTwisterFast.nextInt(): int
+ec.util.MersenneTwisterFast.nextInt(int): int
+ec.util.MersenneTwisterFast.nextLong(): long
+ec.util.MersenneTwisterFast.nextLong(long): long
+ec.util.MersenneTwisterFast.nextShort(): short
+ec.util.MersenneTwisterFast.setSeed(int[]): void
+ec.util.MersenneTwisterFast.setSeed(long): void
+[I.clone(): java.lang.Object
+java.awt.Color(int,int,int)
+java.awt.Dimension(int,int)
+java.awt.event.ActionEvent.getActionCommand(): java.lang.String
+java.awt.Graphics.drawImage(java.awt.Image,int,int,int,int,int,int,int,int,java.awt.image.ImageObserver): boolean
+java.awt.Graphics.drawString(java.lang.String,int,int): void
+java.awt.Graphics.fillRect(int,int,int,int): void
+java.awt.Graphics.setColor(java.awt.Color): void
+java.awt.GridLayout(int,int)
+java.awt.image.BufferedImage(int,int,int)
+java.awt.image.BufferedImage.setData(java.awt.image.Raster): void
+java.awt.image.DataBufferByte(byte[],int)
+java.awt.image.PixelInterleavedSampleModel(int,int,int,int,int,int[])
+java.awt.image.Raster.createRaster(java.awt.image.SampleModel,java.awt.image.DataBuffer,java.awt.Point): java.awt.image.Raster
+java.awt.Point(int,int)
+java.io.BufferedInputStream(java.io.InputStream)
+java.io.BufferedOutputStream(java.io.OutputStream)
+java.io.BufferedReader.close(): void
+java.io.BufferedReader(java.io.Reader)
+java.io.BufferedReader.readLine(): java.lang.String
+java.io.ByteArrayInputStream(byte[])
+java.io.ByteArrayInputStream(byte[],int,int)
+java.io.ByteArrayInputStream.close(): void
+java.io.ByteArrayOutputStream()
+java.io.ByteArrayOutputStream.close(): void
+java.io.ByteArrayOutputStream(int)
+java.io.ByteArrayOutputStream.toByteArray(): byte[]
+java.io.ByteArrayOutputStream.write(byte[],int,int): void
+java.io.ByteArrayOutputStream.write(int): void
+java.io.DataInputStream.readBoolean(): boolean
+java.io.DataInputStream.readDouble(): double
+java.io.DataInputStream.readInt(): int
+java.io.DataOutputStream.writeBoolean(boolean): void
+java.io.DataOutputStream.writeDouble(double): void
+java.io.DataOutputStream.writeInt(int): void
+java.io.File.canRead(): boolean
+java.io.File.equals(java.lang.Object): boolean
+java.io.File.exists(): boolean
+java.io.File.getAbsolutePath(): java.lang.String
+java.io.File.getCanonicalFile(): java.io.File
+java.io.File.getCanonicalPath(): java.lang.String
+java.io.File.getName(): java.lang.String
+java.io.File.getParentFile(): java.io.File
+java.io.File.getPath(): java.lang.String
+java.io.FileInputStream.close(): void
+java.io.FileInputStream(java.io.File)
+java.io.FileInputStream(java.lang.String)
+java.io.File.isDirectory(): boolean
+java.io.File(java.io.File,java.lang.String)
+java.io.File(java.lang.String)
+java.io.File.length(): long
+java.io.File.listFiles(): java.io.File[]
+java.io.File.mkdirs(): boolean
+java.io.FileNotFoundException.getLocalizedMessage(): java.lang.String
+java.io.FileNotFoundException(java.lang.String)
+java.io.FileOutputStream(java.io.File)
+java.io.FileOutputStream(java.lang.String)
+java.io.FilePermission(java.lang.String,java.lang.String)
+java.io.File.toURI(): java.net.URI
+java.io.FilterInputStream.close(): void
+java.io.FilterInputStream(java.io.InputStream)
+java.io.FilterOutputStream.close(): void
+java.io.FilterOutputStream(java.io.OutputStream)
+java.io.FilterOutputStream.write(byte[]): void
+java.io.InputStream()
+java.io.InputStream.available(): int
+java.io.InputStream.close(): void
+java.io.InputStream.read(byte[]): int
+java.io.InputStream.read(byte[],int,int): int
+java.io.InputStreamReader(java.io.InputStream)
+java.io.InputStream.read(): int
+java.io.IOException.getLocalizedMessage(): java.lang.String
+java.io.IOException.getMessage(): java.lang.String
+java.io.IOException(java.lang.String)
+java.io.IOException(java.lang.String,java.lang.Throwable)
+java.io.IOException(java.lang.Throwable)
+java.io.IOException.printStackTrace(java.io.PrintStream): void
+java.io.IOException.printStackTrace(): void
+java.io.IOException.toString(): java.lang.String
+java.io.ObjectInputStream.close(): void
+java.io.ObjectInputStream(java.io.InputStream)
+java.io.ObjectInputStream.readObject(): java.lang.Object
+java.io.ObjectInputStream.resolveClass(java.io.ObjectStreamClass): java.lang.Class
+java.io.ObjectOutputStream.close(): void
+java.io.ObjectOutputStream(java.io.OutputStream)
+java.io.ObjectOutputStream.writeObject(java.lang.Object): void
+java.io.ObjectStreamClass.getName(): java.lang.String
+java.io.OutputStream.close(): void
+java.io.OutputStream.flush(): void
+java.io.OutputStream.write(byte[],int,int): void
+java.io.OutputStream.write(byte[]): void
+java.io.OutputStream.write(int): void
+java.io.PrintStream.format(java.lang.String,java.lang.Object[]): java.io.PrintStream
+java.io.PrintStream.print(java.lang.String): void
+java.io.PrintStream.println(java.lang.String): void
+java.io.PrintStream.println(): void
+java.io.RandomAccessFile.close(): void
+java.io.RandomAccessFile(java.io.File,java.lang.String)
+java.io.RandomAccessFile.read(byte[],int,int): int
+java.io.RandomAccessFile.read(): int
+java.io.RandomAccessFile.seek(long): void
+java.lang.AssertionError()
+java.lang.AssertionError(java.lang.Object)
+java.lang.Boolean.booleanValue(): boolean
+java.lang.Boolean.equals(java.lang.Object): boolean
+java.lang.Boolean.getBoolean(java.lang.String): boolean
+java.lang.Boolean.valueOf(boolean): java.lang.Boolean
+java.lang.Character.digit(char,int): int
+java.lang.Character.toUpperCase(char): char
+java.lang.CharSequence.charAt(int): char
+java.lang.CharSequence.length(): int
+java.lang.CharSequence.subSequence(int,int): java.lang.CharSequence
+java.lang.CharSequence.toString(): java.lang.String
+java.lang.Class.desiredAssertionStatus(): boolean
+java.lang.Class.forName(java.lang.String,boolean,java.lang.ClassLoader): java.lang.Class
+java.lang.Class.forName(java.lang.String): java.lang.Class
+java.lang.Class.getClassLoader(): java.lang.ClassLoader
+java.lang.Class.getConstructor(java.lang.Class[]): java.lang.reflect.Constructor
+java.lang.Class.getDeclaredMethod(java.lang.String,java.lang.Class[]): java.lang.reflect.Method
+java.lang.Class.getName(): java.lang.String
+java.lang.Class.getPackage(): java.lang.Package
+java.lang.Class.getProtectionDomain(): java.security.ProtectionDomain
+java.lang.Class.getResourceAsStream(java.lang.String): java.io.InputStream
+java.lang.Class.getSimpleName(): java.lang.String
+java.lang.ClassLoader.getParent(): java.lang.ClassLoader
+java.lang.ClassLoader.getResource(java.lang.String): java.net.URL
+java.lang.ClassLoader.getResources(java.lang.String): java.util.Enumeration
+java.lang.ClassLoader.getSystemResourceAsStream(java.lang.String): java.io.InputStream
+java.lang.ClassLoader.loadClass(java.lang.String): java.lang.Class
+java.lang.ClassLoader.registerAsParallelCapable(): boolean
+java.lang.Class.newInstance(): java.lang.Object
+java.lang.Double.parseDouble(java.lang.String): double
+java.lang.Double.toString(double): java.lang.String
+java.lang.Double.valueOf(double): java.lang.Double
+java.lang.Enum(java.lang.String,int)
+java.lang.Enum.valueOf(java.lang.Class,java.lang.String): java.lang.Enum
+java.lang.Exception.printStackTrace(): void
+java.lang.IllegalArgumentException.getLocalizedMessage(): java.lang.String
+java.lang.IllegalArgumentException(java.lang.String)
+java.lang.IllegalStateException(java.lang.String)
+java.lang.IllegalStateException(java.lang.Throwable)
+java.lang.IndexOutOfBoundsException()
+java.lang.Integer.decode(java.lang.String): java.lang.Integer
+java.lang.Integer.intValue(): int
+java.lang.Integer.parseInt(java.lang.String): int
+java.lang.Integer.toString(int): java.lang.String
+java.lang.Integer.valueOf(int): java.lang.Integer
+java.lang.InternalError()
+java.lang.InterruptedException.getLocalizedMessage(): java.lang.String
+java.lang.InterruptedException.printStackTrace(): void
+java.lang.Iterable.iterator(): java.util.Iterator
+java.lang.Long.decode(java.lang.String): java.lang.Long
+java.lang.Long.longValue(): long
+java.lang.Long.valueOf(long): java.lang.Long
+java.lang.management.ManagementFactory.getRuntimeMXBean(): java.lang.management.RuntimeMXBean
+java.lang.management.RuntimeMXBean.getInputArguments(): java.util.List
+java.lang.Math.abs(double): double
+java.lang.Math.abs(float): float
+java.lang.Math.atan2(double,double): double
+java.lang.Math.cos(double): double
+java.lang.Math.floor(double): double
+java.lang.Math.max(float,float): float
+java.lang.Math.max(int,int): int
+java.lang.Math.min(float,float): float
+java.lang.Math.min(int,int): int
+java.lang.Math.min(long,long): long
+java.lang.Math.pow(double,double): double
+java.lang.Math.sin(double): double
+java.lang.Math.sqrt(double): double
+java.lang.NullPointerException(java.lang.String)
+java.lang.Object()
+java.lang.Object.clone(): java.lang.Object
+java.lang.Object.delete(java.lang.Object): void
+java.lang.Object.equals(java.lang.Object): boolean
+java.lang.Object.findAll(): java.lang.Iterable
+java.lang.Object.findOne(java.io.Serializable): java.lang.Object
+java.lang.Object.getClass(): java.lang.Class
+java.lang.Object.notifyAll(): void
+java.lang.Object.save(java.lang.Object): java.lang.Object
+java.lang.Object.toString(): java.lang.String
+java.lang.Object.wait(long): void
+java.lang.Package.getName(): java.lang.String
+java.lang.reflect.Constructor.newInstance(java.lang.Object[]): java.lang.Object
+java.lang.reflect.Field.getAnnotation(java.lang.Class): java.lang.annotation.Annotation
+java.lang.reflect.Field.set(java.lang.Object,java.lang.Object): void
+java.lang.reflect.Method.invoke(java.lang.Object,java.lang.Object[]): java.lang.Object
+java.lang.reflect.Method.setAccessible(boolean): void
+java.lang.ref.SoftReference.get(): java.lang.Object
+java.lang.ref.SoftReference(java.lang.Object)
+java.lang.RuntimeException(java.lang.String)
+java.lang.RuntimeException(java.lang.Throwable)
+java.lang.StrictMath.log(double): double
+java.lang.StrictMath.sqrt(double): double
+java.lang.StringBuilder()
+java.lang.StringBuilder.append(boolean): java.lang.StringBuilder
+java.lang.StringBuilder.append(char): java.lang.StringBuilder
+java.lang.StringBuilder.append(double): java.lang.StringBuilder
+java.lang.StringBuilder.append(float): java.lang.StringBuilder
+java.lang.StringBuilder.append(int): java.lang.StringBuilder
+java.lang.StringBuilder.append(java.lang.Object): java.lang.StringBuilder
+java.lang.StringBuilder.append(java.lang.String): java.lang.StringBuilder
+java.lang.StringBuilder.append(long): java.lang.StringBuilder
+java.lang.StringBuilder.indexOf(java.lang.String,int): int
+java.lang.StringBuilder(int)
+java.lang.StringBuilder(java.lang.String)
+java.lang.StringBuilder.replace(int,int,java.lang.String): java.lang.StringBuilder
+java.lang.StringBuilder.substring(int,int): java.lang.String
+java.lang.StringBuilder.toString(): java.lang.String
+java.lang.String(byte[])
+java.lang.String(byte[],int,int,java.lang.String)
+java.lang.String(byte[],int,int,java.nio.charset.Charset)
+java.lang.String(byte[],java.lang.String)
+java.lang.String(byte[],java.nio.charset.Charset)
+java.lang.String(char[])
+java.lang.String.charAt(int): char
+java.lang.String.compareTo(java.lang.String): int
+java.lang.String.concat(java.lang.String): java.lang.String
+java.lang.String.contains(java.lang.CharSequence): boolean
+java.lang.String.endsWith(java.lang.String): boolean
+java.lang.String.equalsIgnoreCase(java.lang.String): boolean
+java.lang.String.equals(java.lang.Object): boolean
+java.lang.String.format(java.lang.String,java.lang.Object[]): java.lang.String
+java.lang.String.getBytes(): byte[]
+java.lang.String.getBytes(java.lang.String): byte[]
+java.lang.String.getBytes(java.nio.charset.Charset): byte[]
+java.lang.String.hashCode(): int
+java.lang.String.indexOf(int): int
+java.lang.String.indexOf(java.lang.String): int
+java.lang.String.indexOf(java.lang.String,int): int
+java.lang.String.lastIndexOf(int): int
+java.lang.String.lastIndexOf(java.lang.String): int
+java.lang.String.length(): int
+java.lang.String.replace(char,char): java.lang.String
+java.lang.String.replace(java.lang.CharSequence,java.lang.CharSequence): java.lang.String
+java.lang.String.split(java.lang.String): java.lang.String[]
+java.lang.String.startsWith(java.lang.String): boolean
+java.lang.String.subSequence(int,int): java.lang.CharSequence
+java.lang.String.substring(int,int): java.lang.String
+java.lang.String.substring(int): java.lang.String
+java.lang.String.toCharArray(): char[]
+java.lang.String.toLowerCase(): java.lang.String
+java.lang.String.toString(): java.lang.String
+java.lang.String.toUpperCase(): java.lang.String
+java.lang.String.trim(): java.lang.String
+java.lang.String.valueOf(char): java.lang.String
+java.lang.String.valueOf(long): java.lang.String
+java.lang.System.arraycopy(java.lang.Object,int,java.lang.Object,int,int): void
+java.lang.System.currentTimeMillis(): long
+java.lang.System.exit(int): void
+java.lang.System.getenv(java.lang.String): java.lang.String
+java.lang.System.getProperty(java.lang.String): java.lang.String
+java.lang.System.getProperty(java.lang.String,java.lang.String): java.lang.String
+java.lang.System.setProperty(java.lang.String,java.lang.String): java.lang.String
+java.lang.Thread.currentThread(): java.lang.Thread
+java.lang.Thread.getContextClassLoader(): java.lang.ClassLoader
+java.lang.Thread.getName(): java.lang.String
+java.lang.Thread.getUncaughtExceptionHandler(): java.lang.Thread$UncaughtExceptionHandler
+java.lang.Thread.interrupt(): void
+java.lang.Thread.isAlive(): boolean
+java.lang.Thread.isInterrupted(): boolean
+java.lang.ThreadLocal()
+java.lang.ThreadLocal.get(): java.lang.Object
+java.lang.ThreadLocal.set(java.lang.Object): void
+java.lang.Thread.setContextClassLoader(java.lang.ClassLoader): void
+java.lang.Thread.setName(java.lang.String): void
+java.lang.Thread.start(): void
+java.lang.Thread$UncaughtExceptionHandler.uncaughtException(java.lang.Thread,java.lang.Throwable): void
+java.lang.UnsupportedOperationException()
+java.lang.UnsupportedOperationException(java.lang.String)
+java.math.BigInteger.toString(int): java.lang.String
+java.net.HttpURLConnection.disconnect(): void
+java.net.HttpURLConnection.getResponseCode(): int
+java.net.HttpURLConnection.setRequestMethod(java.lang.String): void
+java.net.JarURLConnection.getContent(): java.lang.Object
+java.net.JarURLConnection.getJarFile(): java.util.jar.JarFile
+java.net.JarURLConnection.getManifest(): java.util.jar.Manifest
+java.net.JarURLConnection(java.net.URL)
+java.net.MalformedURLException(java.lang.String)
+java.net.URI.getPath(): java.lang.String
+java.net.URI.getSchemeSpecificPart(): java.lang.String
+java.net.URI.toURL(): java.net.URL
+java.net.URLClassLoader.definePackage(java.lang.String,java.util.jar.Manifest,java.net.URL): java.lang.Package
+java.net.URLClassLoader.findClass(java.lang.String): java.lang.Class
+java.net.URLClassLoader.findLoadedClass(java.lang.String): java.lang.Class
+java.net.URLClassLoader.findResource(java.lang.String): java.net.URL
+java.net.URLClassLoader.findResources(java.lang.String): java.util.Enumeration
+java.net.URLClassLoader.getClassLoadingLock(java.lang.String): java.lang.Object
+java.net.URLClassLoader.getPackage(java.lang.String): java.lang.Package
+java.net.URLClassLoader.getURLs(): java.net.URL[]
+java.net.URLClassLoader(java.net.URL[],java.lang.ClassLoader)
+java.net.URLClassLoader.loadClass(java.lang.String,boolean): java.lang.Class
+java.net.URLClassLoader.resolveClass(java.lang.Class): void
+java.net.URLConnection.getContentLength(): int
+java.net.URLConnection.getInputStream(): java.io.InputStream
+java.net.URLConnection.guessContentTypeFromName(java.lang.String): java.lang.String
+java.net.URLConnection.setUseCaches(boolean): void
+java.net.URLDecoder.decode(java.lang.String,java.lang.String): java.lang.String
+java.net.URLEncoder.encode(java.lang.String,java.lang.String): java.lang.String
+java.net.URL.equals(java.lang.Object): boolean
+java.net.URL.getContent(): java.lang.Object
+java.net.URL.getFile(): java.lang.String
+java.net.URL.getPath(): java.lang.String
+java.net.URL(java.lang.String)
+java.net.URL(java.lang.String,java.lang.String,int,java.lang.String,java.net.URLStreamHandler)
+java.net.URL(java.net.URL,java.lang.String)
+java.net.URL.openConnection(): java.net.URLConnection
+java.net.URL.openStream(): java.io.InputStream
+java.net.URL.setURLStreamHandlerFactory(java.net.URLStreamHandlerFactory): void
+java.net.URLStreamHandler()
+java.net.URL.toString(): java.lang.String
+java.net.URL.toURI(): java.net.URI
+java.nio.ByteBuffer.get(byte[],int,int): java.nio.ByteBuffer
+java.nio.ByteBuffer.hasRemaining(): boolean
+java.nio.ByteBuffer.put(byte[]): java.nio.ByteBuffer
+java.nio.ByteBuffer.remaining(): int
+java.nio.CharBuffer.put(char): java.nio.CharBuffer
+java.nio.charset.Charset.forName(java.lang.String): java.nio.charset.Charset
+java.security.AccessController.doPrivileged(java.security.PrivilegedAction): java.lang.Object
+java.security.AccessController.doPrivileged(java.security.PrivilegedExceptionAction,java.security.AccessControlContext): java.lang.Object
+java.security.AccessController.getContext(): java.security.AccessControlContext
+java.security.CodeSource.getLocation(): java.net.URL
+java.security.InvalidKeyException.toString(): java.lang.String
+java.security.MessageDigest.digest(): byte[]
+java.security.MessageDigest.getInstance(java.lang.String): java.security.MessageDigest
+java.security.MessageDigest.update(byte[],int,int): void
+java.security.MessageDigest.update(byte[]): void
+java.security.NoSuchAlgorithmException.getLocalizedMessage(): java.lang.String
+java.security.NoSuchAlgorithmException.printStackTrace(java.io.PrintStream): void
+java.security.NoSuchAlgorithmException.toString(): java.lang.String
+java.security.ProtectionDomain.getCodeSource(): java.security.CodeSource
+java.security.SecureRandom()
+java.security.SecureRandom.nextInt(int): int
+java.util.ArrayList()
+java.util.ArrayList.add(java.lang.Object): boolean
+java.util.ArrayList.get(int): java.lang.Object
+java.util.ArrayList(int)
+java.util.ArrayList.iterator(): java.util.Iterator
+java.util.ArrayList(java.util.Collection)
+java.util.ArrayList.remove(java.lang.Object): boolean
+java.util.ArrayList.size(): int
+java.util.Arrays.asList(java.lang.Object[]): java.util.List
+java.util.Arrays.binarySearch(int[],int,int,int): int
+java.util.Arrays.copyOf(java.lang.Object[],int): java.lang.Object[]
+java.util.Arrays.sort(java.lang.Object[],java.util.Comparator): void
+java.util.BitSet.get(int): boolean
+java.util.BitSet(int)
+java.util.BitSet.set(int,boolean): void
+java.util.BitSet.size(): int
+java.util.Calendar.getTimeInMillis(): long
+java.util.Collection.iterator(): java.util.Iterator
+java.util.Collections.addAll(java.util.Collection,java.lang.Object[]): boolean
+java.util.Collections.emptyList(): java.util.List
+java.util.Collections.enumeration(java.util.Collection): java.util.Enumeration
+java.util.Collections.list(java.util.Enumeration): java.util.ArrayList
+java.util.Collections.synchronizedMap(java.util.Map): java.util.Map
+java.util.Collections.unmodifiableCollection(java.util.Collection): java.util.Collection
+java.util.Collections.unmodifiableList(java.util.List): java.util.List
+java.util.Collections.unmodifiableMap(java.util.Map): java.util.Map
+java.util.concurrent.ConcurrentHashMap()
+java.util.concurrent.ConcurrentLinkedQueue()
+java.util.concurrent.ExecutionException.getLocalizedMessage(): java.lang.String
+java.util.concurrent.ExecutionException.printStackTrace(): void
+java.util.concurrent.Semaphore.acquire(int): void
+java.util.concurrent.Semaphore.acquire(): void
+java.util.concurrent.Semaphore(int)
+java.util.concurrent.Semaphore.release(int): void
+java.util.concurrent.Semaphore.release(): void
+java.util.Date()
+java.util.Deque.addFirst(java.lang.Object): void
+java.util.Deque.add(java.lang.Object): boolean
+java.util.Deque.isEmpty(): boolean
+java.util.Deque.peek(): java.lang.Object
+java.util.Deque.poll(): java.lang.Object
+java.util.Enumeration.hasMoreElements(): boolean
+java.util.Enumeration.nextElement(): java.lang.Object
+java.util.GregorianCalendar(int,int,int,int,int,int)
+java.util.HashMap()
+java.util.HashMap.clear(): void
+java.util.HashMap.containsKey(java.lang.Object): boolean
+java.util.HashMap.containsValue(java.lang.Object): boolean
+java.util.HashMap.entrySet(): java.util.Set
+java.util.HashMap.get(java.lang.Object): java.lang.Object
+java.util.HashMap.isEmpty(): boolean
+java.util.HashMap.keySet(): java.util.Set
+java.util.HashMap.putAll(java.util.Map): void
+java.util.HashMap.put(java.lang.Object,java.lang.Object): java.lang.Object
+java.util.HashMap.remove(java.lang.Object): java.lang.Object
+java.util.HashMap.size(): int
+java.util.HashMap.values(): java.util.Collection
+java.util.HashSet()
+java.util.HashSet.add(java.lang.Object): boolean
+java.util.HashSet.contains(java.lang.Object): boolean
+java.util.HashSet(int)
+java.util.HashSet(java.util.Collection)
+java.util.Iterator.hasNext(): boolean
+java.util.Iterator.next(): java.lang.Object
+java.util.jar.Attributes.getValue(java.lang.String): java.lang.String
+java.util.jar.JarEntry.getCertificates(): java.security.cert.Certificate[]
+java.util.jar.JarEntry.getCodeSigners(): java.security.CodeSigner[]
+java.util.jar.JarEntry.getComment(): java.lang.String
+java.util.jar.JarEntry.getName(): java.lang.String
+java.util.jar.JarEntry.getSize(): long
+java.util.jar.JarEntry.isDirectory(): boolean
+java.util.jar.JarEntry(java.lang.String)
+java.util.jar.JarEntry.setComment(java.lang.String): void
+java.util.jar.JarEntry.setCompressedSize(long): void
+java.util.jar.JarEntry.setCrc(long): void
+java.util.jar.JarEntry.setExtra(byte[]): void
+java.util.jar.JarEntry.setMethod(int): void
+java.util.jar.JarEntry.setSize(long): void
+java.util.jar.JarEntry.setTime(long): void
+java.util.jar.JarFile(java.io.File)
+java.util.jar.JarInputStream.closeEntry(): void
+java.util.jar.JarInputStream.close(): void
+java.util.jar.JarInputStream.getNextJarEntry(): java.util.jar.JarEntry
+java.util.jar.JarInputStream(java.io.InputStream)
+java.util.jar.Manifest.getAttributes(java.lang.String): java.util.jar.Attributes
+java.util.jar.Manifest.getMainAttributes(): java.util.jar.Attributes
+java.util.jar.Manifest(java.io.InputStream)
+java.util.LinkedHashMap(int,float,boolean)
+java.util.LinkedList()
+java.util.LinkedList.addFirst(java.lang.Object): void
+java.util.LinkedList.add(java.lang.Object): boolean
+java.util.LinkedList.isEmpty(): boolean
+java.util.LinkedList.iterator(): java.util.Iterator
+java.util.LinkedList.removeFirst(): java.lang.Object
+java.util.LinkedList.remove(java.lang.Object): boolean
+java.util.LinkedList.size(): int
+java.util.List.addAll(int,java.util.Collection): boolean
+java.util.List.addAll(java.util.Collection): boolean
+java.util.List.add(int,java.lang.Object): void
+java.util.List.add(java.lang.Object): boolean
+java.util.List.get(int): java.lang.Object
+java.util.List.isEmpty(): boolean
+java.util.List.iterator(): java.util.Iterator
+java.util.List.remove(int): java.lang.Object
+java.util.List.size(): int
+java.util.List.toArray(java.lang.Object[]): java.lang.Object[]
+java.util.logging.Logger.fine(java.lang.String): void
+java.util.logging.Logger.getLogger(java.lang.String): java.util.logging.Logger
+java.util.logging.Logger.info(java.lang.String): void
+java.util.logging.Logger.log(java.util.logging.Level,java.lang.String,java.lang.Throwable): void
+java.util.logging.Logger.setLevel(java.util.logging.Level): void
+java.util.Map.clear(): void
+java.util.Map.containsKey(java.lang.Object): boolean
+java.util.Map$Entry.getKey(): java.lang.Object
+java.util.Map$Entry.getValue(): java.lang.Object
+java.util.Map.entrySet(): java.util.Set
+java.util.Map.get(java.lang.Object): java.lang.Object
+java.util.Map.put(java.lang.Object,java.lang.Object): java.lang.Object
+java.util.Map.remove(java.lang.Object): java.lang.Object
+java.util.Map.replace(java.lang.Object,java.lang.Object): java.lang.Object
+java.util.Map.size(): int
+java.util.Map.values(): java.util.Collection
+java.util.NoSuchElementException()
+java.util.Properties()
+java.util.Properties.containsKey(java.lang.Object): boolean
+java.util.Properties.getProperty(java.lang.String): java.lang.String
+java.util.Properties.load(java.io.InputStream): void
+java.util.Properties.propertyNames(): java.util.Enumeration
+java.util.Properties.put(java.lang.Object,java.lang.Object): java.lang.Object
+java.util.Queue.add(java.lang.Object): boolean
+java.util.Queue.poll(): java.lang.Object
+java.util.Random(long)
+java.util.Random.nextDouble(): double
+java.util.Random.nextInt(): int
+java.util.Random.nextInt(int): int
+java.util.regex.Matcher.end(): int
+java.util.regex.Matcher.find(): boolean
+java.util.regex.Matcher.group(): java.lang.String
+java.util.regex.Matcher.start(): int
+java.util.regex.Pattern.compile(java.lang.String): java.util.regex.Pattern
+java.util.regex.Pattern.matcher(java.lang.CharSequence): java.util.regex.Matcher
+java.util.Set.addAll(java.util.Collection): boolean
+java.util.Set.add(java.lang.Object): boolean
+java.util.Set.contains(java.lang.Object): boolean
+java.util.Set.iterator(): java.util.Iterator
+java.util.Set.remove(java.lang.Object): boolean
+java.util.Set.size(): int
+java.util.Set.toArray(java.lang.Object[]): java.lang.Object[]
+java.util.TreeMap.descendingKeySet(): java.util.NavigableSet
+java.util.TreeMap(java.util.Map)
+java.util.TreeSet()
+java.util.UUID.randomUUID(): java.util.UUID
+java.util.zip.GZIPInputStream.close(): void
+java.util.zip.GZIPInputStream(java.io.InputStream)
+java.util.zip.GZIPInputStream.read(byte[]): int
+java.util.zip.GZIPOutputStream.close(): void
+java.util.zip.GZIPOutputStream(java.io.OutputStream)
+java.util.zip.GZIPOutputStream.write(byte[],int,int): void
+java.util.zip.Inflater(boolean)
+java.util.zip.InflaterInputStream.available(): int
+java.util.zip.InflaterInputStream.fill(): void
+java.util.zip.InflaterInputStream(java.io.InputStream,java.util.zip.Inflater,int)
+java.util.zip.InflaterInputStream.read(byte[],int,int): int
+java.util.zip.Inflater.setInput(byte[],int,int): void
+java.util.zip.ZipEntry.getName(): java.lang.String
+javax.crypto.Mac.doFinal(): byte[]
+javax.crypto.Mac.doFinal(byte[]): byte[]
+javax.crypto.Mac.getInstance(java.lang.String): javax.crypto.Mac
+javax.crypto.Mac.init(java.security.Key): void
+javax.crypto.Mac.update(byte[],int,int): void
+javax.crypto.spec.SecretKeySpec(byte[],int,int,java.lang.String)
+javax.crypto.spec.SecretKeySpec(byte[],java.lang.String)
+javax.imageio.ImageIO.write(java.awt.image.RenderedImage,java.lang.String,java.io.File): boolean
+javax.imageio.ImageIO.write(java.awt.image.RenderedImage,java.lang.String,java.io.OutputStream): boolean
+javax.persistence.EntityManager.getEntityManagerFactory(): javax.persistence.EntityManagerFactory
+javax.servlet.http.HttpServletRequest.getRemoteAddr(): java.lang.String
+javax.servlet.http.HttpServletRequest.getSession(): javax.servlet.http.HttpSession
+javax.servlet.http.HttpServletResponse.sendError(int,java.lang.String): void
+javax.servlet.http.HttpServletResponse.sendRedirect(java.lang.String): void
+javax.servlet.http.HttpSession.invalidate(): void
+javax.swing.JApplet()
+javax.swing.JApplet.add(java.awt.Component,java.lang.Object): void
+javax.swing.JApplet.paint(java.awt.Graphics): void
+javax.swing.JApplet.repaint(): void
+javax.swing.JButton.addActionListener(java.awt.event.ActionListener): void
+javax.swing.JButton(java.lang.String)
+javax.swing.JButton.setActionCommand(java.lang.String): void
+javax.swing.JPanel()
+javax.swing.JPanel.add(java.awt.Component): java.awt.Component
+javax.swing.JPanel.getHeight(): int
+javax.swing.JPanel.getWidth(): int
+javax.swing.JPanel(java.awt.LayoutManager)
+javax.swing.JPanel.setPreferredSize(java.awt.Dimension): void
+javax.swing.JTextField()
+javax.swing.JTextField.addActionListener(java.awt.event.ActionListener): void
+javax.swing.JTextField.getText(): java.lang.String
+javax.swing.JTextField.setActionCommand(java.lang.String): void
+javax.swing.JTextField.setText(java.lang.String): void
+javax.swing.SwingWorker()
+javax.swing.SwingWorker.execute(): void
+javax.swing.SwingWorker.get(): java.lang.Object
+[Ljava.lang.String(): java.lang.Object
+[Lvash.AnimationMode(): java.lang.Object
+[Lvash.operation.Operation(): java.lang.Object
+org.joda.time.Duration.isShorterThan(org.joda.time.ReadableDuration): boolean
+org.joda.time.Duration(org.joda.time.ReadableInstant,org.joda.time.ReadableInstant)
+org.joda.time.Duration.standardDays(long): org.joda.time.Duration
+org.joda.time.Duration.standardHours(long): org.joda.time.Duration
+org.joda.time.Duration.standardMinutes(long): org.joda.time.Duration
+org.joda.time.Duration.toPeriod(): org.joda.time.Period
+org.joda.time.format.PeriodFormatterBuilder()
+org.joda.time.format.PeriodFormatterBuilder.appendDays(): org.joda.time.format.PeriodFormatterBuilder
+org.joda.time.format.PeriodFormatterBuilder.appendHours(): org.joda.time.format.PeriodFormatterBuilder
+org.joda.time.format.PeriodFormatterBuilder.appendLiteral(java.lang.String): org.joda.time.format.PeriodFormatterBuilder
+org.joda.time.format.PeriodFormatterBuilder.appendMinutes(): org.joda.time.format.PeriodFormatterBuilder
+org.joda.time.format.PeriodFormatterBuilder.appendMonths(): org.joda.time.format.PeriodFormatterBuilder
+org.joda.time.format.PeriodFormatterBuilder.appendSeconds(): org.joda.time.format.PeriodFormatterBuilder
+org.joda.time.format.PeriodFormatterBuilder.appendWeeks(): org.joda.time.format.PeriodFormatterBuilder
+org.joda.time.format.PeriodFormatterBuilder.appendYears(): org.joda.time.format.PeriodFormatterBuilder
+org.joda.time.format.PeriodFormatterBuilder.toFormatter(): org.joda.time.format.PeriodFormatter
+org.joda.time.format.PeriodFormatter.print(org.joda.time.ReadablePeriod): java.lang.String
+org.joda.time.Instant()
+org.joda.time.Instant(java.lang.Object)
+org.springframework.boot.SpringApplication.run(java.lang.Object,java.lang.String[]): org.springframework.context.ConfigurableApplicationContext
+org.springframework.jdbc.core.JdbcTemplate(javax.sql.DataSource)
+org.springframework.orm.jpa.EntityManagerFactoryInfo.getDataSource(): javax.sql.DataSource
+org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder.jdbcAuthentication(): org.springframework.security.config.annotation.authentication.configurers.provisioning.JdbcUserDetailsManagerConfigurer
+org.springframework.security.config.annotation.authentication.configurers.provisioning.JdbcUserDetailsManagerConfigurer.authoritiesByUsernameQuery(java.lang.String): org.springframework.security.config.annotation.authentication.configurers.provisioning.JdbcUserDetailsManagerConfigurer
+org.springframework.security.config.annotation.authentication.configurers.provisioning.JdbcUserDetailsManagerConfigurer.dataSource(javax.sql.DataSource): org.springframework.security.config.annotation.authentication.configurers.provisioning.JdbcUserDetailsManagerConfigurer
+org.springframework.security.config.annotation.authentication.configurers.provisioning.JdbcUserDetailsManagerConfigurer.passwordEncoder(org.springframework.security.crypto.password.PasswordEncoder): org.springframework.security.config.annotation.authentication.configurers.userdetails.AbstractDaoAuthenticationConfigurer
+org.springframework.security.config.annotation.authentication.configurers.provisioning.JdbcUserDetailsManagerConfigurer.rolePrefix(java.lang.String): org.springframework.security.config.annotation.authentication.configurers.provisioning.JdbcUserDetailsManagerConfigurer
+org.springframework.security.config.annotation.authentication.configurers.provisioning.JdbcUserDetailsManagerConfigurer.usersByUsernameQuery(java.lang.String): org.springframework.security.config.annotation.authentication.configurers.provisioning.JdbcUserDetailsManagerConfigurer
+org.springframework.security.config.annotation.web.builders.HttpSecurity.authorizeRequests(): org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer$ExpressionInterceptUrlRegistry
+org.springframework.security.config.annotation.web.builders.HttpSecurity.formLogin(): org.springframework.security.config.annotation.web.configurers.FormLoginConfigurer
+org.springframework.security.config.annotation.web.builders.HttpSecurity.logout(): org.springframework.security.config.annotation.web.configurers.LogoutConfigurer
+org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter()
+org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer$AuthorizedUrl.authenticated(): org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer$ExpressionInterceptUrlRegistry
+org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer$AuthorizedUrl.permitAll(): org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer$ExpressionInterceptUrlRegistry
+org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer$ExpressionInterceptUrlRegistry.and(): org.springframework.security.config.annotation.web.HttpSecurityBuilder
+org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer$ExpressionInterceptUrlRegistry.antMatchers(java.lang.String[]): java.lang.Object
+org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer$ExpressionInterceptUrlRegistry.anyRequest(): java.lang.Object
+org.springframework.security.config.annotation.web.configurers.FormLoginConfigurer.and(): org.springframework.security.config.annotation.SecurityBuilder
+org.springframework.security.config.annotation.web.configurers.FormLoginConfigurer.loginPage(java.lang.String): org.springframework.security.config.annotation.web.configurers.FormLoginConfigurer
+org.springframework.security.config.annotation.web.configurers.FormLoginConfigurer.permitAll(): org.springframework.security.config.annotation.web.configurers.AbstractAuthenticationFilterConfigurer
+org.springframework.security.config.annotation.web.configurers.LogoutConfigurer.permitAll(): org.springframework.security.config.annotation.web.configurers.LogoutConfigurer
+org.springframework.security.core.Authentication.getName(): java.lang.String
+org.springframework.security.core.Authentication.isAuthenticated(): boolean
+org.springframework.security.core.context.SecurityContext.getAuthentication(): org.springframework.security.core.Authentication
+org.springframework.security.core.context.SecurityContextHolder.getContext(): org.springframework.security.core.context.SecurityContext
+org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder()
+org.springframework.security.crypto.password.PasswordEncoder.encode(java.lang.CharSequence): java.lang.String
+org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration.addResourceLocations(java.lang.String[]): org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration
+org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry.addResourceHandler(java.lang.String[]): org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration
+org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter()
+org.springframework.web.servlet.ModelAndView.addObject(java.lang.String,java.lang.Object): org.springframework.web.servlet.ModelAndView
+org.springframework.web.servlet.ModelAndView(java.lang.String)
+org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer()
+util.Base64$1(java.io.InputStream,java.lang.ClassLoader)
+util.Base64.access$000(int): byte[]
+util.Base64.access$100(byte[],int,int,byte[],int,int): byte[]
+util.Base64.access$200(byte[],int,byte[],int,int): int
+util.Base64.access$300(byte[],byte[],int,int): byte[]
+util.Base64.decode4to3(byte[],int,byte[],int,int): int
+util.Base64.decode(byte[],int,int,int): byte[]
+util.Base64.decodeFromFile(java.lang.String): byte[]
+util.Base64.decode(java.lang.String): byte[]
+util.Base64.decode(java.lang.String,int): byte[]
+util.Base64.decodeToObject(java.lang.String,int,java.lang.ClassLoader): java.lang.Object
+util.Base64.encode3to4(byte[],byte[],int,int): byte[]
+util.Base64.encode3to4(byte[],int,int,byte[],int,int): byte[]
+util.Base64.encodeBytes(byte[],int,int,int): java.lang.String
+util.Base64.encodeBytesToBytes(byte[],int,int,int): byte[]
+util.Base64.encodeFromFile(java.lang.String): java.lang.String
+util.Base64.encodeObject(java.io.Serializable,int): java.lang.String
+util.Base64.getAlphabet(int): byte[]
+util.Base64.getDecodabet(int): byte[]
+util.Base64$InputStream.close(): void
+util.Base64$InputStream(java.io.InputStream,int)
+util.Base64$InputStream.read(byte[],int,int): int
+util.Base64$InputStream.read(): int
+util.Base64$OutputStream.close(): void
+util.Base64$OutputStream.flushBase64(): void
+util.Base64$OutputStream(java.io.OutputStream,int)
+util.Base64$OutputStream.write(byte[]): void
+util.Base64$OutputStream.write(int): void
+vash.AnimationMode(java.lang.String,int)
+vash.AnimationMode.parseAnimationMode(java.lang.String): vash.AnimationMode
+vash.ImageParameters.getH(): int
+vash.ImageParameters.getPlane(): vash.Plane
+vash.ImageParameters.getW(): int
+vash.ImageParameters.getXValues(): float[]
+vash.ImageParameters.getYValues(): float[]
+vash.ImageParameters.getYXPlane(): vash.Plane
+vash.ImageParameters(int,int)
+vash.ImageParameters.putPlane(vash.Plane): void
+vash.ImageParameters.putYXPlane(vash.Plane): void
+vash.InvalidAlgorithmException(java.lang.String)
+vash.InvalidSaltException(java.lang.String)
+vash.operation.Absolute.clone(): vash.operation.OperationNode
+vash.operation.Absolute(vash.operation.OperationNode)
+vash.operation.Absolute(vash.Seed)
+vash.operation.Add.clone(): vash.operation.OperationNode
+vash.operation.Add(vash.operation.OperationNode,vash.operation.OperationNode)
+vash.operation.Add(vash.Seed)
+vash.operation.BinaryOperationNode()
+vash.operation.BinaryOperationNode(vash.operation.OperationNode,vash.operation.OperationNode)
+vash.operation.BinaryOperationNode(vash.Seed)
+vash.operation.ColorNode()
+vash.operation.ColorNode.accumulateValues(java.util.ArrayList): void
+vash.operation.ColorNode.compute(vash.ImageParameters,boolean): byte[]
+vash.operation.ColorNode.setChild(int,vash.operation.OperationNode): void
+vash.operation.ColorNode.show(java.io.OutputStream,int): void
+vash.operation.Const.clone(): vash.operation.Const
+vash.operation.Const(vash.Seed)
+vash.operation.Const(vash.value.Bounded)
+vash.operation.Divide.clone(): vash.operation.OperationNode
+vash.operation.Divide(vash.operation.OperationNode,vash.operation.OperationNode)
+vash.operation.Divide(vash.Seed)
+vash.operation.Ellipse.clone(): vash.operation.OperationNode
+vash.operation.Ellipse.distance(float,float,float,float): float
+vash.operation.Ellipse(vash.Seed)
+vash.operation.Ellipse(vash.value.Position,vash.value.Position,vash.value.Bounded)
+vash.operation.Exponentiate.clone(): vash.operation.OperationNode
+vash.operation.Exponentiate(vash.operation.OperationNode,vash.operation.OperationNode)
+vash.operation.Exponentiate(vash.Seed)
+vash.operation.Flower.clone(): vash.operation.OperationNode
+vash.operation.Flower(vash.Seed)
+vash.operation.Flower(vash.value.Position,vash.value.Wrapping,vash.value.Bounded,vash.value.Bounded,int)
+vash.operation.Invert.clone(): vash.operation.OperationNode
+vash.operation.Invert(vash.operation.OperationNode)
+vash.operation.Invert(vash.Seed)
+vash.operation.LinearGradient1.clampf(float,float,float): float
+vash.operation.LinearGradient1.clone(): vash.operation.OperationNode
+vash.operation.LinearGradient1.distance(float,float,float,float): float
+vash.operation.LinearGradient1(vash.Seed)
+vash.operation.LinearGradient1(vash.value.Position,vash.value.Position)
+vash.operation.LinearGradient.clone(): vash.operation.LinearGradient
+vash.operation.LinearGradient._computeInternal(vash.Plane,float,float,float[],float[],float,float,float,float): void
+vash.operation.LinearGradient.distance(float,float,float,float): float
+vash.operation.LinearGradient(vash.Seed)
+vash.operation.LinearGradient(vash.value.Position,vash.value.Position)
+vash.operation.Modulus.clone(): vash.operation.OperationNode
+vash.operation.Modulus(vash.operation.OperationNode,vash.operation.OperationNode)
+vash.operation.Modulus(vash.Seed)
+vash.operation.Multiply.clone(): vash.operation.OperationNode
+vash.operation.Multiply(vash.operation.OperationNode,vash.operation.OperationNode)
+vash.operation.Multiply(vash.Seed)
+vash.operation.OperationFactory.createLinearGradient(vash.Seed): vash.operation.OperationNode
+vash.operation.OperationFactory.createNode(vash.operation.Operation,vash.Seed): vash.operation.OperationNode
+vash.operation.Operation(java.lang.String,int)
+vash.operation.OperationNode.accumulateValues(java.util.ArrayList): void
+vash.operation.OperationNode.clampf(float,float,float): float
+vash.operation.OperationNode.clone(): vash.operation.OperationNode
+vash.operation.OperationNode.compute(vash.ImageParameters): vash.Plane
+vash.operation.OperationNode.getChildCount(): int
+vash.operation.OperationNode(int,int)
+vash.operation.OperationNode.setChild(int,vash.operation.OperationNode): void
+vash.operation.OperationNode.show(java.io.OutputStream,int): void
+vash.operation.Operation.ordinal(): int
+vash.operation.Operation.toString(): java.lang.String
+vash.operation.Operation.values(): vash.operation.Operation[]
+vash.operation.OpParams(double)
+vash.operation.OpParams(double,double)
+vash.operation.PolarTheta.clone(): vash.operation.OperationNode
+vash.operation.PolarTheta(vash.Seed)
+vash.operation.PolarTheta(vash.value.Position,vash.value.Wrapping)
+vash.operation.RadialGradient.clone(): vash.operation.OperationNode
+vash.operation.RadialGradient(vash.Seed)
+vash.operation.RadialGradient(vash.value.Position,vash.value.Bounded,vash.value.Bounded,vash.value.Wrapping)
+vash.operation.RGB_Space.clone(): vash.operation.OperationNode
+vash.operation.RGB_Space(vash.operation.OperationNode,vash.operation.OperationNode,vash.operation.OperationNode)
+vash.operation.RGB_Space(vash.Seed)
+vash.operation.Sinc.clone(): vash.operation.OperationNode
+vash.operation.Sinc(vash.Seed)
+vash.operation.Sinc(vash.value.Bounded,vash.value.Wrapping,vash.operation.OperationNode)
+vash.operation.Sine.clone(): vash.operation.OperationNode
+vash.operation.Sine(vash.Seed)
+vash.operation.Sine(vash.value.Bounded,vash.value.Wrapping,vash.operation.OperationNode)
+vash.operation.Spiral.clone(): vash.operation.OperationNode
+vash.operation.Spiral(vash.Seed)
+vash.operation.Spiral(vash.value.Position,vash.value.Bounded,vash.value.Bounded,vash.operation.OperationNode)
+vash.operation.Squircle.clampf(float,float,float): float
+vash.operation.Squircle.clone(): vash.operation.OperationNode
+vash.operation.Squircle(vash.Seed)
+vash.operation.Squircle(vash.value.Position,vash.value.Bounded,vash.value.Bounded,vash.operation.OperationNode,vash.operation.OperationNode)
+vash.operation.UnaryOperationNode()
+vash.operation.UnaryOperationNode(vash.operation.OperationNode)
+vash.operation.UnaryOperationNode(vash.Seed)
+vash.Options.getAlgorithm(): java.lang.String
+vash.Options.getData(): java.io.InputStream
+vash.Options.getHeight(): int
+vash.Options.getOutputFormat(): java.lang.String
+vash.Options.getOutput(): java.lang.String
+vash.Options.getSalt(): byte[]
+vash.Options.getWidth(): int
+vash.Options.hasADebugFlagSet(java.lang.String[]): boolean
+vash.Options.hasDebugFlag(java.lang.String): boolean
+vash.Options(java.lang.String[])
+vash.Options.loadSaltFromFile(java.lang.String,java.io.InputStream): byte[]
+vash.Options.normalizeSaltBytes(java.lang.String,byte[]): byte[]
+vash.Options.setAlgorithm(java.lang.String): void
+vash.Options.setAnimationMode(vash.AnimationMode): void
+vash.Options.setData(byte[]): void
+vash.Options.setData(java.lang.String): void
+vash.Options.setDebugFlag(java.lang.String): void
+vash.Options.setDuration(double): void
+vash.Options.setFrameRate(double): void
+vash.Options.setHeight(int): void
+vash.Options.setOutputFormat(java.lang.String): void
+vash.Options.setOutput(java.lang.String): void
+vash.Options.setPeriod(double): void
+vash.Options.setSalt(java.lang.String,byte[]): void
+vash.Options.setSalt(java.lang.String,java.lang.String): void
+vash.Options.setWidth(int): void
+vash.Options.showKnownAlgorithms(): void
+vash.Output.dataToImage(byte[],int,int): java.awt.image.BufferedImage
+vash.Output.generateImage(): java.awt.image.BufferedImage
+vash.Output.generate(): void
+vash.OutputParameters.getFilename(): java.lang.String
+vash.OutputParameters.getHeight(): int
+vash.OutputParameters.getImageType(): java.lang.String
+vash.OutputParameters.getWidth(): int
+vash.OutputParameters.guessFormat(java.lang.String): java.lang.String
+vash.OutputParameters(java.lang.String,java.lang.String,int,int)
+vash.OutputParameters(vash.Options)
+vash.Output(vash.OutputParameters,vash.Tree)
+vash.Output.writeImageFile(java.lang.String,java.lang.String,java.awt.image.BufferedImage): void
+vash.Plane(int,int)
+vash.Seed.getAlgorithm(): java.lang.String
+vash.Seed.getBitsOfEntropyUsed(): int
+vash.Seed.getSaltSizeForAlgorithm(java.lang.String): int
+vash.Seed.init1(byte[],java.io.InputStream): void
+vash.Seed.init1Fast(byte[],java.io.InputStream): void
+vash.Seed.initHVAC(byte[],java.io.InputStream): void
+vash.Seed(java.lang.String,byte[],java.io.InputStream)
+vash.Seed.nextDouble(): double
+vash.Seed.nextInt(int): int
+vash.SeedProviderHVAC(byte[],java.io.InputStream)
+vash.SeedProviderHVAC.nextBits(int): long
+vash.SeedProviderHVAC.nextDouble(): double
+vash.SeedProviderHVAC.nextInt(int): int
+vash.SeedProviderHVAC.nextT(): void
+vash.Tree.__buildChannelMask(vash.Seed,int): boolean[]
+vash.Tree._buildNode(int,vash.Tree$ChannelParameters): vash.operation.OperationNode
+vash.Tree._buildToplevel(): vash.operation.ColorNode
+vash.Tree$ChannelParameters.addExclude(vash.operation.Operation): void
+vash.Tree$ChannelParameters.isExcluded(vash.operation.Operation): boolean
+vash.Tree$ChannelParameters(vash.Tree)
+vash.Tree.concat(java.lang.Object[],java.lang.Object[]): java.lang.Object[]
+vash.Tree.generateCurrentFrame(): byte[]
+vash.Tree.__getChannelExclusionCount(vash.Seed,double): int
+vash.TreeParameters.createInstanceOrDie(vash.Options): vash.TreeParameters
+vash.TreeParameters.getMaxDepth(): short
+vash.TreeParameters.getMinDepth(): short
+vash.TreeParameters.getOperationChannels(vash.operation.Operation): double
+vash.TreeParameters.getOperationRatio(vash.operation.Operation): double
+vash.TreeParameters.getSeed(): vash.Seed
+vash.TreeParameters(java.lang.String,byte[],java.io.InputStream)
+vash.TreeParameters(vash.Options)
+vash.Tree._selectAndCreateOp(int,vash.Tree$ChannelParameters): vash.operation.OperationNode
+vash.Tree._selectOp(int,vash.Tree$ChannelParameters): vash.operation.Operation
+vash.Tree.setGenerationParameters(vash.ImageParameters): void
+vash.Tree._setupChannelExclusions(vash.Tree$ChannelParameters[]): void
+vash.Tree.show(java.lang.String): void
+vash.Tree(vash.TreeParameters)
+vash.value.Bounded.clone(): vash.value.Bounded
+vash.value.Bounded(double,double,double)
+vash.value.Bounded.getV(): double
+vash.value.Bounded.hasBounds(double,double): boolean
+vash.value.Bounded(vash.Seed,double,double)
+vash.value.Position.clone(): vash.value.Position
+vash.value.Position$Coord(vash.value.Position,double,double)
+vash.value.Position(double,double)
+vash.value.Position.getX(): double
+vash.value.Position.getY(): double
+vash.value.Position.hasBounds(double,double,double,double): boolean
+vash.value.Position(vash.Seed)
+vash.value.Value.setTime(double,double): void
+vash.value.Wrapping.clone(): vash.value.Wrapping
+vash.value.Wrapping(double,double,double)
+vash.value.Wrapping.getV(): double
+vash.value.Wrapping.hasBounds(double,double): boolean
+vash.value.Wrapping(vash.Seed,double,double)
+vash.VashApplet$1.doInBackground(): java.awt.image.BufferedImage
+vash.VashApplet$1.get(): java.lang.Object
+vash.VashApplet$1(vash.VashApplet,java.lang.String)
+vash.VashApplet.access$000(vash.VashApplet): vash.VashImagePanel
+vash.VashApplet.add(java.awt.Component,java.lang.Object): void
+vash.VashApplet.buildLayout(): void
+vash.VashApplet.hash(java.lang.String): void
+vash.VashApplet.repaint(): void
+vash.Vash.createImage(java.lang.String,byte[],byte[],int,int): java.awt.image.BufferedImage
+vash.Vash.createImage(java.lang.String,byte[],int,int): java.awt.image.BufferedImage
+vash.Vash.createImage(java.lang.String,byte[],java.io.InputStream,int,int): java.awt.image.BufferedImage
+vash.Vash.createImage(java.lang.String,java.io.InputStream,int,int): java.awt.image.BufferedImage
+vash.Vash.createImage(java.lang.String,java.lang.String,int,int): java.awt.image.BufferedImage
+vash.VashImagePanel()
+vash.VashImagePanel.getHeight(): int
+vash.VashImagePanel.getWidth(): int
+vash.VashImagePanel.setImage(java.awt.image.BufferedImage): void
+vash.VashImagePanel.setLabel(java.lang.String): void
+vash.VashImagePanel.setPreferredSize(java.awt.Dimension): void

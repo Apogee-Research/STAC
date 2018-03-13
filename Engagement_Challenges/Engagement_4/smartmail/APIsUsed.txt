@@ -1,0 +1,277 @@
+Libraries
+---------
+apache-mime4j-core-0.7.2.jar
+apache-mime4j-dom-0.7.2.jar
+guava-10.0.1.jar
+hadoop-common-0.21.0.jar
+hadoop-mapred-0.21.0.jar
+jetty-all-9.2.17.v20160517.jar
+servlet-api-3.1.jar
+
+Method Use
+----------
+com.google.common.collect.ArrayListMultimap.create(): com.google.common.collect.ArrayListMultimap
+com.google.common.collect.Multimap.clear(): void
+com.google.common.collect.Multimap.get(java.lang.Object): java.util.Collection
+com.google.common.collect.Multimap.keys(): com.google.common.collect.Multiset
+com.google.common.collect.Multimap.keySet(): java.util.Set
+com.google.common.collect.Multimap.put(java.lang.Object,java.lang.Object): boolean
+com.google.common.collect.Multimaps.synchronizedMultimap(com.google.common.collect.Multimap): com.google.common.collect.Multimap
+com.google.common.collect.Multimap.values(): java.util.Collection
+java.io.BufferedReader.close(): void
+java.io.BufferedReader.<init>(java.io.Reader): void
+java.io.BufferedReader(java.io.Reader)
+java.io.BufferedReader.readLine(): java.lang.String
+java.io.BufferedWriter.close(): void
+java.io.BufferedWriter.flush(): void
+java.io.BufferedWriter.<init>(java.io.Writer): void
+java.io.BufferedWriter(java.io.Writer)
+java.io.BufferedWriter.write(java.lang.String): void
+java.io.ByteArrayInputStream(byte[])
+java.io.ByteArrayInputStream.close(): void
+java.io.ByteArrayInputStream.<init>(byte[]): void
+java.io.ByteArrayInputStream.read(byte[]): int
+java.io.ByteArrayOutputStream()
+java.io.ByteArrayOutputStream.<init>(): void
+java.io.ByteArrayOutputStream.toByteArray(): byte[]
+java.io.File.createNewFile(): boolean
+java.io.File.delete(): boolean
+java.io.File.exists(): boolean
+java.io.File.getAbsoluteFile(): java.io.File
+java.io.File.getAbsolutePath(): java.lang.String
+java.io.File.getName(): java.lang.String
+java.io.File.getPath(): java.lang.String
+java.io.File.<init>(java.lang.String,java.lang.String): void
+java.io.File.<init>(java.lang.String): void
+java.io.FileInputStream.close(): void
+java.io.FileInputStream.<init>(java.io.File): void
+java.io.FileInputStream.<init>(java.lang.String): void
+java.io.FileInputStream(java.io.File)
+java.io.FileInputStream(java.lang.String)
+java.io.FileInputStream.read(byte[]): int
+java.io.File(java.lang.String)
+java.io.File(java.lang.String,java.lang.String)
+java.io.File.length(): long
+java.io.File.listFiles(): java.io.File[]
+java.io.File.list(): java.lang.String[]
+java.io.File.mkdir(): boolean
+java.io.FileOutputStream.close(): void
+java.io.FileOutputStream.<init>(java.io.File): void
+java.io.FileOutputStream.<init>(java.lang.String): void
+java.io.FileOutputStream(java.io.File)
+java.io.FileOutputStream(java.lang.String)
+java.io.FileOutputStream.write(byte[]): void
+java.io.FileReader.<init>(java.io.File): void
+java.io.FileReader(java.io.File)
+java.io.FileWriter.<init>(java.io.File): void
+java.io.FileWriter(java.io.File)
+java.io.InputStream.available(): int
+java.io.InputStream.close(): void
+java.io.InputStreamReader.<init>(java.io.InputStream,java.lang.String): void
+java.io.InputStreamReader(java.io.InputStream,java.lang.String)
+java.io.IOException.fillInStackTrace(): java.lang.Throwable
+java.io.IOException.printStackTrace(): void
+java.io.ObjectInputStream.<init>(java.io.InputStream): void
+java.io.ObjectInputStream(java.io.InputStream)
+java.io.ObjectInputStream.readObject(): java.lang.Object
+java.io.ObjectOutputStream.close(): void
+java.io.ObjectOutputStream.flush(): void
+java.io.ObjectOutputStream.<init>(java.io.OutputStream): void
+java.io.ObjectOutputStream(java.io.OutputStream)
+java.io.ObjectOutputStream.writeObject(java.lang.Object): void
+java.io.PrintStream.println(int): void
+java.io.PrintStream.println(java.lang.String): void
+java.io.PrintWriter.close(): void
+java.io.PrintWriter.<init>(java.io.File): void
+java.io.PrintWriter(java.io.File)
+java.io.PrintWriter.print(java.lang.String): void
+java.io.PrintWriter.println(java.lang.Object): void
+java.io.PrintWriter.println(java.lang.String): void
+java.io.Reader.read(char[],int,int): int
+java.lang.Boolean.booleanValue(): boolean
+java.lang.Boolean.valueOf(java.lang.String): java.lang.Boolean
+java.lang.Class.getName(): java.lang.String
+java.lang.ClassLoader.getResourceAsStream(java.lang.String): java.io.InputStream
+java.lang.Exception()
+java.lang.Exception.<init>(java.lang.String,java.lang.Throwable): void
+java.lang.Exception.<init>(java.lang.String): void
+java.lang.Exception.<init>(): void
+java.lang.Exception(java.lang.String)
+java.lang.Exception(java.lang.String,java.lang.Throwable)
+java.lang.IllegalArgumentException.<init>(java.lang.String): void
+java.lang.IllegalArgumentException(java.lang.String)
+java.lang.Integer.intValue(): int
+java.lang.Integer.valueOf(int): java.lang.Integer
+java.lang.Integer.valueOf(java.lang.String): java.lang.Integer
+java.lang.Long.toString(long): java.lang.String
+java.lang.Math.min(int,int): int
+java.lang.Object()
+java.lang.Object.<init>(): void
+java.lang.Object.toString(): java.lang.String
+java.lang.StringBuffer()
+java.lang.StringBuffer.append(java.lang.String): java.lang.StringBuffer
+java.lang.StringBuffer.<init>(): void
+java.lang.StringBuffer.toString(): java.lang.String
+java.lang.StringBuilder()
+java.lang.StringBuilder.append(boolean): java.lang.StringBuilder
+java.lang.StringBuilder.append(char[],int,int): java.lang.StringBuilder
+java.lang.StringBuilder.append(int): java.lang.StringBuilder
+java.lang.StringBuilder.append(java.lang.Object): java.lang.StringBuilder
+java.lang.StringBuilder.append(java.lang.String): java.lang.StringBuilder
+java.lang.StringBuilder.append(long): java.lang.StringBuilder
+java.lang.StringBuilder.<init>(): void
+java.lang.StringBuilder.toString(): java.lang.String
+java.lang.String(byte[])
+java.lang.String(byte[],java.lang.String)
+java.lang.String.charAt(int): char
+java.lang.String.compareTo(java.lang.String): int
+java.lang.String.endsWith(java.lang.String): boolean
+java.lang.String.equalsIgnoreCase(java.lang.String): boolean
+java.lang.String.equals(java.lang.Object): boolean
+java.lang.String.getBytes(): byte[]
+java.lang.String.getBytes(java.lang.String): byte[]
+java.lang.String.hashCode(): int
+java.lang.String.indexOf(int): int
+java.lang.String.<init>(byte[],java.lang.String): void
+java.lang.String.<init>(byte[]): void
+java.lang.String.lastIndexOf(int): int
+java.lang.String.length(): int
+java.lang.String.matches(java.lang.String): boolean
+java.lang.String.split(java.lang.String): java.lang.String[]
+java.lang.String.startsWith(java.lang.String): boolean
+java.lang.String.substring(int,int): java.lang.String
+java.lang.String.substring(int): java.lang.String
+java.lang.String.toLowerCase(): java.lang.String
+java.lang.String.trim(): java.lang.String
+java.lang.System.currentTimeMillis(): long
+java.lang.System.exit(int): void
+java.lang.Thread.currentThread(): java.lang.Thread
+java.lang.Thread.getContextClassLoader(): java.lang.ClassLoader
+java.lang.Throwable.addSuppressed(java.lang.Throwable): void
+java.math.BigInteger.<init>(int,java.util.Random): void
+java.math.BigInteger(int,java.util.Random)
+java.math.BigInteger.toString(int): java.lang.String
+java.net.URLEncoder.encode(java.lang.String,java.lang.String): java.lang.String
+java.net.URL.getPath(): java.lang.String
+java.net.URL.<init>(java.lang.String): void
+java.net.URL(java.lang.String)
+java.nio.file.Files.write(java.nio.file.Path,byte[],java.nio.file.OpenOption[]): java.nio.file.Path
+java.nio.file.Paths.get(java.lang.String,java.lang.String[]): java.nio.file.Path
+java.security.SecureRandom()
+java.security.SecureRandom.<init>(): void
+java.util.ArrayList()
+java.util.ArrayList.<init>(java.util.Collection): void
+java.util.ArrayList.<init>(): void
+java.util.ArrayList.iterator(): java.util.Iterator
+java.util.ArrayList(java.util.Collection)
+java.util.Arrays.asList(java.lang.Object[]): java.util.List
+java.util.Collection.iterator(): java.util.Iterator
+java.util.Date.<init>(long): void
+java.util.Date(long)
+java.util.Date.toString(): java.lang.String
+java.util.HashMap()
+java.util.HashMap.<init>(): void
+java.util.HashMap.put(java.lang.Object,java.lang.Object): java.lang.Object
+java.util.Iterator.hasNext(): boolean
+java.util.Iterator.next(): java.lang.Object
+java.util.List.addAll(java.util.Collection): boolean
+java.util.List.add(java.lang.Object): boolean
+java.util.List.contains(java.lang.Object): boolean
+java.util.List.get(int): java.lang.Object
+java.util.List.iterator(): java.util.Iterator
+java.util.List.size(): int
+java.util.List.subList(int,int): java.util.List
+java.util.List.toArray(java.lang.Object[]): java.lang.Object[]
+java.util.logging.Logger.getLogger(java.lang.String): java.util.logging.Logger
+java.util.logging.Logger.log(java.util.logging.Level,java.lang.String,java.lang.Throwable): void
+java.util.Map.get(java.lang.Object): java.lang.Object
+java.util.Map.keySet(): java.util.Set
+java.util.Map.put(java.lang.Object,java.lang.Object): java.lang.Object
+java.util.Set.add(java.lang.Object): boolean
+java.util.Set.iterator(): java.util.Iterator
+java.util.TreeSet()
+java.util.TreeSet.<init>(java.util.Collection): void
+java.util.TreeSet.<init>(): void
+java.util.TreeSet.iterator(): java.util.Iterator
+java.util.TreeSet(java.util.Collection)
+java.util.Vector()
+java.util.Vector.add(java.lang.Object): boolean
+java.util.Vector.firstElement(): java.lang.Object
+java.util.Vector.<init>(): void
+java.util.Vector.remove(java.lang.Object): boolean
+javax.crypto.Cipher.doFinal(byte[]): byte[]
+javax.crypto.Cipher.getInstance(java.lang.String): javax.crypto.Cipher
+javax.crypto.Cipher.init(int,java.security.Key): void
+javax.crypto.spec.SecretKeySpec(byte[],java.lang.String)
+javax.crypto.spec.SecretKeySpec.<init>(byte[],java.lang.String): void
+javax.servlet.http.HttpServlet()
+javax.servlet.http.HttpServlet.<init>(): void
+javax.servlet.http.HttpServletRequest.getParameter(java.lang.String): java.lang.String
+javax.servlet.http.HttpServletRequest.getRequestURL(): java.lang.StringBuffer
+javax.servlet.http.HttpServletResponse.getWriter(): java.io.PrintWriter
+org.apache.hadoop.io.BytesWritable(byte[])
+org.apache.hadoop.io.BytesWritable.getBytes(): byte[]
+org.apache.hadoop.io.BytesWritable.<init>(byte[]): void
+org.apache.hadoop.io.IntWritable()
+org.apache.hadoop.io.IntWritable.<init>(): void
+org.apache.hadoop.io.IntWritable.set(int): void
+org.apache.hadoop.io.IOUtils.closeStream(java.io.Closeable): void
+org.apache.hadoop.io.Text()
+org.apache.hadoop.io.Text.<init>(java.lang.String): void
+org.apache.hadoop.io.Text.<init>(): void
+org.apache.hadoop.io.Text(java.lang.String)
+org.apache.hadoop.io.Text.set(java.lang.String): void
+org.apache.hadoop.io.Text.toString(): java.lang.String
+org.apache.hadoop.mapred.Mapper.map(java.lang.Object,java.lang.Object,org.apache.hadoop.mapred.OutputCollector,org.apache.hadoop.mapred.Reporter): void
+org.apache.hadoop.mapred.MapReduceBase()
+org.apache.hadoop.mapred.MapReduceBase.<init>(): void
+org.apache.hadoop.mapred.OutputCollector.collect(java.lang.Object,java.lang.Object): void
+org.apache.hadoop.mapred.Reducer.reduce(java.lang.Object,java.util.Iterator,org.apache.hadoop.mapred.OutputCollector,org.apache.hadoop.mapred.Reporter): void
+org.apache.james.mime4j.codec.DecoderUtil.decodeEncodedWords(java.lang.String,org.apache.james.mime4j.codec.DecodeMonitor): java.lang.String
+org.apache.james.mime4j.dom.address.AddressList.iterator(): java.util.Iterator
+org.apache.james.mime4j.dom.address.Mailbox.getAddress(): java.lang.String
+org.apache.james.mime4j.dom.address.Mailbox.getName(): java.lang.String
+org.apache.james.mime4j.dom.address.MailboxList.iterator(): java.util.Iterator
+org.apache.james.mime4j.dom.address.Mailbox.toString(): java.lang.String
+org.apache.james.mime4j.dom.BinaryBody.writeTo(java.io.OutputStream): void
+org.apache.james.mime4j.dom.Entity.getBody(): org.apache.james.mime4j.dom.Body
+org.apache.james.mime4j.dom.Entity.isMultipart(): boolean
+org.apache.james.mime4j.dom.field.AddressListField.getAddressList(): org.apache.james.mime4j.dom.address.AddressList
+org.apache.james.mime4j.dom.field.AddressListField.isValidField(): boolean
+org.apache.james.mime4j.dom.field.DateTimeField.getDate(): java.util.Date
+org.apache.james.mime4j.dom.field.MailboxListField.getMailboxList(): org.apache.james.mime4j.dom.address.MailboxList
+org.apache.james.mime4j.dom.field.MailboxListField.isValidField(): boolean
+org.apache.james.mime4j.dom.FieldParser.parse(org.apache.james.mime4j.stream.Field,org.apache.james.mime4j.codec.DecodeMonitor): org.apache.james.mime4j.dom.field.ParsedField
+org.apache.james.mime4j.dom.field.UnstructuredField.getValue(): java.lang.String
+org.apache.james.mime4j.dom.Header.getField(java.lang.String): org.apache.james.mime4j.stream.Field
+org.apache.james.mime4j.dom.Message.getBody(): org.apache.james.mime4j.dom.Body
+org.apache.james.mime4j.dom.Message.getHeader(): org.apache.james.mime4j.dom.Header
+org.apache.james.mime4j.dom.Message.isMultipart(): boolean
+org.apache.james.mime4j.dom.Multipart.getBodyParts(): java.util.List
+org.apache.james.mime4j.dom.TextBody.writeTo(java.io.OutputStream): void
+org.apache.james.mime4j.field.LenientFieldParser.getParser(): org.apache.james.mime4j.dom.FieldParser
+org.apache.james.mime4j.message.BodyPart.getBody(): org.apache.james.mime4j.dom.Body
+org.apache.james.mime4j.message.BodyPart.getFilename(): java.lang.String
+org.apache.james.mime4j.parser.MimeStreamParser.<init>(org.apache.james.mime4j.stream.MimeConfig): void
+org.apache.james.mime4j.parser.MimeStreamParser(org.apache.james.mime4j.stream.MimeConfig)
+org.apache.james.mime4j.parser.MimeStreamParser.parse(java.io.InputStream): void
+org.apache.james.mime4j.parser.MimeStreamParser.setContentHandler(org.apache.james.mime4j.parser.ContentHandler): void
+org.apache.james.mime4j.stream.BodyDescriptor.getCharset(): java.lang.String
+org.apache.james.mime4j.stream.BodyDescriptor.getContentLength(): long
+org.apache.james.mime4j.stream.BodyDescriptor.getMimeType(): java.lang.String
+org.apache.james.mime4j.stream.Field.getBody(): java.lang.String
+org.apache.james.mime4j.stream.Field.getName(): java.lang.String
+org.apache.james.mime4j.stream.Field.getRaw(): org.apache.james.mime4j.util.ByteSequence
+org.apache.james.mime4j.stream.MimeConfig()
+org.apache.james.mime4j.stream.MimeConfig.<init>(): void
+org.eclipse.jetty.server.Server.<init>(int): void
+org.eclipse.jetty.server.Server(int)
+org.eclipse.jetty.server.Server.join(): void
+org.eclipse.jetty.server.Server.setHandler(org.eclipse.jetty.server.Handler): void
+org.eclipse.jetty.server.Server.start(): void
+org.eclipse.jetty.servlet.ServletContextHandler.addServlet(org.eclipse.jetty.servlet.ServletHolder,java.lang.String): void
+org.eclipse.jetty.servlet.ServletContextHandler.<init>(int): void
+org.eclipse.jetty.servlet.ServletContextHandler(int)
+org.eclipse.jetty.servlet.ServletContextHandler.setContextPath(java.lang.String): void
+org.eclipse.jetty.servlet.ServletHolder.<init>(javax.servlet.Servlet): void
+org.eclipse.jetty.servlet.ServletHolder(javax.servlet.Servlet)

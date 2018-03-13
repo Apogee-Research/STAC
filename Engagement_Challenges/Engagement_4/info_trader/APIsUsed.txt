@@ -1,0 +1,346 @@
+Libraries
+---------
+jetty-all-9.2.17.v20160517.jar
+jetty-all-9.3.9.v20160517-uber.jar
+servlet-api-3.1.jar
+
+Method Use
+----------
+java.io.BufferedInputStream.close(): void
+java.io.BufferedInputStream.<init>(java.io.InputStream): void
+java.io.BufferedInputStream(java.io.InputStream)
+java.io.BufferedInputStream.mark(int): void
+java.io.BufferedInputStream.read(byte[]): int
+java.io.BufferedInputStream.reset(): void
+java.io.BufferedReader.close(): void
+java.io.BufferedReader.<init>(java.io.Reader): void
+java.io.BufferedReader(java.io.Reader)
+java.io.BufferedReader.readLine(): java.lang.String
+java.io.ByteArrayInputStream(byte[])
+java.io.ByteArrayInputStream.<init>(byte[]): void
+java.io.File.createNewFile(): boolean
+java.io.File.delete(): boolean
+java.io.File.exists(): boolean
+java.io.File.getAbsoluteFile(): java.io.File
+java.io.File.getAbsolutePath(): java.lang.String
+java.io.File.getCanonicalFile(): java.io.File
+java.io.File.getName(): java.lang.String
+java.io.File.getParentFile(): java.io.File
+java.io.File.getParent(): java.lang.String
+java.io.File.getPath(): java.lang.String
+java.io.File.<init>(java.io.File,java.lang.String): void
+java.io.File.<init>(java.lang.String,java.lang.String): void
+java.io.File.<init>(java.lang.String): void
+java.io.FileInputStream.close(): void
+java.io.FileInputStream.<init>(java.lang.String): void
+java.io.FileInputStream(java.io.File)
+java.io.File.isDirectory(): boolean
+java.io.File(java.io.File,java.lang.String)
+java.io.File(java.lang.String)
+java.io.File(java.lang.String,java.lang.String)
+java.io.File.listFiles(): java.io.File[]
+java.io.File.listFiles(java.io.FileFilter): java.io.File[]
+java.io.File.list(): java.lang.String[]
+java.io.File.mkdir(): boolean
+java.io.File.mkdirs(): boolean
+java.io.FileOutputStream.<init>(java.io.File): void
+java.io.FileOutputStream(java.io.File)
+java.io.FileReader.<init>(java.lang.String): void
+java.io.FileReader(java.io.File)
+java.io.FileReader(java.lang.String)
+java.io.InputStream()
+java.io.InputStream.<init>(): void
+java.io.InputStream.read(byte[]): int
+java.io.InputStream.read(byte[],int,int): int
+java.io.InputStreamReader.close(): void
+java.io.InputStreamReader.<init>(java.io.InputStream,java.lang.String): void
+java.io.InputStreamReader(java.io.InputStream,java.lang.String)
+java.io.InputStreamReader.read(): int
+java.io.InputStream.read(): int
+java.io.IOException.getMessage(): java.lang.String
+java.io.IOException.<init>(java.lang.String): void
+java.io.IOException(java.lang.String)
+java.io.OutputStream()
+java.io.OutputStream.close(): void
+java.io.OutputStream.flush(): void
+java.io.OutputStream.<init>(): void
+java.io.OutputStream.write(byte[],int,int): void
+java.io.OutputStream.write(byte[]): void
+java.io.OutputStream.write(int): void
+java.io.OutputStreamWriter.close(): void
+java.io.OutputStreamWriter.flush(): void
+java.io.OutputStreamWriter.<init>(java.io.OutputStream,java.nio.charset.Charset): void
+java.io.OutputStreamWriter(java.io.OutputStream,java.nio.charset.Charset)
+java.io.OutputStreamWriter.write(java.lang.String): void
+java.io.PrintStream.println(java.lang.Object): void
+java.io.PrintStream.println(java.lang.String): void
+java.io.PrintWriter.close(): void
+java.io.PrintWriter.<init>(java.io.File): void
+java.io.PrintWriter(java.io.File)
+java.io.PrintWriter.print(java.lang.Object): void
+java.io.PrintWriter.print(java.lang.String): void
+java.io.PrintWriter.println(java.lang.String): void
+java.lang.Boolean.valueOf(boolean): java.lang.Boolean
+java.lang.Character.charValue(): char
+java.lang.Character.forDigit(int,int): char
+java.lang.Character.getNumericValue(char): int
+java.lang.Character.isDigit(char): boolean
+java.lang.Character.isWhitespace(char): boolean
+java.lang.Character.toString(char): java.lang.String
+java.lang.Character.valueOf(char): java.lang.Character
+java.lang.Class.getField(java.lang.String): java.lang.reflect.Field
+java.lang.Class.getMethod(java.lang.String,java.lang.Class[]): java.lang.reflect.Method
+java.lang.Class.getName(): java.lang.String
+java.lang.Class.getSimpleName(): java.lang.String
+java.lang.Enum.<init>(java.lang.String,int): void
+java.lang.Enum(java.lang.String,int)
+java.lang.Enum.valueOf(java.lang.Class,java.lang.String): java.lang.Enum
+java.lang.Exception()
+java.lang.Exception.<init>(java.lang.String,java.lang.Throwable): void
+java.lang.Exception.<init>(java.lang.String): void
+java.lang.Exception.<init>(java.lang.Throwable): void
+java.lang.Exception.<init>(): void
+java.lang.Exception(java.lang.String)
+java.lang.Exception(java.lang.String,java.lang.Throwable)
+java.lang.Exception(java.lang.Throwable)
+java.lang.Exception.printStackTrace(): void
+java.lang.IllegalAccessException.getMessage(): java.lang.String
+java.lang.IllegalArgumentException.getMessage(): java.lang.String
+java.lang.IllegalArgumentException.<init>(java.lang.String): void
+java.lang.IllegalArgumentException(java.lang.String)
+java.lang.IllegalStateException.<init>(java.lang.String): void
+java.lang.IllegalStateException(java.lang.String)
+java.lang.Integer.parseInt(java.lang.String): int
+java.lang.Integer.toHexString(int): java.lang.String
+java.lang.Integer.toString(int): java.lang.String
+java.lang.Long.toString(long): java.lang.String
+java.lang.Object()
+java.lang.Object.getClass(): java.lang.Class
+java.lang.Object.<init>(): void
+java.lang.Object.toString(): java.lang.String
+java.lang.reflect.Field.set(java.lang.Object,java.lang.Object): void
+java.lang.reflect.InvocationTargetException.getMessage(): java.lang.String
+java.lang.reflect.Method.invoke(java.lang.Object,java.lang.Object[]): java.lang.Object
+java.lang.ref.WeakReference.get(): java.lang.Object
+java.lang.ref.WeakReference.<init>(java.lang.Object): void
+java.lang.ref.WeakReference(java.lang.Object)
+java.lang.RuntimeException()
+java.lang.RuntimeException.<init>(java.lang.String,java.lang.Throwable): void
+java.lang.RuntimeException.<init>(java.lang.String): void
+java.lang.RuntimeException.<init>(java.lang.Throwable): void
+java.lang.RuntimeException.<init>(): void
+java.lang.RuntimeException(java.lang.String)
+java.lang.RuntimeException(java.lang.String,java.lang.Throwable)
+java.lang.RuntimeException(java.lang.Throwable)
+java.lang.StringBuffer()
+java.lang.StringBuffer.append(java.lang.String): java.lang.StringBuffer
+java.lang.StringBuffer.<init>(): void
+java.lang.StringBuffer.toString(): java.lang.String
+java.lang.StringBuilder()
+java.lang.StringBuilder.append(boolean): java.lang.StringBuilder
+java.lang.StringBuilder.append(char): java.lang.StringBuilder
+java.lang.StringBuilder.append(int): java.lang.StringBuilder
+java.lang.StringBuilder.append(java.lang.Object): java.lang.StringBuilder
+java.lang.StringBuilder.append(java.lang.String): java.lang.StringBuilder
+java.lang.StringBuilder.append(long): java.lang.StringBuilder
+java.lang.StringBuilder.<init>(int): void
+java.lang.StringBuilder.<init>(java.lang.String): void
+java.lang.StringBuilder.<init>(): void
+java.lang.StringBuilder(int)
+java.lang.StringBuilder(java.lang.String)
+java.lang.StringBuilder.length(): int
+java.lang.StringBuilder.setLength(int): void
+java.lang.StringBuilder.toString(): java.lang.String
+java.lang.String(byte[],int,int)
+java.lang.String(char[])
+java.lang.String.charAt(int): char
+java.lang.String(char[],int,int)
+java.lang.String.contains(java.lang.CharSequence): boolean
+java.lang.String.endsWith(java.lang.String): boolean
+java.lang.String.equalsIgnoreCase(java.lang.String): boolean
+java.lang.String.equals(java.lang.Object): boolean
+java.lang.String.hashCode(): int
+java.lang.String.indexOf(int): int
+java.lang.String.indexOf(int,int): int
+java.lang.String.indexOf(java.lang.String): int
+java.lang.String.<init>(byte[],int,int): void
+java.lang.String.<init>(char[],int,int): void
+java.lang.String.<init>(char[]): void
+java.lang.String.intern(): java.lang.String
+java.lang.String.isEmpty(): boolean
+java.lang.String.lastIndexOf(int): int
+java.lang.String.length(): int
+java.lang.String.split(java.lang.String): java.lang.String[]
+java.lang.String.startsWith(java.lang.String): boolean
+java.lang.String.substring(int,int): java.lang.String
+java.lang.String.substring(int): java.lang.String
+java.lang.String.toCharArray(): char[]
+java.lang.String.toString(): java.lang.String
+java.lang.String.toUpperCase(): java.lang.String
+java.lang.String.toUpperCase(java.util.Locale): java.lang.String
+java.lang.String.trim(): java.lang.String
+java.lang.System.currentTimeMillis(): long
+java.lang.System.exit(int): void
+java.lang.System.getProperty(java.lang.String): java.lang.String
+java.lang.Throwable.addSuppressed(java.lang.Throwable): void
+java.lang.UnsupportedOperationException.<init>(java.lang.String): void
+java.lang.UnsupportedOperationException(java.lang.String)
+java.net.URLDecoder.decode(java.lang.String,java.lang.String): java.lang.String
+java.net.URLEncoder.encode(java.lang.String,java.lang.String): java.lang.String
+java.net.URL.getPath(): java.lang.String
+java.net.URL.<init>(java.lang.String): void
+java.net.URL(java.lang.String)
+java.nio.charset.Charset.forName(java.lang.String): java.nio.charset.Charset
+java.nio.charset.Charset.name(): java.lang.String
+java.text.SimpleDateFormat.format(java.util.Date): java.lang.String
+java.text.SimpleDateFormat.<init>(java.lang.String,java.util.Locale): void
+java.text.SimpleDateFormat.<init>(java.lang.String): void
+java.text.SimpleDateFormat(java.lang.String)
+java.text.SimpleDateFormat(java.lang.String,java.util.Locale)
+java.text.SimpleDateFormat.parse(java.lang.String): java.util.Date
+java.text.SimpleDateFormat.setTimeZone(java.util.TimeZone): void
+java.util.ArrayList()
+java.util.ArrayList.add(java.lang.Object): boolean
+java.util.ArrayList.contains(java.lang.Object): boolean
+java.util.ArrayList.<init>(int): void
+java.util.ArrayList.<init>(java.util.Collection): void
+java.util.ArrayList.<init>(): void
+java.util.ArrayList(int)
+java.util.ArrayList.iterator(): java.util.Iterator
+java.util.ArrayList(java.util.Collection)
+java.util.Arrays.asList(java.lang.Object[]): java.util.List
+java.util.Arrays.fill(char[],char): void
+java.util.Arrays.fill(java.lang.Object[],int,int,java.lang.Object): void
+java.util.Calendar.add(int,int): void
+java.util.Calendar.getInstance(): java.util.Calendar
+java.util.Calendar.getInstance(java.util.Locale): java.util.Calendar
+java.util.Calendar.get(int): int
+java.util.Calendar.getTime(): java.util.Date
+java.util.Calendar.set(int,int): void
+java.util.Calendar.setTime(java.util.Date): void
+java.util.Calendar.setTimeZone(java.util.TimeZone): void
+java.util.Collection.iterator(): java.util.Iterator
+java.util.concurrent.ConcurrentHashMap.<init>(int): void
+java.util.concurrent.ConcurrentHashMap(int)
+java.util.concurrent.ConcurrentMap.clear(): void
+java.util.concurrent.ConcurrentMap.get(java.lang.Object): java.lang.Object
+java.util.concurrent.ConcurrentMap.put(java.lang.Object,java.lang.Object): java.lang.Object
+java.util.concurrent.ConcurrentMap.remove(java.lang.Object): java.lang.Object
+java.util.concurrent.ConcurrentMap.size(): int
+java.util.concurrent.ConcurrentMap.values(): java.util.Collection
+java.util.concurrent.CopyOnWriteArrayList()
+java.util.concurrent.CopyOnWriteArrayList.<init>(): void
+java.util.concurrent.TimeUnit.convert(long,java.util.concurrent.TimeUnit): long
+java.util.Date.getTime(): long
+java.util.Enumeration.hasMoreElements(): boolean
+java.util.Enumeration.nextElement(): java.lang.Object
+java.util.EventObject.<init>(java.lang.Object): void
+java.util.EventObject(java.lang.Object)
+java.util.HashMap()
+java.util.HashMap.<init>(int): void
+java.util.HashMap.<init>(): void
+java.util.HashMap(int)
+java.util.HashSet()
+java.util.HashSet.add(java.lang.Object): boolean
+java.util.HashSet.contains(java.lang.Object): boolean
+java.util.HashSet.<init>(): void
+java.util.Iterator.hasNext(): boolean
+java.util.Iterator.next(): java.lang.Object
+java.util.List.addAll(java.util.Collection): boolean
+java.util.List.add(java.lang.Object): boolean
+java.util.List.clear(): void
+java.util.List.equals(java.lang.Object): boolean
+java.util.List.get(int): java.lang.Object
+java.util.List.hashCode(): int
+java.util.List.isEmpty(): boolean
+java.util.List.iterator(): java.util.Iterator
+java.util.List.remove(int): java.lang.Object
+java.util.List.remove(java.lang.Object): boolean
+java.util.List.set(int,java.lang.Object): java.lang.Object
+java.util.List.size(): int
+java.util.logging.Logger.getLogger(java.lang.String): java.util.logging.Logger
+java.util.logging.Logger.log(java.util.logging.Level,java.lang.String,java.lang.Object): void
+java.util.logging.Logger.log(java.util.logging.Level,java.lang.String,java.lang.Throwable): void
+java.util.Map.containsKey(java.lang.Object): boolean
+java.util.Map$Entry.getKey(): java.lang.Object
+java.util.Map$Entry.getValue(): java.lang.Object
+java.util.Map.entrySet(): java.util.Set
+java.util.Map.equals(java.lang.Object): boolean
+java.util.Map.get(java.lang.Object): java.lang.Object
+java.util.Map.hashCode(): int
+java.util.Map.isEmpty(): boolean
+java.util.Map.put(java.lang.Object,java.lang.Object): java.lang.Object
+java.util.Map.size(): int
+java.util.Map.values(): java.util.Collection
+java.util.Objects.hashCode(java.lang.Object): int
+java.util.regex.Matcher.matches(): boolean
+java.util.regex.Pattern.compile(java.lang.String): java.util.regex.Pattern
+java.util.regex.Pattern.matcher(java.lang.CharSequence): java.util.regex.Matcher
+java.util.Set.add(java.lang.Object): boolean
+java.util.Set.iterator(): java.util.Iterator
+java.util.TimeZone.getTimeZone(java.lang.String): java.util.TimeZone
+java.util.TreeSet()
+java.util.TreeSet.<init>(): void
+javax.servlet.http.HttpServlet()
+javax.servlet.http.HttpServlet.<init>(): void
+javax.servlet.http.HttpServletRequest.getInputStream(): javax.servlet.ServletInputStream
+javax.servlet.http.HttpServletRequest.getParameter(java.lang.String): java.lang.String
+javax.servlet.http.HttpServletRequest.getRequestURL(): java.lang.StringBuffer
+javax.servlet.http.HttpServletResponse.getWriter(): java.io.PrintWriter
+javax.swing.tree.DefaultMutableTreeNode.add(javax.swing.tree.MutableTreeNode): void
+javax.swing.tree.DefaultMutableTreeNode.breadthFirstEnumeration(): java.util.Enumeration
+javax.swing.tree.DefaultMutableTreeNode.children(): java.util.Enumeration
+javax.swing.tree.DefaultMutableTreeNode.getChildCount(): int
+javax.swing.tree.DefaultMutableTreeNode.getUserObject(): java.lang.Object
+javax.swing.tree.DefaultMutableTreeNode.<init>(java.lang.Object): void
+javax.swing.tree.DefaultMutableTreeNode(java.lang.Object)
+javax.swing.tree.DefaultMutableTreeNode.toString(): java.lang.String
+javax.swing.tree.DefaultTreeModel.<init>(javax.swing.tree.TreeNode): void
+javax.swing.tree.DefaultTreeModel(javax.swing.tree.TreeNode)
+javax.swing.tree.TreeModel.getRoot(): java.lang.Object
+javax.swing.tree.TreePath.getLastPathComponent(): java.lang.Object
+javax.swing.tree.TreePath.<init>(java.lang.Object): void
+javax.swing.tree.TreePath(java.lang.Object)
+javax.swing.tree.TreePath.pathByAddingChild(java.lang.Object): javax.swing.tree.TreePath
+javax.xml.parsers.DocumentBuilderFactory.newDocumentBuilder(): javax.xml.parsers.DocumentBuilder
+javax.xml.parsers.DocumentBuilderFactory.newInstance(): javax.xml.parsers.DocumentBuilderFactory
+javax.xml.parsers.DocumentBuilder.newDocument(): org.w3c.dom.Document
+javax.xml.transform.dom.DOMSource.<init>(org.w3c.dom.Node): void
+javax.xml.transform.dom.DOMSource(org.w3c.dom.Node)
+javax.xml.transform.stream.StreamResult.<init>(java.io.File): void
+javax.xml.transform.stream.StreamResult(java.io.File)
+javax.xml.transform.TransformerFactory.newInstance(): javax.xml.transform.TransformerFactory
+javax.xml.transform.TransformerFactory.newTransformer(): javax.xml.transform.Transformer
+javax.xml.transform.Transformer.setOutputProperty(java.lang.String,java.lang.String): void
+javax.xml.transform.Transformer.transform(javax.xml.transform.Source,javax.xml.transform.Result): void
+org.eclipse.jetty.server.Server.<init>(int): void
+org.eclipse.jetty.server.Server(int)
+org.eclipse.jetty.server.Server.join(): void
+org.eclipse.jetty.server.Server.setHandler(org.eclipse.jetty.server.Handler): void
+org.eclipse.jetty.server.Server.start(): void
+org.eclipse.jetty.servlet.ServletContextHandler.addServlet(org.eclipse.jetty.servlet.ServletHolder,java.lang.String): void
+org.eclipse.jetty.servlet.ServletContextHandler.<init>(int): void
+org.eclipse.jetty.servlet.ServletContextHandler(int)
+org.eclipse.jetty.servlet.ServletContextHandler.setContextPath(java.lang.String): void
+org.eclipse.jetty.servlet.ServletHolder.<init>(javax.servlet.Servlet): void
+org.eclipse.jetty.servlet.ServletHolder(javax.servlet.Servlet)
+org.w3c.dom.Attr.setNodeValue(java.lang.String): void
+org.w3c.dom.Document.appendChild(org.w3c.dom.Node): org.w3c.dom.Node
+org.w3c.dom.Document.createAttribute(java.lang.String): org.w3c.dom.Attr
+org.w3c.dom.Document.createElement(java.lang.String): org.w3c.dom.Element
+org.w3c.dom.Document.getChildNodes(): org.w3c.dom.NodeList
+org.w3c.dom.Document.getElementsByTagName(java.lang.String): org.w3c.dom.NodeList
+org.w3c.dom.Document.normalizeDocument(): void
+org.w3c.dom.Element.appendChild(org.w3c.dom.Node): org.w3c.dom.Node
+org.w3c.dom.Element.getAttributes(): org.w3c.dom.NamedNodeMap
+org.w3c.dom.Element.getOwnerDocument(): org.w3c.dom.Document
+org.w3c.dom.Element.getParentNode(): org.w3c.dom.Node
+org.w3c.dom.Element.setAttribute(java.lang.String,java.lang.String): void
+org.w3c.dom.NamedNodeMap.getNamedItem(java.lang.String): org.w3c.dom.Node
+org.w3c.dom.NamedNodeMap.setNamedItem(org.w3c.dom.Node): org.w3c.dom.Node
+org.w3c.dom.Node.getAttributes(): org.w3c.dom.NamedNodeMap
+org.w3c.dom.Node.getNodeName(): java.lang.String
+org.w3c.dom.Node.getNodeValue(): java.lang.String
+org.w3c.dom.Node.getParentNode(): org.w3c.dom.Node
+org.w3c.dom.NodeList.getLength(): int
+org.w3c.dom.NodeList.item(int): org.w3c.dom.Node

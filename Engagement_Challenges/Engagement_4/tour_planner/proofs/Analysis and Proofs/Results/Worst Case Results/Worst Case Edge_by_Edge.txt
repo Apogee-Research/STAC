@@ -1,0 +1,7 @@
+Worst Case
+Error: 0.9939484740741544
+Cities: ['Worcester', 'Springfield', 'Fall River', 'Haverhill', 'Plymouth']
+
+Best Case
+Error: 0.5217399477148086
+Cities: ['Worcester', 'Lowell', 'Cambridge', 'Lawrence', 'Somerville']

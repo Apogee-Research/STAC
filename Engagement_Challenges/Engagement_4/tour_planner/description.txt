@@ -1,0 +1,35 @@
+Overview
+========
+Tour Planner is a web service that allows a user to submit a set
+of cities from a prescribed list to the server and receive back
+an efficient route that tours these cities. The route, an ordered 
+list of the requested cities, is decided upon by the Tour Planner 
+algorithm.
+
+
+Interactions
+============
+Users can query the Tour Planner server for the list of available 
+cities.
+./examples/query.sh places
+
+Users can query the Tour Planner server with a list of unique cities 
+(from the list of available) and the server will respond with a tour 
+starting at the first city in the list.
+./examples/query.sh tour <place> <place>...
+
+The example scripts for user interactions are located in the
+examples directory.
+
+
+Engagement Tools
+================
+The start script (startServer.sh) for the Tour Planner server is 
+located in the challenge_program directory.
+
+
+Notes
+=====
+The files in the challenge_program directory are used to populate the
+Tour Planner server on launch. These files should not be directly 
+modified nor should malicious data be directly inserted into them.

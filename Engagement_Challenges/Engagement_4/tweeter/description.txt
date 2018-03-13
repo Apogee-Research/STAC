@@ -1,0 +1,46 @@
+Overview
+========
+Tweeter is a basic clone of twitter. Registered users are able to tag one another in their 
+messages and they are able to write posts about a topic using the hashtag paradigm.
+
+
+Interactions
+============
+Tweeter is a web application. Normal user interaction is performed through the exposed web
+interface. Users begin by browsing to: http://localhost:8080. From here users can:
+	- Create a new account
+	- Login to an existing account
+	- Send tweets
+	- Correct tweets before they are posted 
+		- When a user sends a tweet, the tweet is checked for spelling errors prior 
+		  to posting. Pending tweets and suggested spell corrections are shown under 
+		  the notifications tab. Tweets containing no spell corrections are immediately 
+		  posted.
+	- Delete pending posts
+	- View hashtags
+	- View other users' tweets
+
+A script for example interactions is located in the examples directory
+
+
+Engagement Tools
+================
+The start script (startServer.sh) for the Tweeter server is located in the challenge_program
+directory
+
+The start script creates a user with the username "user" and the password "password".
+
+The server takes approximately 240 to 500 seconds to start. After the server has started the start
+script will output "Started Tweeter Application".
+
+Users are expected to interact with the Tweeter application through a browser. The script
+for example user interactions provides example interaction allowed interactions using curl. The
+Dockerfile for this challenge installs the elinks text browser which can also be used to interact
+with the Tweeter application.
+
+
+Notes
+=====
+The files in the challenge program directory are used to populate the Tweeter server on launch. 
+These files should not be directly modified nor should malicious data be directly inserted into 
+them.

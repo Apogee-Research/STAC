@@ -1,0 +1,192 @@
+Libraries
+---------
+
+Method Use
+----------
+
+[B.clone(): java.lang.Object
+java.io.BufferedReader(java.io.Reader)
+java.io.BufferedReader.readLine(): java.lang.String
+java.io.ByteArrayInputStream.available(): int
+java.io.ByteArrayInputStream(byte[])
+java.io.ByteArrayInputStream(byte[],int,int)
+java.io.ByteArrayInputStream.read(byte[]): int
+java.io.ByteArrayOutputStream()
+java.io.ByteArrayOutputStream.close(): void
+java.io.ByteArrayOutputStream(int)
+java.io.ByteArrayOutputStream.size(): int
+java.io.ByteArrayOutputStream.toByteArray(): byte[]
+java.io.ByteArrayOutputStream.toString(): java.lang.String
+java.io.ByteArrayOutputStream.write(byte[]): void
+java.io.ByteArrayOutputStream.write(int): void
+java.io.ByteArrayOutputStream.writeTo(java.io.OutputStream): void
+java.io.DataOutputStream.close(): void
+java.io.DataOutputStream(java.io.OutputStream)
+java.io.DataOutputStream.write(byte[],int,int): void
+java.io.DataOutputStream.writeByte(int): void
+java.io.DataOutputStream.write(byte[]): void
+java.io.DataOutputStream.write(int): void
+java.io.EOFException(java.lang.String)
+java.io.File.getPath(): java.lang.String
+java.io.FileInputStream(java.io.File)
+java.io.File(java.lang.String)
+java.io.InputStream()
+java.io.InputStream.available(): int
+java.io.InputStream.close(): void
+java.io.InputStream.read(byte[]): int
+java.io.InputStreamReader(java.io.InputStream,java.lang.String)
+java.io.InputStream.read(): int
+java.io.IOException(java.lang.String)
+java.io.IOException(java.lang.Throwable)
+java.io.IOException.printStackTrace(java.io.PrintStream): void
+java.io.IOException.printStackTrace(): void
+java.io.OutputStream.write(byte[]): void
+java.io.PrintStream.print(java.lang.String): void
+java.io.PrintStream.println(java.lang.String): void
+java.io.PrintWriter(java.io.OutputStream)
+java.lang.ArrayIndexOutOfBoundsException(java.lang.String)
+java.lang.Class.getName(): java.lang.String
+java.lang.Enum(java.lang.String,int)
+java.lang.Enum.valueOf(java.lang.Class,java.lang.String): java.lang.Enum
+java.lang.Exception()
+java.lang.Exception.printStackTrace(java.io.PrintStream): void
+java.lang.IndexOutOfBoundsException()
+java.lang.Integer.intValue(): int
+java.lang.Integer.longValue(): long
+java.lang.Integer.parseInt(java.lang.String): int
+java.lang.Integer.toString(int,int): java.lang.String
+java.lang.Integer.toString(): java.lang.String
+java.lang.Integer.valueOf(int): java.lang.Integer
+java.lang.Long.valueOf(long): java.lang.Long
+java.lang.Math.abs(int): int
+java.lang.Math.random(): double
+java.lang.Math.round(double): long
+java.lang.Object()
+java.lang.Object.equals(java.lang.Object): boolean
+java.lang.Object.getClass(): java.lang.Class
+java.lang.Object.toString(): java.lang.String
+java.lang.OutOfMemoryError(java.lang.String)
+java.lang.RuntimeException()
+java.lang.RuntimeException.getMessage(): java.lang.String
+java.lang.RuntimeException(java.lang.String)
+java.lang.RuntimeException(java.lang.String,java.lang.Throwable)
+java.lang.RuntimeException(java.lang.Throwable)
+java.lang.StringBuilder()
+java.lang.StringBuilder.append(boolean): java.lang.StringBuilder
+java.lang.StringBuilder.append(char): java.lang.StringBuilder
+java.lang.StringBuilder.append(int): java.lang.StringBuilder
+java.lang.StringBuilder.append(java.lang.Object): java.lang.StringBuilder
+java.lang.StringBuilder.append(java.lang.String): java.lang.StringBuilder
+java.lang.StringBuilder(java.lang.String)
+java.lang.StringBuilder.toString(): java.lang.String
+java.lang.String(byte[])
+java.lang.String(byte[],java.nio.charset.Charset)
+java.lang.String.charAt(int): char
+java.lang.String(char[],int,int)
+java.lang.String.contains(java.lang.CharSequence): boolean
+java.lang.String.equals(java.lang.Object): boolean
+java.lang.String.format(java.lang.String,java.lang.Object[]): java.lang.String
+java.lang.String.getBytes(): byte[]
+java.lang.String.getBytes(java.nio.charset.Charset): byte[]
+java.lang.String.hashCode(): int
+java.lang.String.indexOf(int): int
+java.lang.String.indexOf(java.lang.String): int
+java.lang.String.length(): int
+java.lang.String.replaceAll(java.lang.String,java.lang.String): java.lang.String
+java.lang.String.split(java.lang.String): java.lang.String[]
+java.lang.String.startsWith(java.lang.String): boolean
+java.lang.String.substring(int,int): java.lang.String
+java.lang.String.substring(int): java.lang.String
+java.lang.String.toCharArray(): char[]
+java.lang.System.arraycopy(java.lang.Object,int,java.lang.Object,int,int): void
+java.lang.System.exit(int): void
+java.lang.System.lineSeparator(): java.lang.String
+java.lang.Thread(java.lang.Runnable)
+java.lang.Thread.join(): void
+java.lang.Thread.start(): void
+java.lang.Throwable.addSuppressed(java.lang.Throwable): void
+java.lang.Throwable.printStackTrace(java.io.PrintWriter): void
+java.math.BigInteger.abs(): java.math.BigInteger
+java.math.BigInteger.add(java.math.BigInteger): java.math.BigInteger
+java.math.BigInteger.bitCount(): int
+java.math.BigInteger(byte[])
+java.math.BigInteger.compareTo(java.math.BigInteger): int
+java.math.BigInteger.intValue(): int
+java.math.BigInteger(java.lang.String)
+java.math.BigInteger(java.lang.String,int)
+java.math.BigInteger.mod(java.math.BigInteger): java.math.BigInteger
+java.math.BigInteger.modPow(java.math.BigInteger,java.math.BigInteger): java.math.BigInteger
+java.math.BigInteger.negate(): java.math.BigInteger
+java.math.BigInteger.pow(int): java.math.BigInteger
+java.math.BigInteger.signum(): int
+java.math.BigInteger.subtract(java.math.BigInteger): java.math.BigInteger
+java.math.BigInteger.toByteArray(): byte[]
+java.math.BigInteger.toString(): java.lang.String
+java.math.BigInteger.valueOf(long): java.math.BigInteger
+java.net.InetAddress.getByName(java.lang.String): java.net.InetAddress
+java.net.InetSocketAddress(java.lang.String,int)
+java.net.Socket.close(): void
+java.net.Socket.getInputStream(): java.io.InputStream
+java.net.Socket.getOutputStream(): java.io.OutputStream
+java.net.Socket(java.net.InetAddress,int)
+java.nio.ByteBuffer.allocate(int): java.nio.ByteBuffer
+java.nio.ByteBuffer.array(): byte[]
+java.nio.ByteBuffer.position(): int
+java.nio.ByteBuffer.rewind(): java.nio.Buffer
+java.nio.ByteBuffer.wrap(byte[]): java.nio.ByteBuffer
+java.nio.channels.SelectionKey.attach(java.lang.Object): java.lang.Object
+java.nio.channels.SelectionKey.attachment(): java.lang.Object
+java.nio.channels.SelectionKey.cancel(): void
+java.nio.channels.SelectionKey.channel(): java.nio.channels.SelectableChannel
+java.nio.channels.SelectionKey.isAcceptable(): boolean
+java.nio.channels.SelectionKey.isReadable(): boolean
+java.nio.channels.Selector.open(): java.nio.channels.Selector
+java.nio.channels.Selector.selectedKeys(): java.util.Set
+java.nio.channels.Selector.select(): int
+java.nio.channels.Selector.wakeup(): java.nio.channels.Selector
+java.nio.channels.ServerSocketChannel.accept(): java.nio.channels.SocketChannel
+java.nio.channels.ServerSocketChannel.bind(java.net.SocketAddress): java.nio.channels.ServerSocketChannel
+java.nio.channels.ServerSocketChannel.configureBlocking(boolean): java.nio.channels.SelectableChannel
+java.nio.channels.ServerSocketChannel.open(): java.nio.channels.ServerSocketChannel
+java.nio.channels.ServerSocketChannel.register(java.nio.channels.Selector,int): java.nio.channels.SelectionKey
+java.nio.channels.SocketChannel.close(): void
+java.nio.channels.SocketChannel.configureBlocking(boolean): java.nio.channels.SelectableChannel
+java.nio.channels.SocketChannel.getRemoteAddress(): java.net.SocketAddress
+java.nio.channels.SocketChannel.read(java.nio.ByteBuffer): int
+java.nio.channels.SocketChannel.register(java.nio.channels.Selector,int,java.lang.Object): java.nio.channels.SelectionKey
+java.nio.channels.SocketChannel.write(java.nio.ByteBuffer): int
+java.nio.charset.Charset.toString(): java.lang.String
+java.security.MessageDigest.digest(): byte[]
+java.security.MessageDigest.getInstance(java.lang.String): java.security.MessageDigest
+java.security.MessageDigest.update(byte[],int,int): void
+java.security.MessageDigest.update(byte[]): void
+java.security.SecureRandom()
+java.security.SecureRandom.nextBytes(byte[]): void
+java.security.SecureRandom.nextInt(): int
+java.security.SecureRandom.nextInt(int): int
+java.security.SecureRandom.nextLong(): long
+java.text.MessageFormat.format(java.lang.String,java.lang.Object[]): java.lang.String
+java.util.ArrayList()
+java.util.ArrayList.add(java.lang.Object): boolean
+java.util.ArrayList.get(int): java.lang.Object
+java.util.ArrayList.iterator(): java.util.Iterator
+java.util.ArrayList.size(): int
+java.util.Arrays.copyOf(byte[],int): byte[]
+java.util.Arrays.equals(byte[],byte[]): boolean
+java.util.Arrays.fill(int[],int): void
+java.util.Arrays.toString(byte[]): java.lang.String
+java.util.Iterator.hasNext(): boolean
+java.util.Iterator.next(): java.lang.Object
+java.util.Iterator.remove(): void
+java.util.LinkedList()
+java.util.LinkedList.iterator(): java.util.Iterator
+java.util.List.add(java.lang.Object): boolean
+java.util.List.iterator(): java.util.Iterator
+java.util.Objects.equals(java.lang.Object,java.lang.Object): boolean
+java.util.Scanner.hasNext(): boolean
+java.util.Scanner(java.lang.String)
+java.util.Scanner.nextLine(): java.lang.String
+java.util.Scanner.useDelimiter(java.lang.String): java.util.Scanner
+java.util.Set.iterator(): java.util.Iterator
+java.util.TreeSet()
+java.util.TreeSet.add(java.lang.Object): boolean

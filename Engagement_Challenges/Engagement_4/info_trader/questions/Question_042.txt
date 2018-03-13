@@ -1,0 +1,26 @@
+Challenge Program:
+
+        InfoTrader.jar
+
+Challenge Question:
+
+        Is there an algorithmic complexity vulnerability in space
+        that would cause the challenge program to store a file
+        with a logical size that exceeds the resource usage limit
+        given the input budget?
+
+Additional background for question:
+
+        The InfoTrader application can support multiple users. For
+        the purpose of this question assume the attacker is the
+	only user currently connected the service.
+
+Input Budget:
+
+	Maximum sum of the PDU sizes of the application requests sent from
+        the user to the server: 2500 bytes
+
+Resource Usage Limit:
+
+        Available Logical Size: 100,000 kB (logical size of outputfile
+        measured with 'stat')

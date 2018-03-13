@@ -1,0 +1,28 @@
+Challenge Program:
+
+        challenge_program.jar
+
+Challenge Question:
+
+        Is there an algorithmic complexity vulnerability in time
+        that would cause the real runtime of the challenge program
+        (on the reference platform) to exceed the resource usage
+        limit given the input budget?
+
+Additional background for question:
+
+	For the purpose of the attack assume the victim user starts
+	an instance of the challenge program by running the the
+	run_client.sh script in the examples directory. After starting
+	the script the victim user performs no other actions.
+
+Input Budget:
+
+        Maximum number of bytes to be sent to the victim RSA 
+	Commander application: 5000 bytes
+
+Resource Usage Limit:
+
+        Runtime: 2 hours measured from the submission of the last 
+	request to the reception of the automatically generated
+	acknowledgement.

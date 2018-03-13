@@ -1,0 +1,42 @@
+﻿Overview
+========
+InfoTrader is a document server for stock trading professionals. Each document on the server contains research
+about a publicly traded company. Users can view the sitemap of stored documents, post a document, or get a
+document. Documents in InfoTrader can contain links to other documents on the server. The InfoTrader server
+updates its document sitemap after each document post to ensure that it is accurate.
+
+
+Interactions
+============
+Users can connect to the InfoTrader server by sending HTTP POST requests to: http://localhost:8998/gdoc.cgi.
+Valid user interactions are:
+1. Get Sitemap - obtain sitemap for navigational purposes
+	URL: http://server_address:8988/gdoc.cgi?name=Sitemap.xml
+
+2. Get Document - Gets a document from the server
+	URL: http://server_address:8988/gdoc.cgi?name=*name*&getall=[true|false]
+	
+	*name*: The name of the document on the server.
+	getall field: 	If false, returns just the requested document.
+              		If true, returns the immediately requested document, all documents to which that one 
+			links, and so on transitively.
+
+3. Post Document - Add a document to the InfoTrader server and update the server sitemap
+	URL: http://server_address:8988/doc.cgi
+	POST data: content=*content*
+	
+	*content*: A GEDCOM formatted InfoTrader document. 
+
+Details on the InfoTrader GEDCOM document format and scripts of example user interactions are in the examples 
+directory 
+
+
+Engagement Tools
+================
+The start script (startServer.sh) for the InfoTrader server is located in the challenge_program directory.
+
+
+Notes
+=====
+The files in the challenge program directory are used to populate the InfoTrader server on launch. These files
+should not be directly modified nor should malicious data be directly inserted into them.

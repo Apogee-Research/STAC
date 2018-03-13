@@ -1,0 +1,9 @@
+Input Budget: 176 + 15211419 = 15211595 bytes
+15211595
+
+Slowest "Fast Case": all "88,888,888,888,888,888"
+Time: 204 seconds
+
+Slow Case: "99,999,999,999,999,999" "00,000,000,000,000,000"
+Time: 254 seconds
+

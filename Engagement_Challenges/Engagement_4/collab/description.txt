@@ -1,0 +1,57 @@
+Overview
+========
+The Collab challenge program is an event scheduling application. The challenge 
+program uses the Collab calendar to record a collection of scheduled events. 
+Events are stored by eventIDs and each event is associated with a single user.
+EventIDs represent the number of time units from an unspecified epoch that an
+event will or has taken place. The definitions of epoch and time unit for a 
+particular calendar are left up to the calendar's users.
+
+The Collab application contains a special class of users called auditors.
+Auditors can schedule special auditing events for other users. The audit events
+scheduled by the auditors are invisible to other users. This ensures that the 
+targets of said audits do not know when they may be audited.
+
+
+Interactions
+============
+Users can use the Collab client to communicate with the Collab server. After
+launching the client and signing in, the user's calendar is loaded into a
+scheduling sandbox. The scheduling sandbox is a temporary calendar populated
+with all of the user's events. The user can proceed to add and remove events
+from his/her calendar within the scheduling sandbox. After changes have been
+made to a user's calendar within the sandbox, the user can commit the scheduling
+sandbox to his/her master calendar, or discard the changes altogether.
+
+- Start Client	  :	- cd into examples directory
+			- run startClient.sh
+
+Client Commands
+- Login <string: username>  -	Creates a session for user <username>
+- SEARCH <int:min, int:max> -	Get a list of eventIDs for the logged in
+				user in the interval (<min>, <max>)
+- ADD <int:ID>              -	Add a new event with eventID ID to the 
+				scheduling sandbox calendar for the logged 
+				in user.
+- DONE			    -	Commit the scheduling sandbox calendar to 
+				the master calendar for the logged in user
+				and destroy the scheduling sandbox
+- UNDO			    -	Discard the scheduling sandbox calendar 
+				without committing its contents to the master
+				calendar of the logged in user
+- QUIT 			    -	Exit the Collab client application
+			  
+
+Engagement Tools
+================
+The start script (startServer.sh) for the Collab server is located in the 
+challenge_program directory.
+
+A user with the username: "picard" has been created for the engagement.
+User "picard's" calendar has been pre populated with a number of events.
+
+
+Notes
+=====
+The collab.jar can be started in either server or client mode. Only vulnerabilities
+that apply to the server mode are considered in scope.
